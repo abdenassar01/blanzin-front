@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         montserrat: ["Montserrat", "sans-serif"],
-        lato: ["Lato", "sans-serif"],
+        cairo: ["Cairo", "sans-serif"],
       },
       keyframes: {
         animFw: {

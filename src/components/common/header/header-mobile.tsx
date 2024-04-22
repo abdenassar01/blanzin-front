@@ -1,5 +1,5 @@
 import React from "react";
 
-export function HeaderMobile() {
-  return <div>header-mobile</div>;
+export default function HeaderMobile() {
+  return <div className="hidden sm:flex">header-mobile</div>;
 }

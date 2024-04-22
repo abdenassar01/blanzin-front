@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.12",
+    "is-mobile": "^4.0.0",
     "next": "14.2.1",
     "next-intl": "^3.4.2",
     "react": "^18",
