@@ -13,7 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main className="bg-background dark:bg-backgroundDark min-h-[100vh] font-montserrat">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        helvetica: ["Helvetica", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
         lato: ["Lato", "sans-serif"],
       },
       keyframes: {
