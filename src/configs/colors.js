@@ -1,0 +1,17 @@
+module.exports = {
+  background: "#F5F5F5",
+  backgroundSecondary: "#FFFFFF",
+  main: "#FFCC00",
+  secondary: "#000080",
+  tertiary: "#da4453",
+  black: "#1A1A1A",
+  white: "#FFFFFF",
+  backgroundDark: "#191B1F",
+  backgroundSecondaryDark: "#0F1117",
+  text: "#6C6C6C",
+  textdark: "#a3a3a3",
+  error: "#B00020",
+  warn: "#ffcc00",
+  success: "#1FB432",
+  chat: "#14B8A6",
+};
