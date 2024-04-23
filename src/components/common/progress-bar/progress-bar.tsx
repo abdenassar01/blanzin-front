@@ -1,0 +1,35 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
+import { TranslatedHeading } from "..";
+import { cn } from "@/utils";
+
+type Props = {
+  steps?: number;
+  currentStep?: number;
+  header?: string;
+  className?: string;
+};
+
+export function ProgressBar({
+  steps = 3,
+  currentStep = 0,
+  header,
+  className,
+}: Props) {
+  return (
+    <div className={cn("my-1", className)}>
+      {header && (
+        <TranslatedHeading
+          tranlationKey={header || ""}
+          className="text-main mb-1"
+        />
+      )}
+      <div className="relative w-full bg-backgroundSecondary dark:bg-backgroundSecondaryDark h-2 rounded-full">
+        <div
+          style={{ width: `calc((100%/${steps})*${currentStep})` }}
+          className={cn("absolute top-0 rounded-full h-2 bg-main left-0")}
+        />
+      </div>
+    </div>
+  );
+}
