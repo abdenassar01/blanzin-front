@@ -3,6 +3,7 @@
 import {
   Button,
   CheckBox,
+  DescriptionField,
   FieldText,
   Link,
   LongTextToggle,
@@ -15,23 +16,62 @@ import { useForm } from "react-hook-form";
 
 export function Home() {
   const [visible, setVisible] = useState<boolean>(false);
-  const { control } = useForm();
+  const { control } = useForm({
+    defaultValues: {
+      description: [],
+      desc: [],
+    },
+  });
 
   return (
-    <div className="container flex-col items-center justify-between p-24 ">
+    <div className="container flex flex-col items-center justify-between py-24 ">
       <div className="">
         <ProgressBar steps={5} currentStep={1} />
         <ProgressBar steps={5} currentStep={2} />
         <ProgressBar steps={5} currentStep={3} />
         <ProgressBar steps={5} currentStep={4} />
         <ProgressBar steps={5} currentStep={5} />
-        <Button text="soukayna" onClick={() => setVisible((prev) => !prev)} />
+        <Button text="Hallo" onClick={() => setVisible((prev) => !prev)} />
 
         <LongTextToggle
           text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam illo hic totam deleniti eligendi cumque vel quas! Iusto animi maxime dolore quaerat ipsa autem in minus necessitatibus ducimus quae?"
           length={120}
         />
-
+        <div className="bg-backgroundSecondary w-[50%] p-2 flex  gap-1">
+          <DescriptionField
+            control={control}
+            placeholder="forms.labels.description"
+            className="bg-background dark:bg-backgroundDark"
+            items={[
+              "Hallo",
+              "helo world",
+              "This isd a test",
+              "This isd  test",
+              "This is a test",
+              "This isd a test 1",
+              "This isd a test 2",
+              "This isd a test 3",
+              "This eisd a test 4",
+              "This xisd a test 4",
+              "Thiss isd a test 4",
+              "This xisd a test 4",
+              "This deisd a test 4",
+              "This xcisd a test 4",
+              "Thuis isd a test 4",
+              "This isd a test 2",
+              "This isd a test 3",
+              "This eisd a test 4",
+              "This xisd a test 4",
+              "Thiss isd a test 4",
+              "This xisd a test 4",
+              "This deisd a test 4",
+              "This xcisd a test 4",
+              "Thuis isd a test 4",
+            ]}
+            label="hello"
+            name="description"
+          />
+        </div>
         {/* <Modal visible={visible} setVisible={setVisible}> */}
         <TranslatedText tranlationKey="hallo" />
         <FieldText
@@ -43,7 +83,7 @@ export function Home() {
         <Link text="hallo" url="https://glovo.com" newTab />
         {/* </Modal> */}
         <CheckBox control={control} label="Hallo" name="checkbox" />
-        <div className="h-10 bg-[url('/separator.svg')] " />
+        <div className="h-20 bg-[url('/separator.svg')] bg-no-repeat " />
         <h1 className="text-2xl">
           <TranslatedText tranlationKey="title" />
         </h1>

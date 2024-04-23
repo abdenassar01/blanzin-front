@@ -13,4 +13,4 @@ export * from "./link";
 // export * from './tags-field';
 // export * from './payement-pack-selector';
 export * from "./check-box";
-// export * from './description-field';
+export * from "./description-field";
