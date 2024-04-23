@@ -1,1 +1,1 @@
-export {TagsField} from './tags-field.tsx';
+export { TagsField } from "./tags-field";

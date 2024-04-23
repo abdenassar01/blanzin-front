@@ -3,12 +3,14 @@
 import {
   Button,
   CheckBox,
+  DatePicker,
   DescriptionField,
   FieldText,
   Link,
   LongTextToggle,
   Modal,
   ProgressBar,
+  TagsField,
   TranslatedText,
 } from "@/components";
 import React, { useState } from "react";
@@ -16,10 +18,9 @@ import { useForm } from "react-hook-form";
 
 export function Home() {
   const [visible, setVisible] = useState<boolean>(false);
-  const { control } = useForm({
+  const { control, watch } = useForm({
     defaultValues: {
       description: [],
-      desc: [],
     },
   });
 
@@ -37,7 +38,7 @@ export function Home() {
           text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam illo hic totam deleniti eligendi cumque vel quas! Iusto animi maxime dolore quaerat ipsa autem in minus necessitatibus ducimus quae?"
           length={120}
         />
-        <div className="bg-backgroundSecondary w-[50%] p-2 flex  gap-1">
+        <div className="bg-backgroundSecondary p-2 flex gap-1">
           <DescriptionField
             control={control}
             placeholder="forms.labels.description"
@@ -71,6 +72,27 @@ export function Home() {
             label="hello"
             name="description"
           />
+          <div className="w-[100%] bg-background p-2">
+            <DatePicker
+              control={control}
+              label="Date"
+              selectRange
+              name="date"
+              defaultDate={new Date()}
+            />
+            <FieldText
+              control={control}
+              label="hallo"
+              placeholder="hallo"
+              name="something"
+            />
+            <FieldText
+              control={control}
+              label="hallo"
+              placeholder="hallo"
+              name="something"
+            />
+          </div>
         </div>
         {/* <Modal visible={visible} setVisible={setVisible}> */}
         <TranslatedText tranlationKey="hallo" />

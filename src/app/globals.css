@@ -14,6 +14,28 @@
   }
 }
 
+.react-calendar__navigation__label {
+  background-color: #ffcc00;
+}
+
+.react-calendar__tile--active {
+  background-color: #ffcc0067 !important;
+  color: #0000ff !important;
+  font-weight: 600 !important;
+}
+
+.react-calendar__tile--rangeStart {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: #ffcc00 !important;
+}
+
+.react-calendar__tile--rangeEnd {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  background-color: #ffcc00 !important;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: url("../assets/fonts/Montserrat-BlackItalic.woff2") format("woff2"),

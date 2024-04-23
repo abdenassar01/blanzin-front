@@ -52,7 +52,7 @@ export function FieldText({
         onBlur={onBlur}
         type={isPassword ? "password" : "text"}
         className={cn(
-          "rounded-md border-none bg-backgroundSecondary dark:bg-backgroundSecondaryDark p-2 w-full leading-4 placeholder-[#A6A6A6] sm:p-[5.097vw] sm:text-mb-xxs",
+          "rounded-md border-none bg-backgroundSecondary dark:bg-backgroundSecondaryDark p-2 py-3 w-full leading-4 placeholder-[#A6A6A6] sm:p-[5.097vw] sm:text-mb-xxs",
           iconUrl && "pl-[3.5vw] sm:pl-[10vw]",
           inputClassName,
           error && "border-red-600"

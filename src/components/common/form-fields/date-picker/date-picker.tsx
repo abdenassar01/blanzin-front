@@ -1,14 +1,13 @@
-import * as React from 'react';
-import {Control, useController} from 'react-hook-form';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
-import {TouchableOpacity, View} from 'react-native';
-import {cn} from '../../../../../utils';
-import {TranslatedHeading, TranslatedText} from '../../translated-text';
-import {useMemo, useState} from 'react';
-import {useLangStore} from '../../../../stores';
-import moment from 'moment';
-import {useColorScheme} from 'nativewind';
-import colors from '../../../../../../configs/colors';
+"use client";
+
+import * as React from "react";
+import { Control, useController } from "react-hook-form";
+import { TranslatedHeading, TranslatedText } from "../../translated-text";
+import { useState } from "react";
+import moment from "moment";
+import { cn } from "@/utils";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 type Props = {
   control: Control<any>;
@@ -19,6 +18,7 @@ type Props = {
   defaultDate?: Date;
   minimumDate?: Date;
   maximumDate?: Date;
+  selectRange?: boolean;
 };
 
 const currentDate = new Date();
@@ -36,16 +36,13 @@ export function DatePicker({
   placeholder,
   minimumDate,
   maximumDate,
+  selectRange,
 }: Props) {
-  const {currentLang} = useLangStore();
-  const isArabicLang = useMemo(() => currentLang === 'ar', [currentLang]);
-  const {colorScheme} = useColorScheme();
-
   const [openDatePicker, setOpenDatePicker] = useState<boolean>();
 
   const {
-    fieldState: {error},
-    field: {onChange, value},
+    fieldState: { error },
+    field: { onChange, value },
   } = useController({
     control,
     name: name,
@@ -53,44 +50,53 @@ export function DatePicker({
   });
 
   return (
-    <View>
+    <div className="relative">
       <TranslatedHeading
         className="text-sm text-secondary dark:text-main mb-1"
         tranlationKey={label}
       />
-      <TouchableOpacity
-        onPress={() => setOpenDatePicker(prev => !prev)}
+      <button
+        onClick={() => setOpenDatePicker((prev) => !prev)}
         className={cn(
-          'rounded-md bg-backgroundSecondary w-full pl-2 py-3 text-text dark:bg-backgroundSecondaryDark dark:text-textdark',
-          className,
-        )}>
+          "rounded-md bg-backgroundSecondary w-full pl-2 py-3 text-text dark:bg-backgroundSecondaryDark dark:text-textdark",
+          className
+        )}
+      >
         <TranslatedText
-          className={cn(
-            'text-[13px] px-1 w-full',
-            isArabicLang ? 'text-right' : 'text-left',
-          )}
+          className={cn("text-[13px] px-1 w-full")}
           tranlationKey={
-            moment(value).format('DD-MM-YYYY') || placeholder || label
+            (selectRange &&
+              `[${moment(value[0]).format("DD-MM-YYYY")}...${moment(
+                value[value.length - 1]
+              ).format("DD-MM-YYYY")}]`) ||
+            moment(value).format("DD-MM-YYYY") ||
+            placeholder ||
+            label
           }
         />
-      </TouchableOpacity>
-      {openDatePicker && (
-        <RNDateTimePicker
-          themeVariant={colorScheme}
-          onChange={(e, date) => {
-            onChange(date);
-            setOpenDatePicker(false);
-          }}
-          accentColor={colorScheme === 'dark' ? colors.main : colors.secondary}
-          value={value}
-          maximumDate={maximumDate || maxDate}
-          minimumDate={minimumDate || minDate}
-        />
-      )}
+      </button>
+      {
+        <div
+          className={cn(
+            "grid absolute z-20 overflow-hidden transition-all duration-500 ease-in w-full",
+            openDatePicker ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          )}
+        >
+          <div className="min-h-0">
+            <Calendar
+              selectRange={selectRange}
+              minDate={minimumDate || minDate}
+              maxDate={maximumDate || maxDate}
+              className="mt-1 !w-full !outline-none rounded !border-none !font-montserrat"
+              onChange={onChange}
+            />
+          </div>
+        </div>
+      }
       <TranslatedText
         className="text-xs text-error"
-        tranlationKey={error?.message || ''}
+        tranlationKey={error?.message || ""}
       />
-    </View>
+    </div>
   );
 }
