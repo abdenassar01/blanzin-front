@@ -8,10 +8,12 @@ import {
   Dropdown,
   FieldText,
   FileUpload,
+  ItemsTabSelector,
   Link,
   LongTextToggle,
   Modal,
   PaymentPackSelector,
+  PictureUpload,
   ProgressBar,
   Switch,
   TagsField,
@@ -19,17 +21,22 @@ import {
 } from "@/components";
 import { UploadAvatar } from "@/components/common/form-fields/upload-avatar";
 import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 
 export function Home() {
   const [visible, setVisible] = useState<boolean>(false);
   const [switchActive, setSwitchActive] = useState<boolean>(false);
-  const { control, watch } = useForm({
+  const { control, watch } = useForm<any>({
     defaultValues: {
       description: [],
+      gallery: [],
     },
   });
 
+  const { append } = useFieldArray<any>({
+    control,
+    name: "test",
+  });
   return (
     <div className="container flex flex-col items-center justify-between py-24 ">
       <div className="">
@@ -81,7 +88,14 @@ export function Home() {
 
           <div className="w-[100%] bg-background p-2">
             <FileUpload control={control} label="label" name="file" />
-            <UploadAvatar control={control} name="file" />
+            <ItemsTabSelector
+              label="sub categories"
+              name="tabs"
+              extractDisplayMember={(item) => item}
+              extractValue={(item) => item}
+              control={control}
+              items={["hallo", "hallo 2", "hallo 3"]}
+            />
 
             <Dropdown
               extractDisplayMember={(item) => item.label}
@@ -122,6 +136,10 @@ export function Home() {
           active={switchActive}
           onActiveChange={() => setSwitchActive((prev) => !prev)}
         />
+        <PictureUpload append={append} name="image1">
+          hallo
+        </PictureUpload>
+
         <div className="h-20 bg-[url('/separator.svg')] bg-no-repeat " />
         <h1 className="text-2xl">
           <TranslatedText tranlationKey="title" />
