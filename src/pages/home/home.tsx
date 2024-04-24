@@ -9,6 +9,7 @@ import {
   Link,
   LongTextToggle,
   Modal,
+  PaymentPackSelector,
   ProgressBar,
   TagsField,
   TranslatedText,
@@ -80,18 +81,7 @@ export function Home() {
               name="date"
               defaultDate={new Date()}
             />
-            <FieldText
-              control={control}
-              label="hallo"
-              placeholder="hallo"
-              name="something"
-            />
-            <FieldText
-              control={control}
-              label="hallo"
-              placeholder="hallo"
-              name="something"
-            />
+            <PaymentPackSelector control={control} name="pay" />
           </div>
         </div>
         {/* <Modal visible={visible} setVisible={setVisible}> */}
