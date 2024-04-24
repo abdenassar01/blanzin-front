@@ -16,6 +16,7 @@ import {
   TagsField,
   TranslatedText,
 } from "@/components";
+import { UploadAvatar } from "@/components/common/form-fields/upload-avatar";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -78,6 +79,7 @@ export function Home() {
 
           <div className="w-[100%] bg-background p-2">
             <FileUpload control={control} label="label" name="file" />
+            <UploadAvatar control={control} name="file" />
 
             <Dropdown
               extractDisplayMember={(item) => item.label}

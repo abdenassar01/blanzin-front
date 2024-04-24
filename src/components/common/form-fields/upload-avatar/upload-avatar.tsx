@@ -1,13 +1,13 @@
-import {View, Image} from 'react-native';
-import React, {ReactNode} from 'react';
-import {Button, TranslatedText} from '../..';
-import ImageCropPicker from 'react-native-image-crop-picker';
-import {Control, useController} from 'react-hook-form';
-import {cn} from '../../../../../utils';
+import React, { ReactNode } from "react";
+import { Button, TranslatedText } from "../..";
+import { Control, useController } from "react-hook-form";
+import Image from "next/image";
+import { cn } from "@/utils";
 
 type Props = {
   control: Control<any>;
   name: string;
+  label?: string;
   defaultValue?: string;
   children?: ReactNode;
   className?: string;
@@ -20,40 +20,44 @@ export function UploadAvatar({
   defaultValue,
   className,
   imgClassName,
+  label,
 }: Props) {
   const {
-    field: {onChange, value},
-    fieldState: {error},
-  } = useController({control, name, defaultValue});
+    field: { onChange, value },
+    fieldState: { error },
+  } = useController({ control, name, defaultValue });
 
   return (
     <>
-      <View className={cn('w-full flex-row items-center my-2', className)}>
-        <Image
-          defaultSource={require('../../../../assets/icons/avatar.png')}
-          className={cn('w-[40%] rounded h-auto aspect-[3/4]', imgClassName)}
-          source={{uri: value || 'https://i.imgur.com/W8uILXP.png'}}
+      <div className="w-full flex justify-center">
+        <TranslatedText
+          tranlationKey={label || "avatar"}
+          className="font-bold capitalize text-secondary dark:text-main"
         />
-        <View className="w-[60%] items-center">
-          <Button
-            text="forms.upload-photo"
-            className="max-w-[80%]"
-            handler={() => {
-              ImageCropPicker.openPicker({
-                mediaType: 'photo',
-                cropping: true,
-              })
-                .then(photo => {
-                  onChange(photo.path);
-                  console.log(photo);
-                })
-                .catch(err => console.log(err));
+      </div>
+      <label
+        htmlFor={name}
+        className={cn("w-full flex justify-center items-center", className)}
+      >
+        <Image
+          alt=""
+          className={cn("w-[15vw] sm:w-[40vw] rounded", imgClassName)}
+          src={value || require("@/assets/images/avatar.png")}
+        />
+        <div className="items-center">
+          <input
+            id={name}
+            onChange={(e) => {
+              onChange(e.currentTarget.value);
+              console.log(e.currentTarget.value);
             }}
+            type="file"
+            className="hidden"
           />
-        </View>
-      </View>
+        </div>
+      </label>
       <TranslatedText
-        tranlationKey={error?.message || ''}
+        tranlationKey={error?.message || ""}
         className="h-[15px] pl-1 text-[10px] text-error"
       />
     </>

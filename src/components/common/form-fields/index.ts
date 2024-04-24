@@ -5,7 +5,6 @@ export * from "./drop-down";
 // export * from './picture-upload';
 // export * from './switch';
 // export * from './items-tab-selector';
-// export * from './upload-avatar';
 export * from "./file-upload";
 // export * from './rating-question';
 export * from "./date-picker";
