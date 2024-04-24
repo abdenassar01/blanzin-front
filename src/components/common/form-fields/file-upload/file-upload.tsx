@@ -1,57 +1,67 @@
-import {View, TouchableOpacity, Image} from 'react-native';
-import React from 'react';
-import {Control, useController} from 'react-hook-form';
-import {TranslatedHeading, TranslatedText} from '../..';
-import {MainText} from '../../..';
-import DocumentPicker, {types} from 'react-native-document-picker';
-import {cn} from '../../../../../utils';
+"use client";
+
+import React from "react";
+import { Control, FieldValue, useController } from "react-hook-form";
+import { TranslatedHeading, TranslatedText } from "../..";
+import { cn } from "@/utils";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 type Props = {
-  control: Control;
+  control: Control<FieldValue<any>>;
   name: string;
   label: string;
   className?: string;
 };
 
-export function FileUpload({label, control, name, className}: Props) {
-  const handleUploadImage = () => {
-    DocumentPicker.pickSingle({
-      type: types.pdf,
-    }).then(file => onChange(file));
-  };
+export function FileUpload({ label, control, name, className }: Props) {
+  const { theme } = useTheme();
 
   const {
-    field: {onChange, value},
-    fieldState: {error},
+    field: { onChange, value },
+    fieldState: { error },
   } = useController({
     name,
     control,
   });
 
   return (
-    <View>
+    <div>
       <TranslatedHeading
         className="text-sm text-secondary dark:text-main mb-1"
         tranlationKey={label}
       />
-      <TouchableOpacity
-        onPress={handleUploadImage}
+      <label
+        htmlFor={name}
         className={cn(
-          'bg-background dark:bg-backgroundDark items-center p-2 rounded flex-row justify-between',
-          className,
-        )}>
+          "bg-backgroundSecondary dark:bg-backgroundSecondaryDark items-center p-2 rounded flex justify-between",
+          className
+        )}
+      >
+        <input
+          id={name}
+          onChange={(e) => {
+            onChange(e.currentTarget.value);
+            console.log(e.currentTarget.value);
+          }}
+          type="file"
+          className="hidden"
+        />
         <TranslatedText
           className="max-w-[90%]"
-          tranlationKey={
-            (value && value.name) || 'trainee-documents-upload-placeholder'
-          }
+          tranlationKey={value || "forms.upload"}
         />
         <Image
+          alt=""
           className="w-[30px] h-[30px]"
-          source={require('../../../../assets/icons/dark/upload.png')}
+          src={
+            theme === "dark"
+              ? require("@/assets/images/icons/dark/upload.svg")
+              : require("@/assets/images/icons/light/upload.svg")
+          }
         />
-      </TouchableOpacity>
-      <MainText className="text-error text-xs">{error?.message}</MainText>
-    </View>
+      </label>
+      <div className="text-error text-xs">{error?.message}</div>
+    </div>
   );
 }

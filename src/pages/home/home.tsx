@@ -7,6 +7,7 @@ import {
   DescriptionField,
   Dropdown,
   FieldText,
+  FileUpload,
   Link,
   LongTextToggle,
   Modal,
@@ -74,7 +75,10 @@ export function Home() {
             label="hello"
             name="description"
           />
+
           <div className="w-[100%] bg-background p-2">
+            <FileUpload control={control} label="label" name="file" />
+
             <Dropdown
               extractDisplayMember={(item) => item.label}
               extractValueMember={(item) => item.value}
