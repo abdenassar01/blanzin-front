@@ -2,9 +2,8 @@
 
 import * as React from "react";
 import { Control, useFieldArray, useWatch } from "react-hook-form";
-import { TranslatedHeading, TranslatedText } from "../../translated-text";
+import { TranslatedHeading } from "../../translated-text";
 import { useMemo, useState } from "react";
-import { Spacer } from "../../layout-helpers";
 import { useTheme } from "next-themes";
 import { cn } from "@/utils";
 import Image from "next/image";

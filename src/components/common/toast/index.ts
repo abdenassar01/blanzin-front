@@ -1,1 +1,1 @@
-export {ToastMessageBox} from './toast-message-box.tsx';
+export { ToastMessageBox } from "./toast-message-box";

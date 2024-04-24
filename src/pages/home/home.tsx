@@ -12,22 +12,18 @@ import {
   ItemsTabSelector,
   Link,
   LongTextToggle,
-  Modal,
-  PaymentPackSelector,
   PictureUpload,
   ProfileTypeSelector,
   ProgressBar,
   RatingMultipleQuestions,
   RatingQuestion,
   Switch,
-  TagsField,
   TranslatedText,
 } from "@/components";
-import { UploadAvatar } from "@/components/common/form-fields/upload-avatar";
 import React, { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 
-export function Home() {
+export default function Home() {
   const [visible, setVisible] = useState<boolean>(false);
   const [switchActive, setSwitchActive] = useState<boolean>(false);
   const { control, watch } = useForm<any>({
