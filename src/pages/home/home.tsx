@@ -5,6 +5,7 @@ import {
   CheckBox,
   DatePicker,
   DescriptionField,
+  Dropdown,
   FieldText,
   Link,
   LongTextToggle,
@@ -74,6 +75,21 @@ export function Home() {
             name="description"
           />
           <div className="w-[100%] bg-background p-2">
+            <Dropdown
+              extractDisplayMember={(item) => item.label}
+              extractValueMember={(item) => item.value}
+              control={control}
+              name="drop1"
+              label="The label"
+              items={[
+                { value: "test", label: "Test first" },
+                { value: "test1", label: "Test second" },
+                { value: "test2", label: "Test third" },
+                { value: "test3", label: "Test fourd" },
+                { value: "test4", label: "Test five" },
+              ]}
+            />
+
             <DatePicker
               control={control}
               label="Date"
@@ -81,7 +97,6 @@ export function Home() {
               name="date"
               defaultDate={new Date()}
             />
-            <PaymentPackSelector control={control} name="pay" />
           </div>
         </div>
         {/* <Modal visible={visible} setVisible={setVisible}> */}

@@ -8,6 +8,7 @@ import moment from "moment";
 import { cn } from "@/utils";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import { useOutsideClick } from "@/utils/hooks/use-outside-click";
 
 type Props = {
   control: Control<any>;
@@ -39,6 +40,7 @@ export function DatePicker({
   selectRange,
 }: Props) {
   const [openDatePicker, setOpenDatePicker] = useState<boolean>();
+  const datePickerRef = React.useRef(null);
 
   const {
     fieldState: { error },
@@ -49,8 +51,10 @@ export function DatePicker({
     defaultValue: defaultDate || maxDate,
   });
 
+  useOutsideClick(datePickerRef, () => setOpenDatePicker(false));
+
   return (
-    <div className="relative">
+    <div ref={datePickerRef} className="relative">
       <TranslatedHeading
         className="text-sm text-secondary dark:text-main mb-1"
         tranlationKey={label}

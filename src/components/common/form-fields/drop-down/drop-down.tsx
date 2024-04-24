@@ -1,200 +1,127 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react-native/no-inline-styles */
-import {Dimensions, Image, TouchableOpacity, View} from 'react-native';
-import React, {useEffect, useMemo, useState} from 'react';
-import {
-  MainText,
-  Spacer,
-  TextField,
-  TranslatedHeading,
-  TranslatedText,
-} from '../../..';
-import {cn} from '../../../../../utils';
-import {Control, useController} from 'react-hook-form';
-import {ScrollView} from 'react-native-gesture-handler';
-import {Wander} from 'react-native-animated-spinkit';
-import colors from '../../../../../../configs/colors';
-import {useColorScheme} from 'nativewind';
-import {useLangStore} from '../../../../stores';
-import Animated, {useSharedValue, withTiming} from 'react-native-reanimated';
+"use client";
+
+import { cn } from "@/utils";
+import { useOutsideClick } from "@/utils/hooks/use-outside-click";
+import Image from "next/image";
+import React, { useRef, useState } from "react";
+import { Control, useController } from "react-hook-form";
 
 type Props<T> = {
-  items: T[];
-  extractValue: (item: T) => any;
-  extractDisplayMember: (item: T) => string;
   control: Control<any>;
-  name: string;
   label: string;
-  loading?: boolean;
+  name: string;
+  placeholder?: string;
+  items: T[];
   className?: string;
-  defaultText?: string;
+  labelClassName?: string;
   wrapperClassName?: string;
-  filter?: boolean;
-  expends?: boolean;
+  defaultValue?: any;
+  extractDisplayMember: (item: T) => string;
+  extractValueMember: (item: T) => any;
 };
 
-export function DropDown<T>({
-  className,
+export function Dropdown<T>({
   control,
-  extractDisplayMember,
-  extractValue,
-  items,
-  label,
   name,
-  loading,
-  defaultText,
+  className,
+  items,
+  placeholder,
+  label,
+  labelClassName,
   wrapperClassName,
-  filter,
-  expends,
+  defaultValue,
+  extractDisplayMember,
+  extractValueMember,
 }: Props<T>) {
-  const [showDropdown, setShowDropdown] = useState<boolean>(false);
-  const [displayMember, setDisplayMember] = useState<string>('');
-  const [filteredItems, setFilteredItems] = useState<T[]>(items);
-  const [filterValue, setFilterValue] = useState<string>('');
-  const {currentLang} = useLangStore();
-  const {colorScheme} = useColorScheme();
-
-  const height = useSharedValue(0);
-
-  const isDark = useMemo(() => colorScheme === 'dark', [colorScheme]);
-  const isArabicLang = useMemo(() => currentLang === 'ar', [currentLang]);
+  const dropdownRef = useRef(null);
+  const [openDropdown, setOpenDropdown] = useState<boolean>(false);
+  const [displayString, setDisplayString] = useState<string>(
+    placeholder || label || ""
+  );
+  const [filtredItems, setFiltredItems] = useState<T[]>(items);
 
   const {
-    fieldState: {error},
-    field: {onChange, value},
+    field: { onChange, value },
+    fieldState: { error },
   } = useController({
-    name,
     control,
+    name: name,
+    defaultValue: defaultValue || "",
   });
 
-  useEffect(() => {
-    const savedState = items.filter(el => extractValue(el) === value)[0];
-    if (savedState) {
-      setDisplayMember(extractDisplayMember(savedState));
-    }
-  }, [value]);
+  useOutsideClick(dropdownRef, () => setOpenDropdown(false));
 
   return (
-    <>
-      <View className={cn('relative')} key={`dropdown-${name}-trigger`}>
-        <View className={cn(wrapperClassName)}>
-          <TranslatedHeading
-            className="text-sm text-secondary dark:text-main mb-1"
-            tranlationKey={label}
-          />
-          <TouchableOpacity
-            onPress={() => {
-              height.value = withTiming(height.value === 200 ? 0 : 200, {
-                duration: 400,
-              });
-              if (showDropdown) {
-                setTimeout(() => setShowDropdown(false), 400);
-              } else {
-                setShowDropdown(true);
-              }
-            }}
-            className={cn(
-              'rounded-md bg-backgroundSecondary w-full pl-2 py-3 text-text dark:bg-backgroundSecondaryDark dark:text-textdark',
-              className,
-            )}>
-            {loading ? (
-              <Wander size={14} color={colors.main} />
-            ) : (
-              <TranslatedText
-                className={cn(
-                  'text-[13px] px-1 w-full',
-                  isArabicLang ? 'text-right' : 'text-left',
-                )}
-                tranlationKey={displayMember || defaultText || 'Select Item'}
-              />
-            )}
-            <Image
-              className={cn(
-                'w-[15px] h-[15px] absolute top-[75%] ',
-                isArabicLang ? 'left-3' : 'right-3',
-              )}
-              source={
-                isDark
-                  ? require('../../../../assets/icons/dark/down-arrow.png')
-                  : require('../../../../assets/icons/light/down-arrow.png')
-              }
-            />
-          </TouchableOpacity>
-          <MainText className="text-error text-xs">{error?.message}</MainText>
-        </View>
-
-        <Animated.View
-          style={{
-            elevation: 1,
-            height,
-            zIndex: height,
-            display: showDropdown ? 'flex' : 'none',
+    <div
+      ref={dropdownRef}
+      className={cn("relative flex w-[100%] flex-col", wrapperClassName || "")}
+    >
+      <label
+        htmlFor={name}
+        className={cn(
+          "text-sm font-bold normal-case text-secondary dark:text-main sm:text-mb-xxs",
+          labelClassName || ""
+        )}
+      >
+        {label}
+      </label>
+      <div
+        onClick={() => setOpenDropdown((prev) => !prev)}
+        className={cn(
+          "flex w-[100%] items-center justify-between rounded-md border-none bg-backgroundSecondary dark:bg-backgroundSecondaryDark text-xs text-[#A6A6A6] sm:text-mb-xxs",
+          className || "",
+          (value || defaultValue) && "text-text dark:text-textdark",
+          (error && "border-[1px] border-error") || ""
+        )}
+      >
+        <input
+          className="p-3 rounded-md w-full normal-case focus:border-none focus:outline-none"
+          type="text"
+          onFocus={() => setDisplayString("")}
+          onChange={(e) => {
+            setDisplayString(e.currentTarget.value);
+            setFiltredItems(
+              items.filter((item) =>
+                extractDisplayMember(item)
+                  .toLowerCase()
+                  .startsWith(displayString.toLowerCase())
+              )
+            );
           }}
-          className={cn(
-            'absolute top-[60px] w-full rounded-b-md bg-backgroundSecondary dark:bg-backgroundSecondaryDark',
-          )}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            className="flex-grow pt-2 z-30">
-            {filter && (
-              <TextField
-                className="pl-3 bg-background dark:bg-backgroundDark mx-4 mb-[-10px]"
-                value={filterValue}
-                placeholder={label}
-                onChange={text => {
-                  setFilterValue(text);
-                  if (text === '') {
-                    setFilteredItems(items);
-                  } else {
-                    setFilteredItems(
-                      items.filter(item =>
-                        extractDisplayMember(item)
-                          .toLocaleLowerCase()
-                          .includes(filterValue.toLocaleLowerCase()),
-                      ),
-                    );
-                  }
+          value={displayString}
+        />
+        <Image
+          alt=""
+          className="w-6 v-6 mx-2"
+          src={require("@/assets/images/icons/arrow-down.svg")}
+        />
+      </div>
+      <p className="mb-[-1.667vw] h-[1.667vw] text-xxs text-error">
+        {error?.message}
+      </p>
+      <div
+        className={cn(
+          "absolute top-20 isolate z-10 transition-all ease-out w-full min-w-[22vw] cursor-pointer overflow-x-hidden rounded-[4px] bg-white shadow-md sm:top-[22.816vw] sm:w-[70vw]",
+          openDropdown ? "h-[200px]" : "h-0"
+        )}
+      >
+        <div>
+          {React.Children.toArray(
+            filtredItems.map((item) => (
+              <div
+                onClick={() => {
+                  setDisplayString(extractDisplayMember(item));
+                  onChange(extractValueMember(item));
+                  setOpenDropdown(false);
                 }}
-              />
-            )}
-
-            {React.Children.toArray(
-              filteredItems.map(item => (
-                <TouchableOpacity
-                  className="mx-3 py-3 border-b-[.5px] border-background dark:border-backgroundDark"
-                  onPress={() => {
-                    setDisplayMember(extractDisplayMember(item));
-                    onChange(extractValue(item));
-                    setFilterValue('');
-                    setFilteredItems(items);
-                    height.value = withTiming(height.value === 200 ? 0 : 200, {
-                      duration: 400,
-                    });
-                    setTimeout(() => setShowDropdown(false), 400);
-                  }}>
-                  <MainText>{extractDisplayMember(item)}</MainText>
-                </TouchableOpacity>
-              )),
-            )}
-            <Spacer vertical={20} />
-          </ScrollView>
-        </Animated.View>
-        {expends && showDropdown ? <Spacer vertical={220} /> : ''}
-      </View>
-
-      <TouchableOpacity
-        className={cn('absolute z-10', showDropdown ? 'flex' : 'hidden')}
-        onPress={() => {
-          height.value = withTiming(0, {
-            duration: 400,
-          });
-          setTimeout(() => setShowDropdown(false), 400);
-        }}
-        style={{
-          height: Dimensions.get('window').height,
-          width: Dimensions.get('window').width,
-        }}
-      />
-    </>
+                className="flex w-full px-[24px] py-[14px] hover:bg-[#dadadb]"
+              >
+                <div>{extractDisplayMember(item)}</div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

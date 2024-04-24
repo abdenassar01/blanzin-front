@@ -1,6 +1,6 @@
 export * from "./text-field";
 export * from "./link";
-// export * from './drop-down';
+export * from "./drop-down";
 // export * from './tab-selector';
 // export * from './picture-upload';
 // export * from './switch';
