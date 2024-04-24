@@ -12,6 +12,7 @@ import {
   ItemsTabSelector,
   Link,
   LongTextToggle,
+  Modal,
   PictureUpload,
   ProfileTypeSelector,
   ProgressBar,
@@ -149,16 +150,16 @@ export default function Home() {
             />
           </div>
         </div>
-        {/* <Modal visible={visible} setVisible={setVisible}> */}
-        <TranslatedText tranlationKey="hallo" />
-        <FieldText
-          control={control}
-          label="hallo"
-          placeholder="hallo"
-          name="something"
-        />
-        <Link text="hallo" url="https://glovo.com" newTab />
-        {/* </Modal> */}
+        <Modal visible={visible} setVisible={setVisible}>
+          <TranslatedText tranlationKey="title" />
+          <FieldText
+            control={control}
+            label="hallo"
+            placeholder="hallo"
+            name="something"
+          />
+          <Link text="hallo" url="https://glovo.com" newTab />
+        </Modal>
         <CheckBox control={control} label="Hallo" name="checkbox" />
         <Switch
           active={switchActive}
