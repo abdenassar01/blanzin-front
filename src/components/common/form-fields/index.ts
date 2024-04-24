@@ -3,7 +3,7 @@ export * from "./link";
 export * from "./drop-down";
 // export * from './tab-selector';
 // export * from './picture-upload';
-// export * from './switch';
+export * from "./switch";
 // export * from './items-tab-selector';
 export * from "./file-upload";
 // export * from './rating-question';

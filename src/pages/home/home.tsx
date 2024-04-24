@@ -13,6 +13,7 @@ import {
   Modal,
   PaymentPackSelector,
   ProgressBar,
+  Switch,
   TagsField,
   TranslatedText,
 } from "@/components";
@@ -22,6 +23,7 @@ import { useForm } from "react-hook-form";
 
 export function Home() {
   const [visible, setVisible] = useState<boolean>(false);
+  const [switchActive, setSwitchActive] = useState<boolean>(false);
   const { control, watch } = useForm({
     defaultValues: {
       description: [],
@@ -116,6 +118,10 @@ export function Home() {
         <Link text="hallo" url="https://glovo.com" newTab />
         {/* </Modal> */}
         <CheckBox control={control} label="Hallo" name="checkbox" />
+        <Switch
+          active={switchActive}
+          onActiveChange={() => setSwitchActive((prev) => !prev)}
+        />
         <div className="h-20 bg-[url('/separator.svg')] bg-no-repeat " />
         <h1 className="text-2xl">
           <TranslatedText tranlationKey="title" />
