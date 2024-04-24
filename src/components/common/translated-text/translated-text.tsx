@@ -9,10 +9,12 @@ type Props = {
 
 export const TranslatedText = ({ tranlationKey, className }: Props) => {
   const t = useI18n();
+  // @ts-ignore
   return <span className={className}>{t(tranlationKey)}</span>;
 };
 
 export const TranslatedHeading = ({ tranlationKey, className }: Props) => {
   const t = useI18n();
+  // @ts-ignore
   return <span className={cn("font-bold", className)}>{t(tranlationKey)}</span>;
 };

@@ -6,7 +6,6 @@ import { locales } from "@/config";
 import { unstable_setRequestLocale } from "next-intl/server";
 import { InternationalisationParams } from "@/types";
 import { cn } from "@/utils";
-import { NextIntlClientProvider, useMessages } from "next-intl";
 import { I18nProvider } from "@/utils/locales/provider";
 
 export const metadata: Metadata = {
@@ -27,7 +26,6 @@ export default function RootLayout({
   } & InternationalisationParams
 >) {
   unstable_setRequestLocale(locale);
-  const messages = useMessages();
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={cn(locale === "ar" ? "font-cairo" : "font-montserrat")}>
