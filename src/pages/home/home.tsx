@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ApplicationTypeSelector,
   Button,
   CheckBox,
   DatePicker,
@@ -14,6 +15,7 @@ import {
   Modal,
   PaymentPackSelector,
   PictureUpload,
+  ProfileTypeSelector,
   ProgressBar,
   RatingMultipleQuestions,
   RatingQuestion,
@@ -42,17 +44,15 @@ export function Home() {
   return (
     <div className="container flex flex-col items-center justify-between py-24 ">
       <div className="">
-        <ProgressBar steps={5} currentStep={1} />
-        <ProgressBar steps={5} currentStep={2} />
         <ProgressBar steps={5} currentStep={3} />
-        <ProgressBar steps={5} currentStep={4} />
-        <ProgressBar steps={5} currentStep={5} />
+
         <Button text="Hallo" onClick={() => setVisible((prev) => !prev)} />
 
         <LongTextToggle
           text="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quibusdam illo hic totam deleniti eligendi cumque vel quas! Iusto animi maxime dolore quaerat ipsa autem in minus necessitatibus ducimus quae?"
           length={120}
         />
+
         <div className="bg-backgroundSecondary p-2 flex gap-1">
           <DescriptionField
             control={control}
@@ -89,6 +89,8 @@ export function Home() {
           />
 
           <div className="w-[100%] bg-background p-2">
+            <ApplicationTypeSelector control={control} name="app" />
+            <ProfileTypeSelector label="Hallow" />
             <FileUpload control={control} label="label" name="file" />
             <ItemsTabSelector
               label="sub categories"
