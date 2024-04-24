@@ -1,9 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
-import {Image, TouchableOpacity, View} from 'react-native';
-import React from 'react';
-import {Control, useController} from 'react-hook-form';
-import {Map, TranslatedText} from '../..';
-import {Question} from '../../../../../../types';
+"use client";
+
+import React from "react";
+import { Control, useController } from "react-hook-form";
+import { Map, TranslatedText } from "../..";
+import { Question } from "@/types";
+import Image from "next/image";
 
 type Props = {
   control: Control<any>;
@@ -12,33 +13,35 @@ type Props = {
   defaultValue?: number;
 };
 
-export function RatingQuestion({question, control, name}: Props) {
+export function RatingQuestion({ question, control, name }: Props) {
   const {
-    field: {onChange, value},
-  } = useController({name, control});
+    field: { onChange, value },
+  } = useController({ name, control });
 
   return (
-    <View className="my-2">
+    <div className="my-2">
       <TranslatedText tranlationKey={question.en} />
-      <View style={{gap: 5}} className="flex-row justify-center items-center">
+      <div className="flex-row gap-1 justify-center items-center">
         <Map
           items={Array.from([1, 2, 3, 4, 5])}
-          render={item => (
-            <TouchableOpacity
-              onPress={() => onChange(item)}
-              className="justify-center items-center">
+          render={(item) => (
+            <button
+              onMouseEnter={() => onChange(item)}
+              className="justify-center items-center"
+            >
               <Image
-                className="w-[30px] h-[30px] my-2"
-                source={
+                alt="star rating"
+                className="w-[30px]  my-2"
+                src={
                   value >= item
-                    ? require('../../../../assets/icons/star-outline-filled.png')
-                    : require('../../../../assets/icons/star-outline-empty.png')
+                    ? require("@/assets/images/icons/star-filled.svg")
+                    : require("@/assets/images/icons/star-empty.svg")
                 }
               />
-            </TouchableOpacity>
+            </button>
           )}
         />
-      </View>
-    </View>
+      </div>
+    </div>
   );
 }

@@ -1,8 +1,7 @@
-import {View} from 'react-native';
-import React from 'react';
-import {Control} from 'react-hook-form';
-import {Question} from '../../../../../../types';
-import {Map, RatingQuestion} from '../..';
+import React from "react";
+import { Control } from "react-hook-form";
+import { Map, RatingQuestion } from "../..";
+import { Question } from "@/types";
 
 type Props = {
   control: Control<any>;
@@ -16,23 +15,23 @@ export function RatingMultipleQuestions({
   defaultValues = [],
 }: Props) {
   return (
-    <View className="p-3 rounded-md bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+    <div className="p-3 rounded-md bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
       <Map
         items={questions}
         render={(question, index) => (
           <>
             <RatingQuestion
               control={control}
-              name={`question${question.id}`}
+              name={`question-${question.id}`}
               question={question}
               defaultValue={defaultValues[index] && defaultValues[index]}
             />
             {index < questions.length - 1 && questions.length && (
-              <View className="h-[1px] w-full rounded-full bg-background dark:bg-backgroundDark" />
+              <div className="h-[1px] w-full rounded-full bg-background dark:bg-backgroundDark" />
             )}
           </>
         )}
       />
-    </View>
+    </div>
   );
 }

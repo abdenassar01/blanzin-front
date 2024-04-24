@@ -15,6 +15,8 @@ import {
   PaymentPackSelector,
   PictureUpload,
   ProgressBar,
+  RatingMultipleQuestions,
+  RatingQuestion,
   Switch,
   TagsField,
   TranslatedText,
@@ -95,6 +97,34 @@ export function Home() {
               extractValue={(item) => item}
               control={control}
               items={["hallo", "hallo 2", "hallo 3"]}
+            />
+            <RatingQuestion
+              name="rating"
+              question={{
+                id: 1,
+                ar: "hallooooow",
+                en: "haaaalo",
+                fr: "haaaalwoajsd",
+              }}
+              control={control}
+            />
+
+            <RatingMultipleQuestions
+              control={control}
+              questions={[
+                {
+                  id: 1,
+                  ar: "hallooooow ?",
+                  en: "Test question ?",
+                  fr: "haaaalwoajsd",
+                },
+                {
+                  id: 4,
+                  ar: "hallooooow",
+                  en: "Second test question ?",
+                  fr: "haaaalwoajsd",
+                },
+              ]}
             />
 
             <Dropdown

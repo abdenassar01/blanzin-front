@@ -6,7 +6,7 @@ export * from "./picture-upload";
 export * from "./switch";
 export * from "./items-tab-selector";
 export * from "./file-upload";
-// export * from './rating-question';
+export * from "./rating-question";
 export * from "./date-picker";
 export * from "./tags-field";
 export * from "./payement-pack-selector";
