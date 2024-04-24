@@ -30,17 +30,13 @@ export const Modal = ({
       height={331}
       customStyles={{ borderRadius: 20 }}
       onClose={() => setVisible(false)}
+      customMaskStyles={{ display: "none" }}
       visible={visible}
     >
-      <div
-        className={cn(
-          "z-20 max-h-[60%] rounded-lg bg-background  dark:bg-backgroundDark",
-          className
-        )}
-      >
+      <div className={cn("h-full w-full rounded-lg", className)}>
         <div
           className={cn(
-            "w-full p-2 flex flex-row bg-backgroundSecondary dark:bg-backgroundSecondaryDark rounded-lg items-center",
+            "w-full p-2 flex flex-row justify-between items-center",
             header ? "justify-between" : "justify-end"
           )}
         >
