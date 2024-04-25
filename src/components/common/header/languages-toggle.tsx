@@ -62,7 +62,7 @@ export default function LanguagesToggle({ className }: Props) {
         }}
       >
         <Image
-          className="w-[2.5vw] h-auto sm:w-[8vw]"
+          className="w-[2vw] h-auto sm:w-[8vw]"
           src={require("@/assets/images/svg/language.svg")}
           alt="language"
         />
@@ -77,7 +77,8 @@ export default function LanguagesToggle({ className }: Props) {
         className={cn(
           "min-w-[220px] flex flex-col shadow-md bg-white absolute transition-all duration-500 top-[70px] rounded border-t-4 border-secondary dark:border-main",
           showLanguesDropdown ? "opacity-100  top-10 z-20" : "opacity-0 -z-10",
-          locale === "ar" ? "-left-4" : "-right-4"
+          locale === "ar" ? "-left-4" : "-right-4",
+          className
         )}
       >
         {React.Children.toArray(
