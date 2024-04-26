@@ -41,7 +41,7 @@ export function Footer() {
   return (
     <div className=" bg-[url('/wave.svg')] bg-cover bg-no-repeat bg-background dark:bg-backgroundDark">
       <div className="p-4 container pt-8 flex flex-wrap items-center justify-between">
-        <div className="flex w-full justify-center flex-col items-center sm:mt-5">
+        <div className="flex sm:w-full  justify-center flex-col items-center sm:mt-5">
           <div className="bg-[url('/logo-backdrop.svg')]  flex justify-center items-center bg-contain bg-no-repeat">
             <Image
               alt="logo"

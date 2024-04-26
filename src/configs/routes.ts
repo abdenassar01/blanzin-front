@@ -1,36 +1,25 @@
 export const routes: {
   id: number;
-  text:
-    | "header.home"
-    | "header.service-placement"
-    | "header.jobs-in-germany"
-    | "header.download";
+  text: "links.home" | "links.contact-us" | "links.blog";
   link: string;
   super: boolean;
 }[] = [
   {
     id: 1,
-    text: "header.home",
+    text: "links.home",
     link: "/",
     super: true,
   },
   {
     id: 2,
-    text: "header.service-placement",
-    link: "/service-placement",
+    text: "links.blog",
+    link: "/blog",
     super: true,
   },
   {
     id: 3,
-    text: "header.jobs-in-germany",
-    link: "/jobs-in-germany",
-    super: true,
-  },
-
-  {
-    id: 4,
-    text: "header.download",
-    link: "#download-app",
+    text: "links.contact-us",
+    link: "/contact",
     super: true,
   },
 ];
