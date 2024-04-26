@@ -1,8 +1,7 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import "./globals.css";
 import { getCurrentLocale, getI18n } from "@/utils/locales/server";
 import { I18nProviderClient } from "@/utils/locales/client";
-import Image from "next/image";
 
 export default async function NotFound() {
   const t = await getI18n();
