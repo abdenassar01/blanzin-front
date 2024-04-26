@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo } from "react";
-import { TranslatedHeading, TranslatedText } from "../..";
+import { TranslatedText } from "../..";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import Link from "next/link";

@@ -19,11 +19,12 @@ export function Header() {
           className="w-auto h-[8vw] hidden sm:block"
           src={require("../../../assets/images/logo/logo.png")}
         />
-        <DesktopNavbar />
-        <HeaderMobile />
-        <div className="flex gap-1 items-center">
+
+        <div className="flex gap-2 items-center">
+          <DesktopNavbar />
           <ProfileDropdown />
           <LanguagesToggle />
+          <HeaderMobile />
         </div>
       </div>
     </header>

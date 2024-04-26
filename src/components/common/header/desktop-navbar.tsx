@@ -6,7 +6,7 @@ import { getI18n } from "@/utils/locales/server";
 export default async function DesktopNavbar() {
   const t = await getI18n();
   return (
-    <div className="sm:hiddem flex items-center gap-5">
+    <div className="sm:hidde mr-5 flex items-center gap-5">
       {React.Children.toArray(
         routes.map((item) => (
           <ActiveLink link={item.link || ""}>{t(item.text)}</ActiveLink>
