@@ -13,7 +13,7 @@ export function ImageShapeMaker({ img, width, muskId, height }: Props) {
       width={width}
       height={height}
       baseProfile="full"
-      className="boxshadow ml-auto"
+      className="boxshadow ml-auto overflow-hidden"
       version="1.2"
     >
       <defs>
@@ -27,6 +27,7 @@ export function ImageShapeMaker({ img, width, muskId, height }: Props) {
         </mask>
       </defs>
       <image
+        className="overflow-hidden"
         id="the-mask"
         mask={`url(#${muskId})`}
         width={width}

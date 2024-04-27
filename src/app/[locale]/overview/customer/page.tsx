@@ -1,4 +1,5 @@
-import { HeroSection, ImageShapeMaker } from "@/components";
+import { HeroSection } from "@/components";
+import CallToAction from "@/components/core/landing-page/call-to-action";
 import { getI18n } from "@/utils/locales/server";
 
 import React from "react";
@@ -8,18 +9,18 @@ export default async function CustomerLandingPage() {
   return (
     <div className="w-full">
       <HeroSection
-        action={t("hero-section.customer-action")}
+        action={t("customer.hero-action")}
         href="/experts"
-        header={t("hero-section.customer-text")}
+        header={t("customer.hero-text")}
       />
-      <div className="">
-        <ImageShapeMaker
-          width="270px"
-          height="600px"
-          muskId="hallo"
-          img="/screenshots/carbon.png"
-        />
-      </div>
+      <CallToAction
+        heading={t("customer.call-to-action-heading")}
+        href="/new-order"
+        paragraph={t("customer.call-to-action-paragraph")}
+        buttonText={t("customer.call-to-action-btn")}
+        callToActionText={t("customer.call-to-action")}
+        screenshot="/screenshots/blanzin-dark.jpg"
+      />
     </div>
   );
 }
