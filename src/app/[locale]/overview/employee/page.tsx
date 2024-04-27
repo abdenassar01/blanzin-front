@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components";
+import { CallToAction, HeroSection } from "@/components";
 import { getI18n } from "@/utils/locales/server";
 import React from "react";
 
@@ -7,9 +7,17 @@ export default async function EmployeePage() {
   return (
     <div className="w-full">
       <HeroSection
-        action={t("hero-section.employee-action")}
+        action={t("employee.hero-action")}
         href="/jobs"
-        header={t("hero-section.employee-text")}
+        header={t("employee.hero-text")}
+      />
+      <CallToAction
+        heading={t("employee.call-to-action-heading")}
+        href="/jobs"
+        paragraph={t("employee.call-to-action-paragraph")}
+        buttonText={t("employee.call-to-action-btn")}
+        callToActionText={t("employee.call-to-action")}
+        screenshot="/screenshots/blanzin-dark.jpg"
       />
     </div>
   );

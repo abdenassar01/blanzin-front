@@ -11,7 +11,7 @@ type Props = {
   screenshot: string;
 };
 
-export default function CallToAction({
+export function CallToAction({
   buttonText,
   callToActionText,
   heading,

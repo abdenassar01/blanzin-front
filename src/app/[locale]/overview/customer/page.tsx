@@ -1,5 +1,4 @@
-import { HeroSection } from "@/components";
-import CallToAction from "@/components/core/landing-page/call-to-action";
+import { CallToAction, HeroSection } from "@/components";
 import { getI18n } from "@/utils/locales/server";
 
 import React from "react";
