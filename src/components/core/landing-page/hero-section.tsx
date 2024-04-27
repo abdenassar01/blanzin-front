@@ -11,7 +11,7 @@ type Props = {
 
 export function HeroSection({ action, header, href }: Props) {
   return (
-    <div className="rounded-xl w-full flex justify-center items-center mt-12 py-12 bg-main">
+    <div className="container rounded-xl w-full flex justify-center items-center mt-12 py-12 bg-main mb-6">
       <div className="flex sm:flex-col gap-3 w-[85%]">
         <Image
           className="w-[30vw] sm:w-[90vw]"

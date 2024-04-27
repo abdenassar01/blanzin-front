@@ -29,7 +29,7 @@ export function SelectedProfile() {
   ];
 
   return (
-    <div className="flex justify-between w-[80%]">
+    <div className="flex container justify-between w-[80%]">
       <Map
         items={profiles}
         render={(item) => (

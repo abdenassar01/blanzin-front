@@ -8,7 +8,7 @@ export default async function LandingPageLayout({ children }: LayoutProps) {
 
   return (
     <div className="bg-[url('/background.svg')] bg-contain bg-no-repeat bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
-      <div className="container flex flex-col justify-center items-center py-12">
+      <div className="flex flex-col justify-center items-center py-12">
         <h1 className="font-bold text-4xl text-secondary">
           {t("heading.welcome")}
         </h1>
