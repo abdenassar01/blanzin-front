@@ -1,4 +1,4 @@
-import { HeroSection } from "@/components";
+import { HeroSection, ImageShapeMaker } from "@/components";
 import { getI18n } from "@/utils/locales/server";
 
 import React from "react";
@@ -12,6 +12,14 @@ export default async function CustomerLandingPage() {
         href="/experts"
         header={t("hero-section.customer-text")}
       />
+      <div className="">
+        <ImageShapeMaker
+          width="270px"
+          height="600px"
+          muskId="hallo"
+          img="/screenshots/carbon.png"
+        />
+      </div>
     </div>
   );
 }

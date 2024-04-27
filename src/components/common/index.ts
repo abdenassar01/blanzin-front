@@ -10,3 +10,4 @@ export * from "./long-text-toggle";
 export * from "./modal";
 export * from "./date-formatter";
 export * from "./toast";
+export * from "./image-shape-maker";

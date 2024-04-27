@@ -48,4 +48,7 @@ export default {
     "employee-text": "Are you looking for a Job in Germany?",
     "employee-action": "Find Jobs",
   },
+  arabic: "Arabic",
+  english: "English",
+  frensh: "Frensh",
 } as const;
