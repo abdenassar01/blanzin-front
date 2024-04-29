@@ -1,22 +1,15 @@
-import { locales, defaultLocale } from "@/config";
-
-import createIntlMiddleware from "next-intl/middleware";
+import { createI18nMiddleware } from "next-international/middleware";
 import { NextRequest } from "next/server";
 
-export default async function middleware(request: NextRequest) {
-  const defaultLocale = request.headers.get("x-your-custom-locale") || "en";
+const I18nMiddleware = createI18nMiddleware({
+  locales: ["en", "fr", "ar"],
+  defaultLocale: "en",
+});
 
-  const handleI18nRouting = createIntlMiddleware({
-    locales: locales,
-    defaultLocale: "en",
-  });
-  const response = handleI18nRouting(request);
-
-  response.headers.set("x-your-custom-locale", defaultLocale);
-
-  return response;
+export function middleware(request: NextRequest) {
+  return I18nMiddleware(request);
 }
 
 export const config = {
-  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico).*)"],
+  matcher: ["/((?!api|static|.*\\..*|_next|favicon.ico|robots.txt).*)"],
 };

@@ -1,37 +1,25 @@
-export const routes = [
+export const routes: {
+  id: number;
+  text: "links.home" | "links.contact-us" | "links.blog";
+  link: string;
+  super: boolean;
+}[] = [
   {
     id: 1,
-    text: "header.home",
-    link: "/",
+    text: "links.home",
+    link: "/overview/customer",
     super: true,
   },
   {
     id: 2,
-    text: "header.products",
-    super: false,
-    items: [
-      {
-        id: 1,
-        text: "header.services",
-        link: "/services",
-      },
-      {
-        id: 2,
-        text: "header.jobs-in-germany",
-        link: "/jobs",
-      },
-    ],
-  },
-  {
-    id: 3,
-    text: "header.contact",
-    link: "/contact",
+    text: "links.blog",
+    link: "/blog",
     super: true,
   },
   {
-    id: 4,
-    text: "header.become-provider",
-    link: "/become-provider",
+    id: 3,
+    text: "links.contact-us",
+    link: "/contact",
     super: true,
   },
 ];

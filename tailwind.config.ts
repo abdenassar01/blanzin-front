@@ -41,8 +41,8 @@ module.exports = {
       xm: "clamp(26px, 1.944vw, 28px)", // 28px
       xxm: "clamp(28px, 2.083vw, 30px)", // 30px
       "2xl": "clamp(30px, 2.5vw, 36px)", // 36px
-      "3xl": "2.778vw", // 40px
-      "4xl": "3.333vw", // 48px
+      "3xl": "clamp(36px, 2.778vw, 40px)", // 36px
+      "4xl": "clamp(40px, 3.333vw, 48px)", // 36px
       "mb-xs": "2.824vw", // 12px
       "mb-xxs": "3.59vw", // 14px
       "mb-xbase": "3.765vw", // 16px

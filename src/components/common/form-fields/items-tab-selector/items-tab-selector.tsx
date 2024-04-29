@@ -1,10 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
-import {View, TouchableOpacity, ScrollView} from 'react-native';
-import React, {useState} from 'react';
-import {Map, TranslatedText} from '../../..';
-import {cn} from '../../../../../utils';
-import {Control, useController} from 'react-hook-form';
-import TabSelectorItem from './tab-selector-item';
+"use client";
+
+import React, { useState } from "react";
+import { Map, TranslatedText } from "../../..";
+import { Control, useController } from "react-hook-form";
+import TabSelectorItem from "./tab-selector-item";
+import { cn } from "@/utils";
 
 type Props<T> = {
   items: T[];
@@ -12,6 +12,7 @@ type Props<T> = {
   extractDisplayMember: (item: T) => any;
   name: string;
   control: Control<any>;
+  label: string;
 };
 
 export function ItemsTabSelector<T>({
@@ -19,13 +20,14 @@ export function ItemsTabSelector<T>({
   extractValue,
   items,
   control,
+  label,
   name,
 }: Props<T>) {
   const [ShowSubCategories, setShowCategories] = useState<boolean>(false);
 
   const {
-    field: {onChange, value},
-  } = useController({name, control, defaultValue: []});
+    field: { onChange, value },
+  } = useController({ name, control, defaultValue: [] });
 
   const handleOptionPress = (option: T) => {
     const isExist =
@@ -33,7 +35,7 @@ export function ItemsTabSelector<T>({
         .length > 0;
     if (isExist) {
       onChange(
-        value.filter((item: T) => extractValue(item) !== extractValue(option)),
+        value.filter((item: T) => extractValue(item) !== extractValue(option))
       );
     } else {
       onChange([...value, option]);
@@ -41,46 +43,46 @@ export function ItemsTabSelector<T>({
   };
 
   return (
-    <View>
-      <TouchableOpacity
+    <div className="relative">
+      <button
         className={cn(
-          'my-3 rounded-md bg-backgroundSecondary w-full pl-2 py-3  dark:bg-backgroundSecondaryDark',
+          "my-3 rounded-md bg-backgroundSecondary w-full pl-2 py-3  dark:bg-backgroundSecondaryDark"
         )}
-        onPress={() => setShowCategories(prev => !prev)}>
+        onClick={() => setShowCategories((prev) => !prev)}
+      >
         <TranslatedText
-          className="text-main text-sm"
-          tranlationKey={
-            value.length > 0
-              ? 'all-subcategories-filtred-label'
-              : 'all-subcategories-label'
-          }
+          className="text-secondary dark:text-main text-sm font-bold"
+          tranlationKey={label}
         />
-      </TouchableOpacity>
-      <ScrollView
+      </button>
+      <div
         className={cn(
-          'top-[80%] absolute z-20 rounded-lg  bg-backgroundSecondary dark:bg-backgroundSecondaryDark',
-          ShowSubCategories ? 'max-h-[200px]' : 'max-h-[0]',
-        )}>
-        <View
-          style={{gap: 5}}
-          className={cn('p-3  flex-row flex-wrap  min-w-[100%]')}>
+          "top-[85%] absolute transition-all w-full z-20 rounded-lg  bg-backgroundSecondary dark:bg-backgroundSecondaryDark",
+          ShowSubCategories ? "h-[200px]" : "h-0"
+        )}
+      >
+        <div
+          className={cn(
+            "p-3 gap-1 flex-wrap",
+            ShowSubCategories ? "flex" : "hidden"
+          )}
+        >
           <Map
             items={items}
-            render={item => (
+            render={(item) => (
               <TabSelectorItem
                 handleSelect={() => handleOptionPress(item)}
                 selected={
                   value.filter(
-                    (option: any) =>
-                      extractValue(option) === extractValue(item),
+                    (option: any) => extractValue(option) === extractValue(item)
                   ).length > 0
                 }
                 text={extractDisplayMember(item)}
               />
             )}
           />
-        </View>
-      </ScrollView>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 }

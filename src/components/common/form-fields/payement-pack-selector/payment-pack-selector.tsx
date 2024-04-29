@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Image, TouchableOpacity, View} from 'react-native';
-import {Control, useController} from 'react-hook-form';
-import {TranslatedHeading, TranslatedText} from '../../translated-text';
-import {cn} from '../../../../../utils';
-import {useColorScheme} from 'nativewind';
+import * as React from "react";
+import { Control, useController } from "react-hook-form";
+import { TranslatedHeading, TranslatedText } from "../../translated-text";
+import { useTheme } from "next-themes";
+import { cn } from "@/utils";
+import Image from "next/image";
 
 type Props = {
   control: Control<any>;
@@ -14,134 +14,147 @@ type Props = {
 const packs = [
   {
     id: 1,
-    title: 'Basic',
+    title: "Basic",
     offers: [
       {
-        text: 'Personal support with employer selection in Germany.',
+        text: "Personal support with employer selection in Germany.",
         super: true,
       },
-      {text: 'Review and optimisation of application documents.', super: true},
-      {text: 'Personal support and assistance from our experts.', super: true},
-      {text: 'Job interviews', qte: 'x1'},
+      { text: "Rediv and optimisation of application documents.", super: true },
       {
-        text: 'Video call counselling before every interview',
-        qte: 'x0',
+        text: "Personal support and assistance from our experts.",
+        super: true,
+      },
+      { text: "Job interdivs", qte: "x1" },
+      {
+        text: "Video call counselling before every interdiv",
+        qte: "x0",
       },
     ],
     price: 1500,
   },
   {
     id: 2,
-    title: 'Standard',
+    title: "Standard",
     offers: [
       {
-        text: 'Personal support with employer selection in Germany.',
+        text: "Personal support with employer selection in Germany.",
         super: true,
       },
-      {text: 'Review and optimisation of application documents.', super: true},
-      {text: 'Personal support and assistance from our experts.', super: true},
-      {text: 'Job interviews', qte: 'Unlimited'},
+      { text: "Rediv and optimisation of application documents.", super: true },
       {
-        text: 'Video call counselling before every interview',
-        qte: 'x3',
+        text: "Personal support and assistance from our experts.",
+        super: true,
+      },
+      { text: "Job interdivs", qte: "Unlimited" },
+      {
+        text: "Video call counselling before every interdiv",
+        qte: "x3",
       },
     ],
     price: 2500,
   },
   {
     id: 3,
-    title: 'Premium',
+    title: "Premium",
     offers: [
       {
-        text: 'Personal support with employer selection in Germany.',
+        text: "Personal support with employer selection in Germany.",
         super: true,
       },
-      {text: 'Review and optimisation of application documents.', super: true},
-      {text: 'Personal support and assistance from our experts.', super: true},
-      {text: 'Job interviews', qte: 'Unlimited'},
+      { text: "Rediv and optimisation of application documents.", super: true },
+      {
+        text: "Personal support and assistance from our experts.",
+        super: true,
+      },
+      { text: "Job interdivs", qte: "Unlimited" },
 
       {
-        text: 'Video call counselling before every interview',
-        qte: 'Unlimited',
+        text: "Video call counselling before every interdiv",
+        qte: "Unlimited",
       },
     ],
     price: 3500,
   },
 ];
 
-export function PaymentPackSelector({control, name, disabled}: Props) {
+export function PaymentPackSelector({ control, name, disabled }: Props) {
   const {
-    field: {onChange, value: selected},
+    field: { onChange, value: selected },
   } = useController({
     control,
     name,
     defaultValue: disabled ? undefined : packs[1].id,
   });
 
-  const {colorScheme} = useColorScheme();
-  const isDark = React.useMemo(() => colorScheme === 'dark', [colorScheme]);
+  const { theme } = useTheme();
+  const isDark = React.useMemo(() => theme === "dark", [theme]);
 
   return (
-    <View className={cn(disabled ? 'opacity-50' : '')}>
-      <View className="py-2 flex-row justify-evenly rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+    <div className={cn("my-1", disabled ? "opacity-50" : "")}>
+      <div className="py-2 flex flex-row justify-evenly rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
         {React.Children.toArray(
-          packs.map(pack => (
-            <TouchableOpacity
-              onPress={() => {
+          packs.map((pack) => (
+            <button
+              onClick={() => {
                 if (!disabled) {
                   onChange(pack.id);
                 }
               }}
               className={cn(
-                'p-3 w-[30%] items-center rounded ',
+                "flex flex-col p-3 w-[30%] items-center rounded ",
                 selected === pack.id
-                  ? 'bg-secondary dark:bg-main'
-                  : 'bg-background dark:bg-backgroundDark',
-              )}>
+                  ? "bg-secondary dark:bg-main"
+                  : "bg-background dark:bg-backgroundDark"
+              )}
+            >
               <TranslatedHeading
                 className={cn(
-                  'text-md',
-                  selected === pack.id ? 'text-main dark:text-secondary' : '',
+                  "text-md",
+                  selected === pack.id ? "text-main dark:text-secondary" : ""
                 )}
                 tranlationKey={pack.title}
               />
-            </TouchableOpacity>
-          )),
+            </button>
+          ))
         )}
-      </View>
-      <View className="mt-2 rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark p-4">
+      </div>
+      <div className="mt-2 rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark p-4">
         {React.Children.toArray(
-          packs[selected - 1].offers.map(item => (
-            <View className="flex-row my-2">
+          packs[selected - 1].offers.map((item) => (
+            <div className="flex relative my-2">
               <TranslatedText
                 className="text-xs w-[70%] font-bold"
                 tranlationKey={item.text}
               />
-              <View className="absolute top-0 -right-2">
+              <div className="absolute top-0 -right-2">
                 {item?.super ? (
                   <Image
-                    className="w-2.5 h-2.5 mr-2 mt-[3px]"
-                    source={
+                    alt="checkbox"
+                    className="w-[1.5vw] h-[1.5vw] mr-2"
+                    src={
                       isDark
-                        ? require('../../../../assets/icons/light/checkbox.png')
-                        : require('../../../../assets/icons/dark/checkbox.png')
+                        ? require("@/assets/images/icons/dark/checkmark.svg")
+                        : require("@/assets/images/icons/dark/checkmark.svg")
                     }
                   />
                 ) : (
                   <TranslatedText
-                    tranlationKey={item.qte || ''}
+                    tranlationKey={item.qte || ""}
                     className="text-secondary dark:text-main font-bold text-xs mr-2"
                   />
                 )}
-              </View>
-            </View>
-          )),
+              </div>
+            </div>
+          ))
         )}
-        <TranslatedText
-          className="text-secondary dark:text-main text-center font-bold text-xl mt-3"
-          tranlationKey={`${packs[selected - 1].price} DH`}
-        />
-      </View>
-    </View>
+        <div className="flex justify-center items-center ">
+          <TranslatedText
+            className="text-secondary dark:text-main text-center font-bold text-xl mt-3"
+            tranlationKey={`${packs[selected - 1].price} DH`}
+          />
+        </div>
+      </div>
+    </div>
   );
 }

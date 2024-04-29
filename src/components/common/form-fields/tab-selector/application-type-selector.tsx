@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Control, useController} from 'react-hook-form';
-import {Image, TouchableOpacity, View} from 'react-native';
-import {TranslatedHeading, TranslatedText} from '../../translated-text';
-import {cn} from '../../../../../utils';
-import {useColorScheme} from 'nativewind';
+import * as React from "react";
+import { Control, useController } from "react-hook-form";
+import { TranslatedHeading, TranslatedText } from "../../translated-text";
+import { useTheme } from "next-themes";
+import { cn } from "@/utils";
+import Image from "next/image";
 
 type Props = {
   control: Control<any>;
@@ -13,46 +13,48 @@ type Props = {
 const tabs = [
   {
     id: 1,
-    title: 'Trainee',
-    darkIcon: require('../../../../assets/icons/select-profile/dark/trainee.png'),
-    icon: require('../../../../assets/icons/select-profile/light/trainee.png'),
+    title: "Trainee",
+    darkIcon: require("@/assets/images/icons/select-profile/dark/trainee.png"),
+    icon: require("@/assets/images/icons/select-profile/light/trainee.png"),
   },
   {
     id: 2,
-    title: 'Skilled worker',
-    darkIcon: require('../../../../assets/icons/select-profile/dark/german-trainee.png'),
-    icon: require('../../../../assets/icons/select-profile/light/german-trainee.png'),
+    title: "Skilled worker",
+    darkIcon: require("@/assets/images/icons/select-profile/dark/german-trainee.png"),
+    icon: require("@/assets/images/icons/select-profile/light/german-trainee.png"),
   },
 ];
 
-export function ApplicationTypeSelector({control, name}: Props) {
+export function ApplicationTypeSelector({ control, name }: Props) {
   const {
-    field: {onChange, value},
-  } = useController({control, name, defaultValue: tabs[0].id});
+    field: { onChange, value },
+  } = useController({ control, name, defaultValue: tabs[0].id });
 
-  const {colorScheme} = useColorScheme();
-  const isDark = React.useMemo(() => colorScheme === 'dark', [colorScheme]);
+  const { theme } = useTheme();
+  const isDark = React.useMemo(() => theme === "dark", [theme]);
 
   return (
-    <View className="p-2 rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+    <div className="p-2 rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
       <TranslatedHeading
-        className="text-base text-center"
+        className="text-base text-secondary dark:text-main text-center"
         tranlationKey="forms.profile-type-header"
       />
-      <View className="flex-row justify-between mt-3">
+      <div className="flex justify-between mt-3">
         {React.Children.toArray(
-          tabs.map(item => (
-            <TouchableOpacity
-              onPress={() => onChange(item.id)}
+          tabs.map((item) => (
+            <button
+              onClick={() => onChange(item.id)}
               className={cn(
-                'w-[49%] rounded p-3 justify-center items-center ',
+                "w-[49%] rounded p-3 flex flex-col justify-center items-center ",
                 value === item.id
-                  ? 'bg-secondary dark:bg-main'
-                  : 'bg-background dark:bg-backgroundDark',
-              )}>
+                  ? "bg-secondary dark:bg-main"
+                  : "bg-background dark:bg-backgroundDark"
+              )}
+            >
               <Image
+                alt=""
                 className="w-16 h-16"
-                source={
+                src={
                   value === item.id
                     ? isDark
                       ? item.icon
@@ -65,17 +67,17 @@ export function ApplicationTypeSelector({control, name}: Props) {
 
               <TranslatedText
                 className={cn(
-                  'font-bold',
+                  "font-bold",
                   value === item.id
-                    ? 'text-main dark:text-secondary'
-                    : 'text-secondary dark:text-main',
+                    ? "text-main dark:text-secondary"
+                    : "text-secondary dark:text-main"
                 )}
                 tranlationKey={item.title}
               />
-            </TouchableOpacity>
-          )),
+            </button>
+          ))
         )}
-      </View>
-    </View>
+      </div>
+    </div>
   );
 }

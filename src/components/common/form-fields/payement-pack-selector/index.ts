@@ -1,1 +1,1 @@
-export {PaymentPackSelector} from './payment-pack-selector.tsx';
+export { PaymentPackSelector } from "./payment-pack-selector";

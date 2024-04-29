@@ -1,1 +1,1 @@
-export {DescriptionField} from './description-field.tsx';
+export { DescriptionField } from "./description-field";

@@ -1,14 +1,13 @@
-/* eslint-disable react-native/no-inline-styles */
-import * as React from 'react';
-import {TextField} from '../text-field';
-import {Control, useFieldArray} from 'react-hook-form';
-import {Image, TouchableOpacity, View} from 'react-native';
-import {useMemo, useState} from 'react';
-import {cn} from '../../../../../utils';
-import {useColorScheme} from 'nativewind';
-import {TranslatedHeading, TranslatedText} from '../../translated-text';
-import Animated, {FadeIn, FadeOut} from 'react-native-reanimated';
-import {ScrollView} from 'react-native-gesture-handler';
+"use client";
+
+import * as React from "react";
+import { Control, useFieldArray } from "react-hook-form";
+import { useMemo, useState } from "react";
+
+import { TranslatedHeading, TranslatedText } from "../../translated-text";
+import { useTheme } from "next-themes";
+import { cn } from "@/utils";
+import Image from "next/image";
 
 type Props = {
   control: Control<any>;
@@ -33,124 +32,118 @@ export function TagsField({
   maxSkills = 9,
   suggestions,
 }: Props) {
-  const [text, setText] = useState<string>('');
+  const [text, setText] = useState<string>("");
   const [filteredSuggestion, setFilteredSuggestion] = useState<
     string[] | undefined
   >(suggestions);
-  const {append, remove} = useFieldArray({control, name});
+  const { append, remove } = useFieldArray({ control, name });
 
-  const {colorScheme} = useColorScheme();
-  const isDark = useMemo(() => colorScheme === 'dark', [colorScheme]);
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme === "dark", [theme]);
 
   function handleAppend() {
     if (text && items.length <= maxSkills) {
       append(text);
-      setText('');
+      setText("");
       setFilteredSuggestion(suggestions);
     }
   }
 
   return (
-    <View>
+    <div>
       {items?.length > 0 && (
-        <View style={{gap: 5}} className={cn('flex-row flex-wrap py-3')}>
+        <div style={{ gap: 5 }} className={cn("flex-row flex-wrap py-3")}>
           {React.Children.toArray(
             items.map((item, index) => (
-              <Animated.View
-                entering={FadeIn}
-                exiting={FadeOut}
-                className="p-1 flex-row  rounded bg-backgroundSecondary dark:bg-backgroundSecondaryDark justify-between items-center">
+              <div className="p-1 flex-row  rounded bg-backgroundSecondary dark:bg-backgroundSecondaryDark justify-between items-center">
                 <TranslatedText className="max-w-[95%]" tranlationKey={item} />
-                <TouchableOpacity
-                  onPress={() => {
+                <button
+                  onClick={() => {
                     remove(index);
                     filteredSuggestion &&
                       setFilteredSuggestion([...filteredSuggestion, item]);
-                  }}>
+                  }}
+                >
                   <Image
                     className="w-3 h-3 m-1"
-                    source={
+                    alt=""
+                    src={
                       isDark
-                        ? require('../../../../assets/icons/dark/close-drawer.png')
-                        : require('../../../../assets/icons/light/close-drawer.png')
+                        ? require("@/assets/images/icons/dark/close.svg")
+                        : require("@/assets/images/icons/dark/close.svg")
                     }
                   />
-                </TouchableOpacity>
-              </Animated.View>
-            )),
+                </button>
+              </div>
+            ))
           )}
-        </View>
+        </div>
       )}
-      <View className="h-[2px] mb-3 mt-1 w-[80%] ml-[10%] bg-secondary dark:bg-main rounded-full" />
-      <View className="flex-row justify-between items-center">
-        <TextField
-          onChange={t => {
+      <div className="h-[2px] mb-3 mt-1 w-[80%] ml-[10%] bg-secondary dark:bg-main rounded-full" />
+      <div className="flex-row justify-between items-center">
+        <input
+          onChange={(e) => {
+            const t = e.currentTarget.value;
             setText(t);
-            if (t === '') {
+            if (t === "") {
               setFilteredSuggestion(suggestions);
               return;
             }
             setFilteredSuggestion(
-              suggestions?.filter(item =>
-                item.toLowerCase().startsWith(t.toLowerCase()),
-              ),
+              suggestions?.filter((item) =>
+                item.toLowerCase().startsWith(t.toLowerCase())
+              )
             );
           }}
           value={text}
-          label={label}
-          wrapperClassName="max-w-[83%]"
-          className={cn('', className)}
+          className={cn("", className)}
           placeholder={placeholder}
-          onSubmitEditing={handleAppend}
         />
-        <TouchableOpacity
-          onPress={handleAppend}
+        <button
+          onClick={handleAppend}
           className={cn(
-            'w-[15%] h-12 rounded mt-3 justify-center items-center bg-backgroundSecondary dark:bg-backgroundSecondaryDark',
-            buttonClassName,
-          )}>
+            "w-[15%] h-12 rounded mt-3 justify-center items-center bg-backgroundSecondary dark:bg-backgroundSecondaryDark",
+            buttonClassName
+          )}
+        >
           <Image
+            alt=""
             className="w-4 h-4"
-            source={
+            src={
               isDark
-                ? require('../../../../assets/icons/dark/plus.png')
-                : require('../../../../assets/icons/light/plus.png')
+                ? require("@/assets/images/icons/dark/plus.svg")
+                : require("@/assets/images/icons/dark/close.svg")
             }
           />
-        </TouchableOpacity>
-      </View>
+        </button>
+      </div>
       {filteredSuggestion && (
-        <View className="rounded p-2 bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+        <div className="rounded p-2 bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
           <TranslatedHeading
             className="text-xs mb-2"
             tranlationKey="forms.skills.suggestions"
           />
-          <ScrollView
-            className="max-h-[80px]"
-            contentContainerStyle={{
-              flexDirection: 'row',
-              gap: 5,
-              flexWrap: 'wrap',
-            }}>
+          <div className="max-h-[80px] flex flex-wrap gap-1 overflow-y-scroll">
             {React.Children.toArray(
-              filteredSuggestion.map(item => (
-                <TouchableOpacity
-                  onPress={() => {
+              filteredSuggestion.map((item) => (
+                <button
+                  onClick={() => {
                     append(item);
                     setFilteredSuggestion(
                       filteredSuggestion?.filter(
-                        suggestion => suggestion !== item,
-                      ),
+                        (suggestion) => suggestion !== item
+                      )
                     );
                   }}
-                  className="p-1 flex-row  rounded bg-background dark:bg-backgroundDark justify-between items-center">
+                  className="p-1 flex-row  rounded bg-background dark:bg-backgroundDark justify-between items-center"
+                >
                   <TranslatedText className="" tranlationKey={item} />
-                </TouchableOpacity>
-              )),
+                </button>
+              ))
             )}
-          </ScrollView>
-        </View>
+          </div>
+        </div>
       )}
-    </View>
+    </div>
   );
 }

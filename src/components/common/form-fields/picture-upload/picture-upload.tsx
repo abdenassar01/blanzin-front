@@ -1,29 +1,26 @@
-import {TouchableOpacity} from 'react-native';
-import React, {ReactNode} from 'react';
-import ImageCropPicker from 'react-native-image-crop-picker';
-import {UseFieldArrayAppend} from 'react-hook-form';
+import React, { ReactNode } from "react";
+import { UseFieldArrayAppend } from "react-hook-form";
 
 type Props = {
   children: ReactNode;
   append: UseFieldArrayAppend<any, string>;
   callBack?: () => any;
+  name?: string;
 };
 
-export function PictureUpload({children, append, callBack}: Props) {
+export function PictureUpload({ children, append, callBack, name }: Props) {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        ImageCropPicker.openPicker({
-          mediaType: 'photo',
-          cropping: true,
-        })
-          .then(photo => {
-            append(photo);
-            callBack && callBack();
-          })
-          .catch(err => console.log(err));
-      }}>
+    <label className="cursor-pointer" htmlFor={name}>
+      <input
+        id={name}
+        onChange={(e) => {
+          append(e.currentTarget.value);
+          callBack && callBack();
+        }}
+        type="file"
+        className="hidden"
+      />
       {children}
-    </TouchableOpacity>
+    </label>
   );
 }

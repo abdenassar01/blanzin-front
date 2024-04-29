@@ -1,15 +1,12 @@
-/* eslint-disable react-native/no-inline-styles */
-import * as React from 'react';
-import {Control, useFieldArray, useWatch} from 'react-hook-form';
-import {Image, TouchableOpacity, View} from 'react-native';
-import {TranslatedHeading, TranslatedText} from '../../translated-text';
-import {TextField} from '../text-field';
-import {cn} from '../../../../../utils';
-import {useMemo, useState} from 'react';
-import {MainText} from '../../../core';
-import {Spacer} from '../../layout-helpers';
-import {useColorScheme} from 'nativewind';
-import {ScrollView} from 'react-native-gesture-handler';
+"use client";
+
+import * as React from "react";
+import { Control, useFieldArray, useWatch } from "react-hook-form";
+import { TranslatedHeading } from "../../translated-text";
+import { useMemo, useState } from "react";
+import { useTheme } from "next-themes";
+import { cn } from "@/utils";
+import Image from "next/image";
 
 type Props = {
   control: Control<any>;
@@ -17,6 +14,7 @@ type Props = {
   className?: string;
   label: string;
   placeholder?: string;
+  name: string;
 };
 
 export function DescriptionField({
@@ -25,122 +23,123 @@ export function DescriptionField({
   items,
   className,
   control,
+  name,
 }: Props) {
   const [filteredItems, setFilteredItems] = useState<string[]>(items);
-  const [filterValue, setFilterValue] = useState<string>('');
+  const [filterValue, setFilterValue] = useState<string>("");
 
-  const {colorScheme} = useColorScheme();
-  const isDark = useMemo(() => colorScheme === 'dark', [colorScheme]);
+  const { theme } = useTheme();
+  const isDark = useMemo(() => theme === "dark", [theme]);
 
-  const {append, remove} = useFieldArray({
+  const { append, remove } = useFieldArray({
     control,
-    name: 'description',
+    name,
   });
 
-  const {description} = useWatch({control});
+  const { description } = useWatch({ control });
 
   function handleAppend() {
     if (filterValue) {
       append(filterValue);
-      setFilterValue('');
+      setFilterValue("");
     }
   }
 
   return (
-    <View className="mb-2">
+    <div className="mb-2 w-full">
       <TranslatedHeading
         className="text-sm text-secondary dark:text-main mb-1"
         tranlationKey={label}
       />
       {description.length > 0 && (
-        <View
-          style={{gap: 3}}
+        <div
           className={cn(
-            'p-2 mb-1 bg-background dark:bg-backgroundDark rounded',
-            className,
-          )}>
+            "flex flex-wrap p-2 mb-1 gap-1 overflow-y-scroll h-[10.5vw] sm:h-[36.5vw] bg-background dark:bg-backgroundDark rounded",
+            className
+          )}
+        >
           {React.Children.toArray(
             description.map((item: string, index: number) => (
-              <View className="p-2 rounded bg-backgroundSecondary dark:bg-backgroundSecondaryDark flex-row items-center justify-between">
-                <MainText className="max-w-[90%]">{item}</MainText>
-                <TouchableOpacity
-                  onPress={() => {
+              <div className="flex p-2 h-fit rounded bg-backgroundSecondary dark:bg-backgroundSecondaryDark flex-row items-center w-fit justify-between">
+                <h2 className="">{item}</h2>
+                <button
+                  onClick={() => {
                     remove(index);
-                  }}>
+                  }}
+                >
                   <Image
                     className="w-3 h-3 m-1"
-                    source={
+                    alt="close"
+                    src={
                       isDark
-                        ? require('../../../../assets/icons/dark/close-drawer.png')
-                        : require('../../../../assets/icons/light/close-drawer.png')
+                        ? require("@/assets/images/icons/dark/close.svg")
+                        : require("@/assets/images/icons/light/close.svg")
                     }
                   />
-                </TouchableOpacity>
-              </View>
-            )),
+                </button>
+              </div>
+            ))
           )}
-        </View>
+        </div>
       )}
-      <View>
-        <View className="flex-row justify-between">
-          <TextField
-            wrapperClassName="h-[50px] max-w-[83%]"
-            className={cn('bg-background dark:bg-backgroundDark', className)}
-            onChange={text => {
+      <div>
+        <div className="flex flex-row gap-2 justify-between">
+          <input
+            className={cn("h-[50px] w-full rounded px-2", className)}
+            onChange={(e) => {
+              const text = e.currentTarget.value;
               setFilterValue(text);
-              if (text === '') {
+              if (text === "") {
                 setFilteredItems(items);
               } else {
                 setFilteredItems(
-                  items.filter(item =>
+                  items.filter((item) =>
                     item
                       .toLocaleLowerCase()
-                      .includes(filterValue.toLocaleLowerCase()),
-                  ),
+                      .includes(filterValue.toLocaleLowerCase())
+                  )
                 );
               }
             }}
-            onSubmitEditing={handleAppend}
             value={filterValue}
             placeholder={placeholder}
           />
-          <TouchableOpacity
-            onPress={handleAppend}
-            className="w-[15%] h-12 rounded justify-center items-center  bg-background dark:bg-backgroundDark">
+          <button
+            onClick={handleAppend}
+            className="w-[4vw] sm:w-[15vw] h-auto flex rounded justify-center items-center  bg-background dark:bg-backgroundDark"
+          >
             <Image
-              className="w-4 h-4"
-              source={
+              alt="plus"
+              className="w-5 h-5"
+              src={
                 isDark
-                  ? require('../../../../assets/icons/dark/plus.png')
-                  : require('../../../../assets/icons/light/plus.png')
+                  ? require("@/assets/images/icons/dark/plus.svg")
+                  : require("@/assets/images/icons/dark/plus.svg")
               }
             />
-          </TouchableOpacity>
-        </View>
-        <ScrollView
-          contentContainerStyle={{gap: 5}}
-          nestedScrollEnabled
-          className="rounded w-full mt-1 h-[150px] p-2 bg-background dark:bg-backgroundDark pt-2">
+          </button>
+        </div>
+        <div className="flex flex-wrap rounded gap-1 w-full mt-1 h-[10.5vw] sm:h-[36.5vw] overflow-y-scroll p-2 bg-background dark:bg-backgroundDark">
           {React.Children.toArray(
             filteredItems.map(
-              item =>
+              (item) =>
                 description.filter((el: string) => el === item).length ===
                   0 && (
-                  <TouchableOpacity
-                    className="p-2 rounded bg-backgroundSecondary dark:bg-backgroundSecondaryDark"
-                    onPress={() => {
+                  <button
+                    className="p-2 h-fit rounded bg-backgroundSecondary dark:bg-backgroundSecondaryDark"
+                    onClick={() => {
                       append(item);
-                      setFilterValue('');
+                      setFilterValue("");
                       setFilteredItems(items);
-                    }}>
-                    <TranslatedText className="text-xs" tranlationKey={item} />
-                  </TouchableOpacity>
-                ),
-            ),
+                    }}
+                  >
+                    <h2 className="">{item}</h2>
+                  </button>
+                )
+            )
           )}
-          <Spacer vertical={10} />
-        </ScrollView>
-      </View>
-    </View>
+        </div>
+      </div>
+    </div>
   );
 }
