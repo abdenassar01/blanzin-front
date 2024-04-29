@@ -53,18 +53,6 @@ export async function FindExpertsSteps() {
           ))
         )}
       </div>
-      <div className="flex justify-center mt-5">
-        <div className="w-[250px]">
-          <Button theme="secondary" className="group">
-            <Link
-              className="font-semibold text-main group-hover:text-secondary"
-              href="/new-order"
-            >
-              {t("customer.call-to-action-btn")}
-            </Link>
-          </Button>
-        </div>
-      </div>
     </div>
   );
 }
