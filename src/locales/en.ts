@@ -81,6 +81,13 @@ export default {
   },
   "download-app-heading": "Get your task done without lifting a finger!",
   "download-app-btn-text": "Download the App",
+  steps: {
+    "big-header": "How to find the right expert",
+    heading: "Step",
+    "find-expert-step-one": "Place your order free of charge",
+    "find-expert-step-two": "Experts answer you",
+    "find-expert-step-three": "Compare expert profiles and choose from",
+  },
   arabic: "Arabic",
   english: "English",
   frensh: "Frensh",

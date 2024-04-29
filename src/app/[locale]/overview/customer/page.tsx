@@ -1,4 +1,9 @@
-import { CallToAction, DownloadAppSection, HeroSection } from "@/components";
+import {
+  CallToAction,
+  DownloadAppSection,
+  FindExpertsSteps,
+  HeroSection,
+} from "@/components";
 import { getI18n } from "@/utils/locales/server";
 
 import React from "react";
@@ -21,6 +26,7 @@ export default async function CustomerLandingPage() {
         screenshot="/screenshots/blanzin-dark.jpg"
       />
       <DownloadAppSection />
+      <FindExpertsSteps />
     </div>
   );
 }
