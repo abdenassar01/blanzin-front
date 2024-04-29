@@ -1,4 +1,4 @@
-import { CallToAction, HeroSection } from "@/components";
+import { CallToAction, DownloadAppSection, HeroSection } from "@/components";
 import { getI18n } from "@/utils/locales/server";
 
 import React from "react";
@@ -18,8 +18,9 @@ export default async function CustomerLandingPage() {
         paragraph={t("customer.call-to-action-paragraph")}
         buttonText={t("customer.call-to-action-btn")}
         callToActionText={t("customer.call-to-action")}
-        screenshot="/screenshots/screenshot.svg"
+        screenshot="/screenshots/blanzin-dark.jpg"
       />
+      <DownloadAppSection />
     </div>
   );
 }

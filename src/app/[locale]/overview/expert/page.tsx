@@ -17,7 +17,7 @@ export default async function ExpertPage() {
         paragraph={t("expert.call-to-action-paragraph")}
         buttonText={t("expert.call-to-action-btn")}
         callToActionText={t("expert.call-to-action")}
-        screenshot="/screenshots/blanzin-dark.jpg"
+        screenshot="/screenshots/blanzin.jpg"
       />
     </div>
   );

@@ -79,6 +79,8 @@ export default {
       "Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY!</strong>",
     "call-to-action-btn": "Start now!",
   },
+  "download-app-heading": "Get your task done without lifting a finger!",
+  "download-app-btn-text": "Download the App",
   arabic: "Arabic",
   english: "English",
   frensh: "Frensh",

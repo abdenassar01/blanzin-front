@@ -14,9 +14,6 @@ export default async function LandingPageLayout({ children }: LayoutProps) {
         </h1>
         <SelectedProfile />
         <Suspense fallback={<div>loading...</div>}>{children}</Suspense>
-        <div className="main-background-gradient w-full py-12">
-          <div className="container h-[80vh]">download app</div>
-        </div>
       </div>
     </div>
   );
