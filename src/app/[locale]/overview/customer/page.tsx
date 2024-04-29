@@ -1,14 +1,9 @@
 import { CallToAction, HeroSection } from "@/components";
-import { InternationalisationParams } from "@/types";
 import { getI18n } from "@/utils/locales/server";
-import { setStaticParamsLocale } from "next-international/server";
 
 import React from "react";
 
-export default async function CustomerLandingPage({
-  params: { locale },
-}: InternationalisationParams) {
-  setStaticParamsLocale(locale);
+export default async function CustomerLandingPage() {
   const t = await getI18n();
   return (
     <div className="w-full">
