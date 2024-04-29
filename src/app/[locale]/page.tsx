@@ -8,5 +8,5 @@ export default function HomePage({
 }: InternationalisationParams) {
   setStaticParamsLocale(locale);
   redirect("/overview/customer");
-  return <Home />;
+  return null;
 }

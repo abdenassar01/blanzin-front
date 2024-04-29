@@ -6,5 +6,6 @@ export default function PrivacyPolicy({
   params: { locale },
 }: InternationalisationParams) {
   setStaticParamsLocale(locale);
-  return <div>PrivacyPolicy</div>;
+
+  return <div>Next locale: {locale}</div>;
 }

@@ -2,20 +2,14 @@ import type { Metadata } from "next";
 import "../globals.css";
 import "rodal/lib/rodal.css";
 import { Footer, Header } from "@/components";
-import { locales } from "@/config";
 import { InternationalisationParams } from "@/types";
 import { cn } from "@/utils";
 import { I18nProvider } from "@/utils/locales/provider";
-import { setStaticParamsLocale } from "next-international/server";
 
 export const metadata: Metadata = {
   title: "Blanzin",
   description: "blanzin web app",
 };
-
-export function generateStaticParams() {
-  return locales.map((locale) => locale);
-}
 
 export default function RootLayout({
   children,
@@ -25,7 +19,6 @@ export default function RootLayout({
     children: React.ReactNode;
   } & InternationalisationParams
 >) {
-  setStaticParamsLocale(locale);
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={cn(locale === "ar" ? "font-cairo" : "font-montserrat")}>
