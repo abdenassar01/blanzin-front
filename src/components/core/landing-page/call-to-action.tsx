@@ -20,7 +20,7 @@ export function CallToAction({
   screenshot,
 }: Props) {
   return (
-    <section className="bg-background dark:bg-backgroundDark py-6">
+    <section className="bg-backgroundSecondary dark:bg-backgroundSecondaryDark py-12">
       <div className="flex container">
         <div className="flex flex-col justify-center gap-8 w-[60%] sm:w-full">
           <div className="text-2xl">

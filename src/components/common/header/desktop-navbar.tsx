@@ -1,10 +1,12 @@
+"use client";
+
 import React from "react";
 import { routes } from "@/configs/routes";
 import { ActiveLink } from "../active-link/active-link";
-import { getI18n } from "@/utils/locales/server";
+import { useI18n } from "@/utils/locales/client";
 
-export default async function DesktopNavbar() {
-  const t = await getI18n();
+export default function DesktopNavbar() {
+  const t = useI18n();
   return (
     <div className="sm:hidde mr-5 flex items-center gap-5">
       {React.Children.toArray(

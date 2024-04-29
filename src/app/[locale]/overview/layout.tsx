@@ -7,13 +7,16 @@ export default async function LandingPageLayout({ children }: LayoutProps) {
   const t = await getI18n();
 
   return (
-    <div className="bg-[url('/background.svg')] bg-contain bg-no-repeat bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+    <div className="bg-contain  bg-no-repeat bg-background dark:bg-backgroundSecondaryDark">
       <div className="flex flex-col justify-center items-center py-12">
         <h1 className="font-bold text-4xl text-secondary">
           {t("heading.welcome")}
         </h1>
         <SelectedProfile />
         <Suspense fallback={<div>loading...</div>}>{children}</Suspense>
+        <div className="main-background-gradient w-full py-12">
+          <div className="container h-[80vh]">download app</div>
+        </div>
       </div>
     </div>
   );

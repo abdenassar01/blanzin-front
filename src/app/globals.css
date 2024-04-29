@@ -22,6 +22,14 @@
   background-color: #ffcc00;
 }
 
+.main-background-gradient {
+  background: linear-gradient(135deg, rgb(255, 204, 0) 0%, rgb(0, 0, 128) 100%)
+    0px 0px / 436.137px 256px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .react-calendar__tile--active {
   background-color: #ffcc0067 !important;
   color: #0000ff !important;

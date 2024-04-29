@@ -7,7 +7,7 @@ export const routes: {
   {
     id: 1,
     text: "links.home",
-    link: "/",
+    link: "/overview/customer",
     super: true,
   },
   {

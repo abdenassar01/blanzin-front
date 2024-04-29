@@ -11,8 +11,8 @@ type Props = {
 
 export function HeroSection({ action, header, href }: Props) {
   return (
-    <div className="container rounded-xl w-full flex justify-center items-center mt-12 py-12 bg-main mb-6">
-      <div className="flex sm:flex-col gap-3 w-[85%]">
+    <div className="container main-background-gradient rounded-xl w-full flex justify-center items-center my-12 py-12 bg-main shadow-md shadow-secondary mb-6">
+      <div className="flex sm:flex-col gap-10 w-[85%]">
         <Image
           className="w-[30vw] sm:w-[90vw]"
           width={350}
@@ -24,7 +24,6 @@ export function HeroSection({ action, header, href }: Props) {
           <h3 className="font-bold whitespace-pre-line text-secondary text-xbase">
             {header}
           </h3>
-
           <Button className="rounded-xl group" theme="secondary" width="40%">
             <Link
               className="font-semibold text-main group-hover:text-secondary"
