@@ -18,7 +18,7 @@ export default async function CustomerLandingPage() {
         paragraph={t("customer.call-to-action-paragraph")}
         buttonText={t("customer.call-to-action-btn")}
         callToActionText={t("customer.call-to-action")}
-        screenshot="/screenshots/blanzin-dark.jpg"
+        screenshot="/screenshots/screenshot.svg"
       />
     </div>
   );

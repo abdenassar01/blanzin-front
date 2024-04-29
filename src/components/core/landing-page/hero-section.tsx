@@ -11,14 +11,14 @@ type Props = {
 
 export function HeroSection({ action, header, href }: Props) {
   return (
-    <div className="container main-background-gradient rounded-xl w-full flex justify-center items-center my-12 py-12 bg-main shadow-md shadow-secondary mb-6">
-      <div className="flex sm:flex-col gap-10 w-[85%]">
+    <div className="container main-background-gradient rounded-3xl w-full flex justify-center items-center my-12 py-12 bg-main shadow-md shadow-secondary mb-6">
+      <div className="flex flex-row-reverse sm:flex-col gap-10 w-[85%]">
         <Image
-          className="w-[30vw] sm:w-[90vw]"
+          className="w-full sm:w-[90vw]"
           width={350}
           height={275}
           alt=""
-          src="/video.png"
+          src="/video-main.png"
         />
         <div className="w-full flex justify-center flex-col gap-10">
           <h3 className="font-bold whitespace-pre-line text-secondary text-xbase">

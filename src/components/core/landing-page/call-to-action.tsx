@@ -1,4 +1,10 @@
-import { Button, Heading, ImageShapeMaker } from "@/components";
+import {
+  Button,
+  Heading,
+  ImageShapeMaker,
+  ImageShapeMakerSvg,
+} from "@/components";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -21,7 +27,7 @@ export function CallToAction({
 }: Props) {
   return (
     <section className="bg-backgroundSecondary dark:bg-backgroundSecondaryDark py-12">
-      <div className="flex container">
+      <div className="flex container justify-center items-center">
         <div className="flex flex-col justify-center gap-8 w-[60%] sm:w-full">
           <div className="text-2xl">
             <Heading className="" heading={heading} />
@@ -44,11 +50,9 @@ export function CallToAction({
         </div>
         <div className="w-[40%] flex justify-center items-center">
           <div className="">
-            <ImageShapeMaker
-              width="300px"
-              height="650px"
-              muskId={screenshot}
-              img={screenshot}
+            <ImageShapeMakerSvg
+              id="customer-screenshot"
+              screenshot="/screenshots/blanzin.jpg"
             />
           </div>
         </div>
