@@ -39,10 +39,10 @@ export function Footer() {
   const t = useI18n();
 
   return (
-    <div className=" bg-[url('/wave.svg')] bg-cover bg-no-repeat bg-backgroundSecondary">
+    <div className="main-background-gradient py-6 bg-backgroundSecondary">
       <div className="p-4 container flex flex-wrap items-center justify-between">
         <div className="flex sm:w-full  justify-center flex-col items-center sm:mt-5">
-          <div className="bg-[url('/logo-backdrop.svg')]  flex justify-center items-center bg-contain bg-no-repeat">
+          <div className="flex justify-center items-center bg-contain bg-no-repeat">
             <Image
               alt="logo"
               className="w-[10vw] sm:w-[50vw]"
