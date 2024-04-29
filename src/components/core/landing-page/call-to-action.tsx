@@ -50,10 +50,7 @@ export function CallToAction({
         </div>
         <div className="w-[40%] flex justify-center items-center">
           <div className="">
-            <ImageShapeMakerSvg
-              id="customer-screenshot"
-              screenshot="/screenshots/blanzin.jpg"
-            />
+            <ImageShapeMakerSvg id={screenshot} screenshot={screenshot} />
           </div>
         </div>
       </div>
