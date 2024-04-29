@@ -1,12 +1,17 @@
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import "./globals.css";
 import { getCurrentLocale, getI18n } from "@/utils/locales/server";
 import { I18nProviderClient } from "@/utils/locales/client";
+import { InternationalisationParams } from "@/types";
+import { setStaticParamsLocale } from "next-international/server";
 
-export default async function NotFound() {
+export default async function NotFound({
+  params: { locale },
+}: InternationalisationParams) {
   const t = await getI18n();
-  const locale = getCurrentLocale();
-
+  setStaticParamsLocale(locale);
   return (
     <html lang={locale}>
       <head>
