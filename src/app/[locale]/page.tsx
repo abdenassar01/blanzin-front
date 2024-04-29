@@ -1,12 +1,6 @@
-import Home from "@/pages/home/home";
-import { InternationalisationParams } from "@/types";
-import { setStaticParamsLocale } from "next-international/server";
 import { redirect } from "next/navigation";
 
-export default function HomePage({
-  params: { locale },
-}: InternationalisationParams) {
-  setStaticParamsLocale(locale);
+export default function HomePage() {
   redirect("/overview/customer");
-  return <Home />;
+  return null;
 }
