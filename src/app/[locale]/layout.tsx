@@ -3,10 +3,10 @@ import "../globals.css";
 import "rodal/lib/rodal.css";
 import { Footer, Header } from "@/components";
 import { locales } from "@/config";
-import { unstable_setRequestLocale } from "next-intl/server";
 import { InternationalisationParams } from "@/types";
 import { cn } from "@/utils";
 import { I18nProvider } from "@/utils/locales/provider";
+import { setStaticParamsLocale } from "next-international/server";
 
 export const metadata: Metadata = {
   title: "Blanzin",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return locales.map((locale) => locale);
 }
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
     children: React.ReactNode;
   } & InternationalisationParams
 >) {
-  unstable_setRequestLocale(locale);
+  setStaticParamsLocale(locale);
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={cn(locale === "ar" ? "font-cairo" : "font-montserrat")}>

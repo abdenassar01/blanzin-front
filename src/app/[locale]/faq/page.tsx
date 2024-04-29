@@ -1,5 +1,10 @@
+import { InternationalisationParams } from "@/types";
+import { setStaticParamsLocale } from "next-international/server";
 import React from "react";
 
-export default function FAQ() {
+export default function FAQ({
+  params: { locale },
+}: InternationalisationParams) {
+  setStaticParamsLocale(locale);
   return <div>FAQ</div>;
 }
