@@ -1,4 +1,4 @@
-import { CallToAction, HeroSection } from "@/components";
+import { CallToAction, DownloadAppSection, HeroSection, LatestOrders } from "@/components";
 import { getI18n } from "@/utils/locales/server";
 import React from "react";
 
@@ -19,6 +19,9 @@ export default async function ExpertPage() {
         callToActionText={t("expert.call-to-action")}
         screenshot="/screenshots/blanzin.jpg"
       />
+      <LatestOrders />
+      <DownloadAppSection />
+      
     </div>
   );
 }
