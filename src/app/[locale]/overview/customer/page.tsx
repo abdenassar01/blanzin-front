@@ -1,8 +1,8 @@
 import {
   CallToAction,
   DownloadAppSection,
-  FindExpertsSteps,
   HeroSection,
+  WalkThroughtSteps,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
 
@@ -45,7 +45,7 @@ export default async function CustomerLandingPage() {
         screenshot='/screenshots/blanzin-dark.jpg'
       />
       <DownloadAppSection />
-      <FindExpertsSteps steps={steps} header={t('steps.big-header')} />
+      <WalkThroughtSteps steps={steps} header={t('steps.big-header')} />
     </div>
   );
 }

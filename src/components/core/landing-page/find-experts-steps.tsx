@@ -1,4 +1,3 @@
-import { getI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
 
@@ -11,7 +10,7 @@ type Props = {
   header: string;
 };
 
-export function FindExpertsSteps({ steps, header }: Props) {
+export function WalkThroughtSteps({ steps, header }: Props) {
   return (
     <div className='container pt-12'>
       <h2 className='mb-5 text-xm font-bold text-secondary dark:text-main'>
