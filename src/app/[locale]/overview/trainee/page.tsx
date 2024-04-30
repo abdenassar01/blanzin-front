@@ -1,24 +1,44 @@
-import { CallToAction, HeroSection } from "@/components";
-import { getI18n } from "@/utils/locales/server";
-import React from "react";
+import { CallToAction, HeroSection, WalkThroughtSteps } from '@/components';
+import { getI18n } from '@/utils/locales/server';
+import React from 'react';
 
 export default async function TraineePage() {
   const t = await getI18n();
+
+  const steps = [
+    {
+      step: `${t('step-heading')} 1`,
+      icon: '/steps/step-1.jpg',
+      text: t('trainee-steps.find-expert-step-one'),
+    },
+    {
+      step: `${t('step-heading')} 2`,
+      icon: '/steps/step-2.jpg',
+      text: t('trainee-steps.find-expert-step-two'),
+    },
+    {
+      step: `${t('step-heading')} 3`,
+      icon: '/steps/step-3.jpg',
+      text: t('trainee-steps.find-expert-step-three'),
+    },
+  ];
+
   return (
-    <div className="w-full">
+    <div className='w-full'>
       <HeroSection
-        action={t("trainee.hero-action")}
-        href="/become-expert"
-        header={t("expert.hero-text")}
+        action={t('trainee.hero-action')}
+        href='/become-expert'
+        header={t('expert.hero-text')}
       />
       <CallToAction
-        heading={t("trainee.call-to-action-heading")}
-        href="/jobs"
-        paragraph={t("trainee.call-to-action-paragraph")}
-        buttonText={t("trainee.call-to-action-btn")}
-        callToActionText={t("trainee.call-to-action")}
-        screenshot="/screenshots/blanzin-dark.jpg"
+        heading={t('trainee.call-to-action-heading')}
+        href='/jobs'
+        paragraph={t('trainee.call-to-action-paragraph')}
+        buttonText={t('trainee.call-to-action-btn')}
+        callToActionText={t('trainee.call-to-action')}
+        screenshot='/screenshots/blanzin-dark.jpg'
       />
+      <WalkThroughtSteps header={t('trainee-steps.big-header')} steps={steps} />
     </div>
   );
 }

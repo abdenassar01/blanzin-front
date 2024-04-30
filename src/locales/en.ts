@@ -98,6 +98,18 @@ export default {
     'find-expert-step-two': 'show your interest',
     'find-expert-step-three': 'Contact and arrange',
   },
+  'trainee-steps': {
+    'big-header': 'How to find your desired orders',
+    'find-expert-step-one': 'Get suitable order proposals',
+    'find-expert-step-two': 'show your interest',
+    'find-expert-step-three': 'Contact and arrange',
+  },
+  'employee-steps': {
+    'big-header': 'How to find your desired jobs',
+    'find-expert-step-one': 'Get suitable job proposals',
+    'find-expert-step-two': 'show your interest',
+    'find-expert-step-three': 'Contact and arrange',
+  },
   arabic: 'Arabic',
   english: 'English',
   frensh: 'Frensh',
