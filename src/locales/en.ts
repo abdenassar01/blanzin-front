@@ -84,13 +84,19 @@ export default {
   'download-app-btn-text': 'Download the App',
   'view-all': 'View all offers',
   location: 'Locatin',
+  'step-heading': 'Step',
   date: 'Date',
-  steps: {
+  'customer-steps': {
     'big-header': 'How to find the right expert',
-    heading: 'Step',
     'find-expert-step-one': 'Place your order free of charge',
     'find-expert-step-two': 'Experts answer you',
     'find-expert-step-three': 'Compare expert profiles and choose from',
+  },
+  'expert-steps': {
+    'big-header': 'How to find your desired orders',
+    'find-expert-step-one': 'Get suitable order proposals',
+    'find-expert-step-two': 'show your interest',
+    'find-expert-step-three': 'Contact and arrange',
   },
   arabic: 'Arabic',
   english: 'English',
