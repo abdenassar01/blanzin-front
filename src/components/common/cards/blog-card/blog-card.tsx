@@ -7,7 +7,7 @@ export function BlogCard() {
   return (
     <Link
       href='/blog/12'
-      className='group max-w-[42vw] cursor-pointer sm:w-full'
+      className='group max-w-[39vw] cursor-pointer sm:w-full'
     >
       <Image
         width={300}
