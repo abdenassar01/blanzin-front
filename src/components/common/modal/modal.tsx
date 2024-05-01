@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { Dispatch, ReactNode, SetStateAction, useMemo } from "react";
-import { TranslatedHeading } from "..";
-import Image from "next/image";
-import { cn } from "@/utils";
-import { useTheme } from "next-themes";
-import Rodal from "rodal";
+import React, { Dispatch, ReactNode, SetStateAction, useMemo } from 'react';
+import { TranslatedHeading } from '..';
+import Image from 'next/image';
+import { cn } from '@/utils';
+import { useTheme } from 'next-themes';
+import Rodal from 'rodal';
 
 type Props = {
   children: ReactNode;
@@ -13,6 +13,8 @@ type Props = {
   setVisible: Dispatch<SetStateAction<boolean>>;
   header?: string;
   className?: string;
+  width?: number;
+  height?: number;
 };
 
 export const Modal = ({
@@ -21,47 +23,50 @@ export const Modal = ({
   setVisible,
   header,
   className,
+  height,
+  width,
 }: Props) => {
   const { theme } = useTheme();
 
   return (
     <Rodal
-      width={350}
-      height={331}
+      width={width || 42}
+      height={height || 22}
+      measure='vw'
       customStyles={{ borderRadius: 20 }}
       onClose={() => setVisible(false)}
-      customMaskStyles={{ display: "none" }}
       visible={visible}
+      closeOnEsc
     >
-      <div className={cn("h-full w-full rounded-lg", className)}>
+      <div className={cn('h-full w-full rounded-lg p-2', className)}>
         <div
           className={cn(
-            "w-full p-2 flex flex-row justify-between items-center",
-            header ? "justify-between" : "justify-end"
+            'flex w-full flex-row items-center justify-between',
+            header ? 'justify-between' : 'justify-end'
           )}
         >
           {header && (
             <TranslatedHeading
-              className="text-secondary dark:text-main text-base"
+              className='text-base text-secondary dark:text-main'
               tranlationKey={header}
             />
           )}
-          <button className="" onClick={() => setVisible(false)}>
+          <button className='' onClick={() => setVisible(false)}>
             <Image
-              alt=""
-              className="w-4 h-4 "
+              alt=''
+              className='h-4 w-4 '
               src={
-                theme === "dark"
-                  ? require("@/assets/images/icons/dark/close.svg")
-                  : require("@/assets/images/icons/light/close.svg")
+                theme === 'dark'
+                  ? require('@/assets/images/icons/dark/close.svg')
+                  : require('@/assets/images/icons/light/close.svg')
               }
             />
           </button>
         </div>
-        <div className="p-4 max-h-[90%]">{children}</div>
+        <div className='max-h-[90%]'>{children}</div>
       </div>
       <button
-        className="h-full z-10 absolute w-full"
+        className='absolute z-10 h-full w-full'
         onClick={() => setVisible(false)}
       />
     </Rodal>

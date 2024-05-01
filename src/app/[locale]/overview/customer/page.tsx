@@ -1,24 +1,53 @@
-import { CallToAction, HeroSection } from "@/components";
-import { getI18n } from "@/utils/locales/server";
+import {
+  CallToAction,
+  DownloadAppSection,
+  HeroSection,
+  WalkThroughtSteps,
+} from '@/components';
+import { getI18n } from '@/utils/locales/server';
 
-import React from "react";
+import React from 'react';
 
 export default async function CustomerLandingPage() {
   const t = await getI18n();
+
+  const steps = [
+    {
+      step: `${t('step-heading')} 1`,
+      icon: '/steps/step-1.jpg',
+      text: t('customer-steps.find-expert-step-one'),
+    },
+    {
+      step: `${t('step-heading')} 2`,
+      icon: '/steps/step-2.jpg',
+      text: t('customer-steps.find-expert-step-two'),
+    },
+    {
+      step: `${t('step-heading')} 3`,
+      icon: '/steps/step-3.jpg',
+      text: t('customer-steps.find-expert-step-three'),
+    },
+  ];
+
   return (
-    <div className="w-full">
+    <div className='w-full'>
       <HeroSection
-        action={t("customer.hero-action")}
-        href="/experts"
-        header={t("customer.hero-text")}
+        action={t('customer.hero-action')}
+        href='/experts'
+        header={t('customer.hero-text')}
       />
       <CallToAction
-        heading={t("customer.call-to-action-heading")}
-        href="/new-order"
-        paragraph={t("customer.call-to-action-paragraph")}
-        buttonText={t("customer.call-to-action-btn")}
-        callToActionText={t("customer.call-to-action")}
-        screenshot="/screenshots/screenshot.svg"
+        heading={t('customer.call-to-action-heading')}
+        href='/new-order'
+        paragraph={t('customer.call-to-action-paragraph')}
+        buttonText={t('customer.call-to-action-btn')}
+        callToActionText={t('customer.call-to-action')}
+        screenshot='/screenshots/blanzin-dark.jpg'
+      />
+      <DownloadAppSection />
+      <WalkThroughtSteps
+        steps={steps}
+        header={t('customer-steps.big-header')}
       />
     </div>
   );

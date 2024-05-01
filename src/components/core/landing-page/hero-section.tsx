@@ -1,7 +1,7 @@
-import { Button } from "@/components";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Button } from '@/components';
+import Link from 'next/link';
+import React from 'react';
+import { VideoPlayer } from './video-player';
 
 type Props = {
   header: string;
@@ -11,22 +11,16 @@ type Props = {
 
 export function HeroSection({ action, header, href }: Props) {
   return (
-    <div className="container main-background-gradient rounded-3xl w-full flex justify-center items-center my-12 py-12 bg-main shadow-md shadow-secondary mb-6">
-      <div className="flex flex-row-reverse sm:flex-col gap-10 w-[85%]">
-        <Image
-          className="w-full sm:w-[90vw]"
-          width={350}
-          height={275}
-          alt=""
-          src="/video-main.png"
-        />
-        <div className="w-full flex justify-center flex-col gap-10">
-          <h3 className="font-bold whitespace-pre-line text-secondary text-xbase">
+    <div className='main-background-gradient container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-md shadow-secondary'>
+      <div className='flex w-[85%] flex-row-reverse gap-10 sm:flex-col'>
+        <VideoPlayer />
+        <div className='flex w-full flex-col justify-center gap-10'>
+          <h3 className='whitespace-pre-line text-xbase font-bold text-secondary'>
             {header}
           </h3>
-          <Button className="rounded-xl group" theme="secondary" width="40%">
+          <Button className='group rounded-xl' theme='secondary' width='40%'>
             <Link
-              className="font-semibold text-main group-hover:text-secondary"
+              className='font-semibold text-main group-hover:text-secondary'
               href={href}
             >
               {action}

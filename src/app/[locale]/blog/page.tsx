@@ -1,5 +1,23 @@
-import React from "react";
+import { BlogCard, Heading } from '@/components';
+import { getI18n } from '@/utils/locales/server';
+import React from 'react';
 
-export default function Blogs() {
-  return <div>Blogs</div>;
+export default async function Blogs() {
+  const t = await getI18n();
+  return (
+    <div className='my-12'>
+      <Heading
+        className='mb-4 text-center text-2xl'
+        heading={t('blog.header')}
+      />
+      <div className='container flex flex-wrap justify-between'>
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+      </div>
+    </div>
+  );
 }
