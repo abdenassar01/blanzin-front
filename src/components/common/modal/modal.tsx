@@ -30,12 +30,13 @@ export const Modal = ({
 
   return (
     <Rodal
-      width={width || 350}
-      height={height || 331}
+      width={width || 42}
+      height={height || 22}
+      measure='vw'
       customStyles={{ borderRadius: 20 }}
       onClose={() => setVisible(false)}
-      customMaskStyles={{ display: 'none' }}
       visible={visible}
+      closeOnEsc
     >
       <div className={cn('h-full w-full rounded-lg p-2', className)}>
         <div

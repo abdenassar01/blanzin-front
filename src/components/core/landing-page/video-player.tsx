@@ -19,8 +19,8 @@ export function VideoPlayer() {
         />
       </button>
       <Modal
-        width={800}
-        height={450}
+        width={45}
+        height={25}
         className='relative !aspect-video overflow-hidden p-0'
         setVisible={setVisibleModal}
         visible={visibleModal}
