@@ -5,13 +5,16 @@ import React from 'react';
 
 export function BlogCard() {
   return (
-    <Link href='/blog/12' className='max-w-[42vw] cursor-pointer sm:w-full'>
+    <Link
+      href='/blog/12'
+      className='group max-w-[42vw] cursor-pointer sm:w-full'
+    >
       <Image
         width={300}
         height={200}
         alt=''
         src='/house.jpg'
-        className='w-full rounded-xl'
+        className='w-full rounded-xl transition-all group-hover:scale-105'
       />
       <h3 className='text-base font-semibold'>
         The best way to find jobs outside of your country

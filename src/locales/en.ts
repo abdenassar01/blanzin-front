@@ -110,6 +110,9 @@ export default {
     'find-expert-step-two': 'show your interest',
     'find-expert-step-three': 'Contact and arrange',
   },
+  blog: {
+    header: 'Blogs',
+  },
   arabic: 'Arabic',
   english: 'English',
   frensh: 'Frensh',
