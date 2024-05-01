@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 export default function HomePage() {
-  redirect("/overview/customer");
+  redirect('/overview/customer');
   return null;
 }

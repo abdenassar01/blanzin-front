@@ -1,7 +1,7 @@
 import { SelectedProfile } from '@/components';
 import { LayoutProps } from '@/types';
 import { getI18n } from '@/utils/locales/server';
-import React, { ReactNode, Suspense } from 'react';
+import React, { Suspense } from 'react';
 
 export default async function LandingPageLayout({ children }: LayoutProps) {
   const t = await getI18n();
