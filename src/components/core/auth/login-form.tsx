@@ -1,36 +1,42 @@
 'use client';
 
 import { Button, FieldText, Link } from '@/components';
-import { useScopedI18n } from '@/utils/locales/client';
+import { useI18n } from '@/utils/locales/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
 export function LoginForm() {
   const { control } = useForm();
-  const t = useScopedI18n('auth');
+  const t = useI18n();
 
   return (
     <div className='flex flex-col gap-3'>
       <FieldText
         control={control}
-        label={t('username-label')}
+        label={t('forms.username')}
+        placeholder={t('forms.username')}
         name='username'
       />
       <div className=''>
         <FieldText
           control={control}
-          label={t('password-label')}
+          label={t('forms.password')}
+          placeholder={t('forms.password')}
           type='password'
-          name='username'
+          name='password'
         />
         <div className='flex justify-end'>
-          <Link className='text-xs' text={t('forget-password')} url='/reset' />
+          <Link
+            className='text-xs'
+            text={t('auth.forget-password')}
+            url='/reset'
+          />
         </div>
       </div>
-      <Button className='mt-6' text={t('login')} />
+      <Button className='mt-6' text={t('auth.login')} />
       <div className='flex justify-center gap-1'>
-        {t('dont-have-account')}
-        <Link text={t('create-account')} url='/reset' />
+        {t('auth.dont-have-account')}
+        <Link text={t('auth.create-account')} url='/register' />
       </div>
     </div>
   );

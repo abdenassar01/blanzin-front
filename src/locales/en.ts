@@ -117,8 +117,18 @@ export default {
     'dont-have-account': "Don't have an account?",
     'create-account': 'Create an account!',
     login: 'Login',
-    'username-label': 'Username',
-    'password-label': 'Password',
+  },
+  contact: {
+    heading: 'Contact Us',
+    text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
+    send: 'Send',
+  },
+  forms: {
+    email: 'Email',
+    password: 'Password',
+    username: 'Username',
+    fullname: 'Fullname',
+    message: 'Message',
   },
   blog: {
     header: 'Blogs',

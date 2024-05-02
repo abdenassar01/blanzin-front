@@ -30,7 +30,7 @@ export const Button = ({
       disabled={disabled}
       style={{ width: width || '100%' }}
       className={cn(
-        'items-center justify-center rounded-xl border-[1px] border-main p-3 transition-all ease-in-out',
+        'items-center justify-center rounded border-[1px] border-main p-3 transition-all ease-in-out',
 
         theme === 'primary'
           ? 'bg-main text-secondary hover:border-main hover:text-main'

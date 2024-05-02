@@ -26,7 +26,7 @@ export function TextArea({
           <label
             htmlFor={name}
             className={cn(
-              'text-base font-bold text-secondary sm:text-mb-xbase dark:text-main',
+              'text-sm font-bold text-secondary sm:text-mb-xbase dark:text-main',
               labelClassName
             )}
           >
