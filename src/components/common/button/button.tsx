@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
+import React, { useMemo } from 'react';
 
-import { TranslatedText } from "../..";
-import { cn } from "@/utils";
+import { TranslatedText } from '../..';
+import { cn } from '@/utils';
 
 type Props = {
   onClick?: () => void;
@@ -11,7 +11,7 @@ type Props = {
   width?: string;
   disabled?: boolean;
   children?: React.ReactNode;
-  theme?: "primary" | "secondary" | "tertiary" | "error" | "warn" | "success";
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'error' | 'warn' | 'success';
 };
 
 export const Button = ({
@@ -20,7 +20,7 @@ export const Button = ({
   width,
   className,
   textClassName,
-  theme = "primary",
+  theme = 'primary',
   children,
   disabled,
 }: Props) => {
@@ -28,21 +28,21 @@ export const Button = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      style={{ width: width || "100%" }}
+      style={{ width: width || '100%' }}
       className={cn(
-        "p-3 rounded justify-center transition-all ease-in-out items-center border-[1px] border-main",
+        'items-center justify-center rounded-xl border-[1px] border-main p-3 transition-all ease-in-out',
 
-        theme === "primary"
-          ? "bg-main text-secondary hover:text-main hover:border-main"
-          : theme === "secondary"
-          ? "bg-secondary border-secondary hover:border-secondary hover:bg-[transparent]"
-          : theme === "success"
-          ? "bg-success border-success"
-          : theme === "tertiary"
-          ? "border-[1px] font-bold"
-          : theme === "warn"
-          ? "bg-warn border-warn"
-          : "border-error bg-error",
+        theme === 'primary'
+          ? 'bg-main text-secondary hover:border-main hover:text-main'
+          : theme === 'secondary'
+            ? 'border-secondary bg-secondary hover:border-secondary hover:bg-[transparent]'
+            : theme === 'success'
+              ? 'border-success bg-success'
+              : theme === 'tertiary'
+                ? 'border-[1px] font-bold'
+                : theme === 'warn'
+                  ? 'border-warn bg-warn'
+                  : 'border-error bg-error',
         className
       )}
     >
@@ -51,15 +51,15 @@ export const Button = ({
       ) : (
         <TranslatedText
           className={cn(
-            "font-medium",
-            theme === "secondary" || theme === "tertiary"
-              ? "text-main hover:text-secondary"
-              : theme === "primary"
-              ? "text-secondary "
-              : "text-white",
+            'font-medium',
+            theme === 'secondary' || theme === 'tertiary'
+              ? 'text-main hover:text-secondary'
+              : theme === 'primary'
+                ? 'text-secondary '
+                : 'text-white',
             textClassName
           )}
-          tranlationKey={text || ""}
+          tranlationKey={text || ''}
         />
       )}
     </button>

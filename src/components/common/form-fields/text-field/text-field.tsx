@@ -52,27 +52,27 @@ export function FieldText({
         onChange={onChange}
         onBlur={onBlur}
         className={cn(
-          'w-full rounded-md border-none bg-backgroundSecondary p-2 py-3 leading-4 placeholder-[#A6A6A6] focus:outline-none sm:p-[5.097vw] sm:text-mb-xxs dark:bg-backgroundSecondaryDark',
+          'w-full rounded-xl border-none bg-backgroundSecondary p-2 py-3 leading-4 text-text placeholder-[#A6A6A6] focus:outline-none sm:p-[5.097vw] sm:text-mb-xxs dark:bg-backgroundSecondaryDark dark:bg-backgroundSecondaryDark dark:text-textdark',
           iconUrl && 'pl-[3.5vw] sm:pl-[10vw]',
           inputClassName,
           error && 'border-red-600'
         )}
         placeholder={placeholder}
-        type={isPassword ? 'password' : type}
+        type={isPassword ? 'password' : 'text'}
         {...props}
       />
       {iconUrl && (
         <div
           style={{ backgroundImage: `url('${iconUrl}')` }}
-          className='absolute left-[4%] top-[55%] h-[1.042vw] w-[1.389vw] bg-contain bg-no-repeat group-placeholder-shown:block sm:top-[60%] sm:h-[3.883vw] sm:w-[4.854vw]'
+          className='absolute left-[4%] top-[55%] h-[1.05vw] w-[1.389vw] bg-contain bg-no-repeat group-placeholder-shown:block sm:top-[60%] sm:h-[3.883vw] sm:w-[4.854vw]'
         />
       )}
-      {isPassword && (
+      {type === 'password' && (
         <Image
           onClick={() => setIsPassword((prev) => !prev)}
           src={isPassword ? icon : iconClosed}
           alt='password toggle'
-          className='absolute right-[2%] top-[50%]'
+          className='absolute right-[2%] top-[40%] w-[2vw]'
         />
       )}
       <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { usePathname } from "@/navigation";
-import { cn } from "@/utils";
-import Link from "next/link";
-import { ReactNode } from "react";
+import { usePathname } from '@/navigation';
+import { cn } from '@/utils';
+import Link from 'next/link';
+import { ReactNode } from 'react';
 
 type Props = {
   className?: string;
@@ -19,16 +19,16 @@ export function ActiveLink({
   activeClassName,
 }: Props) {
   const pathname = usePathname();
-  console.log("Pathname: ", pathname);
-  console.log("current-link: ", link);
+  console.log('Pathname: ', pathname);
+  console.log('current-link: ', link);
   return (
     <Link
       className={cn(
-        "font-[500] text-sm text-text hover:text-secondary dark:hover:text-main dark:text-textdark",
+        'font-[500] text-text hover:text-secondary dark:text-textdark dark:hover:text-main',
         className,
         pathname === link
-          ? cn("text-secondary dark:text-main", activeClassName)
-          : ""
+          ? cn('text-secondary dark:text-main', activeClassName)
+          : ''
       )}
       href={link}
     >

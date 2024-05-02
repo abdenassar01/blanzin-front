@@ -110,6 +110,16 @@ export default {
     'find-expert-step-two': 'show your interest',
     'find-expert-step-three': 'Contact and arrange',
   },
+  auth: {
+    'login-heading': 'Welcome back!',
+    'login-text': 'Great to see you again!',
+    'forget-password': 'Forget your password?',
+    'dont-have-account': "Don't have an account?",
+    'create-account': 'Create an account!',
+    login: 'Login',
+    'username-label': 'Username',
+    'password-label': 'Password',
+  },
   blog: {
     header: 'Blogs',
   },
