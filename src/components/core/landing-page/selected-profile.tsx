@@ -15,15 +15,15 @@ export function SelectedProfile() {
     {
       label: t('titles.service-placement'),
       items: [
-        { label: t('profiles.customer'), link: '/overview/customer' },
-        { label: t('profiles.expert'), link: '/overview/expert' },
+        { label: t('profiles.customer'), link: '/customer' },
+        { label: t('profiles.expert'), link: '/expert' },
       ],
     },
     {
       label: t('titles.jobs-in-germany'),
       items: [
-        { label: t('profiles.trainee'), link: '/overview/trainee' },
-        { label: t('profiles.employee'), link: '/overview/employee' },
+        { label: t('profiles.trainee'), link: '/trainee' },
+        { label: t('profiles.employee'), link: '/employee' },
       ],
     },
   ];

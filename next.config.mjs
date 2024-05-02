@@ -9,17 +9,17 @@ const nextConfig = {
     return [
       {
         source: '/en',
-        destination: '/en/overview/customer',
+        destination: '/en/customer',
         permanent: true,
       },
       {
         source: '/fr',
-        destination: '/fr/overview/customer',
+        destination: '/fr/customer',
         permanent: true,
       },
       {
         source: '/ar',
-        destination: '/ar/overview/customer',
+        destination: '/ar/customer',
         permanent: true,
       },
     ];
