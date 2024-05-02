@@ -120,6 +120,8 @@ export default {
     'dont-have-account': "Don't have an account?",
     'create-account': 'Create an account!',
     login: 'Login',
+    signup: 'Sign Up',
+    logout: 'Logout',
   },
   contact: {
     heading: 'Contact Us',

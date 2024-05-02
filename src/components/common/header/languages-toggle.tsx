@@ -5,10 +5,14 @@ import Image from 'next/image';
 import { useRouter, usePathname } from '@/navigation';
 import React, { startTransition, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
-import { TranslatedText } from '../translated-text';
 import { useLocale } from 'next-intl';
+import { useI18n } from '@/utils/locales/client';
 
-const languages = [
+const languages: {
+  value: string;
+  label: 'english' | 'arabic' | 'frensh';
+  icon: any;
+}[] = [
   {
     value: 'en',
     label: 'english',
@@ -35,6 +39,8 @@ export default function LanguagesToggle({ className }: Props) {
   const pathname = usePathname();
   const params = useParams();
   const locale = useLocale();
+
+  const t = useI18n();
 
   function onLangClick(nextLocale: string) {
     startTransition(() => {
@@ -95,10 +101,7 @@ export default function LanguagesToggle({ className }: Props) {
                 alt={lang.label}
                 src={lang.icon}
               />
-              <TranslatedText
-                className='font-medium'
-                tranlationKey={lang.label}
-              />
+              <span>{t(lang.label)}</span>
             </button>
           ))
         )}
