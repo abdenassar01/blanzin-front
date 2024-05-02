@@ -41,7 +41,7 @@ export function FieldText({
       <label
         htmlFor={name}
         className={cn(
-          'text-sm font-bold text-secondary sm:text-mb-xbase dark:text-main',
+          'text-sm font-bold text-secondary dark:text-main',
           labelClassName
         )}
       >
@@ -52,8 +52,8 @@ export function FieldText({
         onChange={onChange}
         onBlur={onBlur}
         className={cn(
-          'w-full rounded border-none bg-backgroundSecondary p-2 py-3 leading-4 text-text placeholder-[#A6A6A6] focus:outline-none sm:p-[5.097vw] sm:text-mb-xxs dark:bg-backgroundSecondaryDark dark:bg-backgroundSecondaryDark dark:text-textdark',
-          iconUrl && 'pl-[3.5vw] sm:pl-[10vw]',
+          'w-full rounded border-none bg-backgroundSecondary p-2 py-3 leading-4 text-text placeholder-[#A6A6A6] focus:outline-none  dark:bg-backgroundSecondaryDark dark:text-textdark',
+          iconUrl && '',
           inputClassName,
           error && 'border-red-600'
         )}
@@ -72,7 +72,7 @@ export function FieldText({
           onClick={() => setIsPassword((prev) => !prev)}
           src={isPassword ? icon : iconClosed}
           alt='password toggle'
-          className='absolute right-[2%] top-[40%] w-[2vw]'
+          className='absolute right-[2%] top-[40%] w-[2vw] sm:w-[5vw]'
         />
       )}
       <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>

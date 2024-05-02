@@ -26,8 +26,8 @@ export default function HeaderMobile() {
       </button>
       <div
         className={cn(
-          'absolute right-0 top-0 h-[100vh] rounded-l-xl bg-backgroundSecondary shadow transition-all duration-500 ease-in-out dark:bg-backgroundSecondaryDark',
-          showSidebar ? 'w-[80%]' : 'w-0'
+          'absolute right-0 top-0 z-10 h-[100vh] rounded-l-xl bg-backgroundSecondary shadow transition-all duration-500 ease-in-out dark:bg-backgroundSecondaryDark',
+          showSidebar ? 'w-[80%]' : '-right-20 w-0'
         )}
       >
         <div

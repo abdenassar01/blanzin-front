@@ -38,9 +38,7 @@ export function ProfileTabSelector({ control, label, name }: Props) {
     <div className=''>
       <label
         htmlFor={name}
-        className={cn(
-          'text-sm font-bold text-secondary sm:text-mb-xbase dark:text-main'
-        )}
+        className={cn('text-sm font-bold text-secondary dark:text-main')}
       >
         {label}
       </label>
@@ -50,7 +48,7 @@ export function ProfileTabSelector({ control, label, name }: Props) {
             <div
               onClick={() => onChange(item.role)}
               className={cn(
-                'flex w-[120px] cursor-pointer justify-center rounded border-[1px] py-1.5 text-secondary transition-all',
+                'flex w-[120px] cursor-pointer justify-center rounded border-[1px] py-1.5 text-sm text-secondary transition-all',
                 value === item.role
                   ? 'border-main bg-main'
                   : 'border-secondary hover:border-main hover:text-main'

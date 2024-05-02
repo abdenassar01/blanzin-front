@@ -15,7 +15,7 @@ export function LoginForm() {
         control={control}
         label={t('forms.phone')}
         placeholder='0666666666'
-        name='username'
+        name='phone'
       />
       <div className=''>
         <FieldText

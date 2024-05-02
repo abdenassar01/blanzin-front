@@ -119,6 +119,7 @@ export default {
     'forget-password': 'Forget your password?',
     'dont-have-account': "Don't have an account?",
     'create-account': 'Create an account!',
+    'already-have-account': 'Already have an account?',
     login: 'Login',
     signup: 'Sign Up',
     logout: 'Logout',
@@ -143,6 +144,7 @@ export default {
     message: 'Message',
     phone: 'Phone',
     profile: 'Select a profile type',
+    'phone-verification': 'Phone verification',
   },
   blog: {
     header: 'Blogs',
