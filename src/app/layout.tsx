@@ -1,9 +1,4 @@
-// import { locales } from "@/config";
-import React from "react";
-
-// export function generateStaticParams() {
-//   return locales.map((locale) => locale);
-// }
+import React from 'react';
 
 export default async function RootLayout({
   children,

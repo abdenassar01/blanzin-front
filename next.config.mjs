@@ -8,19 +8,10 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/en',
-        destination: '/en/customer',
+        source: '/',
+        destination: '/customer',
         permanent: true,
-      },
-      {
-        source: '/fr',
-        destination: '/fr/customer',
-        permanent: true,
-      },
-      {
-        source: '/ar',
-        destination: '/ar/customer',
-        permanent: true,
+        locale: false,
       },
     ];
   },
