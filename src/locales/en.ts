@@ -58,6 +58,7 @@ export default {
     'call-to-action':
       'Register today and start your journey to <strong>success</strong>',
     'call-to-action-btn': 'Start now!',
+    'slider-header': 'Latest job offers',
   },
   expert: {
     'hero-text': 'Become a Blanzin partner now and receive orders!',
@@ -69,6 +70,7 @@ export default {
       'Are you ready to <strong>BOOST</strong> an <strong>REVENUE?</strong>',
     'call-to-action-btn': 'Find your next project!',
     'latest-training': 'Latest training offers',
+    'slider-header': 'Latest orders',
   },
   trainee: {
     'hero-text': 'Are you looking for a vocational training in Germany?',
@@ -79,6 +81,7 @@ export default {
     'call-to-action':
       'Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY!</strong>',
     'call-to-action-btn': 'Start now!',
+    'slider-header': 'Latest training offers',
   },
   'download-app-heading': 'Get your task done without lifting a finger!',
   'download-app-btn-text': 'Download the App',

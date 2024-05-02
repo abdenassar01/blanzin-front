@@ -1,4 +1,10 @@
-import { CallToAction, HeroSection, WalkThroughtSteps } from '@/components';
+import {
+  CallToAction,
+  DownloadAppSection,
+  HeroSection,
+  LatestJobs,
+  WalkThroughtSteps,
+} from '@/components';
 import { getI18n } from '@/utils/locales/server';
 import React from 'react';
 
@@ -38,6 +44,8 @@ export default async function EmployeePage() {
         callToActionText={t('employee.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
       />
+      <LatestJobs />
+      <DownloadAppSection />
       <WalkThroughtSteps
         header={t('employee-steps.big-header')}
         steps={steps}

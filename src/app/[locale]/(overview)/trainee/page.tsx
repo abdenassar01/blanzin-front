@@ -1,4 +1,10 @@
-import { CallToAction, HeroSection, WalkThroughtSteps } from '@/components';
+import {
+  CallToAction,
+  DownloadAppSection,
+  HeroSection,
+  LatestTrainings,
+  WalkThroughtSteps,
+} from '@/components';
 import { getI18n } from '@/utils/locales/server';
 import React from 'react';
 
@@ -38,6 +44,8 @@ export default async function TraineePage() {
         callToActionText={t('trainee.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
       />
+      <LatestTrainings />
+      <DownloadAppSection />
       <WalkThroughtSteps header={t('trainee-steps.big-header')} steps={steps} />
     </div>
   );
