@@ -11,7 +11,7 @@ export function VideoPlayer() {
     <>
       <button onClick={() => setVisibleModal((prev) => !prev)}>
         <Image
-          className='w-[40vw] sm:w-[90vw]'
+          className='w-[70vw] sm:w-[90vw]'
           width={350}
           height={275}
           alt=''

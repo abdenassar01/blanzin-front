@@ -30,7 +30,7 @@ export default async function ExpertPage() {
   ];
 
   return (
-    <div className='w-full'>
+    <div className=''>
       <HeroSection
         action={t('expert.hero-action')}
         href='/become-expert'

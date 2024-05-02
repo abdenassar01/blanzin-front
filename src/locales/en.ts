@@ -56,8 +56,8 @@ export default {
     'call-to-action-paragraph':
       "Welcome to Blanzin, where your professional journey begins anew. Whether you're starting fresh or bringing experience, opportunities abound here.",
     'call-to-action':
-      'Are you ready to <strong>hire</strong> an <strong>Expert?</strong>',
-    'call-to-action-btn': 'Place your order now!',
+      'Register today and start your journey to <strong>success</strong>',
+    'call-to-action-btn': 'Start now!',
   },
   expert: {
     'hero-text': 'Become a Blanzin partner now and receive orders!',
