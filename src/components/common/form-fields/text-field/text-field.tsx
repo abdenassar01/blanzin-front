@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { HTMLProps, useState } from "react";
-import { Control, useController } from "react-hook-form";
-import icon from "@/assets/images/icons/eye.svg";
-import iconClosed from "@/assets/images/icons/eye-closed.svg";
-import Image from "next/image";
-import { cn } from "@/utils";
+import React, { HTMLProps, useState } from 'react';
+import { Control, useController } from 'react-hook-form';
+import icon from '@/assets/images/icons/eye.svg';
+import iconClosed from '@/assets/images/icons/eye-closed.svg';
+import Image from 'next/image';
+import { cn } from '@/utils';
 
 type InputProps = HTMLProps<HTMLInputElement> & {
   control: Control<any>;
@@ -24,11 +24,12 @@ export function FieldText({
   label,
   placeholder,
   inputClassName,
-  className = "",
+  className = '',
   labelClassName,
   iconUrl,
+  ...props
 }: InputProps) {
-  const [isPassword, setIsPassword] = useState<boolean>(type === "password");
+  const [isPassword, setIsPassword] = useState<boolean>(type === 'password');
 
   const {
     field: { onBlur, onChange },
@@ -36,11 +37,11 @@ export function FieldText({
   } = useController({ name, control });
 
   return (
-    <div className={cn("group relative flex w-[100%] flex-col", className)}>
+    <div className={cn('group relative flex w-[100%] flex-col', className)}>
       <label
         htmlFor={name}
         className={cn(
-          "text-base font-bold text-cardText sm:text-mb-xbase",
+          'text-sm font-bold text-secondary dark:text-main',
           labelClassName
         )}
       >
@@ -50,30 +51,31 @@ export function FieldText({
         id={name}
         onChange={onChange}
         onBlur={onBlur}
-        type={isPassword ? "password" : "text"}
         className={cn(
-          "rounded-md border-none bg-backgroundSecondary dark:bg-backgroundSecondaryDark p-2 py-3 w-full leading-4 placeholder-[#A6A6A6] sm:p-[5.097vw] sm:text-mb-xxs",
-          iconUrl && "pl-[3.5vw] sm:pl-[10vw]",
+          'w-full rounded border-none bg-backgroundSecondary p-2 py-3 leading-4 text-text placeholder-[#A6A6A6] focus:outline-none  dark:bg-backgroundSecondaryDark dark:text-textdark',
+          iconUrl && '',
           inputClassName,
-          error && "border-red-600"
+          error && 'border-red-600'
         )}
         placeholder={placeholder}
+        type={isPassword ? 'password' : 'text'}
+        {...props}
       />
       {iconUrl && (
         <div
           style={{ backgroundImage: `url('${iconUrl}')` }}
-          className="absolute left-[4%] top-[55%] h-[1.042vw] w-[1.389vw] bg-contain bg-no-repeat group-placeholder-shown:block sm:top-[60%] sm:h-[3.883vw] sm:w-[4.854vw]"
+          className='absolute left-[4%] top-[55%] h-[1.05vw] w-[1.389vw] bg-contain bg-no-repeat group-placeholder-shown:block sm:top-[60%] sm:h-[3.883vw] sm:w-[4.854vw]'
         />
       )}
-      {type === "password" && (
+      {type === 'password' && (
         <Image
           onClick={() => setIsPassword((prev) => !prev)}
           src={isPassword ? icon : iconClosed}
-          alt="password toggle"
-          className="absolute right-[2%] top-[50%]"
+          alt='password toggle'
+          className='absolute right-[2%] top-[40%] w-[2vw] sm:w-[5vw]'
         />
       )}
-      <p className="h-[2vh] sm:h-[4vw] text-xxs text-error">
+      <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
         {error?.message?.toString()}
       </p>
     </div>

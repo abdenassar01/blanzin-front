@@ -2,23 +2,51 @@
 
 import { cn, useOnHoverOutside } from '@/utils';
 import Image from 'next/image';
-import { useRouter, usePathname } from '@/navigation';
 import React, { useRef, useState } from 'react';
-import { useParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { useTheme } from 'next-themes';
+import { useI18n } from '@/utils/locales/client';
+import Link from 'next/link';
 
 type Props = {
   className?: string;
 };
 
 export default function ProfileDropdown({ className }: Props) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const params = useParams();
   const locale = useLocale();
-
+  const t = useI18n();
   const { theme } = useTheme();
+
+  const links: {
+    label: 'auth.login' | 'auth.signup' | 'auth.logout';
+    href: string;
+    icon: any;
+  }[] = [
+    {
+      label: 'auth.login',
+      href: '/login',
+      icon:
+        theme === 'dark'
+          ? require('@/assets/images/icons/dark/login.svg')
+          : require('@/assets/images/icons/light/login.svg'),
+    },
+    {
+      label: 'auth.signup',
+      href: '/register',
+      icon:
+        theme === 'dark'
+          ? require('@/assets/images/icons/dark/login.svg')
+          : require('@/assets/images/icons/light/login.svg'),
+    },
+    {
+      label: 'auth.logout',
+      href: '/register',
+      icon:
+        theme === 'dark'
+          ? require('@/assets/images/icons/dark/login.svg')
+          : require('@/assets/images/icons/light/login.svg'),
+    },
+  ];
 
   const dropdownRef = useRef(null);
 
@@ -62,10 +90,24 @@ export default function ProfileDropdown({ className }: Props) {
           className
         )}
       >
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias obcaecati
-        debitis, reiciendis suscipit, earum voluptates distinctio nihil ad hic
-        eos numquam dolore in quod maxime. Tenetur, sunt. Quod, quae rem?
-        {/* TODO: hallo */}
+        {React.Children.toArray(
+          links.map((link) => (
+            <Link
+              dir='ltr'
+              href={link.href}
+              className={cn(
+                'bg-transparent flex items-center gap-1 rounded p-2 text-text hover:text-secondary dark:text-textdark dark:hover:text-main'
+              )}
+            >
+              <Image
+                className='w-[2.5vw] sm:w-[9vw]'
+                alt={link.label}
+                src={link.icon}
+              />
+              <span className='font-semibold'>{t(link.label)}</span>
+            </Link>
+          ))
+        )}
       </div>
     </div>
   );

@@ -56,8 +56,9 @@ export default {
     'call-to-action-paragraph':
       "Welcome to Blanzin, where your professional journey begins anew. Whether you're starting fresh or bringing experience, opportunities abound here.",
     'call-to-action':
-      'Are you ready to <strong>hire</strong> an <strong>Expert?</strong>',
-    'call-to-action-btn': 'Place your order now!',
+      'Register today and start your journey to <strong>success</strong>',
+    'call-to-action-btn': 'Start now!',
+    'slider-header': 'Latest job offers',
   },
   expert: {
     'hero-text': 'Become a Blanzin partner now and receive orders!',
@@ -69,6 +70,7 @@ export default {
       'Are you ready to <strong>BOOST</strong> an <strong>REVENUE?</strong>',
     'call-to-action-btn': 'Find your next project!',
     'latest-training': 'Latest training offers',
+    'slider-header': 'Latest orders',
   },
   trainee: {
     'hero-text': 'Are you looking for a vocational training in Germany?',
@@ -79,6 +81,7 @@ export default {
     'call-to-action':
       'Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY!</strong>',
     'call-to-action-btn': 'Start now!',
+    'slider-header': 'Latest training offers',
   },
   'download-app-heading': 'Get your task done without lifting a finger!',
   'download-app-btn-text': 'Download the App',
@@ -110,8 +113,46 @@ export default {
     'find-expert-step-two': 'show your interest',
     'find-expert-step-three': 'Contact and arrange',
   },
+  auth: {
+    'login-heading': 'Welcome back!',
+    'login-text': 'Great to see you again!',
+    'forget-password': 'Forget your password?',
+    'dont-have-account': "Don't have an account?",
+    'create-account': 'Create an account!',
+    'already-have-account': 'Already have an account?',
+    login: 'Login',
+    signup: 'Sign Up',
+    logout: 'Logout',
+  },
+  role: {
+    trainee: 'Trainee',
+    expert: 'Expert',
+    customer: 'Customer',
+    employee: 'Employee',
+  },
+  contact: {
+    heading: 'Contact Us',
+    text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
+    send: 'Send',
+  },
+  forms: {
+    email: 'Email',
+    password: 'Password',
+    'password-confirm': 'Password confirm',
+    username: 'Username',
+    fullname: 'Fullname',
+    message: 'Message',
+    phone: 'Phone',
+    profile: 'Select a profile type',
+    'phone-verification': 'Phone verification',
+  },
   blog: {
     header: 'Blogs',
+  },
+  button: {
+    next: 'Next',
+    prev: 'Prevouis',
+    submit: 'Finish',
   },
   arabic: 'Arabic',
   english: 'English',

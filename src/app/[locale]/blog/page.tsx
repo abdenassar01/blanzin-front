@@ -10,7 +10,7 @@ export default async function Blogs() {
         className='mb-4 text-center text-2xl'
         heading={t('blog.header')}
       />
-      <div className='container flex flex-wrap justify-between'>
+      <div className='container flex flex-wrap justify-between gap-y-5'>
         <BlogCard />
         <BlogCard />
         <BlogCard />

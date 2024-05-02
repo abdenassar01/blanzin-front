@@ -9,7 +9,7 @@ export async function LatestOrders() {
     <div className='bg-background py-12 dark:bg-backgroundDark'>
       <div className='container'>
         <div className='flex items-center justify-between text-xbase'>
-          <Heading className='' heading={t('expert.latest-training')} />
+          <Heading className='' heading={t('expert.slider-header')} />
           <Link className='text-xs text-[#3fb0fc]' href='/orders'>
             {t('view-all')}
           </Link>

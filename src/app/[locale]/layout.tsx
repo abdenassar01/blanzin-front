@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <body className={cn(locale === 'ar' ? 'font-cairo' : 'font-montserrat')}>
         <I18nProvider locale={locale}>
-          <main className='min-h-[100vh] bg-background font-montserrat dark:bg-backgroundDark'>
+          <main className='min-h-[100vh] overflow-x-hidden bg-background font-montserrat dark:bg-backgroundDark'>
             <Header />
             {children}
             <Footer />

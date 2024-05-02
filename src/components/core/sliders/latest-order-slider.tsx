@@ -10,14 +10,15 @@ export function LatestOrderSlider() {
   const date = new Date();
   return (
     <Slider
+      arrows={false}
       className='my-5'
-      // slidesToShow={3.2}
       responsive={[
         {
           breakpoint: 2600,
           settings: {
-            slidesToShow: 3.2,
-            slidesToScroll: 1,
+            slidesToShow: 3,
+            slidesToScroll: 2,
+            centerMode: true,
           },
         },
         {

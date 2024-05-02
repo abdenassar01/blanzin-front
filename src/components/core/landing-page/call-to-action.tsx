@@ -3,10 +3,10 @@ import {
   Heading,
   ImageShapeMaker,
   ImageShapeMakerSvg,
-} from "@/components";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+} from '@/components';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 type Props = {
   heading: string;
@@ -26,30 +26,30 @@ export function CallToAction({
   screenshot,
 }: Props) {
   return (
-    <section className="bg-backgroundSecondary dark:bg-backgroundSecondaryDark py-12">
-      <div className="flex container justify-center items-center">
-        <div className="flex flex-col justify-center gap-8 w-[60%] sm:w-full">
-          <div className="text-2xl">
-            <Heading className="" heading={heading} />
+    <section className='bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
+      <div className='container flex items-center justify-center'>
+        <div className='flex w-[60%] flex-col justify-center gap-8 sm:w-full'>
+          <div className='text-2xl'>
+            <Heading className='' heading={heading} />
           </div>
-          <p className="text-secondary dark:text-textdark w-[80%] sm:w-[full]">
+          <p className='w-[80%] text-secondary sm:w-[full] dark:text-textdark'>
             {paragraph}
           </p>
           <div
             dangerouslySetInnerHTML={{ __html: callToActionText }}
-            className="text-xbase text-secondary prose-strong:uppercase prose-strong:text-xxl"
+            className='text-xbase text-secondary prose-strong:text-xxl prose-strong:uppercase'
           />
-          <Button className="group" theme="secondary" width="40%">
+          <Button className='group' theme='secondary' width='40%'>
             <Link
-              className="font-semibold text-main group-hover:text-secondary"
+              className='font-semibold text-main group-hover:text-secondary'
               href={href}
             >
               {buttonText}
             </Link>
           </Button>
         </div>
-        <div className="w-[40%] flex justify-center items-center">
-          <div className="">
+        <div className='flex w-[40%] items-center justify-center'>
+          <div className=''>
             <ImageShapeMakerSvg id={screenshot} screenshot={screenshot} />
           </div>
         </div>
