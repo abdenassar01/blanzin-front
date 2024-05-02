@@ -1,7 +1,10 @@
+import { RegisterForm } from '@/components';
 import React from 'react';
 
-type Props = {};
-
-export default function RegisterPage({}: Props) {
-  return <div>RegisterPage</div>;
+export default function RegisterPage() {
+  return (
+    <div>
+      <RegisterForm />
+    </div>
+  );
 }

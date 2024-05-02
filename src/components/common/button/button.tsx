@@ -30,10 +30,10 @@ export const Button = ({
       disabled={disabled}
       style={{ width: width || '100%' }}
       className={cn(
-        'items-center justify-center rounded border-[1px] border-main p-3 transition-all ease-in-out',
+        'group items-center justify-center rounded border-[1px] border-main p-3 transition-all ease-in-out',
 
         theme === 'primary'
-          ? 'bg-main text-secondary hover:border-main hover:text-main'
+          ? 'bg-main text-secondary hover:border-main hover:bg-[transparent] hover:text-main'
           : theme === 'secondary'
             ? 'border-secondary bg-secondary hover:border-secondary hover:bg-[transparent]'
             : theme === 'success'
@@ -51,9 +51,9 @@ export const Button = ({
       ) : (
         <TranslatedText
           className={cn(
-            'font-medium',
+            'font-medium group-hover:text-main',
             theme === 'secondary' || theme === 'tertiary'
-              ? 'text-main hover:text-secondary'
+              ? 'text-main group-hover:text-secondary'
               : theme === 'primary'
                 ? 'text-secondary '
                 : 'text-white',

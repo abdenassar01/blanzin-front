@@ -123,6 +123,12 @@ export default {
     signup: 'Sign Up',
     logout: 'Logout',
   },
+  role: {
+    trainee: 'Trainee',
+    expert: 'Expert',
+    customer: 'Customer',
+    employee: 'Employee',
+  },
   contact: {
     heading: 'Contact Us',
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
@@ -131,12 +137,20 @@ export default {
   forms: {
     email: 'Email',
     password: 'Password',
+    'password-confirm': 'Password confirm',
     username: 'Username',
     fullname: 'Fullname',
     message: 'Message',
+    phone: 'Phone',
+    profile: 'Select a profile type',
   },
   blog: {
     header: 'Blogs',
+  },
+  button: {
+    next: 'Next',
+    prev: 'Prevouis',
+    submit: 'Finish',
   },
   arabic: 'Arabic',
   english: 'English',

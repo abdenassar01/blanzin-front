@@ -13,8 +13,8 @@ export function LoginForm() {
     <div className='flex flex-col gap-3'>
       <FieldText
         control={control}
-        label={t('forms.username')}
-        placeholder={t('forms.username')}
+        label={t('forms.phone')}
+        placeholder='0666666666'
         name='username'
       />
       <div className=''>

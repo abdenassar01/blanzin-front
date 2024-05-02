@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react";
-import { Button, TranslatedText } from "../..";
-import { Control, useController } from "react-hook-form";
-import Image from "next/image";
-import { cn } from "@/utils";
+import React, { ReactNode } from 'react';
+import { Button, TranslatedText } from '../..';
+import { Control, useController } from 'react-hook-form';
+import Image from 'next/image';
+import { cn } from '@/utils';
 
 type Props = {
   control: Control<any>;
@@ -29,36 +29,55 @@ export function UploadAvatar({
 
   return (
     <>
-      <div className="w-full flex justify-center">
+      <div className='flex w-full justify-center'>
         <TranslatedText
-          tranlationKey={label || "avatar"}
-          className="font-bold capitalize text-secondary dark:text-main"
+          tranlationKey={label || 'avatar'}
+          className='font-bold capitalize text-secondary dark:text-main'
         />
       </div>
       <label
         htmlFor={name}
-        className={cn("w-full flex justify-center items-center", className)}
+        className={cn(
+          'relative flex w-full items-center justify-center',
+          className
+        )}
       >
         <Image
-          alt=""
-          className={cn("w-[15vw] sm:w-[40vw] rounded", imgClassName)}
-          src={value || require("@/assets/images/avatar.png")}
+          width={100}
+          height={100}
+          alt=''
+          className={cn(
+            'w-[6vw] rounded sm:w-[12vw]',
+            imgClassName,
+            value ? 'border-2 border-success' : ''
+          )}
+          src={require('@/assets/images/avatar.png')}
         />
-        <div className="items-center">
+        {!value && (
+          <Image
+            alt=''
+            className={cn(
+              'absolute bottom-0 right-[40%] w-[2vw] rounded-full bg-secondary p-1 sm:w-[12vw]'
+            )}
+            src={require('@/assets/images/icons/dark/upload.svg')}
+          />
+        )}
+
+        <div className='items-center'>
           <input
             id={name}
             onChange={(e) => {
               onChange(e.currentTarget.value);
               console.log(e.currentTarget.value);
             }}
-            type="file"
-            className="hidden"
+            type='file'
+            className='hidden'
           />
         </div>
       </label>
       <TranslatedText
-        tranlationKey={error?.message || ""}
-        className="h-[15px] pl-1 text-[10px] text-error"
+        tranlationKey={error?.message || ''}
+        className='h-[15px] pl-1 text-[10px] text-error'
       />
     </>
   );
