@@ -153,6 +153,8 @@ export default {
     'filter-trainee': 'Jobs in Germany',
     'filter-news': 'Morocco news',
   },
+  'faq-heading':
+    'In our FAQ you will find answers to the most important questions',
   button: {
     next: 'Next',
     prev: 'Prevouis',
