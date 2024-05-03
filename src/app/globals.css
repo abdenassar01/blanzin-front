@@ -17,6 +17,15 @@
   }
 }
 
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+}
+
 @layer base {
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button,

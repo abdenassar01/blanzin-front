@@ -10,8 +10,10 @@ export default async function FAQ() {
       <div className='container '>
         <div className=''>
           <Heading className='text-2xl' heading={t('links.faq')} />
-          <div className='flex'>
-            <h4 className='w-[50%] sm:w-[100%]'>{t('faq-heading')}</h4>
+          <div className='flex sm:flex-col'>
+            <h4 className='mr-4 min-w-[30vw] sm:w-[100%]'>
+              {t('faq-heading')}
+            </h4>
             <FaqFilter />
           </div>
         </div>

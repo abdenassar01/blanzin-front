@@ -25,21 +25,24 @@ export function TextToggle({
   return (
     <div className='flex w-[100%] flex-col rounded bg-backgroundSecondary p-2'>
       <button
-        className='mb-1 flex cursor-pointer justify-between'
+        className='mb-1 flex cursor-pointer items-start justify-between'
         onClick={() => {
           setOpen(!open);
         }}
       >
         <div
           className={cn(
-            'text-base text-secondary sm:text-mb-base',
+            'mr-2 text-justify text-base text-secondary sm:text-mb-base',
             open ? 'sm:text-[5.340vw]' : ''
           )}
         >
           {question}
         </div>
         <Image
-          className={cn('w-[2vw] transition-all', open ? 'rotate-180' : '')}
+          className={cn(
+            'mt-1 w-[2vw] transition-all sm:w-[5vw]',
+            open ? 'rotate-180' : ''
+          )}
           src={icon}
           alt='toggle element'
         />

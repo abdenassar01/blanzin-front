@@ -21,7 +21,7 @@ export function FaqFilter() {
   ];
 
   return (
-    <div className='container my-3 flex gap-3'>
+    <div className='no-scrollbar container my-3 flex gap-3 overflow-scroll'>
       {React.Children.toArray(
         tabs.map((item) => (
           <Link
