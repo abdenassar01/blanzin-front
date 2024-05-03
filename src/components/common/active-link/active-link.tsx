@@ -10,6 +10,7 @@ type Props = {
   children: ReactNode;
   link: string;
   activeClassName?: string;
+  active?: boolean;
 };
 
 export function ActiveLink({
@@ -17,18 +18,24 @@ export function ActiveLink({
   className,
   children,
   activeClassName,
+  active,
 }: Props) {
   const pathname = usePathname();
-  console.log('Pathname: ', pathname);
-  console.log('current-link: ', link);
+
   return (
     <Link
       className={cn(
-        'font-[500] text-text hover:text-secondary dark:text-textdark dark:hover:text-main',
+        'font-[500] hover:text-secondary dark:hover:text-main',
         className,
-        pathname === link
+        (
+          active
+            ? ['/customer', '/expert', '/trainee', '/employee'].includes(
+                pathname
+              )
+            : pathname.startsWith(link)
+        )
           ? cn('text-secondary dark:text-main', activeClassName)
-          : ''
+          : ' text-text dark:text-textdark'
       )}
       href={link}
     >
