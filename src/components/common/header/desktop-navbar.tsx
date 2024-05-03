@@ -11,7 +11,9 @@ export default function DesktopNavbar() {
     <div className='sm:hidde mr-5 flex items-center gap-5 sm:hidden'>
       {React.Children.toArray(
         routes.map((item) => (
-          <ActiveLink link={item.link || ''}>{t(item.text)}</ActiveLink>
+          <ActiveLink active={item.link === '/'} link={item.link || ''}>
+            {t(item.text)}
+          </ActiveLink>
         ))
       )}
     </div>

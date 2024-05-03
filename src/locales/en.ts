@@ -147,7 +147,11 @@ export default {
     'phone-verification': 'Phone verification',
   },
   blog: {
-    header: 'Blogs',
+    header: 'Welcome to the Blanzin Blog',
+    'filter-all': 'All',
+    'filter-jobs': 'Trainee in Germany',
+    'filter-trainee': 'Jobs in Germany',
+    'filter-news': 'Morocco news',
   },
   button: {
     next: 'Next',

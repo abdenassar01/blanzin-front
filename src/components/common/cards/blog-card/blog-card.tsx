@@ -5,7 +5,10 @@ import React from 'react';
 
 export function BlogCard() {
   return (
-    <Link href='/blog/12' className='group w-[32%] cursor-pointer sm:w-full'>
+    <Link
+      href='/blog/the-best-way-to-find'
+      className='group w-[32%] cursor-pointer sm:w-full'
+    >
       <Image
         width={300}
         height={200}
