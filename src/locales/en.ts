@@ -1,6 +1,7 @@
 export default {
   heading: {
     welcome: 'Welcome, how can we help you?',
+    'jobs-page': 'Finds your suitable job',
   },
   errors: {
     'page-not-found': 'Page Not Found!',
