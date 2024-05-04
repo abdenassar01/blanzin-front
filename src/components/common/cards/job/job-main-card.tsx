@@ -4,7 +4,7 @@ import { truncateString } from '@/utils';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 type Props = {};
 
@@ -32,6 +32,8 @@ export function JobMainCard({}: Props) {
     },
   ];
 
+  const [favourite, setFavourite] = useState<boolean>(false);
+
   const { theme } = useTheme();
 
   return (
@@ -48,7 +50,7 @@ export function JobMainCard({}: Props) {
           alt=''
         />
         <div className='flex flex-col justify-between'>
-          <div className='text-mainText font-bold'>
+          <div className='font-bold text-mainText'>
             Select Hotel Erlangen logo Cook / Koch - „Der Lebensmittel-Artist
           </div>
           <div className='my-2 flex flex-wrap gap-3'>
@@ -60,7 +62,7 @@ export function JobMainCard({}: Props) {
                     alt=''
                     src={theme === 'dark' ? tab.darkIcon : tab.icon}
                   />
-                  <p className='text-mainText text-sm'>{tab.text}</p>
+                  <p className='text-sm text-mainText'>{tab.text}</p>
                 </div>
               ))
             )}
@@ -72,12 +74,22 @@ export function JobMainCard({}: Props) {
             )}
           </div>
           <div className='flex items-center justify-between'>
-            <p className='text-text'>in 12 days</p>
-            <Image
-              alt=''
-              className='w-[2vw]'
-              src={require('@/assets/images/icons/dark/organisation.svg')}
-            />
+            <p className='text-xs text-text'>in 12 days</p>
+            <button onClick={() => setFavourite((prev) => !prev)}>
+              <Image
+                alt=''
+                className='w-[2vw]'
+                src={
+                  favourite
+                    ? theme === 'dark'
+                      ? require('@/assets/images/icons/dark/favourite-fill.svg')
+                      : require('@/assets/images/icons/light/favourite-fill.svg')
+                    : theme === 'dark'
+                      ? require('@/assets/images/icons/dark/favourite.svg')
+                      : require('@/assets/images/icons/light/favourite.svg')
+                }
+              />
+            </button>
           </div>
         </div>
       </div>
