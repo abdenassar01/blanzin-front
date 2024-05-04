@@ -19,7 +19,7 @@ export function FilterSelector() {
   ];
 
   return (
-    <div className='container my-3 flex gap-3'>
+    <div className='container my-10 flex gap-3'>
       {React.Children.toArray(
         tabs.map((item) => (
           <Link
