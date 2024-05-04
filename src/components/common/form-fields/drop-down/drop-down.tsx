@@ -80,13 +80,17 @@ export function Dropdown<T>({
           onFocus={() => setDisplayString('')}
           onChange={(e) => {
             setDisplayString(e.currentTarget.value);
-            setFiltredItems(
-              items.filter((item) =>
-                extractDisplayMember(item)
-                  .toLowerCase()
-                  .startsWith(displayString.toLowerCase())
-              )
-            );
+            if (e.currentTarget.value === '') {
+              setFiltredItems(items);
+            } else {
+              setFiltredItems(
+                items.filter((item) =>
+                  extractDisplayMember(item)
+                    .toLowerCase()
+                    .startsWith(displayString.toLowerCase())
+                )
+              );
+            }
           }}
           value={displayString}
         />
@@ -101,7 +105,7 @@ export function Dropdown<T>({
       </p>
       <div
         className={cn(
-          'absolute top-20 isolate z-10 w-full min-w-[22vw] cursor-pointer overflow-x-hidden rounded-[4px] bg-white shadow-md transition-all ease-out sm:top-[22.816vw] sm:w-[70vw]',
+          'absolute top-12 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-white shadow-md transition-all ease-out sm:top-[22.816vw] sm:w-[70vw]',
           openDropdown ? 'h-[200px]' : 'h-0'
         )}
       >
