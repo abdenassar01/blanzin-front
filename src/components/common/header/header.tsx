@@ -5,6 +5,7 @@ import HeaderMobile from './header-mobile';
 import LanguagesToggle from './languages-toggle';
 import ProfileDropdown from './profile-dropdown';
 import Link from 'next/link';
+import { ThemeToggle } from './theme-toggle';
 
 export function Header() {
   return (
@@ -27,6 +28,7 @@ export function Header() {
           <ProfileDropdown />
           <LanguagesToggle />
           <HeaderMobile />
+          <ThemeToggle />
         </div>
       </div>
     </header>
