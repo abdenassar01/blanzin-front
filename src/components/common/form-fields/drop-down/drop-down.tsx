@@ -105,7 +105,7 @@ export function Dropdown<T>({
       </p>
       <div
         className={cn(
-          'absolute top-12 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-white shadow-md transition-all ease-out sm:top-[22.816vw] sm:w-[70vw]',
+          'absolute top-14 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out sm:top-[22.816vw] sm:w-[70vw] dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21]',
           openDropdown ? 'h-[200px]' : 'h-0'
         )}
       >
@@ -118,7 +118,7 @@ export function Dropdown<T>({
                   onChange(extractValueMember(item));
                   setOpenDropdown(false);
                 }}
-                className='flex w-full px-[24px] py-[14px] hover:bg-[#dadadb]'
+                className='flex w-full px-[24px] py-[14px] font-medium text-secondary hover:bg-[#dadadb] dark:text-main dark:hover:bg-backgroundDark'
               >
                 <div>{extractDisplayMember(item)}</div>
               </div>

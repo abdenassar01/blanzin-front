@@ -14,7 +14,7 @@ export function JobsFilter({}: Props) {
 
   return (
     <div className='my-3 flex flex-col items-center justify-center'>
-      <div className='flex w-[50vw] gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 sm:w-full'>
+      <div className='flex w-[50vw] gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 sm:w-full dark:bg-backgroundSecondaryDark'>
         <Image
           alt=''
           className='w-[2vw]'
@@ -24,7 +24,7 @@ export function JobsFilter({}: Props) {
           onChange={(e) => push(`?query=${e.currentTarget.value}`)}
           placeholder='query'
           type='text'
-          className='w-full caret-[#CFD6E7] focus:border-none focus:outline-none'
+          className='w-full bg-backgroundSecondary caret-[#CFD6E7] focus:border-none focus:outline-none dark:bg-backgroundSecondaryDark'
         />
       </div>
       <div className='mt-5 flex gap-4'>
@@ -39,7 +39,7 @@ export function JobsFilter({}: Props) {
         />
         <Dropdown
           control={control}
-          items={['item', 'item']}
+          items={['item', 'second item', 'Hello']}
           extractDisplayMember={(item) => item}
           extractValueMember={(item) => item}
           label=''

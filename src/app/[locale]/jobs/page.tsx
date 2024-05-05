@@ -8,9 +8,9 @@ export default async function JobsPage() {
     <div className='bg-background bg-contain bg-no-repeat py-12 dark:bg-backgroundSecondaryDark'>
       <div className='container flex flex-col items-center justify-center'>
         <div className='w-[80%]'>
-          <div className='text-secondary'>
+          <div className='my-3 text-secondary'>
             <Heading
-              className='text-center text-xxl'
+              className='mb-5 text-center text-xxl'
               heading={t('heading.jobs-page')}
             />
             <JobsFilter />

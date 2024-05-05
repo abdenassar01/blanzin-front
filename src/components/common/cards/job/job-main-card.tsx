@@ -50,7 +50,7 @@ export function JobMainCard({}: Props) {
           alt=''
         />
         <div className='flex flex-col justify-between'>
-          <div className='font-bold text-mainText'>
+          <div className='font-bold text-mainText dark:text-textdark'>
             Select Hotel Erlangen logo Cook / Koch - „Der Lebensmittel-Artist
           </div>
           <div className='my-2 flex flex-wrap gap-3'>
@@ -62,7 +62,9 @@ export function JobMainCard({}: Props) {
                     alt=''
                     src={theme === 'dark' ? tab.darkIcon : tab.icon}
                   />
-                  <p className='text-sm text-mainText'>{tab.text}</p>
+                  <p className='text-sm text-mainText dark:text-textdark'>
+                    {tab.text}
+                  </p>
                 </div>
               ))
             )}
