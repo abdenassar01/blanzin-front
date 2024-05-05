@@ -19,7 +19,7 @@ export function ThemeToggle() {
   return (
     <div onClick={handleToggleTheme} className=''>
       <Image
-        className='w-[2vw]'
+        className='w-[2vw] sm:w-[6vw]'
         alt=''
         src={
           theme === 'dark'

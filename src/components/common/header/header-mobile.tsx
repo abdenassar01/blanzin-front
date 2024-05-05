@@ -7,11 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { Button } from '../button';
+import { useTheme } from 'next-themes';
 
 export default function HeaderMobile() {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
   const t = useI18n();
+  const { theme } = useTheme();
 
   return (
     <div className='hidden sm:flex'>
@@ -21,18 +23,22 @@ export default function HeaderMobile() {
           height={40}
           className='w-[7vw] '
           alt=''
-          src='/menu.svg'
+          src={
+            theme === 'dark'
+              ? require('@/assets/images/icons/dark/menu.svg')
+              : require('@/assets/images/icons/light/menu.svg')
+          }
         />
       </button>
       <div
         className={cn(
-          'absolute right-0 top-0 z-10 h-[100vh] rounded-l-xl bg-backgroundSecondary shadow transition-all duration-500 ease-in-out dark:bg-backgroundSecondaryDark',
-          showSidebar ? 'w-[80%]' : '-right-20 w-0'
+          'absolute right-0 top-0 z-10 grid h-[100vh] overflow-y-hidden rounded-l-xl bg-backgroundSecondary shadow transition-all duration-500 ease-in-out dark:bg-backgroundSecondaryDark',
+          showSidebar ? 'w-[70%]' : 'w-0'
         )}
       >
         <div
           onClick={() => setShowSidebar(false)}
-          className='h-[95%] cursor-pointer p-2'
+          className={cn(' h-[95%] cursor-pointer p-2')}
         >
           <Image
             alt=''
