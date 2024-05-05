@@ -88,7 +88,7 @@ export default function LanguagesToggle({ className }: Props) {
       />
       <div
         className={cn(
-          'absolute top-[70px] flex min-w-[220px] flex-col rounded border-t-4 border-secondary bg-white shadow-md transition-all duration-500 dark:border-main',
+          'absolute top-[70px] flex min-w-[220px] flex-col rounded border-t-4 border-secondary bg-backgroundSecondary shadow-md transition-all duration-500 dark:border-main dark:bg-backgroundSecondaryDark',
           showLanguesDropdown ? 'top-10  z-20 opacity-100' : '-z-10 opacity-0',
           locale === 'ar' ? '-left-4' : '-right-4',
           className

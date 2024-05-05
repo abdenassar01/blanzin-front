@@ -32,7 +32,7 @@ export function WalkThroughtSteps({ steps, header }: Props) {
                   {item.step}
                 </div>
               </div>
-              <p className='w-[220px] text-center text-base font-bold text-secondary'>
+              <p className='w-[220px] text-center text-base font-bold text-secondary dark:text-textdark'>
                 {item.text}
               </p>
             </div>

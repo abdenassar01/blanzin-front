@@ -37,11 +37,15 @@ export function CallToAction({
           </p>
           <div
             dangerouslySetInnerHTML={{ __html: callToActionText }}
-            className='text-xbase text-secondary prose-strong:text-xxl prose-strong:uppercase'
+            className='text-xbase text-secondary prose-strong:text-xxl prose-strong:uppercase dark:text-main'
           />
-          <Button className='group' theme='secondary' width='40%'>
+          <Button
+            className='group dark:hover:border-main'
+            theme='secondary'
+            width='40%'
+          >
             <Link
-              className='font-semibold text-main group-hover:text-secondary'
+              className='font-semibold text-main group-hover:text-secondary dark:group-hover:text-main'
               href={href}
             >
               {buttonText}
