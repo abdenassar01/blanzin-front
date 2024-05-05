@@ -36,6 +36,21 @@
   }
 }
 
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f8e804;
+  width: 5px;
+  border-radius: 99px;
+}
+
 .rodal-dialog {
   padding: 0;
 }
