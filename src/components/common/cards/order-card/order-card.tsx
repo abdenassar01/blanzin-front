@@ -1,6 +1,6 @@
 'use client';
 
-import { truncateString } from '@/utils';
+import { cn, truncateString } from '@/utils';
 import { useI18n } from '@/utils/locales/client';
 import moment from 'moment';
 import Image from 'next/image';
@@ -13,6 +13,7 @@ type Props = {
   desc: string;
   createdAt: Date;
   location: string;
+  className?: string;
 };
 
 export function OrderCard({
@@ -21,20 +22,21 @@ export function OrderCard({
   image,
   location,
   orderTitle,
+  className,
 }: Props) {
   const t = useI18n();
 
   return (
     <Link
       href={`/orders/${orderTitle.toLocaleLowerCase().replaceAll(' ', '-')}`}
-      className='text-sm text-text dark:text-textdark'
+      className={cn('w-[25vw] text-sm text-text dark:text-textdark', className)}
     >
       <Image
         src={image}
         alt=''
         width={300}
         height={250}
-        className='w-[25vw] rounded-md sm:container'
+        className='w-full rounded-md sm:container'
       />
       <h3 className='text-base font-semibold text-secondary dark:text-textdark'>
         {orderTitle}

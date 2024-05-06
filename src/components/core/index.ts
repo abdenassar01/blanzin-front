@@ -4,3 +4,4 @@ export * from './auth';
 export * from './blog';
 export * from './faq';
 export * from './jobs-filter';
+export * from './sidebar-filter';
