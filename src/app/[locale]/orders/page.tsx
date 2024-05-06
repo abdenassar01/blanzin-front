@@ -55,6 +55,30 @@ export default function OrdersPage() {
             orderTitle='This is the order title'
             className='w-[32%]'
           />
+          <OrderCard
+            createdAt={new Date()}
+            desc='Hallo'
+            image='/house.jpg'
+            location='Marrakech'
+            orderTitle='This is the order title'
+            className='w-[32%]'
+          />
+          <OrderCard
+            createdAt={new Date()}
+            desc='Hallo'
+            image='/house.jpg'
+            location='Marrakech'
+            orderTitle='This is the order title'
+            className='w-[32%]'
+          />
+          <OrderCard
+            createdAt={new Date()}
+            desc='Hallo'
+            image='/house.jpg'
+            location='Marrakech'
+            orderTitle='This is the order title'
+            className='w-[32%]'
+          />
         </div>
       </div>
     </div>
