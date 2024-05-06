@@ -22,6 +22,13 @@ export default {
     support: 'Support',
     apps: 'Apps',
   },
+  'premuim-pack': {
+    header: 'Welcome to our exclusive package',
+    text: 'Discover how our platform can help you find your dream job in Germany. In this video, we show you how easy it is to take the first step towards your professional goals.',
+    'check-heading':
+      'Have you fulfilled all the requirements for the application?',
+    'check-btn': 'Check now!',
+  },
   links: {
     'find-expert': 'Find Expert',
     'become-expert': 'Become Expert',

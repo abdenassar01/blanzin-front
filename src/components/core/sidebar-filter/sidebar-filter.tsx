@@ -4,20 +4,17 @@
 import { DropdownMultipleSelect } from '@/components';
 import { appendArrayToSearchParams } from '@/utils';
 import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 
-type Props = {};
-
-export function SidebarFilter({}: Props) {
+export function SidebarFilter() {
   const { control } = useForm({
     defaultValues: {
       categories: [],
       cities: [],
     },
   });
-  const { push } = useRouter();
   const [query, setQuery] = useState('');
 
   const values = useWatch({
@@ -30,7 +27,6 @@ export function SidebarFilter({}: Props) {
     appendArrayToSearchParams(values.categories, 'categories', params);
     appendArrayToSearchParams(values.cities, 'cities', params);
     appendArrayToSearchParams(query, 'query', params);
-    console.log('executed: ', params);
   }, [values, query]);
 
   return (

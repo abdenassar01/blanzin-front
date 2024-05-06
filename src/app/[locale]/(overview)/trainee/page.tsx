@@ -38,7 +38,7 @@ export default async function TraineePage() {
       />
       <CallToAction
         heading={t('trainee.call-to-action-heading')}
-        href='/jobs'
+        href='/packs'
         paragraph={t('trainee.call-to-action-paragraph')}
         buttonText={t('trainee.call-to-action-btn')}
         callToActionText={t('trainee.call-to-action')}
