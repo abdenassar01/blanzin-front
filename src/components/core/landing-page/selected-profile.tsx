@@ -29,7 +29,7 @@ export function SelectedProfile() {
   ];
 
   return (
-    <div className='container flex w-full justify-evenly'>
+    <div className='container flex w-full justify-evenly sm:flex-col'>
       <Map
         items={profiles}
         render={(item) => (
@@ -44,10 +44,10 @@ export function SelectedProfile() {
                   <Link
                     href={profile.link}
                     className={cn(
-                      'flex h-[50px] w-[200px] items-center justify-center rounded font-semibold text-secondary shadow-md shadow-secondary transition-all ease-in-out',
+                      'flex h-[50px] w-[200px] items-center justify-center rounded font-semibold text-secondary shadow-md shadow-secondary transition-all ease-in-out dark:text-main dark:shadow-main',
                       profile.link === pathname
-                        ? 'bg-main hover:bg-main hover:text-secondary'
-                        : 'bg-backgroundSecondary hover:bg-secondary hover:text-main dark:bg-backgroundSecondaryDark'
+                        ? 'bg-main hover:bg-main hover:text-secondary dark:text-backgroundDark'
+                        : 'bg-backgroundSecondary hover:bg-secondary hover:text-main dark:bg-backgroundDark dark:hover:bg-main dark:hover:text-backgroundDark'
                     )}
                   >
                     {profile.label}

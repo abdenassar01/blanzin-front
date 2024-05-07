@@ -38,7 +38,12 @@ export const Modal = ({
       visible={visible}
       closeOnEsc
     >
-      <div className={cn('h-full w-full rounded-lg p-2', className)}>
+      <div
+        className={cn(
+          'h-full w-full rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
+          className
+        )}
+      >
         <div
           className={cn(
             'flex w-full flex-row items-center justify-between',

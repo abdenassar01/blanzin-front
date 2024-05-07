@@ -12,7 +12,7 @@ type Props = {
 
 export function WalkThroughtSteps({ steps, header }: Props) {
   return (
-    <div className='container pt-12'>
+    <div className='no-scrollbar container overflow-x-scroll pt-12'>
       <h2 className='mb-5 text-xm font-bold text-secondary dark:text-main'>
         {header}
       </h2>
@@ -32,7 +32,7 @@ export function WalkThroughtSteps({ steps, header }: Props) {
                   {item.step}
                 </div>
               </div>
-              <p className='w-[220px] text-center text-base font-bold text-secondary'>
+              <p className='w-[220px] text-center text-base font-bold text-secondary dark:text-textdark'>
                 {item.text}
               </p>
             </div>

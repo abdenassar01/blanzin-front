@@ -1,25 +1,25 @@
 export const routes: {
   id: number;
-  text: "links.home" | "links.contact-us" | "links.blog";
+  text: 'links.home' | 'links.contact-us' | 'links.blog';
   link: string;
   super: boolean;
 }[] = [
   {
     id: 1,
-    text: "links.home",
-    link: "/overview/customer",
+    text: 'links.home',
+    link: '/',
     super: true,
   },
   {
     id: 2,
-    text: "links.blog",
-    link: "/blog",
+    text: 'links.blog',
+    link: '/blog',
     super: true,
   },
   {
     id: 3,
-    text: "links.contact-us",
-    link: "/contact",
+    text: 'links.contact-us',
+    link: '/contact',
     super: true,
   },
 ];

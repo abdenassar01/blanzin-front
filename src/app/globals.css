@@ -17,6 +17,15 @@
   }
 }
 
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  }
+}
+
 @layer base {
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-inner-spin-button,
@@ -25,6 +34,21 @@
     margin: 0;
     -moz-appearance: textfield !important;
   }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f8e804;
+  width: 5px;
+  border-radius: 99px;
 }
 
 .rodal-dialog {

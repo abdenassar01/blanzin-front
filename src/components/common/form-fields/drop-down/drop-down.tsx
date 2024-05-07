@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { cn } from "@/utils";
-import { useOutsideClick } from "@/utils/hooks/use-outside-click";
-import Image from "next/image";
-import React, { useRef, useState } from "react";
-import { Control, useController } from "react-hook-form";
+import { cn } from '@/utils';
+import { useOutsideClick } from '@/utils/hooks/use-outside-click';
+import Image from 'next/image';
+import React, { useRef, useState } from 'react';
+import { Control, useController } from 'react-hook-form';
 
 type Props<T> = {
   control: Control<any>;
@@ -36,7 +36,7 @@ export function Dropdown<T>({
   const dropdownRef = useRef(null);
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
   const [displayString, setDisplayString] = useState<string>(
-    placeholder || label || ""
+    placeholder || label || ''
   );
   const [filtredItems, setFiltredItems] = useState<T[]>(items);
 
@@ -46,7 +46,7 @@ export function Dropdown<T>({
   } = useController({
     control,
     name: name,
-    defaultValue: defaultValue || "",
+    defaultValue: defaultValue || '',
   });
 
   useOutsideClick(dropdownRef, () => setOpenDropdown(false));
@@ -54,13 +54,13 @@ export function Dropdown<T>({
   return (
     <div
       ref={dropdownRef}
-      className={cn("relative flex w-[100%] flex-col", wrapperClassName || "")}
+      className={cn('relative flex w-[100%] flex-col', wrapperClassName || '')}
     >
       <label
         htmlFor={name}
         className={cn(
-          "text-sm font-bold normal-case text-secondary dark:text-main sm:text-mb-xxs",
-          labelClassName || ""
+          'text-sm font-bold normal-case text-secondary sm:text-mb-xxs dark:text-main',
+          labelClassName || ''
         )}
       >
         {label}
@@ -68,41 +68,45 @@ export function Dropdown<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          "flex w-[100%] items-center justify-between rounded-md border-none bg-backgroundSecondary dark:bg-backgroundSecondaryDark text-xs text-[#A6A6A6] sm:text-mb-xxs",
-          className || "",
-          (value || defaultValue) && "text-text dark:text-textdark",
-          (error && "border-[1px] border-error") || ""
+          'flex w-[100%] items-center justify-between rounded-full border-[1px]  border-[#CFD6E7] bg-backgroundSecondary text-xs text-[#A6A6A6] sm:text-mb-xxs dark:bg-backgroundSecondaryDark',
+          className,
+          (value || defaultValue) && 'text-text dark:text-textdark',
+          (error && 'border-[1px] border-error') || ''
         )}
       >
         <input
-          className="p-3 rounded-md w-full normal-case focus:border-none focus:outline-none"
-          type="text"
-          onFocus={() => setDisplayString("")}
+          className='w-full rounded-md bg-[transparent] p-3 normal-case focus:border-none focus:outline-none'
+          type='text'
+          onFocus={() => setDisplayString('')}
           onChange={(e) => {
             setDisplayString(e.currentTarget.value);
-            setFiltredItems(
-              items.filter((item) =>
-                extractDisplayMember(item)
-                  .toLowerCase()
-                  .startsWith(displayString.toLowerCase())
-              )
-            );
+            if (e.currentTarget.value === '') {
+              setFiltredItems(items);
+            } else {
+              setFiltredItems(
+                items.filter((item) =>
+                  extractDisplayMember(item)
+                    .toLowerCase()
+                    .startsWith(displayString.toLowerCase())
+                )
+              );
+            }
           }}
           value={displayString}
         />
         <Image
-          alt=""
-          className="w-6 v-6 mx-2"
-          src={require("@/assets/images/icons/arrow-down.svg")}
+          alt=''
+          className='v-6 mx-2 w-6'
+          src={require('@/assets/images/icons/arrow-down.svg')}
         />
       </div>
-      <p className="mb-[-1.667vw] h-[1.667vw] text-xxs text-error">
+      <p className='mb-[-1.667vw] h-[1.667vw] text-xxs text-error'>
         {error?.message}
       </p>
       <div
         className={cn(
-          "absolute top-20 isolate z-10 transition-all ease-out w-full min-w-[22vw] cursor-pointer overflow-x-hidden rounded-[4px] bg-white shadow-md sm:top-[22.816vw] sm:w-[70vw]",
-          openDropdown ? "h-[200px]" : "h-0"
+          'absolute top-14 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out sm:top-[22.816vw] sm:w-[70vw] dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21]',
+          openDropdown ? 'h-[200px]' : 'h-0'
         )}
       >
         <div>
@@ -114,7 +118,7 @@ export function Dropdown<T>({
                   onChange(extractValueMember(item));
                   setOpenDropdown(false);
                 }}
-                className="flex w-full px-[24px] py-[14px] hover:bg-[#dadadb]"
+                className='flex w-full px-[24px] py-[14px] font-medium text-secondary hover:bg-[#dadadb] dark:text-main dark:hover:bg-backgroundDark'
               >
                 <div>{extractDisplayMember(item)}</div>
               </div>

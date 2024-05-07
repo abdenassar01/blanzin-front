@@ -1,6 +1,7 @@
 export default {
   heading: {
     welcome: 'Welcome, how can we help you?',
+    'jobs-page': 'Finds your suitable job',
   },
   errors: {
     'page-not-found': 'Page Not Found!',
@@ -20,6 +21,17 @@ export default {
     blanzin: 'Blanzin',
     support: 'Support',
     apps: 'Apps',
+  },
+  application: {
+    Heading: 'Check Application Requirement',
+    'action-btn': 'Choose my package',
+  },
+  'premuim-pack': {
+    header: 'Welcome to our exclusive package',
+    text: 'Discover how our platform can help you find your dream job in Germany. In this video, we show you how easy it is to take the first step towards your professional goals.',
+    'check-heading':
+      'Have you fulfilled all the requirements for the application?',
+    'check-btn': 'Check now!',
   },
   links: {
     'find-expert': 'Find Expert',
@@ -147,8 +159,15 @@ export default {
     'phone-verification': 'Phone verification',
   },
   blog: {
-    header: 'Blogs',
+    header: 'Welcome to the Blanzin Blog',
+    'filter-all': 'All',
+    'filter-jobs': 'Trainee in Germany',
+    'filter-trainee': 'Jobs in Germany',
+    'filter-news': 'Morocco news',
   },
+  'faq-abbr': 'Frequently asked questions',
+  'faq-heading':
+    'In our FAQ you will find answers to the most important questions',
   button: {
     next: 'Next',
     prev: 'Prevouis',

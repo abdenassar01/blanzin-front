@@ -27,21 +27,25 @@ export function CallToAction({
 }: Props) {
   return (
     <section className='bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
-      <div className='container flex items-center justify-center'>
+      <div className='container flex items-center justify-center sm:flex-col-reverse sm:gap-6'>
         <div className='flex w-[60%] flex-col justify-center gap-8 sm:w-full'>
           <div className='text-2xl'>
             <Heading className='' heading={heading} />
           </div>
-          <p className='w-[80%] text-secondary sm:w-[full] dark:text-textdark'>
+          <p className='w-[80%] text-secondary dark:text-textdark sm:w-[full]'>
             {paragraph}
           </p>
           <div
             dangerouslySetInnerHTML={{ __html: callToActionText }}
-            className='text-xbase text-secondary prose-strong:text-xxl prose-strong:uppercase'
+            className='text-xbase text-secondary prose-strong:text-xxl prose-strong:uppercase dark:text-main'
           />
-          <Button className='group' theme='secondary' width='40%'>
+          <Button
+            className='group dark:hover:border-main'
+            theme='secondary'
+            width='40%'
+          >
             <Link
-              className='font-semibold text-main group-hover:text-secondary'
+              className='font-semibold text-main group-hover:text-secondary dark:group-hover:text-main'
               href={href}
             >
               {buttonText}

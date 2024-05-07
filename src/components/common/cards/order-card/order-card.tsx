@@ -1,17 +1,19 @@
 'use client';
 
-import { truncateString } from '@/utils';
+import { cn, truncateString } from '@/utils';
 import { useI18n } from '@/utils/locales/client';
 import moment from 'moment';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 type Props = {
   image: string;
   orderTitle: string;
   desc: string;
-  createdAt: string;
+  createdAt: Date;
   location: string;
+  className?: string;
 };
 
 export function OrderCard({
@@ -20,28 +22,38 @@ export function OrderCard({
   image,
   location,
   orderTitle,
+  className,
 }: Props) {
   const t = useI18n();
 
   return (
-    <div className='text-sm text-text dark:text-textdark'>
+    <Link
+      href={`/orders/${orderTitle.toLocaleLowerCase().replaceAll(' ', '-')}`}
+      className={cn('w-[25vw] text-sm text-text dark:text-textdark', className)}
+    >
       <Image
         src={image}
         alt=''
         width={300}
         height={250}
-        className='w-[25vw] rounded-md sm:container'
+        className='w-full rounded-md sm:container'
       />
-      <h3 className='text-base font-semibold text-secondary'>{orderTitle}</h3>
+      <h3 className='text-base font-semibold text-secondary dark:text-textdark'>
+        {orderTitle}
+      </h3>
       <div className=''>
-        <span className='font-medium text-secondary'>{t('location')}: </span>
-        {location}
+        <span className='font-medium text-secondary dark:text-main'>
+          {t('location')}:
+        </span>
+        {` ${location}`}
       </div>
       <div className=''>
-        <span className='font-medium text-secondary'>{t('date')}: </span>
-        {`${moment('dd/MM/yyyy').format(createdAt)}`}
+        <span className='font-medium text-secondary dark:text-main'>
+          {t('date')}:
+        </span>
+        {` ${moment('dd/MM/yyyy').format(createdAt.toISOString())}`}
       </div>
       <div className=''>{truncateString(desc, 70)}</div>
-    </div>
+    </Link>
   );
 }

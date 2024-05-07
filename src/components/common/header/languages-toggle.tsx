@@ -7,6 +7,7 @@ import React, { startTransition, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import { useI18n } from '@/utils/locales/client';
+import { useTheme } from 'next-themes';
 
 const languages: {
   value: string;
@@ -42,6 +43,8 @@ export default function LanguagesToggle({ className }: Props) {
 
   const t = useI18n();
 
+  const { theme } = useTheme();
+
   function onLangClick(nextLocale: string) {
     startTransition(() => {
       //@ts-ignore
@@ -69,7 +72,11 @@ export default function LanguagesToggle({ className }: Props) {
       >
         <Image
           className='h-auto w-[2vw] sm:w-[6vw]'
-          src={require('@/assets/images/svg/language.svg')}
+          src={
+            theme === 'dark'
+              ? require('@/assets/images/icons/dark/language.svg')
+              : require('@/assets/images/icons/light/language.svg')
+          }
           alt='language'
         />
       </div>
@@ -81,7 +88,7 @@ export default function LanguagesToggle({ className }: Props) {
       />
       <div
         className={cn(
-          'absolute top-[70px] flex min-w-[220px] flex-col rounded border-t-4 border-secondary bg-white shadow-md transition-all duration-500 dark:border-main',
+          'absolute top-[70px] flex min-w-[220px] flex-col rounded border-t-4 border-secondary bg-backgroundSecondary shadow-md transition-all duration-500 dark:border-main dark:bg-backgroundSecondaryDark',
           showLanguesDropdown ? 'top-10  z-20 opacity-100' : '-z-10 opacity-0',
           locale === 'ar' ? '-left-4' : '-right-4',
           className
