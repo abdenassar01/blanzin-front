@@ -19,6 +19,12 @@ const nextConfig = {
         permanent: true,
         locale: false,
       },
+      {
+        source: '/application',
+        destination: '/application/overview',
+        permanent: true,
+        locale: false,
+      },
     ];
   },
 };

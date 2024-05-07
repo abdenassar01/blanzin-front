@@ -32,7 +32,7 @@ export default async function PacksPage() {
             theme='secondary'
           >
             <Link
-              href='/application'
+              href='/application/requirements'
               className='text-white group-hover:text-secondary'
             >
               {t('check-btn')}
