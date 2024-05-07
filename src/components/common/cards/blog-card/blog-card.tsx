@@ -1,13 +1,17 @@
-import { truncateString } from '@/utils';
+import { cn, truncateString } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-export function BlogCard() {
+type Props = {
+  className?: string;
+};
+
+export function BlogCard({ className }: Props) {
   return (
     <Link
       href='/blog/the-best-way-to-find'
-      className='group w-[32%] cursor-pointer sm:w-full'
+      className={cn('group w-[32%] cursor-pointer sm:w-full', className)}
     >
       <Image
         width={300}

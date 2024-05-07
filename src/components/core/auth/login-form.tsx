@@ -34,7 +34,7 @@ export function LoginForm() {
         </div>
       </div>
       <Button className='mt-6' text={t('auth.login')} />
-      <div className='flex justify-center gap-1'>
+      <div className='flex justify-center gap-1 sm:flex-col'>
         {t('auth.dont-have-account')}
         <Link text={t('auth.create-account')} url='/register' />
       </div>

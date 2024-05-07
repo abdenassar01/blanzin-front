@@ -43,7 +43,11 @@ export default function HeaderMobile() {
           <Image
             alt=''
             className='w-[6vw]'
-            src={require('@/assets/images/icons/light/close.svg')}
+            src={
+              theme === 'dark'
+                ? require('@/assets/images/icons/dark/close.svg')
+                : require('@/assets/images/icons/light/close.svg')
+            }
           />
           <div className='mt-3 flex h-full flex-col justify-between'>
             <div className=''>

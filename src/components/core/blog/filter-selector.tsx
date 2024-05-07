@@ -19,22 +19,24 @@ export function FilterSelector() {
   ];
 
   return (
-    <div className='container my-10 flex gap-3'>
-      {React.Children.toArray(
-        tabs.map((item) => (
-          <Link
-            className={cn(
-              'rounded-full px-5 py-2 font-medium',
-              item.href === pathname
-                ? ' bg-secondary text-background dark:bg-main dark:text-backgroundDark'
-                : 'bg-background text-secondary dark:bg-backgroundDark  dark:text-main'
-            )}
-            href={item.href}
-          >
-            {item.label}
-          </Link>
-        ))
-      )}
+    <div className='container my-10'>
+      <div className='no-scrollbar flex gap-3 overflow-x-scroll'>
+        {React.Children.toArray(
+          tabs.map((item) => (
+            <Link
+              className={cn(
+                'text-nowrap rounded-full px-5 py-2 font-medium',
+                item.href === pathname
+                  ? ' bg-secondary text-background dark:bg-main dark:text-backgroundDark'
+                  : 'bg-background text-secondary dark:bg-backgroundDark  dark:text-main'
+              )}
+              href={item.href}
+            >
+              {item.label}
+            </Link>
+          ))
+        )}
+      </div>
     </div>
   );
 }

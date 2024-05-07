@@ -6,9 +6,9 @@ import React from 'react';
 export default async function Blogs({ children }: LayoutProps) {
   const t = await getI18n();
   return (
-    <div className='bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
+    <div className='flex flex-col items-center bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
       <Heading
-        className='mb-4 text-center text-2xl'
+        className='mb-4 text-center text-2xl sm:w-[90%] sm:text-center'
         heading={t('blog.header')}
       />
       <FilterSelector />
