@@ -27,12 +27,12 @@ export function CallToAction({
 }: Props) {
   return (
     <section className='bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
-      <div className='container flex items-center justify-center'>
+      <div className='container flex items-center justify-center sm:flex-col-reverse sm:gap-6'>
         <div className='flex w-[60%] flex-col justify-center gap-8 sm:w-full'>
           <div className='text-2xl'>
             <Heading className='' heading={heading} />
           </div>
-          <p className='w-[80%] text-secondary sm:w-[full] dark:text-textdark'>
+          <p className='w-[80%] text-secondary dark:text-textdark sm:w-[full]'>
             {paragraph}
           </p>
           <div

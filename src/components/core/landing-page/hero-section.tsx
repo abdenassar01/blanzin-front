@@ -15,10 +15,10 @@ export function HeroSection({ action, header, href }: Props) {
       <div className='flex w-full flex-row-reverse gap-10 px-12 sm:flex-col'>
         <VideoPlayer />
         <div className='flex w-full flex-col justify-center gap-10'>
-          <h3 className='w-[70%] whitespace-pre-line text-xxl font-bold text-secondary'>
+          <h3 className='w-[70%] whitespace-pre-line text-xxl font-bold text-secondary sm:w-full'>
             {header}
           </h3>
-          <Button className='group rounded-xl' theme='secondary' width='40%'>
+          <Button className='group rounded-xl' theme='secondary' width='50%'>
             <Link
               className='font-semibold text-main group-hover:text-secondary'
               href={href}

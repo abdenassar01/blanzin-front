@@ -29,7 +29,7 @@ export function SelectedProfile() {
   ];
 
   return (
-    <div className='container flex w-full justify-evenly'>
+    <div className='container flex w-full justify-evenly sm:flex-col'>
       <Map
         items={profiles}
         render={(item) => (

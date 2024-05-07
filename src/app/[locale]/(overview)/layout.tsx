@@ -9,7 +9,7 @@ export default async function LandingPageLayout({ children }: LayoutProps) {
   return (
     <div className='bg-background  bg-contain bg-no-repeat dark:bg-backgroundSecondaryDark'>
       <div className='flex flex-col items-center justify-center py-12'>
-        <h1 className='text-4xl font-bold text-secondary dark:text-main'>
+        <h1 className='text-center text-4xl font-bold text-secondary dark:text-main sm:text-2xl'>
           {t('heading.welcome')}
         </h1>
         <SelectedProfile />

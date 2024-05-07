@@ -8,14 +8,14 @@ export async function DownloadAppSection() {
   const t = await getI18n();
   return (
     <section className="bg-[url('/download-app-background.svg')] bg-cover bg-no-repeat py-12">
-      <div className='container flex items-center'>
+      <div className='container flex items-center sm:flex-col-reverse sm:gap-6'>
         <div className='relative flex w-[50%] items-center justify-center sm:w-full sm:flex-wrap'>
           <ImageShapeMakerSvg
             screenshot='/screenshots/blanzin.svg'
             id='DownloadApp'
           />
           <Link
-            className='absolute right-14 top-[65%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium  text-backgroundDark'
+            className='absolute right-14 top-[60%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium text-backgroundDark  sm:-right-3'
             href='https://play.google.com'
             target='_blank'
           >
@@ -29,7 +29,7 @@ export async function DownloadAppSection() {
           </Link>
           <Link
             target='_blank'
-            className='absolute right-14 top-[50%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium  text-backgroundDark'
+            className='absolute right-14 top-[50%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium  text-backgroundDark sm:-right-3'
             href='https://play.google.com'
           >
             <Image
@@ -48,6 +48,7 @@ export async function DownloadAppSection() {
           </h3>
           <Image
             src='/app-qr.png'
+            className='sm:hidden'
             alt='blanzin qr code'
             width={200}
             height={200}
