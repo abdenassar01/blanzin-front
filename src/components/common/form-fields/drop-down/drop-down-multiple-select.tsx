@@ -80,7 +80,7 @@ export function DropdownMultipleSelect<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'flex w-[100%] items-center justify-between rounded-full border-[1px]  border-[#CFD6E7] bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
+          'no-scrollbar flex w-[100%] items-center justify-between rounded-full border-[1px]  border-[#CFD6E7] bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
           className,
           (value || defaultValue) && 'text-text dark:text-textdark',
           (error && 'border-[1px] border-error') || ''
@@ -89,6 +89,7 @@ export function DropdownMultipleSelect<T>({
         <input
           className='w-full rounded-md bg-[transparent] p-3 normal-case focus:border-none focus:outline-none'
           type='text'
+          placeholder={placeholder || label}
           onFocus={() => setDisplayString('')}
           onChange={(e) => {
             setDisplayString(e.currentTarget.value);
@@ -117,7 +118,7 @@ export function DropdownMultipleSelect<T>({
       </p>
       <div
         className={cn(
-          'absolute top-20 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-background transition-all ease-out dark:bg-backgroundDark  sm:top-[22.816vw] sm:w-[70vw]',
+          'no-scrollbar absolute top-[75px] isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-background transition-all ease-out dark:bg-backgroundDark',
           openDropdown ? 'h-[200px]' : 'h-0'
         )}
       >
