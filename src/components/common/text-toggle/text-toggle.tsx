@@ -23,7 +23,7 @@ export function TextToggle({
   const [open, setOpen] = useState<boolean>(isOpen);
 
   return (
-    <div className='flex w-[100%] flex-col rounded bg-backgroundSecondary p-2'>
+    <div className='flex w-[100%] flex-col rounded bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
       <button
         className='mb-1 flex cursor-pointer items-start justify-between'
         onClick={() => {
@@ -32,7 +32,7 @@ export function TextToggle({
       >
         <div
           className={cn(
-            'mr-2 text-justify text-base text-secondary sm:text-mb-base',
+            'mr-2 text-justify text-base text-secondary dark:text-main sm:text-mb-base',
             open ? 'sm:text-[5.340vw]' : ''
           )}
         >
@@ -56,7 +56,7 @@ export function TextToggle({
         <div className='min-h-0'>
           <div
             className={cn(
-              'text-sm text-text dark:text-textdark',
+              'prose text-sm text-text prose-ul:list-inside prose-li:leading-3 dark:text-textdark',
               className || ''
             )}
             dangerouslySetInnerHTML={{ __html: answer }}
