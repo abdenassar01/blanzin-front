@@ -37,22 +37,24 @@ export function JobMainCard({}: Props) {
   const { theme } = useTheme();
 
   return (
-    <Link
-      href={`/jobs/job-details-slug`}
-      className='rounded-xl border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark'
-    >
-      <div className='flex gap-2'>
-        <Image
-          width={300}
-          height={200}
-          className='aspect-[3/4] w-[10vw] rounded object-cover'
-          src={require('@/assets/images/job-image.jpg')}
-          alt=''
-        />
+    <div className='rounded-xl border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark sm:p-2'>
+      <div className='flex gap-2 sm:flex-col'>
+        <Link href={`/jobs/job-details-slug`}>
+          <Image
+            width={300}
+            height={200}
+            className='aspect-[3/4] w-[10vw] rounded object-cover sm:aspect-video sm:h-full sm:w-[100%]'
+            src={require('@/assets/images/job-image.jpg')}
+            alt=''
+          />
+        </Link>
         <div className='flex flex-col justify-between'>
-          <div className='font-bold text-mainText dark:text-textdark'>
+          <Link
+            href={`/jobs/job-details-slug`}
+            className='cursor-pointer font-bold text-mainText hover:underline dark:text-textdark'
+          >
             Select Hotel Erlangen logo Cook / Koch - „Der Lebensmittel-Artist
-          </div>
+          </Link>
           <div className='my-2 flex flex-wrap gap-3'>
             {React.Children.toArray(
               tabs.map((tab) => (
@@ -80,7 +82,7 @@ export function JobMainCard({}: Props) {
             <button onClick={() => setFavourite((prev) => !prev)}>
               <Image
                 alt=''
-                className='w-[2vw]'
+                className='w-[2vw] sm:w-[6vw]'
                 src={
                   favourite
                     ? theme === 'dark'
@@ -95,6 +97,6 @@ export function JobMainCard({}: Props) {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

@@ -17,7 +17,7 @@ export function JobsFilter({}: Props) {
       <div className='flex w-[50vw] gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
         <Image
           alt=''
-          className='w-[2vw]'
+          className='w-[2vw] sm:w-[6vw]'
           src={require('@/assets/images/icons/search.svg')}
         />
         <input
