@@ -1,9 +1,11 @@
-import * as React from "react";
-import { Control, useController } from "react-hook-form";
-import { TranslatedHeading, TranslatedText } from "../../translated-text";
-import { useTheme } from "next-themes";
-import { cn } from "@/utils";
-import Image from "next/image";
+'use client';
+
+import * as React from 'react';
+import { Control, useController } from 'react-hook-form';
+import { TranslatedHeading, TranslatedText } from '../../translated-text';
+import { useTheme } from 'next-themes';
+import { cn } from '@/utils';
+import Image from 'next/image';
 
 type Props = {
   control: Control<any>;
@@ -13,15 +15,15 @@ type Props = {
 const tabs = [
   {
     id: 1,
-    title: "Trainee",
-    darkIcon: require("@/assets/images/icons/select-profile/dark/trainee.png"),
-    icon: require("@/assets/images/icons/select-profile/light/trainee.png"),
+    title: 'Trainee',
+    darkIcon: require('@/assets/images/icons/select-profile/dark/trainee.png'),
+    icon: require('@/assets/images/icons/select-profile/light/trainee.png'),
   },
   {
     id: 2,
-    title: "Skilled worker",
-    darkIcon: require("@/assets/images/icons/select-profile/dark/german-trainee.png"),
-    icon: require("@/assets/images/icons/select-profile/light/german-trainee.png"),
+    title: 'Skilled worker',
+    darkIcon: require('@/assets/images/icons/select-profile/dark/german-trainee.png'),
+    icon: require('@/assets/images/icons/select-profile/light/german-trainee.png'),
   },
 ];
 
@@ -31,46 +33,46 @@ export function ApplicationTypeSelector({ control, name }: Props) {
   } = useController({ control, name, defaultValue: tabs[0].id });
 
   const { theme } = useTheme();
-  const isDark = React.useMemo(() => theme === "dark", [theme]);
+  const isDark = React.useMemo(() => theme === 'dark', [theme]);
 
   return (
-    <div className="p-2 rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+    <div className='rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
       <TranslatedHeading
-        className="text-base text-secondary dark:text-main text-center"
-        tranlationKey="forms.profile-type-header"
+        className='text-center text-base text-secondary dark:text-main'
+        tranlationKey='forms.profile-type-header'
       />
-      <div className="flex justify-between mt-3">
+      <div className='mt-3 flex justify-between'>
         {React.Children.toArray(
           tabs.map((item) => (
             <button
               onClick={() => onChange(item.id)}
               className={cn(
-                "w-[49%] rounded p-3 flex flex-col justify-center items-center ",
+                'flex w-[49%] flex-col items-center justify-center rounded p-3 ',
                 value === item.id
-                  ? "bg-secondary dark:bg-main"
-                  : "bg-background dark:bg-backgroundDark"
+                  ? 'bg-secondary dark:bg-main'
+                  : 'bg-background dark:bg-backgroundDark'
               )}
             >
               <Image
-                alt=""
-                className="w-16 h-16"
+                alt=''
+                className='h-16 w-16'
                 src={
                   value === item.id
                     ? isDark
                       ? item.icon
                       : item.darkIcon
                     : isDark
-                    ? item.darkIcon
-                    : item.icon
+                      ? item.darkIcon
+                      : item.icon
                 }
               />
 
               <TranslatedText
                 className={cn(
-                  "font-bold",
+                  'font-bold',
                   value === item.id
-                    ? "text-main dark:text-secondary"
-                    : "text-secondary dark:text-main"
+                    ? 'text-main dark:text-secondary'
+                    : 'text-secondary dark:text-main'
                 )}
                 tranlationKey={item.title}
               />

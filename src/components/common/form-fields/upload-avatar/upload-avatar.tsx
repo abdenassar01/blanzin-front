@@ -1,5 +1,7 @@
+'use client';
+
 import React, { ReactNode } from 'react';
-import { Button, TranslatedText } from '../..';
+import { TranslatedText } from '../..';
 import { Control, useController } from 'react-hook-form';
 import Image from 'next/image';
 import { cn } from '@/utils';
