@@ -1,4 +1,6 @@
-import { useEffect, RefObject } from "react";
+'use client';
+
+import { useEffect, RefObject } from 'react';
 
 export const useOutsideClick = (
   ref: RefObject<HTMLInputElement>,
@@ -10,9 +12,9 @@ export const useOutsideClick = (
   };
 
   useEffect(() => {
-    document.addEventListener("click", listener);
+    document.addEventListener('click', listener);
 
-    return () => document.removeEventListener("click", listener);
+    return () => document.removeEventListener('click', listener);
     // eslint-disable-next-line
   }, []);
 };

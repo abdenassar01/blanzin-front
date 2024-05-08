@@ -6,7 +6,7 @@ import React from 'react';
 export default async function FAQ() {
   const t = await getI18n();
   return (
-    <div className="bg-[url('/background.svg')] py-12">
+    <div className=' py-12'>
       <div className='container '>
         <div className=''>
           <Heading className='text-2xl' heading={t('links.faq')} />

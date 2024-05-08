@@ -37,12 +37,12 @@ export const Button = ({
           : theme === 'secondary'
             ? 'border-secondary bg-secondary hover:border-secondary hover:bg-[transparent]'
             : theme === 'success'
-              ? 'border-success bg-success'
+              ? 'border-success bg-success hover:bg-[transparent]'
               : theme === 'tertiary'
-                ? 'border-[1px] font-bold'
+                ? 'border-[1px] font-bold hover:bg-[transparent]'
                 : theme === 'warn'
-                  ? 'border-warn bg-warn'
-                  : 'border-error bg-error',
+                  ? 'border-warn bg-warn hover:bg-[transparent]'
+                  : 'border-error bg-error hover:bg-[transparent]',
         className
       )}
     >
