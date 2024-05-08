@@ -38,7 +38,7 @@ export function PdfViewer({ file }: Props) {
   );
 
   return (
-    <div className='aspect-[3/4] w-[27%] overflow-y-scroll rounded-xl sm:w-full'>
+    <div className='aspect-[3/4] w-[37%] overflow-y-scroll rounded-xl sm:w-full'>
       <Document
         file={file}
         onLoadSuccess={onDocumentLoadSuccess}

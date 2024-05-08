@@ -31,6 +31,9 @@ export default {
     'job-certificates': 'Job certificates',
     acknowledgement: 'Acknowledgement (optional)',
     'action-btn': 'Choose my package',
+    update: 'Update',
+    add: 'Add',
+    delete: 'Remove',
   },
   'premuim-pack': {
     header: 'Welcome to our exclusive package',
