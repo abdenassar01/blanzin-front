@@ -24,6 +24,12 @@ export default {
   },
   application: {
     Heading: 'Check Application Requirement',
+    resume: 'Resume',
+    'lang-certificate': 'German language certificate',
+    diploma: 'Diploma',
+    intenship: 'Internship',
+    'job-certificates': 'Job certificates',
+    acknowledgement: 'Acknowledgement (optional)',
     'action-btn': 'Choose my package',
   },
   'premuim-pack': {
