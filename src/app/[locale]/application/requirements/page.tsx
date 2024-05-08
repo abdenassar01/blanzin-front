@@ -23,25 +23,25 @@ export default async function Requirement() {
               completed={5}
               doc='/blanzin.pdf'
               title={t('diploma')}
-              url='/resume'
+              url='/docs'
             />
             <DocumentToggleOperation
               completed={2}
               doc='/blanzin.pdf'
               title={t('intenship')}
-              url='/resume'
+              url='/docs'
             />
             <DocumentToggleOperation
               completed={0}
               doc='/blanzin.pdf'
               title={t('job-certificates')}
-              url='/resume'
+              url='/docs'
             />
             <DocumentToggleOperation
               completed={5}
               doc='/blanzin.pdf'
               title={t('acknowledgement')}
-              url='/resume'
+              url='/docs'
             />
           </ul>
           <div className='flex justify-end'>
