@@ -1,1 +1,1 @@
-export { ResumeToggle } from './resume';
+export { DocumentToggleOperation } from './document-operation-toggle';
