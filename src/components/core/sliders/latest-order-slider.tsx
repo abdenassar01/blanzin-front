@@ -12,15 +12,10 @@ export function LatestOrderSlider() {
     <Slider
       arrows={false}
       className='my-5'
+      slidesToShow={3.5}
+      slidesToScroll={2}
+      centerMode
       responsive={[
-        {
-          breakpoint: 2600,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            centerMode: true,
-          },
-        },
         {
           breakpoint: 767,
           settings: {
@@ -43,6 +38,7 @@ export function LatestOrderSlider() {
       {React.Children.toArray(
         [1, 2, 3, 4].map((item) => (
           <OrderCard
+            className='mr-3'
             createdAt={new Date()}
             image='/house.jpg'
             desc='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus qui ullam, placeat numquam nemo labore voluptas minima neque nihil saepe, quae at omnis recusandae mollitia sapiente aliquid fuga modi? Officiis!'
