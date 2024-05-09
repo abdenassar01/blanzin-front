@@ -35,6 +35,7 @@ export default {
     add: 'Add',
     delete: 'Remove',
     'packs-heading': 'Discover our exclusive package packages',
+    book: 'Continue booking',
   },
   'premuim-pack': {
     header: 'Welcome to our exclusive package',
