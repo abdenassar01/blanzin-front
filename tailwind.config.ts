@@ -34,9 +34,9 @@ module.exports = {
     fontSize: {
       xxs: 'clamp(12px, 0.833vw, 12px)', // 12px
       xs: 'clamp(12px, 0.972vw, 14px)', // 14px
-      sm: 'clamp(14px, 1.111vw, 16px)', // 16px
-      base: 'clamp(16px, 1.25vw, 18px)', // 18px
-      xl: 'clamp(16px, 1.042vw, 20px)', // 20px
+      sm: 'clamp(14px, 1.111vw, 16px)', // 14px
+      base: 'clamp(16px, 1.25vw, 18px)', // 16px
+      xl: 'clamp(18px, 1.042vw, 20px)', // 18px
       xbase: 'clamp(20px, 1.528vw, 22px)', // 22px
       xxl: 'clamp(22px, 1.667vw, 24px)', // 24px
       xm: 'clamp(26px, 1.944vw, 28px)', // 28px

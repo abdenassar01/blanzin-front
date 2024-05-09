@@ -177,6 +177,8 @@ export default {
     'filter-news': 'Morocco news',
   },
   'faq-abbr': 'Frequently asked questions',
+  'otp-request-text':
+    'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':
     'In our FAQ you will find answers to the most important questions',
   button: {
