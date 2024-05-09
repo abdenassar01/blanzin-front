@@ -21,16 +21,23 @@ const packs = [
       {
         text: 'Personal support with employer selection in Germany.',
         super: true,
+        supported: true,
       },
-      { text: 'Rediv and optimisation of application documents.', super: true },
+      {
+        text: 'Review and optimisation of application documents.',
+        super: true,
+        supported: true,
+      },
       {
         text: 'Personal support and assistance from our experts.',
+        supported: false,
         super: true,
       },
-      { text: 'Job interdivs', qte: 'x1' },
+      { text: 'Job interviews', qte: 'x3', supported: true },
       {
-        text: 'Video call counselling before every interdiv',
-        qte: 'x0',
+        text: 'Video call counselling bevor the first interview',
+        super: true,
+        supported: false,
       },
     ],
     price: 1500,
@@ -42,16 +49,23 @@ const packs = [
       {
         text: 'Personal support with employer selection in Germany.',
         super: true,
+        supported: true,
       },
-      { text: 'Rediv and optimisation of application documents.', super: true },
+      {
+        text: 'Review and optimisation of application documents.',
+        super: true,
+        supported: true,
+      },
       {
         text: 'Personal support and assistance from our experts.',
+        supported: true,
         super: true,
       },
-      { text: 'Job interdivs', qte: 'Unlimited' },
+      { text: 'Job interviews', qte: 'Unlimited', supported: true },
       {
-        text: 'Video call counselling before every interdiv',
-        qte: 'x3',
+        text: 'Video call counselling bevor the first interview',
+        qte: 'x1',
+        supported: true,
       },
     ],
     price: 2500,
@@ -63,16 +77,22 @@ const packs = [
       {
         text: 'Personal support with employer selection in Germany.',
         super: true,
+        supported: true,
       },
-      { text: 'Rediv and optimisation of application documents.', super: true },
+      {
+        text: 'Review and optimisation of application documents.',
+        super: true,
+        supported: true,
+      },
       {
         text: 'Personal support and assistance from our experts.',
+        supported: true,
         super: true,
       },
-      { text: 'Job interdivs', qte: 'Unlimited' },
-
+      { text: 'Job interviews', qte: 'Unlimited', supported: true },
       {
-        text: 'Video call counselling before every interdiv',
+        text: 'Video call counselling bevor the first interview',
+        supported: true,
         qte: 'Unlimited',
       },
     ],
@@ -88,9 +108,6 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
     name,
     defaultValue: disabled ? undefined : packs[1].id,
   });
-
-  const { theme } = useTheme();
-  const isDark = React.useMemo(() => theme === 'dark', [theme]);
 
   return (
     <div className={cn('my-1', disabled ? 'opacity-50' : '')}>
@@ -131,15 +148,19 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
               />
               <div className='absolute -right-2 top-0'>
                 {item?.super ? (
-                  <Image
-                    alt='checkbox'
-                    className='mr-2 h-[1.5vw] w-[1.5vw]'
-                    src={
-                      isDark
-                        ? require('@/assets/images/icons/dark/checkmark.svg')
-                        : require('@/assets/images/icons/dark/checkmark.svg')
-                    }
-                  />
+                  item.supported ? (
+                    <Image
+                      alt='checkbox'
+                      className='mr-2 h-[1.5vw] w-[1.5vw]'
+                      src={require('@/assets/images/icons/success-checkmark.svg')}
+                    />
+                  ) : (
+                    <Image
+                      alt='checkbox'
+                      className='mr-2 h-[1.5vw] w-[1.5vw]'
+                      src={require('@/assets/images/icons/error-mark.svg')}
+                    />
+                  )
                 ) : (
                   <TranslatedText
                     tranlationKey={item.qte || ''}

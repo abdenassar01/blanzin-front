@@ -34,6 +34,7 @@ export default {
     update: 'Update',
     add: 'Add',
     delete: 'Remove',
+    'packs-heading': 'Discover our exclusive package packages',
   },
   'premuim-pack': {
     header: 'Welcome to our exclusive package',
