@@ -15,9 +15,24 @@ export function LatestOrderSlider() {
       slidesToShow={3.5}
       slidesToScroll={2}
       centerMode
+      initialSlide={2}
       responsive={[
         {
-          breakpoint: 767,
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2.5,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1.5,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,

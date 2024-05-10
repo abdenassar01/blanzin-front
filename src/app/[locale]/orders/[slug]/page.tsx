@@ -12,8 +12,8 @@ export default function OrderDetails() {
   return (
     <div className='my-12'>
       <div className='container'>
-        <div className='flex justify-between  sm:flex-col-reverse'>
-          <div className='sm:full w-[69%]'>
+        <div className='flex justify-between sm:flex-col  sm:gap-3'>
+          <div className='w-[69%] sm:w-full'>
             <div className=''>
               <Image
                 className='w-full rounded-xl'
@@ -21,16 +21,6 @@ export default function OrderDetails() {
                 src={require('@/assets/images/job-image.jpg')}
               />
               <div className='mt-4 w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
-                <div className='flex items-center gap-4'>
-                  <Button text='Send Offer' />
-                  <div className=''>
-                    <Image
-                      className='w-[2vw] sm:w-[6vw]'
-                      alt='blanzin favourite'
-                      src={require('@/assets/images/icons/dark/favourite.svg')}
-                    />
-                  </div>
-                </div>
                 <article
                   dangerouslySetInnerHTML={{
                     __html:
@@ -41,7 +31,17 @@ export default function OrderDetails() {
               </div>
             </div>
           </div>
-          <div className='sm:full w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
+          <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+            <div className='mb-4 flex items-center gap-2'>
+              <Button text='Send Offer' />
+              <div className='rounded-full  bg-secondary p-2'>
+                <Image
+                  className='w-[2vw] sm:w-[6vw]'
+                  alt='blanzin favourite'
+                  src={require('@/assets/images/icons/dark/favourite-fill.svg')}
+                />
+              </div>
+            </div>
             <div className='text-xbase font-bold'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Reiciendis odit et voluptas
