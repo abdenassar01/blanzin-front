@@ -68,8 +68,13 @@
   background-color: #ffcc00;
 }
 
-.slick-slide {
-  margin-right: 10px;
+.slick-track {
+  display: flex;
+  gap: 5px;
+}
+
+.slick-list {
+  max-height: fit-content;
 }
 
 .main-background-gradient {
