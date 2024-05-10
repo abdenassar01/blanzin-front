@@ -6,3 +6,4 @@ export * from './faq';
 export * from './jobs-filter';
 export * from './sidebar-filter';
 export * from './application';
+export * from './orders';
