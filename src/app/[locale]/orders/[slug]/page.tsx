@@ -2,6 +2,7 @@ import {
   Button,
   LatestOrderSlider,
   Map,
+  OrderImagesSlider,
   OrderStats,
   ProviderProfileWidget,
 } from '@/components';
@@ -15,11 +16,7 @@ export default function OrderDetails() {
         <div className='flex justify-between sm:flex-col  sm:gap-3'>
           <div className='w-[69%] sm:w-full'>
             <div className=''>
-              <Image
-                className='w-full rounded-xl'
-                alt='title'
-                src={require('@/assets/images/job-image.jpg')}
-              />
+              <OrderImagesSlider />
               <div className='mt-4 w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
                 <article
                   dangerouslySetInnerHTML={{

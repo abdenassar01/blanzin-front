@@ -73,6 +73,21 @@
   gap: 5px;
 }
 
+.slick-prev {
+  left: 15px;
+  z-index: 20;
+}
+
+.slick-next {
+  right: 15px;
+  z-index: 20;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: #0000ff;
+}
+
 .slick-list {
   max-height: fit-content;
 }

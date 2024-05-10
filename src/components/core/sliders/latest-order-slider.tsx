@@ -7,7 +7,6 @@ import { SliderDotIndicator } from './slider-dots-indicator';
 
 export function LatestOrderSlider() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const date = new Date();
   return (
     <Slider
       arrows={false}
