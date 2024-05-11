@@ -40,7 +40,7 @@ export const Modal = ({
     >
       <div
         className={cn(
-          'h-full w-full rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
+          'h-full w-full  rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
           className
         )}
       >
@@ -68,7 +68,9 @@ export const Modal = ({
             />
           </button>
         </div>
-        <div className='max-h-[90%]'>{children}</div>
+        <div className='no-scrollbar max-h-[90%] overflow-y-scroll'>
+          {children}
+        </div>
       </div>
       <button
         className='absolute z-10 h-full w-full'

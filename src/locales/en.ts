@@ -166,6 +166,7 @@ export default {
     fullname: 'Fullname',
     message: 'Message',
     phone: 'Phone',
+    feedback: 'Tell us more...',
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
   },
@@ -177,6 +178,8 @@ export default {
     'filter-news': 'Morocco news',
   },
   'faq-abbr': 'Frequently asked questions',
+  'send-offer': 'Send offer',
+  'similar-orders': 'Similar orders',
   'otp-request-text':
     'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':
@@ -185,6 +188,7 @@ export default {
     next: 'Next',
     prev: 'Prevouis',
     submit: 'Finish',
+    rate: 'Rate',
   },
   arabic: 'Arabic',
   english: 'English',

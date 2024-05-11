@@ -1,15 +1,19 @@
 import {
   Button,
+  Heading,
   LatestOrderSlider,
   Map,
   OrderImagesSlider,
   OrderStats,
   ProviderProfileWidget,
 } from '@/components';
+import { getI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
 
-export default function OrderDetails() {
+export default async function OrderDetails() {
+  const t = await getI18n();
+
   return (
     <div className='my-12'>
       <div className='container'>
@@ -30,7 +34,7 @@ export default function OrderDetails() {
           </div>
           <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
             <div className='mb-4 flex items-center gap-2'>
-              <Button text='Send Offer' />
+              <Button text={t('send-offer')} />
               <div className='rounded-full  bg-secondary p-2'>
                 <Image
                   className='w-[2vw] sm:w-[6vw]'
@@ -50,6 +54,7 @@ export default function OrderDetails() {
           </div>
         </div>
         <div className='mt-2  gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
+          <Heading className='mt-2 text-xl' heading={t('similar-orders')} />
           <LatestOrderSlider />
         </div>
       </div>

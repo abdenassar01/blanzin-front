@@ -8,7 +8,7 @@ type Props = {};
 export function ProviderProfileWidget({}: Props) {
   return (
     <Link
-      href='/expert/expert-name'
+      href='/experts/expert-name'
       className='mt-20 flex flex-col items-center rounded-lg bg-background p-2 dark:bg-backgroundDark'
     >
       <Image

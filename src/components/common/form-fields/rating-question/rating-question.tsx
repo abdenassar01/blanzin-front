@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Control, useController } from "react-hook-form";
-import { Map, TranslatedText } from "../..";
-import { Question } from "@/types";
-import Image from "next/image";
+import React from 'react';
+import { Control, useController } from 'react-hook-form';
+import { Map, TranslatedText } from '../..';
+import { Question } from '@/types';
+import Image from 'next/image';
 
 type Props = {
   control: Control<any>;
@@ -19,23 +19,23 @@ export function RatingQuestion({ question, control, name }: Props) {
   } = useController({ name, control });
 
   return (
-    <div className="my-2">
-      <TranslatedText tranlationKey={question.en} />
-      <div className="flex-row gap-1 justify-center items-center">
+    <div className='flex w-full items-center justify-between'>
+      <TranslatedText className='text-sm' tranlationKey={question.en} />
+      <div className='flex items-center justify-center gap-1'>
         <Map
           items={Array.from([1, 2, 3, 4, 5])}
           render={(item) => (
             <button
               onMouseEnter={() => onChange(item)}
-              className="justify-center items-center"
+              className='items-center justify-center'
             >
               <Image
-                alt="star rating"
-                className="w-[30px]  my-2"
+                alt='star rating'
+                className='my-2  w-[1.5vw] sm:w-[5vw]'
                 src={
                   value >= item
-                    ? require("@/assets/images/icons/star-filled.svg")
-                    : require("@/assets/images/icons/star-empty.svg")
+                    ? require('@/assets/images/icons/star-filled.svg')
+                    : require('@/assets/images/icons/star-empty.svg')
                 }
               />
             </button>
