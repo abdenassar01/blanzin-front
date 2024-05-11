@@ -8,10 +8,14 @@ import { useI18n } from '@/utils/locales/client';
 export default function DesktopNavbar() {
   const t = useI18n();
   return (
-    <div className='sm:hidde mr-5 flex items-center gap-5 sm:hidden'>
+    <div className='sm:hidde mr-5 flex items-center gap-10 sm:hidden'>
       {React.Children.toArray(
         routes.map((item) => (
-          <ActiveLink active={item.link === '/'} link={item.link || ''}>
+          <ActiveLink
+            className=''
+            active={item.link === '/'}
+            link={item.link || ''}
+          >
             {t(item.text)}
           </ActiveLink>
         ))
