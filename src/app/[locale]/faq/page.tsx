@@ -11,20 +11,18 @@ export default async function FAQ() {
         <div className=''>
           <Heading className='text-2xl' heading={t('links.faq')} />
           <div className='flex sm:flex-col'>
-            <h4 className='mr-4 min-w-[30vw] sm:w-[100%]'>
-              {t('faq-heading')}
-            </h4>
+            <h4 className='mr-4 w-[45vw] sm:w-full'>{t('faq-heading')}</h4>
             <FaqFilter />
           </div>
         </div>
         <div className='flex gap-4'>
-          <div className='w-full sm:hidden'>
+          <div className='sm:hidden'>
             <Image
               alt='Blanzin Faq'
               src='/faq.png'
               width={770}
               height={800}
-              className='min-w-[30vw]'
+              className='w-[30vw]'
             />
           </div>
 

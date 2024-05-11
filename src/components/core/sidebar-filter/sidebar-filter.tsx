@@ -50,7 +50,7 @@ export function SidebarFilter() {
         </div>
         <button
           onClick={() => setShowFilter((prev) => !prev)}
-          className='flex items-center justify-center rounded-full bg-background dark:bg-backgroundDark'
+          className='hidden items-center justify-center rounded-full bg-background dark:bg-backgroundDark sm:flex'
         >
           <Image
             alt='filter png'

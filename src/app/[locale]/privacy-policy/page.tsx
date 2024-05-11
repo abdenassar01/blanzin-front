@@ -1,5 +1,9 @@
-import React from "react";
+import React from 'react';
 
 export default function PrivacyPolicy() {
-  return <div>Next locale:</div>;
+  return (
+    <div className='my-12'>
+      <div className='container'>Next Page</div>
+    </div>
+  );
 }

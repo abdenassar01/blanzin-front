@@ -28,7 +28,7 @@ export function VideoPlayer() {
         <video
           controls
           src='/video.mp4'
-          className='absolute bottom-0 left-0 right-0 top-0 w-[100%]'
+          className='absolute bottom-0 left-0 right-0 top-0 w-full'
         />
       </Modal>
     </>

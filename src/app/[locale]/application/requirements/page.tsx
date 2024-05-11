@@ -46,7 +46,7 @@ export default async function Requirement() {
           </ul>
           <div className='flex justify-end'>
             <div className='mt-6 w-[30%] sm:w-full'>
-              <Link href='/packages'>
+              <Link href='/application/packages'>
                 <Button
                   textClassName='group-hover:text-success'
                   theme='success'

@@ -7,22 +7,31 @@ import { SliderDotIndicator } from './slider-dots-indicator';
 
 export function LatestOrderSlider() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
-  const date = new Date();
   return (
     <Slider
       arrows={false}
       className='my-5'
+      slidesToShow={3.5}
+      slidesToScroll={2}
+      centerMode
+      initialSlide={2}
       responsive={[
         {
-          breakpoint: 2600,
+          breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            centerMode: true,
+            slidesToShow: 2.5,
+            slidesToScroll: 1,
           },
         },
         {
-          breakpoint: 767,
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1.5,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -43,6 +52,7 @@ export function LatestOrderSlider() {
       {React.Children.toArray(
         [1, 2, 3, 4].map((item) => (
           <OrderCard
+            className='mr-3'
             createdAt={new Date()}
             image='/house.jpg'
             desc='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus qui ullam, placeat numquam nemo labore voluptas minima neque nihil saepe, quae at omnis recusandae mollitia sapiente aliquid fuga modi? Officiis!'

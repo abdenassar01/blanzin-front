@@ -1,21 +1,29 @@
-import React from "react";
-import { Control } from "react-hook-form";
-import { Map, RatingQuestion } from "../..";
-import { Question } from "@/types";
+import React from 'react';
+import { Control } from 'react-hook-form';
+import { Map, RatingQuestion } from '../..';
+import { Question } from '@/types';
+import { cn } from '@/utils';
 
 type Props = {
   control: Control<any>;
   questions: Question[];
   defaultValues?: number[];
+  className?: string;
 };
 
 export function RatingMultipleQuestions({
   control,
   questions,
+  className,
   defaultValues = [],
 }: Props) {
   return (
-    <div className="p-3 rounded-md bg-backgroundSecondary dark:bg-backgroundSecondaryDark">
+    <div
+      className={cn(
+        'w-full rounded-md bg-backgroundSecondary p-3 dark:bg-backgroundSecondaryDark',
+        className
+      )}
+    >
       <Map
         items={questions}
         render={(question, index) => (
@@ -26,8 +34,8 @@ export function RatingMultipleQuestions({
               question={question}
               defaultValue={defaultValues[index] && defaultValues[index]}
             />
-            {index < questions.length - 1 && questions.length && (
-              <div className="h-[1px] w-full rounded-full bg-background dark:bg-backgroundDark" />
+            {index < questions.length - 1 && (
+              <div className='h-[1px] w-full rounded-full bg-text' />
             )}
           </>
         )}

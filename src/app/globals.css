@@ -68,6 +68,30 @@
   background-color: #ffcc00;
 }
 
+.slick-track {
+  display: flex;
+  gap: 5px;
+}
+
+.slick-prev {
+  left: 15px;
+  z-index: 20;
+}
+
+.slick-next {
+  right: 15px;
+  z-index: 20;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  color: #0000ff;
+}
+
+.slick-list {
+  max-height: fit-content;
+}
+
 .main-background-gradient {
   background: linear-gradient(135deg, rgb(255, 204, 0) 0%, rgb(0, 0, 128) 100%)
     0px 0px / 436.137px 256px;

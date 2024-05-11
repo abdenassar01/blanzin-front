@@ -34,6 +34,8 @@ export default {
     update: 'Update',
     add: 'Add',
     delete: 'Remove',
+    'packs-heading': 'Discover our exclusive package packages',
+    book: 'Continue booking',
   },
   'premuim-pack': {
     header: 'Welcome to our exclusive package',
@@ -156,6 +158,7 @@ export default {
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
     send: 'Send',
   },
+  reviews: 'Reviews',
   forms: {
     email: 'Email',
     password: 'Password',
@@ -163,7 +166,9 @@ export default {
     username: 'Username',
     fullname: 'Fullname',
     message: 'Message',
+    description: 'Description',
     phone: 'Phone',
+    feedback: 'Tell us more...',
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
   },
@@ -175,12 +180,17 @@ export default {
     'filter-news': 'Morocco news',
   },
   'faq-abbr': 'Frequently asked questions',
+  'send-offer': 'Send offer',
+  'similar-orders': 'Similar orders',
+  'otp-request-text':
+    'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':
     'In our FAQ you will find answers to the most important questions',
   button: {
     next: 'Next',
     prev: 'Prevouis',
     submit: 'Finish',
+    rate: 'Rate',
   },
   arabic: 'Arabic',
   english: 'English',
