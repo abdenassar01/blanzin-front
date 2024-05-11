@@ -158,6 +158,7 @@ export default {
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
     send: 'Send',
   },
+  reviews: 'Reviews',
   forms: {
     email: 'Email',
     password: 'Password',
@@ -165,6 +166,7 @@ export default {
     username: 'Username',
     fullname: 'Fullname',
     message: 'Message',
+    description: 'Description',
     phone: 'Phone',
     feedback: 'Tell us more...',
     profile: 'Select a profile type',

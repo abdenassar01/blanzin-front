@@ -48,6 +48,7 @@ export function ProfileRating({ rating }: Props) {
             <TextArea
               control={control}
               label={t('forms.feedback')}
+              placeholder={t('forms.feedback')}
               name='feedback'
               className='bg-background dark:bg-backgroundDark'
             />
