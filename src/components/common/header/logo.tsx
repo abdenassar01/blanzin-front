@@ -11,7 +11,7 @@ export function Logo() {
     <>
       <Image
         alt='blanzin logo'
-        className='h-[3.5vw] w-auto sm:hidden'
+        className='h-[3.5vw] max-h-12 w-auto sm:hidden'
         src={
           theme === 'dark'
             ? require('@/assets/images/logo/logo-full-dark.png')

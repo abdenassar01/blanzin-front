@@ -37,7 +37,7 @@ export default async function OrderDetails() {
               <Button text={t('send-offer')} />
               <div className='rounded-full  bg-secondary p-2'>
                 <Image
-                  className='w-[2vw] sm:w-[6vw]'
+                  className='icon'
                   alt='blanzin favourite'
                   src={require('@/assets/images/icons/dark/favourite-fill.svg')}
                 />

@@ -72,7 +72,7 @@ export function FieldText({
           onClick={() => setIsPassword((prev) => !prev)}
           src={isPassword ? icon : iconClosed}
           alt='password toggle'
-          className='absolute right-[2%] top-[40%] w-[2vw] sm:w-[5vw]'
+          className='absolute right-[2%] top-[40%] w-6'
         />
       )}
       <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>

@@ -38,7 +38,7 @@ export function SidebarFilter() {
         <div className='flex w-full gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
           <Image
             alt=''
-            className='w-[2vw] sm:w-[6vw]'
+            className='icon'
             src={require('@/assets/images/icons/search.svg')}
           />
           <input
