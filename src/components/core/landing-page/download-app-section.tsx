@@ -24,7 +24,6 @@ export async function DownloadAppSection() {
               src={require('@/assets/images/icons/apple.svg')}
               alt=''
             />
-
             <span>{t('links.app-store')}</span>
           </Link>
           <Link

@@ -18,14 +18,16 @@ export function HeroSection({ action, header, href }: Props) {
           <h3 className='w-[70%] whitespace-pre-line text-xxl font-bold text-secondary sm:w-full'>
             {header}
           </h3>
-          <Button className='group rounded-xl' theme='secondary' width='50%'>
-            <Link
-              className='font-semibold text-main group-hover:text-secondary'
-              href={href}
-            >
-              {action}
-            </Link>
-          </Button>
+          <div className='w-[50%] md:w-full sm:w-full'>
+            <Button className='group rounded-xl' theme='secondary'>
+              <Link
+                className='font-semibold text-main group-hover:text-secondary'
+                href={href}
+              >
+                {action}
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
