@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { cn } from '@/utils';
 import { useTheme } from 'next-themes';
 import Rodal from 'rodal';
+import { isMobile } from 'react-device-detect';
 
 type Props = {
   children: ReactNode;
@@ -30,8 +31,8 @@ export const Modal = ({
 
   return (
     <Rodal
-      width={width || 42}
-      height={height || 22}
+      width={width || isMobile ? 90 : 42}
+      height={height || isMobile ? 50 : 22}
       measure='vw'
       customStyles={{ borderRadius: 20 }}
       onClose={() => setVisible(false)}
