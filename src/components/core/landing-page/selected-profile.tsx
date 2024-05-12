@@ -29,7 +29,7 @@ export function SelectedProfile() {
   ];
 
   return (
-    <div className='container flex w-full justify-evenly sm:flex-col'>
+    <div className='container flex w-full justify-evenly md:flex-col sm:flex-col'>
       <Map
         items={profiles}
         render={(item) => (
@@ -37,7 +37,7 @@ export function SelectedProfile() {
             <h3 className='my-4 text-center text-xl font-bold text-secondary dark:text-main'>
               {item.label}
             </h3>
-            <div className='flex justify-between gap-4'>
+            <div className='flex justify-between gap-4 md:justify-center'>
               <Map
                 items={item.items}
                 render={(profile) => (

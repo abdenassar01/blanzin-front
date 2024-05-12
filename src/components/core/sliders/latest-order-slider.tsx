@@ -13,8 +13,8 @@ export function LatestOrderSlider() {
       className='my-5'
       slidesToShow={3.5}
       slidesToScroll={2}
-      centerMode
       initialSlide={2}
+      centerMode
       responsive={[
         {
           breakpoint: 1024,

@@ -5,7 +5,7 @@ import React from 'react';
 export default function BlogDetails() {
   return (
     <div className='bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
-      <div className='container flex justify-between gap-3 sm:flex-col'>
+      <div className='container flex justify-between gap-3 md:flex-col sm:flex-col'>
         <div className='min-w-[70%] sm:w-full'>
           <h3 className='mb-3 text-center text-xbase font-semibold text-secondary dark:text-main'>
             The best way to find jobs outside of your country
@@ -29,10 +29,16 @@ export default function BlogDetails() {
           <div className='text-xbase'>
             <Heading className='text-center capitalize' heading='latst blogs' />
           </div>
-          <div className=''>
-            <BlogCard />
-            <BlogCard />
-            <BlogCard />
+          <div className='gap-2 overflow-x-scroll md:flex sm:flex'>
+            <div className='sm:min-w-[80%]'>
+              <BlogCard />
+            </div>
+            <div className='sm:min-w-[80%]'>
+              <BlogCard />
+            </div>
+            <div className='sm:min-w-[80%]'>
+              <BlogCard />
+            </div>
           </div>
         </div>
       </div>

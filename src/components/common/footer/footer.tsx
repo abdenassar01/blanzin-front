@@ -40,7 +40,7 @@ export function Footer() {
 
   return (
     <div className='main-background-gradient py-6'>
-      <div className='container flex flex-wrap items-center justify-between p-4'>
+      <div className='container flex flex-wrap items-center justify-between p-4 md:justify-center sm:justify-center'>
         <div className='flex flex-col  items-center justify-center sm:mt-5 sm:w-full'>
           <div className='flex items-center justify-center bg-contain bg-no-repeat'>
             <Image
@@ -59,7 +59,6 @@ export function Footer() {
             tranlationKey='! قضي غرضك فلحين'
           />
           <div className='my-2 flex flex-row gap-2'>
-            lo
             {socialMedia.map((link) => (
               <Link
                 key={`social-media-link-${link.id}`}
@@ -75,7 +74,7 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className='flex w-[80%] flex-wrap justify-between gap-5'>
+        <div className='flex w-[80%] flex-wrap justify-between gap-5 md:justify-center'>
           {React.Children.toArray(
             footerLinks.map((item) => (
               <div className='flex flex-col gap-2 sm:w-full'>

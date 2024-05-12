@@ -71,6 +71,7 @@
 .slick-track {
   display: flex;
   gap: 15px;
+  margin-left: 0;
 }
 
 .slick-prev {
