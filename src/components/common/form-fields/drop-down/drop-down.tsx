@@ -15,6 +15,7 @@ type Props<T> = {
   className?: string;
   labelClassName?: string;
   wrapperClassName?: string;
+  dropdownClassName?: string;
   defaultValue?: any;
   extractDisplayMember: (item: T) => string;
   extractValueMember: (item: T) => any;
@@ -32,6 +33,7 @@ export function Dropdown<T>({
   defaultValue,
   extractDisplayMember,
   extractValueMember,
+  dropdownClassName,
 }: Props<T>) {
   const dropdownRef = useRef(null);
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
@@ -59,7 +61,7 @@ export function Dropdown<T>({
       <label
         htmlFor={name}
         className={cn(
-          'text-sm font-bold normal-case text-secondary sm:text-mb-xxs dark:text-main',
+          'text-sm font-bold normal-case text-secondary dark:text-main sm:text-mb-xxs',
           labelClassName || ''
         )}
       >
@@ -68,7 +70,7 @@ export function Dropdown<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'flex w-[100%] items-center justify-between rounded-full border-[1px]  border-[#CFD6E7] bg-backgroundSecondary text-xs text-[#A6A6A6] sm:text-mb-xxs dark:bg-backgroundSecondaryDark',
+          'flex w-[100%] items-center justify-between rounded-lg bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
           className,
           (value || defaultValue) && 'text-text dark:text-textdark',
           (error && 'border-[1px] border-error') || ''
@@ -105,7 +107,8 @@ export function Dropdown<T>({
       </p>
       <div
         className={cn(
-          'absolute top-14 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out sm:top-[22.816vw] sm:w-[70vw] dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21]',
+          'absolute top-14 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] sm:top-[22.816vw] sm:w-[70vw]',
+          dropdownClassName,
           openDropdown ? 'h-[200px]' : 'h-0'
         )}
       >

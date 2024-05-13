@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { Control, useController } from "react-hook-form";
-import { TranslatedHeading, TranslatedText } from "../../translated-text";
-import { useState } from "react";
-import moment from "moment";
-import { cn } from "@/utils";
-import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
-import { useOutsideClick } from "@/utils/hooks/use-outside-click";
+import * as React from 'react';
+import { Control, useController } from 'react-hook-form';
+import { TranslatedHeading, TranslatedText } from '../../translated-text';
+import 'react-calendar/dist/Calendar.css';
+import { useState } from 'react';
+import moment from 'moment';
+import { cn } from '@/utils';
+import Calendar from 'react-calendar';
+import { useOutsideClick } from '@/utils/hooks/use-outside-click';
 
 type Props = {
   control: Control<any>;
@@ -54,26 +54,26 @@ export function DatePicker({
   useOutsideClick(datePickerRef, () => setOpenDatePicker(false));
 
   return (
-    <div ref={datePickerRef} className="relative">
+    <div ref={datePickerRef} className='relative'>
       <TranslatedHeading
-        className="text-sm text-secondary dark:text-main mb-1"
+        className='mb-1 text-sm text-secondary dark:text-main'
         tranlationKey={label}
       />
       <button
         onClick={() => setOpenDatePicker((prev) => !prev)}
         className={cn(
-          "rounded-md bg-backgroundSecondary w-full pl-2 py-3 text-text dark:bg-backgroundSecondaryDark dark:text-textdark",
+          'w-full rounded-md bg-backgroundSecondary py-3 pl-2 text-text dark:bg-backgroundSecondaryDark dark:text-textdark',
           className
         )}
       >
         <TranslatedText
-          className={cn("text-[13px] px-1 w-full")}
+          className={cn('w-full px-1 text-[13px]')}
           tranlationKey={
             (selectRange &&
-              `[${moment(value[0]).format("DD-MM-YYYY")}...${moment(
+              `[${moment(value[0]).format('DD-MM-YYYY')}...${moment(
                 value[value.length - 1]
-              ).format("DD-MM-YYYY")}]`) ||
-            moment(value).format("DD-MM-YYYY") ||
+              ).format('DD-MM-YYYY')}]`) ||
+            moment(value).format('DD-MM-YYYY') ||
             placeholder ||
             label
           }
@@ -82,24 +82,24 @@ export function DatePicker({
       {
         <div
           className={cn(
-            "grid absolute z-20 overflow-hidden transition-all duration-500 ease-in w-full",
-            openDatePicker ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            'absolute z-20 grid w-full overflow-hidden transition-all duration-500 ease-in',
+            openDatePicker ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
           )}
         >
-          <div className="min-h-0">
+          <div className='min-h-0'>
             <Calendar
               selectRange={selectRange}
               minDate={minimumDate || minDate}
               maxDate={maximumDate || maxDate}
-              className="mt-1 !w-full !outline-none rounded !border-none !font-montserrat"
+              className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none'
               onChange={onChange}
             />
           </div>
         </div>
       }
       <TranslatedText
-        className="text-xs text-error"
-        tranlationKey={error?.message || ""}
+        className='text-xs text-error'
+        tranlationKey={error?.message || ''}
       />
     </div>
   );
