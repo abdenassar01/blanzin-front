@@ -15,7 +15,7 @@ import { useForm } from 'react-hook-form';
 type Props = {};
 
 export function NewOrderForm({}: Props) {
-  const { control } = useForm();
+  const { control, watch } = useForm();
   const t = useScopedI18n('forms');
   const date = new Date();
   date.setMonth(date.getMonth() + 4, date.getDay());
@@ -39,40 +39,44 @@ export function NewOrderForm({}: Props) {
             name='category'
           />
         </div>
-        <div className='w-full rounded-lg bg-background p-2 dark:bg-backgroundDark'>
-          <CategorySelector
-            control={control}
-            items={[
-              { id: 1, label: 'Category1', icon: '/category.png' },
-              { id: 2, label: 'Category1', icon: '/category.png' },
-              { id: 3, label: 'Category1', icon: '/category.png' },
-              { id: 4, label: 'Category1', icon: '/category.png' },
-              { id: 5, label: 'Category1', icon: '/category.png' },
-            ]}
-            extractDisplayMember={(item) => item.label}
-            extractValue={(item) => item.id}
-            extractIcon={(item) => item.icon}
-            label={t('sub-category')}
-            name='subCategory'
-          />
-        </div>
-        <div className='w-full rounded-lg bg-background p-2 dark:bg-backgroundDark'>
-          <CategorySelector
-            control={control}
-            items={[
-              { id: 1, label: 'Category1', icon: '/category.png' },
-              { id: 2, label: 'Category1', icon: '/category.png' },
-              { id: 3, label: 'Category1', icon: '/category.png' },
-              { id: 4, label: 'Category1', icon: '/category.png' },
-              { id: 5, label: 'Category1', icon: '/category.png' },
-            ]}
-            extractDisplayMember={(item) => item.label}
-            extractValue={(item) => item.id}
-            extractIcon={(item) => item.icon}
-            label={t('child-su-category')}
-            name='childCategory'
-          />
-        </div>
+        {watch('category') && (
+          <div className='w-full rounded-lg bg-background p-2 dark:bg-backgroundDark'>
+            <CategorySelector
+              control={control}
+              items={[
+                { id: 1, label: 'Category1', icon: '/category.png' },
+                { id: 2, label: 'Category1', icon: '/category.png' },
+                { id: 3, label: 'Category1', icon: '/category.png' },
+                { id: 4, label: 'Category1', icon: '/category.png' },
+                { id: 5, label: 'Category1', icon: '/category.png' },
+              ]}
+              extractDisplayMember={(item) => item.label}
+              extractValue={(item) => item.id}
+              extractIcon={(item) => item.icon}
+              label={t('sub-category')}
+              name='subCategory'
+            />
+          </div>
+        )}
+        {watch('category') === 4 && watch('subCategory') && (
+          <div className='w-full rounded-lg bg-background p-2 dark:bg-backgroundDark'>
+            <CategorySelector
+              control={control}
+              items={[
+                { id: 1, label: 'Category1', icon: '/category.png' },
+                { id: 2, label: 'Category1', icon: '/category.png' },
+                { id: 3, label: 'Category1', icon: '/category.png' },
+                { id: 4, label: 'Category1', icon: '/category.png' },
+                { id: 5, label: 'Category1', icon: '/category.png' },
+              ]}
+              extractDisplayMember={(item) => item.label}
+              extractValue={(item) => item.id}
+              extractIcon={(item) => item.icon}
+              label={t('child-su-category')}
+              name='childCategory'
+            />
+          </div>
+        )}
       </div>
 
       <div className='mt-3 flex flex-wrap justify-between gap-2 sm:flex-col'>

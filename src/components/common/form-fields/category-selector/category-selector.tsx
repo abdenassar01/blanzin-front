@@ -41,7 +41,7 @@ export function CategorySelector<T>({
       >
         {label}
       </label>
-      <div className='mt-3 flex flex-wrap gap-2'>
+      <div className='mt-3 flex flex-wrap gap-3 sm:justify-between'>
         <Map
           items={items}
           render={(item) => (
