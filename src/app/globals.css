@@ -70,7 +70,8 @@
 
 .slick-track {
   display: flex;
-  gap: 5px;
+  gap: 15px;
+  margin-left: 0;
 }
 
 .slick-prev {
@@ -116,6 +117,17 @@
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
   background-color: #ffcc00 !important;
+}
+
+.icon {
+  width: 2vw;
+  max-width: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .icon {
+    width: 5vw;
+  }
 }
 
 @font-face {

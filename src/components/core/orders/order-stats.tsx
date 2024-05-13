@@ -43,11 +43,7 @@ export function OrderStats({ date, location, price }: Props) {
       items={details}
       render={(item) => (
         <div className='flex items-center gap-1'>
-          <Image
-            className='w-[1.5vw] sm:w-[5vw]'
-            alt={item.label}
-            src={item.icon}
-          />
+          <Image className='icon' alt={item.label} src={item.icon} />
           <div className='text-sm font-medium text-secondary dark:text-main'>
             {item.label}
           </div>

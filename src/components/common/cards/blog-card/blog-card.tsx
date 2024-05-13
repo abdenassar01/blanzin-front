@@ -11,7 +11,10 @@ export function BlogCard({ className }: Props) {
   return (
     <Link
       href='/blog/the-best-way-to-find'
-      className={cn('group w-[32%] cursor-pointer sm:w-full', className)}
+      className={cn(
+        'group w-[31.5%] cursor-pointer md:w-[49%] sm:w-full',
+        className
+      )}
     >
       <Image
         width={300}

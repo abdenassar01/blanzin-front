@@ -17,8 +17,8 @@ export default async function OrderDetails() {
   return (
     <div className='my-12'>
       <div className='container'>
-        <div className='flex justify-between sm:flex-col  sm:gap-3'>
-          <div className='w-[69%] sm:w-full'>
+        <div className='flex justify-between md:flex-col sm:flex-col sm:gap-3'>
+          <div className='w-[69%] md:w-full sm:w-full'>
             <div className=''>
               <OrderImagesSlider />
               <div className='mt-4 w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
@@ -32,12 +32,12 @@ export default async function OrderDetails() {
               </div>
             </div>
           </div>
-          <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+          <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark md:mt-4 md:w-full sm:w-full'>
             <div className='mb-4 flex items-center gap-2'>
               <Button text={t('send-offer')} />
               <div className='rounded-full  bg-secondary p-2'>
                 <Image
-                  className='w-[2vw] sm:w-[6vw]'
+                  className='icon'
                   alt='blanzin favourite'
                   src={require('@/assets/images/icons/dark/favourite-fill.svg')}
                 />

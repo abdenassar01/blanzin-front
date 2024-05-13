@@ -7,6 +7,7 @@ import { Control, Controller } from 'react-hook-form';
 type InputProps = HTMLProps<HTMLInputElement> & {
   control: Control<any>;
   labelClassName?: string;
+  wrapperClassName?: string;
 };
 
 export function TextArea({
@@ -16,17 +17,18 @@ export function TextArea({
   placeholder,
   className,
   labelClassName,
+  wrapperClassName,
 }: InputProps) {
   return (
     <Controller
       control={control}
       name={name ?? 'textaria'}
       render={({ field: { onChange, onBlur }, fieldState: { error } }) => (
-        <div className='flex w-[100%] flex-col '>
+        <div className={cn('flex w-[100%] flex-col ', wrapperClassName)}>
           <label
             htmlFor={name}
             className={cn(
-              'text-sm font-bold text-secondary sm:text-mb-xbase dark:text-main',
+              'text-sm font-bold text-secondary dark:text-main sm:text-mb-xbase',
               labelClassName
             )}
           >

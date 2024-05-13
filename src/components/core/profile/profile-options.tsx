@@ -22,7 +22,7 @@ export function ProfileOptions({}: Props) {
         <div className='mt-3 flex gap-2'>
           <Image
             onClick={() => setFavourite((prev) => !prev)}
-            className='w-[1.5vw] sm:w-[5vw]'
+            className='icon'
             alt='favourite blanzin'
             src={
               theme === 'dark'
@@ -36,7 +36,7 @@ export function ProfileOptions({}: Props) {
           />
           <Image
             onClick={() => setShowReportModal((prev) => !prev)}
-            className='w-[1.5vw] sm:w-[5vw]'
+            className='icon'
             alt='report blanzin'
             src={
               theme === 'dark'

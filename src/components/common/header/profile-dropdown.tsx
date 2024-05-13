@@ -67,7 +67,7 @@ export default function ProfileDropdown({ className }: Props) {
         }}
       >
         <Image
-          className='h-auto w-[2vw] sm:w-[6vw]'
+          className='h-auto w-[2vw] max-w-7 sm:w-[6vw]'
           src={
             theme === 'dark'
               ? require('@/assets/images/svg/profile-dark.svg')
@@ -100,7 +100,7 @@ export default function ProfileDropdown({ className }: Props) {
               )}
             >
               <Image
-                className='w-[2.5vw] sm:w-[9vw]'
+                className='w-[2.5vw] max-w-8 sm:w-[9vw]'
                 alt={link.label}
                 src={link.icon}
               />

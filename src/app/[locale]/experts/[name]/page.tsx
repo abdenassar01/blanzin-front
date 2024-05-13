@@ -65,7 +65,7 @@ export default async function ExpertProfile({ params: { name } }: Props) {
           <Image
             width={200}
             height={200}
-            className='-mt-16 aspect-square w-[8vw] rounded-full border-[3px] border-background object-cover shadow-md dark:border-backgroundDark sm:-mt-10 sm:w-[20vw]'
+            className='-mt-16 aspect-square w-[8vw] max-w-32 rounded-full border-[3px] border-background object-cover shadow-md dark:border-backgroundDark sm:-mt-10 sm:w-[20vw]'
             alt={name}
             src='/auth-bg.png'
           />
@@ -82,7 +82,7 @@ export default async function ExpertProfile({ params: { name } }: Props) {
               <div className='my-2 flex items-center gap-2 text-main'>
                 <Image
                   alt=''
-                  className='w-[1.5vw] sm:w-[5vw]'
+                  className='icon'
                   src={require('@/assets/images/icons/dark/location.svg')}
                 />
                 <div className='text-xs font-bold'>Rabat</div>
@@ -91,7 +91,7 @@ export default async function ExpertProfile({ params: { name } }: Props) {
             <ProfileOptions />
           </div>
         </div>
-        <div className='w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
+        <div className='w-full rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark sm:p-2'>
           <Heading heading={t('forms.description')} />
           <div className='text-sm'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rem
@@ -112,7 +112,7 @@ export default async function ExpertProfile({ params: { name } }: Props) {
                     <Image
                       alt={item.user.name}
                       src={item.user.avatar}
-                      className='aspect-square w-[4vw] rounded-full object-cover'
+                      className='aspect-square w-[4vw] max-w-16 rounded-full object-cover'
                     />
                     <div className=''>
                       <h2 className='font-medium '>{item.user.name}</h2>

@@ -71,7 +71,7 @@ export default function LanguagesToggle({ className }: Props) {
         }}
       >
         <Image
-          className='h-auto w-[2vw] sm:w-[6vw]'
+          className='h-auto w-[2vw] max-w-7 sm:w-[6vw]'
           src={
             theme === 'dark'
               ? require('@/assets/images/icons/dark/language.svg')
@@ -104,7 +104,7 @@ export default function LanguagesToggle({ className }: Props) {
               )}
             >
               <Image
-                className='w-[3vw] sm:w-[9vw]'
+                className='w-[3vw] max-w-8 sm:w-[9vw]'
                 alt={lang.label}
                 src={lang.icon}
               />

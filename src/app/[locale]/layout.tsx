@@ -25,9 +25,9 @@ export default function RootLayout({
       <body className={cn(locale === 'ar' ? 'font-cairo' : 'font-montserrat')}>
         <I18nProvider locale={locale}>
           <ThemeProvider attribute='class'>
-            <main className='min-h-[100vh] overflow-x-hidden bg-background font-montserrat dark:bg-backgroundDark'>
+            <main className='overflow-x-hidden bg-background font-montserrat dark:bg-backgroundDark'>
               <Header />
-              {children}
+              <div className='min-h-[90vh]'>{children}</div>
               <Footer />
             </main>
           </ThemeProvider>

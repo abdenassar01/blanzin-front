@@ -14,3 +14,4 @@ export * from './check-box';
 export * from './description-field';
 export * from './profile-tab-selector';
 export * from './upload-avatar';
+export * from './category-selector';

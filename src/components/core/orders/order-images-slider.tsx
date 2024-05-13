@@ -25,7 +25,7 @@ export function OrderImagesSlider({}: Props) {
               }}
               width={400}
               height={340}
-              className='h-[70vh] w-full rounded-xl object-cover'
+              className='h-[70vh] w-full rounded-xl object-cover sm:h-[50vw]'
               alt='order image gallery'
               src={item}
             />

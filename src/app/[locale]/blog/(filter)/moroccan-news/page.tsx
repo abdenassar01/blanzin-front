@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Blog() {
   return (
-    <div className='container flex flex-wrap justify-between gap-y-5'>
+    <div className='container flex flex-wrap justify-between gap-y-14'>
       <BlogCard />
       <BlogCard />
       <BlogCard />

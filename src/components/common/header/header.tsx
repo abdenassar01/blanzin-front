@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React from 'react';
 import DesktopNavbar from './desktop-navbar';
 import HeaderMobile from './header-mobile';

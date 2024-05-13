@@ -166,7 +166,14 @@ export default {
     username: 'Username',
     fullname: 'Fullname',
     message: 'Message',
+    location: 'Location',
+    title: 'Title',
+    budget: 'Budget (DH)',
+    peroid: 'Job Peroid',
     description: 'Description',
+    category: 'Category',
+    'sub-category': 'Sub Category',
+    'child-su-category': 'Child Sub Category',
     phone: 'Phone',
     feedback: 'Tell us more...',
     profile: 'Select a profile type',
@@ -182,6 +189,7 @@ export default {
   'faq-abbr': 'Frequently asked questions',
   'send-offer': 'Send offer',
   'similar-orders': 'Similar orders',
+  'new-order-header': 'Add new order',
   'otp-request-text':
     'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':
