@@ -37,14 +37,14 @@ export function SelectedProfile() {
             <h3 className='my-4 text-center text-xl font-bold text-secondary dark:text-main'>
               {item.label}
             </h3>
-            <div className='flex justify-between gap-4 md:justify-center'>
+            <div className='flex justify-between gap-10 md:justify-center'>
               <Map
                 items={item.items}
                 render={(profile) => (
                   <Link
                     href={profile.link}
                     className={cn(
-                      'flex h-[50px] w-[200px] items-center justify-center rounded font-semibold text-secondary shadow-md shadow-secondary transition-all ease-in-out dark:text-main dark:shadow-main',
+                      'flex h-[50px] w-[200px] items-center justify-center rounded-xl font-semibold text-secondary shadow-md shadow-secondary transition-all ease-in-out dark:text-main dark:shadow-main',
                       profile.link === pathname
                         ? 'bg-main hover:bg-main hover:text-secondary dark:text-backgroundDark'
                         : 'bg-backgroundSecondary hover:bg-secondary hover:text-main dark:bg-backgroundDark dark:hover:bg-main dark:hover:text-backgroundDark'

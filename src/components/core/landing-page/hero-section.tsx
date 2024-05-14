@@ -19,7 +19,7 @@ export function HeroSection({ action, header, href }: Props) {
             {header}
           </h3>
           <div className='w-[50%] md:w-full sm:w-full'>
-            <Button className='group rounded-xl' theme='secondary'>
+            <Button className='group' theme='secondary'>
               <Link
                 className='font-semibold text-main group-hover:text-secondary'
                 href={href}
