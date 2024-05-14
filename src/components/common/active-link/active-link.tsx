@@ -25,7 +25,7 @@ export function ActiveLink({
   return (
     <Link
       className={cn(
-        'font-[500] hover:text-secondary dark:hover:text-main',
+        'font-[500] hover:text-main dark:hover:text-white',
         className,
         (
           active
@@ -34,8 +34,9 @@ export function ActiveLink({
               )
             : pathname.startsWith(link)
         )
-          ? cn('text-secondary dark:text-main', activeClassName)
-          : ' text-text dark:text-textdark'
+          ? cn('text-main dark:text-white', activeClassName)
+          : ' text-secondary dark:text-main',
+        ''
       )}
       href={link}
     >
