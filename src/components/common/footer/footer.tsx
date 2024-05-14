@@ -39,7 +39,7 @@ export function Footer() {
   const t = useI18n();
 
   return (
-    <div className='main-background-gradient py-6'>
+    <div className='main-background-gradient m-2 rounded-xl py-6'>
       <div className='container flex flex-wrap items-center justify-between p-4 md:justify-center sm:justify-center'>
         <div className='flex flex-col  items-center justify-center sm:mt-5 sm:w-full'>
           <div className='flex items-center justify-center bg-contain bg-no-repeat'>
