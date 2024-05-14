@@ -66,12 +66,12 @@ export function DropdownMultipleSelect<T>({
   return (
     <div
       ref={dropdownRef}
-      className={cn('relative flex w-[100%] flex-col', wrapperClassName || '')}
+      className={cn('relative flex w-full flex-col', wrapperClassName || '')}
     >
       <label
         htmlFor={name}
         className={cn(
-          'text-sm font-bold normal-case text-secondary dark:text-main sm:text-mb-xxs',
+          'text-center text-sm font-bold normal-case text-secondary dark:text-main sm:text-mb-xxs',
           labelClassName || ''
         )}
       >
@@ -80,7 +80,7 @@ export function DropdownMultipleSelect<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'no-scrollbar flex w-[100%] items-center justify-between rounded-full border-[1px]  border-[#CFD6E7] bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
+          'no-scrollbar flex w-full items-center justify-between rounded-full border-[1px]  border-[#CFD6E7] bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
           className,
           (value || defaultValue) && 'text-text dark:text-textdark',
           (error && 'border-[1px] border-error') || ''
