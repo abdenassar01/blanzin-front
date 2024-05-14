@@ -4,7 +4,7 @@ import React from 'react';
 export default function OrdersPage() {
   return (
     <div className='container'>
-      <div className='flex w-full py-4 sm:flex-col'>
+      <div className='flex w-full py-12 sm:flex-col'>
         <SidebarFilter />
         <div className='flex w-full flex-wrap justify-between gap-y-5 overflow-y-scroll p-2 sm:mb-6'>
           <OrderCard
