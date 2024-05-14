@@ -1,6 +1,6 @@
 'use client';
 
-import { cn, useOnHoverOutside } from '@/utils';
+import { cn, useOnHoverOutside, useOutsideClick } from '@/utils';
 import Image from 'next/image';
 import { useRouter, usePathname } from '@/navigation';
 import React, { startTransition, useRef, useState } from 'react';
@@ -62,12 +62,16 @@ export default function LanguagesToggle({ className }: Props) {
   };
 
   useOnHoverOutside(dropdownRef, closeDropdown);
+  useOutsideClick(dropdownRef, closeDropdown);
 
   return (
     <div ref={dropdownRef} className='relative'>
       <div
-        onMouseMove={() => {
+        onClick={() => {
           setShowLanguesDropdown(true);
+        }}
+        onMouseMove={() => {
+          setShowLanguesDropdown((prev) => !prev);
         }}
       >
         <Image
