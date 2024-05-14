@@ -16,17 +16,32 @@ module.exports = {
         cairo: ['Cairo', 'sans-serif'],
       },
       keyframes: {
-        animFw: {
+        enter: {
           '0%': {
-            width: '0',
+            marginLeft: '-700px',
+            tramsform: 'scale(0.8)',
+            opacity: 0.5,
           },
           '100%': {
-            width: '100%',
+            marginLeft: '0',
+            tramsform: '1',
+            opacity: 1,
+          },
+        },
+        leave: {
+          '0%': {
+            marginLeft: '0',
+            tramsform: '1',
+          },
+          '100%': {
+            marginLeft: '-200px',
+            tramsform: 'scale(0.8)',
           },
         },
       },
       animation: {
-        animFw: 'animFw 5s linear infinite',
+        enter: 'enter .5s ease-in-out',
+        leave: 'leave .5s ease-in-out',
       },
     },
     colors: colors,
