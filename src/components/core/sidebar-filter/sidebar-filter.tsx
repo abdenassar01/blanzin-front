@@ -33,9 +33,9 @@ export function SidebarFilter() {
   }, [values, query]);
 
   return (
-    <div className='m-2 h-fit w-[33%] overflow-y-scroll rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
-      <div className=' gap-2 sm:flex'>
-        <div className='flex w-full gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+    <div className='my-6 h-fit'>
+      <div className='flex items-center justify-center gap-2 sm:flex'>
+        <div className='flex w-[70%] gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
           <Image
             alt=''
             className='icon'
@@ -63,7 +63,7 @@ export function SidebarFilter() {
           />
         </button>
       </div>
-      <div className='mb-[220px] sm:hidden'>
+      <div className='flex gap-4 sm:hidden'>
         <DropdownMultipleSelect
           wrapperClassName='mt-3'
           className=''
@@ -84,6 +84,26 @@ export function SidebarFilter() {
           label='Category'
           name='categories'
         />
+        <DropdownMultipleSelect
+          wrapperClassName='mt-3'
+          className=''
+          items={['test item', 'Test again', 'third test']}
+          control={control}
+          extractDisplayMember={(item) => item}
+          extractValueMember={(item) => item}
+          label='Category'
+          name='categories'
+        />
+        <DropdownMultipleSelect
+          wrapperClassName='mt-3'
+          className=''
+          items={['test item', 'Test again', 'third test']}
+          control={control}
+          extractDisplayMember={(item) => item}
+          extractValueMember={(item) => item}
+          label='Category'
+          name='categories'
+        />
       </div>
       <Modal
         width={95}
@@ -92,7 +112,7 @@ export function SidebarFilter() {
         visible={showFilter}
         className='no-scrollbar overflow-y-scroll'
       >
-        <div className='mb-[220px] '>
+        <div className=''>
           <DropdownMultipleSelect
             wrapperClassName='mt-3'
             className=''

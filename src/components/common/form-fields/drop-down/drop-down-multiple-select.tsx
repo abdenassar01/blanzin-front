@@ -118,7 +118,7 @@ export function DropdownMultipleSelect<T>({
       </p>
       <div
         className={cn(
-          'no-scrollbar absolute top-[75px] isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-background transition-all ease-out dark:bg-backgroundDark',
+          'no-scrollbar absolute top-[75px] isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary transition-all ease-out dark:bg-backgroundSecondaryDark',
           openDropdown ? 'h-[200px]' : 'h-0'
         )}
       >
