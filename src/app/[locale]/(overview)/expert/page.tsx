@@ -14,17 +14,17 @@ export default async function ExpertPage() {
   const steps = [
     {
       step: `${t('step-heading')} 1`,
-      icon: '/steps/step-1.jpg',
+      icon: '/steps/step-1.jpeg',
       text: t('expert-steps.find-expert-step-one'),
     },
     {
       step: `${t('step-heading')} 2`,
-      icon: '/steps/step-2.jpg',
+      icon: '/steps/step-2.jpeg',
       text: t('expert-steps.find-expert-step-two'),
     },
     {
       step: `${t('step-heading')} 3`,
-      icon: '/steps/step-3.jpg',
+      icon: '/steps/step-3.jpeg',
       text: t('expert-steps.find-expert-step-three'),
     },
   ];

@@ -52,7 +52,7 @@ export async function DownloadAppSection() {
             width={200}
             height={200}
           />
-          <Button theme='secondary' className='group rounded-full '>
+          <Button theme='secondary' className='group '>
             <Link
               className='text-main group-hover:text-secondary'
               href='/download-app'

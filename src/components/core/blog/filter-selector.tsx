@@ -28,7 +28,7 @@ export function FilterSelector() {
                 'text-nowrap rounded-full px-5 py-2 font-medium',
                 item.href === pathname
                   ? ' bg-secondary text-background dark:bg-main dark:text-backgroundDark'
-                  : 'bg-background text-secondary dark:bg-backgroundDark  dark:text-main'
+                  : 'bg-backgroundSecondary text-secondary dark:bg-backgroundSecondaryDark  dark:text-main'
               )}
               href={item.href}
             >
