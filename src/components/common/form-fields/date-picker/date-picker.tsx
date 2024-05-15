@@ -16,6 +16,7 @@ type Props = {
   label: string;
   placeholder?: string;
   className?: string;
+  wrapperClassName?: string;
   defaultDate?: Date;
   minimumDate?: Date;
   maximumDate?: Date;
@@ -37,6 +38,7 @@ export function DatePicker({
   placeholder,
   minimumDate,
   maximumDate,
+  wrapperClassName,
   selectRange,
 }: Props) {
   const [openDatePicker, setOpenDatePicker] = useState<boolean>();
@@ -54,7 +56,10 @@ export function DatePicker({
   useOutsideClick(datePickerRef, () => setOpenDatePicker(false));
 
   return (
-    <div ref={datePickerRef} className='relative'>
+    <div
+      ref={datePickerRef}
+      className={cn('relative w-full', wrapperClassName)}
+    >
       <TranslatedHeading
         className='mb-1 text-sm text-secondary dark:text-main'
         tranlationKey={label}

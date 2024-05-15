@@ -1,35 +1,73 @@
-import { CategorySelector } from '@/components';
+'use client';
+
+import {
+  CategorySelector,
+  DatePicker,
+  Dropdown,
+  FieldText,
+  TextArea,
+} from '@/components';
+import { useI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control } from 'react-hook-form';
 
 type Props = {
   control: Control;
-  setCurrentStep: (step: number) => void;
-  label?: string;
 };
 
-export function StepFour({ control, setCurrentStep, label }: Props) {
+export function StepFour({ control }: Props) {
+  const t = useI18n();
+
+  const maxDate = new Date();
+  maxDate.setMonth(maxDate.getMonth() + 4, maxDate.getDay());
+
   return (
-    <div className='pt-12'>
+    <div className='w-[80%] animate-enter pt-12'>
       <div className='text-center text-xm text-secondary dark:text-main'>
-        {label}
+        {/* {label} */}
       </div>
-      <CategorySelector
-        control={control}
-        callback={() => setCurrentStep(2)}
-        items={[
-          { id: 1, label: 'Category1', icon: '/category.png' },
-          { id: 2, label: 'Category1', icon: '/category.png' },
-          { id: 3, label: 'Category1', icon: '/category.png' },
-          { id: 4, label: 'Category1', icon: '/category.png' },
-          { id: 5, label: 'Category1', icon: '/category.png' },
-        ]}
-        extractDisplayMember={(item) => item.label}
-        extractValue={(item) => item.id}
-        extractIcon={(item) => item.icon}
-        name='category'
-        label=''
-      />
+      <div className='flex w-full flex-wrap justify-between'>
+        <Dropdown
+          control={control}
+          items={['Moroccan Wide', 'Casablanca']}
+          extractDisplayMember={(item) => item}
+          extractValueMember={(item) => item}
+          label={t('forms.location')}
+          name='location'
+          wrapperClassName='w-[49%]'
+        />
+        <FieldText
+          control={control}
+          label={t('forms.title')}
+          placeholder={t('forms.title')}
+          name='title'
+          className='w-[49%]'
+        />
+
+        <FieldText
+          control={control}
+          label={t('forms.budget')}
+          placeholder='100'
+          name='budget'
+          type='number'
+          className='w-[49%]'
+        />
+        <DatePicker
+          control={control}
+          name='jobPeroid'
+          label={t('forms.peroid')}
+          placeholder={t('forms.peroid')}
+          wrapperClassName='w-[49%]'
+          minimumDate={new Date()}
+          maximumDate={maxDate}
+          selectRange
+        />
+        <TextArea
+          control={control}
+          label={t('forms.description')}
+          placeholder={t('forms.description')}
+        />
+      </div>
     </div>
   );
 }

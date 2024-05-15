@@ -53,7 +53,7 @@ export function CategorySelector<T>({
                 callback && callback();
               }}
               className={cn(
-                'rounded-md p-4  transition-all duration-500',
+                'cursor-pointer rounded-md p-4 transition-all duration-500',
                 value === extractValue(item)
                   ? 'bg-secondary text-main dark:bg-main dark:text-secondary'
                   : 'bg-backgroundSecondary text-secondary dark:bg-backgroundSecondaryDark dark:text-main'

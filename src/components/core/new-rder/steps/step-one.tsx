@@ -10,7 +10,7 @@ type Props = {
 
 export function StepOne({ control, setCurrentStep, label }: Props) {
   return (
-    <div className='animate-enter pt-12'>
+    <div className='animate-enter pt-6'>
       <div className='text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>

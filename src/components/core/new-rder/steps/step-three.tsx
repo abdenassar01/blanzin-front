@@ -10,13 +10,13 @@ type Props = {
 
 export function StepThree({ control, setCurrentStep, label }: Props) {
   return (
-    <div className='pt-12'>
+    <div className='animate-enter pt-12'>
       <div className='text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>
       <CategorySelector
         control={control}
-        callback={() => setCurrentStep(2)}
+        callback={() => setCurrentStep(4)}
         items={[
           { id: 1, label: 'Category1', icon: '/category.png' },
           { id: 2, label: 'Category1', icon: '/category.png' },
@@ -27,7 +27,7 @@ export function StepThree({ control, setCurrentStep, label }: Props) {
         extractDisplayMember={(item) => item.label}
         extractValue={(item) => item.id}
         extractIcon={(item) => item.icon}
-        name='category'
+        name='childSubCategory'
         label=''
       />
     </div>

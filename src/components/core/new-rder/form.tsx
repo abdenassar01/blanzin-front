@@ -11,12 +11,15 @@ import {
 import { useScopedI18n } from '@/utils/locales/client';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { StepOne, StepThree, StepTwo } from './steps';
+import { StepFour, StepOne, StepThree, StepTwo } from './steps';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 type Props = {};
 
 export function NewOrderForm({}: Props) {
   const { control, watch } = useForm();
+  const { theme } = useTheme();
 
   const [currentStep, setCurrentStep] = useState<number>(1);
 
@@ -34,36 +37,51 @@ export function NewOrderForm({}: Props) {
         return (
           <StepTwo
             setCurrentStep={setCurrentStep}
-            label={t('select-category')}
+            label={t('select-sub-category')}
             control={control}
           />
         );
       case 3:
-        return (
-          <StepThree
-            setCurrentStep={setCurrentStep}
-            label={t('select-category')}
-            control={control}
-          />
-        );
+        if (watch('category') === 4) {
+          return (
+            <StepThree
+              setCurrentStep={setCurrentStep}
+              label={t('select-child-sub-category')}
+              control={control}
+            />
+          );
+        }
+        return <StepFour control={control} />;
+
       case 4:
-        return (
-          <StepOne
-            setCurrentStep={setCurrentStep}
-            label={t('select-category')}
-            control={control}
-          />
-        );
+        return <StepFour control={control} />;
     }
   }
 
   const t = useScopedI18n('forms');
-  const date = new Date();
-  date.setMonth(date.getMonth() + 4, date.getDay());
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <ProgressBar className='w-[50%]' currentStep={currentStep} steps={3} />
+      <ProgressBar
+        className='w-[50%]'
+        currentStep={currentStep}
+        steps={watch('category') === 4 ? 4 : 3}
+      />
+      {currentStep !== 1 && (
+        <div className='mt-4 w-[80%]'>
+          <button onClick={() => setCurrentStep(currentStep - 1)}>
+            <Image
+              className='icon'
+              alt='go back'
+              src={
+                theme === 'dark'
+                  ? require('@/assets/images/icons/dark/back-arrow.svg')
+                  : require('@/assets/images/icons/light/back-arrow.svg')
+              }
+            />
+          </button>
+        </div>
+      )}
       {getStep()}
     </div>
   );
