@@ -16,7 +16,7 @@ export function WalkThroughtSteps({ steps, header }: Props) {
       <h2 className='mb-5 text-xm font-bold text-secondary dark:text-main'>
         {header}
       </h2>
-      <div className='flex justify-between '>
+      <div className='flex justify-between sm:flex-col '>
         {React.Children.toArray(
           steps.map((item) => (
             <div className='flex flex-col items-center justify-center gap-3'>
@@ -25,7 +25,7 @@ export function WalkThroughtSteps({ steps, header }: Props) {
                 src={item.icon}
                 width={200}
                 height={200}
-                className='aspect-square w-[200px] rounded-full'
+                className='aspect-square w-[250px] rounded-full'
               />
               <div className='flex items-center justify-center'>
                 <div className='w-fit rounded-full bg-secondary px-3 py-1 text-center font-bold text-main'>

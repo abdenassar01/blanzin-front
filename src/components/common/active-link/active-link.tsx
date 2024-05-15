@@ -23,23 +23,27 @@ export function ActiveLink({
   const pathname = usePathname();
 
   return (
-    <Link
-      className={cn(
-        'font-[500] hover:text-secondary dark:hover:text-main',
-        className,
-        (
-          active
-            ? ['/customer', '/expert', '/trainee', '/employee'].includes(
-                pathname
-              )
-            : pathname.startsWith(link)
-        )
-          ? cn('text-secondary dark:text-main', activeClassName)
-          : ' text-text dark:text-textdark'
-      )}
-      href={link}
-    >
-      {children}
-    </Link>
+    <div className='group'>
+      <Link
+        className={cn(
+          'font-[500] ',
+          className,
+          (
+            active
+              ? ['/customer', '/expert', '/trainee', '/employee'].includes(
+                  pathname
+                )
+              : pathname.startsWith(link)
+          )
+            ? cn('text-main dark:text-white', activeClassName)
+            : ' text-secondary dark:text-main',
+          ''
+        )}
+        href={link}
+      >
+        {children}
+      </Link>
+      <div className='h-0.5 w-0 rounded-full bg-secondary transition-all duration-300 group-hover:w-full dark:bg-main' />
+    </div>
   );
 }

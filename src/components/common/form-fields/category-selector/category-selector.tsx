@@ -11,6 +11,7 @@ type Props<T> = {
   extractValue: (item: T) => any;
   extractDisplayMember: (item: T) => any;
   extractIcon?: (item: T) => any;
+  callback?: () => void;
   name: string;
   control: Control<any>;
   label: string;
@@ -24,6 +25,7 @@ export function CategorySelector<T>({
   label,
   name,
   extractIcon,
+  callback,
 }: Props<T>) {
   const {
     field: { onChange, value },
@@ -41,14 +43,17 @@ export function CategorySelector<T>({
       >
         {label}
       </label>
-      <div className='mt-3 flex flex-wrap gap-3 sm:justify-between'>
+      <div className='mt-3 flex flex-wrap justify-center gap-3 sm:justify-between'>
         <Map
           items={items}
           render={(item) => (
             <div
-              onClick={() => onChange(extractValue(item))}
+              onClick={() => {
+                onChange(extractValue(item));
+                callback && callback();
+              }}
               className={cn(
-                'rounded-md p-4  transition-all duration-500',
+                'cursor-pointer rounded-md p-4 transition-all duration-500',
                 value === extractValue(item)
                   ? 'bg-secondary text-main dark:bg-main dark:text-secondary'
                   : 'bg-backgroundSecondary text-secondary dark:bg-backgroundSecondaryDark dark:text-main'
@@ -56,9 +61,9 @@ export function CategorySelector<T>({
             >
               {extractIcon && (
                 <Image
-                  width={100}
-                  height={100}
-                  className=''
+                  width={200}
+                  height={200}
+                  className='w-[12vw] sm:w-[40%]'
                   alt={extractDisplayMember(item)}
                   src={extractIcon(item)}
                 />

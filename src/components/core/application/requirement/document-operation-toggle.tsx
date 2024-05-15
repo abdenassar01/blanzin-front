@@ -10,12 +10,11 @@ import { Button, ProgressBar } from '@/components';
 
 type Props = {
   title: string;
-  completed: number;
   doc: string;
   url: string;
 };
 
-export function DocumentToggleOperation({ completed, doc, title, url }: Props) {
+export function DocumentToggleOperation({ doc, title, url }: Props) {
   const t = useScopedI18n('application');
   const [showOptions, setShowOptions] = useState<boolean>(false);
 
@@ -24,13 +23,13 @@ export function DocumentToggleOperation({ completed, doc, title, url }: Props) {
       <li>
         <div
           onClick={() => setShowOptions((prev) => !prev)}
-          className='my-2 flex items-center justify-between'
+          className='group my-2 flex cursor-pointer items-center justify-between'
         >
-          <div className='w-[50%] font-bold capitalize text-secondary dark:text-main'>
-            {title}
-          </div>
-          <div className='w-[20vw]  rounded-full bg-background px-2 py-1 dark:bg-backgroundDark'>
-            <ProgressBar currentStep={completed} steps={5} />
+          <div className=''>
+            <div className=' font-bold capitalize text-secondary dark:text-main'>
+              {title}
+            </div>
+            <div className='h-[2px] w-0 rounded-full bg-secondary transition-all duration-300 group-hover:w-[100px] dark:bg-main'></div>
           </div>
           <Image
             className={cn(
@@ -56,11 +55,6 @@ export function DocumentToggleOperation({ completed, doc, title, url }: Props) {
                 <li>
                   <Link href={url}>
                     <Button theme='success' className='' text={t('add')} />
-                  </Link>
-                </li>
-                <li>
-                  <Link href={url}>
-                    <Button theme='warn' className='' text={t('update')} />
                   </Link>
                 </li>
                 <li>

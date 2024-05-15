@@ -39,7 +39,7 @@ export function Footer() {
   const t = useI18n();
 
   return (
-    <div className='main-background-gradient py-6'>
+    <div className='main-background-gradient m-2 rounded-xl py-6'>
       <div className='container flex flex-wrap items-center justify-between p-4 md:justify-center sm:justify-center'>
         <div className='flex flex-col  items-center justify-center sm:mt-5 sm:w-full'>
           <div className='flex items-center justify-center bg-contain bg-no-repeat'>
@@ -65,11 +65,7 @@ export function Footer() {
                 href={link.link}
                 target='_blank'
               >
-                <Image
-                  alt={link.link}
-                  src={link.icon}
-                  className='w-[2vw] sm:w-[8vw]'
-                />
+                <Image alt={link.link} src={link.icon} className='icon' />
               </Link>
             ))}
           </div>
@@ -87,17 +83,13 @@ export function Footer() {
                       className={cn(
                         'flex gap-1 font-medium  text-backgroundDark',
                         link.icon
-                          ? 'w-[10vw] min-w-[150px] items-center rounded bg-main p-2 text-xs'
+                          ? 'w-[150px] items-center rounded bg-main p-2 text-xs'
                           : 'hover:text-secondary'
                       )}
                       href={link.link}
                     >
                       {link.icon && (
-                        <Image
-                          className='w-[2vw] sm:w-[8vw]'
-                          src={link.icon}
-                          alt=''
-                        />
+                        <Image className='icon' src={link.icon} alt='' />
                       )}
                       <span>{t(link.label)}</span>
                     </Link>

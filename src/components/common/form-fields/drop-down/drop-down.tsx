@@ -107,7 +107,7 @@ export function Dropdown<T>({
       </p>
       <div
         className={cn(
-          'absolute top-14 isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] sm:top-[22.816vw] sm:w-[70vw]',
+          'absolute top-[70px] isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] sm:top-[22.816vw] sm:w-[70vw]',
           dropdownClassName,
           openDropdown ? 'h-[200px]' : 'h-0'
         )}

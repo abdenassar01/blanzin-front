@@ -25,16 +25,12 @@ export default async function PacksPage() {
           </div>
         </div>
       </div>
-      <div className='main-background-gradient mt-12 py-12'>
-        <div className='container flex flex-col items-center justify-center '>
+      <div className='main-background-gradient mx-3 mt-12 rounded-xl py-12'>
+        <div className='container flex flex-col items-center justify-center'>
           <h3 className='w-[50vw] text-center text-xxm font-bold text-secondary sm:w-[95vw]'>
             {t('check-heading')}
           </h3>
-          <Button
-            width='200px'
-            className='group mt-6 rounded-full'
-            theme='secondary'
-          >
+          <Button width='200px' className='group mt-6' theme='secondary'>
             <Link
               href='/application/requirements'
               className='text-white group-hover:text-secondary'
