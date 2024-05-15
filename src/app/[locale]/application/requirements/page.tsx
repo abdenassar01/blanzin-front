@@ -14,31 +14,31 @@ export default async function Requirement() {
         <div className='mt-8 rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark'>
           <ul className='ml-6 '>
             <DocumentToggleOperation
-              completed={1}
+              doc='/blanzin.pdf'
+              title={t('resume')}
+              url='/resume'
+            />
+            <DocumentToggleOperation
               doc='/blanzin.pdf'
               title={t('lang-certificate')}
               url='/resume'
             />
             <DocumentToggleOperation
-              completed={5}
               doc='/blanzin.pdf'
               title={t('diploma')}
               url='/docs'
             />
             <DocumentToggleOperation
-              completed={2}
               doc='/blanzin.pdf'
               title={t('intenship')}
               url='/docs'
             />
             <DocumentToggleOperation
-              completed={0}
               doc='/blanzin.pdf'
               title={t('job-certificates')}
               url='/docs'
             />
             <DocumentToggleOperation
-              completed={5}
               doc='/blanzin.pdf'
               title={t('acknowledgement')}
               url='/docs'
