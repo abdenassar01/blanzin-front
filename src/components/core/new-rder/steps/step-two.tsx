@@ -1,9 +1,9 @@
 import { CategorySelector } from '@/components';
 import React from 'react';
-import { Control, useWatch } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 
 type Props = {
-  control: Control;
+  control: Control<any>;
   setCurrentStep: (step: number) => void;
   label?: string;
 };

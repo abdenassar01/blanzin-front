@@ -18,7 +18,11 @@ import { useTheme } from 'next-themes';
 type Props = {};
 
 export function NewOrderForm({}: Props) {
-  const { control, watch } = useForm();
+  const { control, watch } = useForm({
+    defaultValues: {
+      gallery: [],
+    },
+  });
   const { theme } = useTheme();
 
   const [currentStep, setCurrentStep] = useState<number>(1);

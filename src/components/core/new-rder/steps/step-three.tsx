@@ -3,7 +3,7 @@ import React from 'react';
 import { Control } from 'react-hook-form';
 
 type Props = {
-  control: Control;
+  control:  Control<any>;
   setCurrentStep: (step: number) => void;
   label?: string;
 };

@@ -1,10 +1,10 @@
 'use client';
 
 import {
-  CategorySelector,
   DatePicker,
   Dropdown,
   FieldText,
+  ImagesGalleryField,
   TextArea,
 } from '@/components';
 import { useI18n } from '@/utils/locales/client';
@@ -12,7 +12,7 @@ import React from 'react';
 import { Control } from 'react-hook-form';
 
 type Props = {
-  control: Control;
+  control: Control<any>;
 };
 
 export function StepFour({ control }: Props) {
@@ -66,6 +66,12 @@ export function StepFour({ control }: Props) {
           control={control}
           label={t('forms.description')}
           placeholder={t('forms.description')}
+        />
+        <ImagesGalleryField
+          control={control}
+          label='Gallery'
+          name='gallery'
+          className=''
         />
       </div>
     </div>
