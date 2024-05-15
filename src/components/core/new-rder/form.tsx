@@ -1,13 +1,6 @@
 'use client';
 
-import {
-  CategorySelector,
-  DatePicker,
-  Dropdown,
-  FieldText,
-  ProgressBar,
-  TextArea,
-} from '@/components';
+import { ProgressBar } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -21,6 +14,7 @@ export function NewOrderForm({}: Props) {
   const { control, watch } = useForm({
     defaultValues: {
       gallery: [],
+      category: 1,
     },
   });
   const { theme } = useTheme();
