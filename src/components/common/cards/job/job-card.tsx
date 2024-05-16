@@ -24,7 +24,7 @@ export function JobCard({ createdAt, desc, image, location, jobTitle }: Props) {
         alt=''
         width={300}
         height={250}
-        className='w-[25vw] rounded-md sm:container'
+        className='w-full rounded-md sm:container'
       />
       <h3 className='text-base font-semibold text-secondary'>{jobTitle}</h3>
       <div className=''>
