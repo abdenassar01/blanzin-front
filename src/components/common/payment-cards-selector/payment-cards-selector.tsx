@@ -2,8 +2,12 @@
 
 import React from 'react';
 import PaymentCardItem from './payment-card-item';
+import { Control, useController } from 'react-hook-form';
 
-type Props = {};
+type Props = {
+  control: Control<any>;
+  name: string;
+};
 
 const packs = [
   {
@@ -94,15 +98,16 @@ const packs = [
   },
 ];
 
-export function PaymentCardsSelector({}: Props) {
+export function PaymentCardsSelector({ control, name }: Props) {
+  const {
+    field: { onChange },
+  } = useController({ control, name });
+
   return (
     <div className='flex justify-between gap-3 sm:flex-col'>
       {React.Children.toArray(
         packs.map((card) => (
-          <PaymentCardItem
-            handlePress={() => console.log('hello')}
-            pack={card}
-          />
+          <PaymentCardItem handlePress={() => onChange(card.id)} pack={card} />
         ))
       )}
     </div>

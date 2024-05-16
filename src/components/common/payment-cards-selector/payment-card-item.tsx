@@ -38,7 +38,7 @@ export default function PaymentCardItem({ pack, handlePress }: Props) {
       onClick={handlePress}
       className={cn(
         ' relative rounded-xl bg-backgroundSecondary p-4 pt-12 dark:bg-backgroundSecondaryDark',
-        pack.recomended ? '-mt-3 border-[2px] border-success' : 'mt-3'
+        pack.recomended ? '-mt-3 border-[1px] border-success pt-16' : 'mt-3'
       )}
     >
       {pack.recomended && (

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Heading, PaymentCardsSelector } from '@/components';
+import { Heading } from '@/components';
 import { getScopedI18n } from '@/utils/locales/server';
-import Link from 'next/link';
+import { PackagesForm } from './packages-form';
 
 export default async function PackagesPage() {
   const t = await getScopedI18n('application');
@@ -17,7 +17,7 @@ export default async function PackagesPage() {
         </div>
         <div className='flex w-full justify-center'>
           <div className='w-[80%]'>
-            <PaymentCardsSelector />
+            <PackagesForm />
           </div>
         </div>
       </div>
