@@ -14,3 +14,4 @@ export * from './image-shape-maker';
 export * from './heading';
 export * from './cards';
 export * from './text-toggle';
+export * from './payment-cards-selector';

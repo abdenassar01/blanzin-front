@@ -1,6 +1,5 @@
 import React from 'react';
-import { PackagesForm } from './packages-form';
-import { Button, Heading } from '@/components';
+import { Button, Heading, PaymentCardsSelector } from '@/components';
 import { getScopedI18n } from '@/utils/locales/server';
 import Link from 'next/link';
 
@@ -16,14 +15,9 @@ export default async function PackagesPage() {
             heading={t('packs-heading')}
           />
         </div>
-        <div className='flex justify-center'>
-          <PackagesForm />
-        </div>
-        <div className='mt-6 flex items-center justify-center'>
-          <div className='w-[20%] sm:w-full'>
-            <Link className='' href='/application/book'>
-              <Button text={t('book')} />
-            </Link>
+        <div className='flex w-full justify-center'>
+          <div className='w-[80%]'>
+            <PaymentCardsSelector />
           </div>
         </div>
       </div>
