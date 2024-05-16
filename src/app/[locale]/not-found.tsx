@@ -4,13 +4,13 @@ import React from 'react';
 import '../globals.css';
 import { getI18n } from '@/utils/locales/server';
 import { I18nProviderClient } from '@/utils/locales/client';
-import { setStaticParamsLocale } from 'next-international/server';
-import { useLocale } from 'next-intl';
+import { InternationalisationParams } from '@/types';
 
-export default async function NotFound() {
-  const locale = useLocale();
-  setStaticParamsLocale(locale);
+export default async function notFound({
+  params: { locale },
+}: InternationalisationParams) {
   const t = await getI18n();
+
   return (
     <html lang={locale}>
       <head>

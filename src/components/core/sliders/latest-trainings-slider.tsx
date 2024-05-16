@@ -1,10 +1,9 @@
 'use client';
 
-import { OrderCard } from '@/components';
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { SliderDotIndicator } from './slider-dots-indicator';
-import { JobCard } from '@/components/common/cards/job/job-card';
+import { JobCard } from '@/components';
 
 export function LatestTrainingsSlider() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -13,17 +12,28 @@ export function LatestTrainingsSlider() {
     <Slider
       arrows={false}
       className='my-5'
+      slidesToShow={3}
+      slidesToScroll={2}
+      initialSlide={2}
+      autoplay
+      cssEase='linear'
       responsive={[
         {
-          breakpoint: 2600,
+          breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 2,
-            centerMode: true,
+            slidesToShow: 2.5,
+            slidesToScroll: 1,
           },
         },
         {
-          breakpoint: 767,
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1.5,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
