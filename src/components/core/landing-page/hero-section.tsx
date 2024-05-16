@@ -2,17 +2,24 @@ import { Button } from '@/components';
 import Link from 'next/link';
 import React from 'react';
 import { VideoPlayer } from './video-player';
+import { cn } from '@/utils';
 
 type Props = {
   header: string;
   action: string;
   href: string;
+  flipped?: boolean;
 };
 
-export function HeroSection({ action, header, href }: Props) {
+export function HeroSection({ action, header, href, flipped }: Props) {
   return (
     <div className='main-background-gradient container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-md shadow-secondary'>
-      <div className='flex w-full flex-row-reverse gap-10 px-12 sm:flex-col'>
+      <div
+        className={cn(
+          'flex w-full gap-10 px-12 sm:flex-col',
+          flipped ? 'flex-row' : 'flex-row-reverse '
+        )}
+      >
         <VideoPlayer />
         <div className='flex w-full flex-col justify-center gap-10'>
           <h3 className='w-[70%] whitespace-pre-line text-xxl font-bold text-secondary sm:w-full'>

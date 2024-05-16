@@ -35,6 +35,7 @@ export default async function EmployeePage() {
         action={t('employee.hero-action')}
         href='/jobs'
         header={t('employee.hero-text')}
+        flipped
       />
       <CallToAction
         heading={t('employee.call-to-action-heading')}

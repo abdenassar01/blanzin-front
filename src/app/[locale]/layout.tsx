@@ -27,7 +27,7 @@ export default function RootLayout({
           <ThemeProvider attribute='class'>
             <main className='mt-16 overflow-x-hidden bg-background font-montserrat transition-all dark:bg-backgroundDark'>
               <Header />
-              <div className='min-h-[90vh]'>{children}</div>
+              <div className='min-h-[85vh]'>{children}</div>
               <Footer />
             </main>
           </ThemeProvider>

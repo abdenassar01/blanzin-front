@@ -97,7 +97,7 @@ export default {
   },
   trainee: {
     'hero-text': 'Are you looking for a vocational training in Germany?',
-    'hero-action': 'Find Trainings',
+    'hero-action': 'Find Trainings!',
     'call-to-action-heading': 'Start your career in Germany with Blanzin',
     'call-to-action-paragraph':
       'Welcome to Blanzin, your gateway to an exciting professional future. \nWhether you have just finished school or already have experience in the world of work, you will find the right opportunity to realise your dreams with us.',

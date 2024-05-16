@@ -34,7 +34,8 @@ export default async function TraineePage() {
       <HeroSection
         action={t('trainee.hero-action')}
         href='/become-expert'
-        header={t('expert.hero-text')}
+        header={t('trainee.hero-text')}
+        flipped
       />
       <CallToAction
         heading={t('trainee.call-to-action-heading')}
