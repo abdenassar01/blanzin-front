@@ -55,8 +55,8 @@ export function Footer() {
           </div>
 
           <TranslatedText
-            className='mb-4 text-center font-cairo text-base text-black'
-            tranlationKey='! قضي غرضك فلحين'
+            className='mb-4 text-center font-cairo text-xl font-semibold text-secondary'
+            tranlationKey='!قضي غرضك فلحين'
           />
           <div className='my-2 flex flex-row gap-2'>
             {socialMedia.map((link) => (

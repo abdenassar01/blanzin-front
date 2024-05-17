@@ -68,9 +68,13 @@
   background-color: #ffcc00;
 }
 
+.slick-slid {
+  height: fit-content;
+}
+
 .slick-track {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   margin-left: 0;
 }
 
