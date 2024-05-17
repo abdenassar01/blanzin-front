@@ -17,7 +17,7 @@ export async function DownloadAppSection() {
           >
             <>
               <Link
-                className='absolute -right-16 top-[60%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium text-backgroundDark  sm:-right-6'
+                className='absolute -right-28 top-[62%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium text-backgroundDark  sm:-right-6'
                 href='https://play.google.com'
                 target='_blank'
               >
@@ -30,7 +30,7 @@ export async function DownloadAppSection() {
               </Link>
               <Link
                 target='_blank'
-                className='absolute -right-16 top-[50%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium  text-backgroundDark sm:-right-6'
+                className='absolute -right-28 top-[50%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium  text-backgroundDark sm:-right-6'
                 href='https://play.google.com'
               >
                 <Image
