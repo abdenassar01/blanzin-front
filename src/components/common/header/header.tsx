@@ -18,7 +18,9 @@ export function Header() {
         <div className='flex items-center gap-5'>
           <ProfileDropdown />
           <LanguagesToggle />
-          <ThemeToggle />
+          <div className='flex sm:hidden'>
+            <ThemeToggle />
+          </div>
           <HeaderMobile />
         </div>
       </div>

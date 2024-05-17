@@ -8,6 +8,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { Button } from '../button';
 import { useTheme } from 'next-themes';
+import { ThemeToggle } from './theme-toggle';
 
 export default function HeaderMobile() {
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
@@ -16,7 +17,7 @@ export default function HeaderMobile() {
   const { theme } = useTheme();
 
   return (
-    <div className='hidden sm:flex'>
+    <div className='hidden shadow sm:flex'>
       <button onClick={() => setShowSidebar(true)}>
         <Image
           width={40}
@@ -32,23 +33,25 @@ export default function HeaderMobile() {
       </button>
       <div
         className={cn(
-          'absolute right-0 top-0 z-10 grid h-[100vh] overflow-y-hidden rounded-l-xl bg-backgroundSecondary shadow transition-all duration-500 ease-in-out dark:bg-backgroundSecondaryDark',
+          'absolute right-0 top-0 z-10 grid h-[100vh] overflow-y-hidden bg-backgroundSecondary shadow transition-all duration-500 ease-in-out dark:bg-backgroundDark',
           showSidebar ? 'w-[70%]' : 'w-0'
         )}
       >
-        <div
-          onClick={() => setShowSidebar(false)}
-          className={cn(' h-[95%] cursor-pointer p-2')}
-        >
-          <Image
-            alt=''
-            className='w-[6vw]'
-            src={
-              theme === 'dark'
-                ? require('@/assets/images/icons/dark/close.svg')
-                : require('@/assets/images/icons/light/close.svg')
-            }
-          />
+        <div className={cn(' h-[95%] cursor-pointer p-2')}>
+          <div className='border-border flex justify-between border-b-[0.5px] pb-3 dark:border-backgroundSecondaryDark'>
+            <Image
+              alt=''
+              onClick={() => setShowSidebar(false)}
+              className='w-[6vw]'
+              src={
+                theme === 'dark'
+                  ? require('@/assets/images/icons/dark/close.svg')
+                  : require('@/assets/images/icons/light/close.svg')
+              }
+            />
+            <ThemeToggle />
+          </div>
+
           <div className='mt-3 flex h-full flex-col justify-between'>
             <div className=''>
               {React.Children.toArray(
