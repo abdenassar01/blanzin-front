@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 export function PackagesForm() {
   const { control } = useForm();
   return (
-    <div>
+    <div className='w-full'>
       <PaymentCardsSelector control={control} name='pack' />
     </div>
   );

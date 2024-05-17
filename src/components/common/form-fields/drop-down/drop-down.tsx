@@ -61,7 +61,7 @@ export function Dropdown<T>({
       <label
         htmlFor={name}
         className={cn(
-          'text-sm font-bold normal-case text-secondary dark:text-main sm:text-mb-xxs',
+          'text-sm font-bold text-secondary dark:text-main',
           labelClassName || ''
         )}
       >
@@ -102,8 +102,8 @@ export function Dropdown<T>({
           src={require('@/assets/images/icons/arrow-down.svg')}
         />
       </div>
-      <p className='mb-[-1.667vw] h-[1.667vw] text-xxs text-error'>
-        {error?.message}
+      <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
+        {error?.message?.toString()}
       </p>
       <div
         className={cn(

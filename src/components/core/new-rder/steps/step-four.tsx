@@ -26,7 +26,7 @@ export function StepFour({ control }: Props) {
       <div className='text-center text-xm text-secondary dark:text-main'>
         {/* {label} */}
       </div>
-      <div className='flex w-full flex-wrap justify-between'>
+      <div className='flex w-full flex-wrap justify-between sm:gap-3'>
         <Dropdown
           control={control}
           items={['Moroccan Wide', 'Casablanca']}
@@ -34,14 +34,14 @@ export function StepFour({ control }: Props) {
           extractValueMember={(item) => item}
           label={t('forms.location')}
           name='location'
-          wrapperClassName='w-[49%]'
+          wrapperClassName='w-[49%] sm:w-full'
         />
         <FieldText
           control={control}
           label={t('forms.title')}
-          placeholder={t('forms.title')}
+          // placeholder={t('forms.title')}
           name='title'
-          className='w-[49%]'
+          className='w-[49%] sm:w-full'
         />
 
         <FieldText
@@ -50,14 +50,14 @@ export function StepFour({ control }: Props) {
           placeholder='100'
           name='budget'
           type='number'
-          className='w-[49%]'
+          className='w-[49%] sm:w-full'
         />
         <DatePicker
           control={control}
           name='jobPeroid'
           label={t('forms.peroid')}
           placeholder={t('forms.peroid')}
-          wrapperClassName='w-[49%]'
+          wrapperClassName='w-[49%] sm:w-full'
           minimumDate={new Date()}
           maximumDate={maxDate}
           selectRange

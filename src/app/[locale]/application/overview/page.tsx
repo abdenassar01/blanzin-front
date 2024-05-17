@@ -12,7 +12,7 @@ export default async function PacksPage() {
         <div className=''>
           <Heading className='text-center text-2xl' heading={t('header')} />
           <div className='my-6 flex justify-center'>
-            <div className='w-[50%] text-center text-text dark:text-textdark sm:w-full'>
+            <div className='w-[50%] text-center text-text dark:text-textdark  sm:w-full'>
               {t('text')}
             </div>
           </div>
