@@ -101,6 +101,14 @@
   background-size: contain;
 }
 
+.main-background-gradient-flipped {
+  background: linear-gradient(135deg, rgb(0, 0, 128) 0%, rgb(255, 204, 0) 100%)
+    0px 0px / 436.137px 256px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .c-card__ribbon {
   background: #1fb432;
   padding: 12px 32px 16px 32px;
