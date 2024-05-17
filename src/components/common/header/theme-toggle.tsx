@@ -1,5 +1,6 @@
 'use client';
 
+import { cn } from '@/utils';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React from 'react';
@@ -16,9 +17,15 @@ export function ThemeToggle() {
   };
 
   return (
-    <div onClick={handleToggleTheme} className=''>
+    <div
+      onClick={handleToggleTheme}
+      className='w-[50px] rounded-full bg-secondary p-0.5 dark:bg-main'
+    >
       <Image
-        className='icon rounded-full bg-secondary p-1 dark:bg-main'
+        className={cn(
+          'w-5 rounded-full bg-backgroundSecondary p-1 transition-all duration-300 dark:bg-backgroundSecondaryDark',
+          theme === 'dark' ? 'ml-0' : 'ml-[26px]'
+        )}
         alt=''
         src={
           theme === 'dark'
