@@ -71,7 +71,7 @@ export function StepFour({ control }: Props) {
           control={control}
           label='Gallery'
           name='gallery'
-          className=''
+          className='mt-3'
         />
       </div>
     </div>

@@ -18,12 +18,12 @@ module.exports = {
       keyframes: {
         enter: {
           '0%': {
-            marginLeft: '-700px',
+            marginRight: '-700px',
             tramsform: 'scale(0.8)',
             opacity: 0.5,
           },
           '100%': {
-            marginLeft: '0',
+            marginRight: '0',
             tramsform: '1',
             opacity: 1,
           },

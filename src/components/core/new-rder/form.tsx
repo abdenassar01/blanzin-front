@@ -66,10 +66,10 @@ export function NewOrderForm({}: Props) {
         steps={watch('category') === 4 ? 4 : 3}
       />
       {currentStep !== 1 && (
-        <div className='mt-4 w-[80%]'>
+        <div className='w-[80%]'>
           <button onClick={() => setCurrentStep(currentStep - 1)}>
             <Image
-              className='icon'
+              className='w-[4vw] max-w-[60px] sm:w-[6vw]'
               alt='go back'
               src={
                 theme === 'dark'
