@@ -24,7 +24,12 @@ export function StepFour({ control, isBack }: Props) {
   maxDate.setMonth(maxDate.getMonth() + 4, maxDate.getDay());
 
   return (
-    <div className={cn('pt-12', isBack ? 'animate-leave' : 'animate-enter')}>
+    <div
+      className={cn(
+        'pt-12 sm:pt-0',
+        isBack ? 'animate-leave' : 'animate-enter'
+      )}
+    >
       <div className='text-center text-xm text-secondary dark:text-main'>
         {/* {label} */}
       </div>
@@ -41,7 +46,6 @@ export function StepFour({ control, isBack }: Props) {
         <FieldText
           control={control}
           label={t('forms.title')}
-          // placeholder={t('forms.title')}
           name='title'
           className='w-[49%] sm:w-full'
         />

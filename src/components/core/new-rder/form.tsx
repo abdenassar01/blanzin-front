@@ -69,12 +69,12 @@ export function NewOrderForm({}: Props) {
   return (
     <div className='flex flex-col items-center justify-center'>
       <ProgressBar
-        className='w-[50%]'
+        className='w-[50%] sm:w-[90%]'
         currentStep={currentStep}
         steps={watch('category') === 4 ? 4 : 3}
       />
       {currentStep !== 1 && (
-        <div className='w-[80%]'>
+        <div className='w-[80%] sm:w-full'>
           <button
             onClick={() => {
               setCurrentStep(currentStep - 1);
@@ -82,7 +82,7 @@ export function NewOrderForm({}: Props) {
             }}
           >
             <Image
-              className='w-[4vw] max-w-[60px] sm:w-[6vw]'
+              className='mt-2 w-[4vw] max-w-[60px] sm:w-[10vw]'
               alt='go back'
               src={
                 theme === 'dark'
@@ -93,7 +93,7 @@ export function NewOrderForm({}: Props) {
           </button>
         </div>
       )}
-      <div className='w-[70%] pt-6 sm:w-full'>{getStep()}</div>
+      <div className='w-[70%] pt-6 sm:w-full sm:pt-0'>{getStep()}</div>
     </div>
   );
 }

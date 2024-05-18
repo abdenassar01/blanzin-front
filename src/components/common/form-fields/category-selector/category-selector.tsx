@@ -45,7 +45,7 @@ export function CategorySelector<T>({
       >
         {label}
       </label>
-      <div className='mt-3 flex flex-wrap justify-center gap-5 sm:justify-between'>
+      <div className='mt-3 flex flex-wrap justify-center gap-5 sm:justify-between sm:gap-2'>
         <Map
           items={items}
           render={(item) => (
@@ -55,7 +55,7 @@ export function CategorySelector<T>({
                 callback && callback();
               }}
               className={cn(
-                'flex aspect-[3/3.5] w-[30%] cursor-pointer flex-col items-center justify-center rounded-md p-4 transition-all duration-500 sm:w-[45%]',
+                'flex aspect-[3/3.5] w-[30%] cursor-pointer flex-col items-center justify-center rounded-md p-4 transition-all duration-500 sm:w-[48%]',
                 value === extractValue(item)
                   ? 'bg-secondary text-main dark:bg-main dark:text-secondary'
                   : 'bg-backgroundSecondary text-secondary dark:bg-backgroundSecondaryDark dark:text-main'
