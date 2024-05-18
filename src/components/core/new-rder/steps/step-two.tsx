@@ -1,4 +1,5 @@
 import { CategorySelector } from '@/components';
+import { cn } from '@/utils';
 import React from 'react';
 import { Control } from 'react-hook-form';
 
@@ -6,17 +7,28 @@ type Props = {
   control: Control<any>;
   setCurrentStep: (step: number) => void;
   label?: string;
+  isBack: boolean;
+  setIsBack: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export function StepTwo({ control, setCurrentStep, label }: Props) {
+export function StepTwo({
+  control,
+  setCurrentStep,
+  label,
+  setIsBack,
+  isBack,
+}: Props) {
   return (
-    <div className='animate-enter pt-6'>
+    <div className={cn(isBack ? 'animate-leave' : 'animate-enter')}>
       <div className='text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>
       <CategorySelector
         control={control}
-        callback={() => setCurrentStep(3)}
+        callback={() => {
+          setCurrentStep(3);
+          setIsBack(false);
+        }}
         items={[
           { id: 1, label: 'Category1', icon: '/category.png' },
           { id: 2, label: 'Category1', icon: '/category.png' },

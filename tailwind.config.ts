@@ -24,24 +24,24 @@ module.exports = {
           },
           '100%': {
             marginRight: '0',
-            tramsform: '1',
+            tramsform: 'scale(1)',
             opacity: 1,
           },
         },
         leave: {
           '0%': {
-            marginLeft: '0',
-            tramsform: '1',
+            marginLeft: '-700px',
+            tramsform: 'scale(0.8)',
           },
           '100%': {
-            marginLeft: '-200px',
-            tramsform: 'scale(0.8)',
+            marginLeft: '0',
+            tramsform: 'scale(1)',
           },
         },
       },
       animation: {
-        enter: 'enter .5s ease-in-out',
-        leave: 'leave .5s ease-in-out',
+        enter: 'enter .5s ease-in',
+        leave: 'leave .5s ease-out',
       },
     },
     colors: colors,

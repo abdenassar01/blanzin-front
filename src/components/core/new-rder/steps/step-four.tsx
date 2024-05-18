@@ -7,22 +7,24 @@ import {
   ImagesGalleryField,
   TextArea,
 } from '@/components';
+import { cn } from '@/utils';
 import { useI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control } from 'react-hook-form';
 
 type Props = {
   control: Control<any>;
+  isBack: boolean;
 };
 
-export function StepFour({ control }: Props) {
+export function StepFour({ control, isBack }: Props) {
   const t = useI18n();
 
   const maxDate = new Date();
   maxDate.setMonth(maxDate.getMonth() + 4, maxDate.getDay());
 
   return (
-    <div className='w-[80%] animate-enter pt-12'>
+    <div className={cn('pt-12', isBack ? 'animate-leave' : 'animate-enter')}>
       <div className='text-center text-xm text-secondary dark:text-main'>
         {/* {label} */}
       </div>

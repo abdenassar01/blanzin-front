@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { StepFour, StepOne, StepThree, StepTwo } from './steps';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { cn } from '@/utils';
 
 type Props = {};
 
@@ -20,12 +21,15 @@ export function NewOrderForm({}: Props) {
   const { theme } = useTheme();
 
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [isBack, setIsBack] = useState<boolean>(false);
 
   function getStep() {
     switch (currentStep) {
       case 1:
         return (
           <StepOne
+            isBack={isBack}
+            setIsBack={setIsBack}
             setCurrentStep={setCurrentStep}
             label={t('select-category')}
             control={control}
@@ -34,6 +38,8 @@ export function NewOrderForm({}: Props) {
       case 2:
         return (
           <StepTwo
+            isBack={isBack}
+            setIsBack={setIsBack}
             setCurrentStep={setCurrentStep}
             label={t('select-sub-category')}
             control={control}
@@ -43,16 +49,18 @@ export function NewOrderForm({}: Props) {
         if (watch('category') === 4) {
           return (
             <StepThree
+              isBack={isBack}
+              setIsBack={setIsBack}
               setCurrentStep={setCurrentStep}
               label={t('select-child-sub-category')}
               control={control}
             />
           );
         }
-        return <StepFour control={control} />;
+        return <StepFour isBack={isBack} control={control} />;
 
       case 4:
-        return <StepFour control={control} />;
+        return <StepFour isBack={isBack} control={control} />;
     }
   }
 
@@ -67,7 +75,12 @@ export function NewOrderForm({}: Props) {
       />
       {currentStep !== 1 && (
         <div className='w-[80%]'>
-          <button onClick={() => setCurrentStep(currentStep - 1)}>
+          <button
+            onClick={() => {
+              setCurrentStep(currentStep - 1);
+              setIsBack(true);
+            }}
+          >
             <Image
               className='w-[4vw] max-w-[60px] sm:w-[6vw]'
               alt='go back'
@@ -80,7 +93,7 @@ export function NewOrderForm({}: Props) {
           </button>
         </div>
       )}
-      {getStep()}
+      <div className='w-[70%] pt-6 sm:w-full'>{getStep()}</div>
     </div>
   );
 }
