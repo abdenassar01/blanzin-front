@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { SliderDotIndicator } from './slider-dots-indicator';
-import { JobCard } from '@/components';
+import { JobMainCard } from '@/components';
 
 export function LatestTrainingsSlider() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -41,27 +41,17 @@ export function LatestTrainingsSlider() {
         },
       ]}
       dots
-      beforeChange={(currentSlide: number, nextSlide: number) => {
+      beforeChange={(_: number, nextSlide: number) => {
         setActiveIndex(nextSlide);
       }}
       dotsClass='dots-indicators'
       customPaging={(index) => (
-        <div key={index}>
+        <div key={index} className='mt-4'>
           <SliderDotIndicator index={index} activeIndex={activeIndex} />
         </div>
       )}
     >
-      {React.Children.toArray(
-        [1, 2, 3, 4].map((item) => (
-          <JobCard
-            createdAt={date.toDateString()}
-            image='/house.jpg'
-            desc='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus qui ullam, placeat numquam nemo labore voluptas minima neque nihil saepe, quae at omnis recusandae mollitia sapiente aliquid fuga modi? Officiis!'
-            location='Casablanca'
-            jobTitle='Work as a craftman in germany'
-          />
-        ))
-      )}
+      {React.Children.toArray([1, 2, 3, 4].map((item) => <JobMainCard />))}
     </Slider>
   );
 }
