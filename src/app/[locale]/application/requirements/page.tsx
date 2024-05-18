@@ -44,13 +44,13 @@ export default async function Requirement() {
               url='/docs'
             />
           </ul>
-          <div className='flex justify-end'>
+          <div className='flex justify-center'>
             <div className='mt-6 w-[30%] sm:w-full'>
               <Link href='/application/packages'>
                 <Button
                   textClassName='group-hover:text-success'
                   theme='success'
-                  className='rounded-full'
+                  className=''
                   text={t('action-btn')}
                 />
               </Link>

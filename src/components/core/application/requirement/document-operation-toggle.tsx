@@ -33,7 +33,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
           </div>
           <Image
             className={cn(
-              'w-[1.5vw] transition-all sm:w-[5vw]',
+              'w-[1.5vw] transition-all duration-500 sm:w-[5vw]',
               showOptions ? '-rotate-90' : ''
             )}
             alt='arrow down blanzin'
