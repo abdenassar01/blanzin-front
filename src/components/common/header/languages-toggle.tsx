@@ -68,7 +68,7 @@ export default function LanguagesToggle({ className }: Props) {
     <div ref={dropdownRef} className='relative'>
       <div
         onClick={() => {
-          setShowLanguesDropdown(true);
+          setShowLanguesDropdown((prev) => !prev);
         }}
         onMouseMove={() => {
           setShowLanguesDropdown((prev) => !prev);

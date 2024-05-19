@@ -1,21 +1,31 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Control, FieldValue, useController } from "react-hook-form";
-import { TranslatedHeading, TranslatedText } from "../..";
-import { cn } from "@/utils";
-import Image from "next/image";
-import { useTheme } from "next-themes";
+import React from 'react';
+import { Control, FieldValue, useController } from 'react-hook-form';
+import { TranslatedHeading, TranslatedText } from '../..';
+import { cn } from '@/utils';
+import Image from 'next/image';
+import { useTheme } from 'next-themes';
+import { useScopedI18n } from '@/utils/locales/client';
 
 type Props = {
   control: Control<FieldValue<any>>;
   name: string;
   label: string;
   className?: string;
+  placeholder?: string;
 };
 
-export function FileUpload({ label, control, name, className }: Props) {
+export function FileUpload({
+  label,
+  control,
+  name,
+  className,
+  placeholder,
+}: Props) {
   const { theme } = useTheme();
+
+  const t = useScopedI18n('forms');
 
   const {
     field: { onChange, value },
@@ -28,13 +38,13 @@ export function FileUpload({ label, control, name, className }: Props) {
   return (
     <div>
       <TranslatedHeading
-        className="text-sm text-secondary dark:text-main mb-1"
+        className='mb-1 text-sm text-secondary dark:text-main'
         tranlationKey={label}
       />
       <label
         htmlFor={name}
         className={cn(
-          "bg-backgroundSecondary dark:bg-backgroundSecondaryDark items-center p-2 rounded flex justify-between",
+          'flex items-center justify-between rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
           className
         )}
       >
@@ -44,24 +54,24 @@ export function FileUpload({ label, control, name, className }: Props) {
             onChange(e.currentTarget.value);
             console.log(e.currentTarget.value);
           }}
-          type="file"
-          className="hidden"
+          type='file'
+          className='hidden'
         />
         <TranslatedText
-          className="max-w-[90%]"
-          tranlationKey={value || "forms.upload"}
+          className='max-w-[90%] text-text dark:text-textdark'
+          tranlationKey={value || placeholder}
         />
         <Image
-          alt=""
-          className="w-[30px] h-[30px]"
+          alt=''
+          className='h-[30px] w-[30px]'
           src={
-            theme === "dark"
-              ? require("@/assets/images/icons/dark/upload.svg")
-              : require("@/assets/images/icons/light/upload.svg")
+            theme === 'dark'
+              ? require('@/assets/images/icons/dark/upload.svg')
+              : require('@/assets/images/icons/light/upload.svg')
           }
         />
       </label>
-      <div className="text-error text-xs">{error?.message}</div>
+      <div className='text-xs text-error'>{error?.message}</div>
     </div>
   );
 }

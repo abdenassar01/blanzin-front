@@ -10,6 +10,7 @@ module.exports = {
   backgroundSecondaryDark: '#191B1F',
   text: '#6C6C6C',
   textdark: '#a3a3a3',
+  border: '#CFD6E7',
   mainText: '#0C2577',
   error: '#B00020',
   warn: '#ffcc00',

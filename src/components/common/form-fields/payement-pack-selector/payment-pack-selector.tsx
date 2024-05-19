@@ -129,7 +129,7 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
             >
               <TranslatedHeading
                 className={cn(
-                  'text-md',
+                  'text-sm',
                   selected === pack.id ? 'text-main dark:text-secondary' : ''
                 )}
                 tranlationKey={pack.title}
@@ -151,13 +151,13 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
                   item.supported ? (
                     <Image
                       alt='checkbox'
-                      className='mr-2 h-[1.5vw] w-[1.5vw]'
+                      className='icon mr-2'
                       src={require('@/assets/images/icons/success-checkmark.svg')}
                     />
                   ) : (
                     <Image
                       alt='checkbox'
-                      className='mr-2 h-[1.5vw] w-[1.5vw]'
+                      className='icon mr-2'
                       src={require('@/assets/images/icons/error-mark.svg')}
                     />
                   )

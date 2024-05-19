@@ -96,7 +96,7 @@ export function DatePicker({
               selectRange={selectRange}
               minDate={minimumDate || minDate}
               maxDate={maximumDate || maxDate}
-              className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none'
+              className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none sm:bg-backgroundSecondaryDark sm:text-backgroundSecondary'
               onChange={onChange}
             />
           </div>

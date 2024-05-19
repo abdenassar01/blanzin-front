@@ -13,16 +13,27 @@ type Props = {
 
 export function HeroSection({ action, header, href, flipped }: Props) {
   return (
-    <div className='main-background-gradient container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-md shadow-secondary'>
+    <div
+      className={cn(
+        ' container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-md shadow-secondary',
+        flipped
+          ? 'main-background-gradient-flipped'
+          : 'main-background-gradient'
+      )}
+    >
       <div
         className={cn(
           'flex w-full gap-10 px-12 sm:flex-col',
-          flipped ? 'flex-row' : 'flex-row-reverse '
+          flipped ? 'flex-row' : 'text flex-row-reverse'
         )}
       >
         <VideoPlayer />
-        <div className='flex w-full flex-col justify-center gap-10'>
-          <h3 className='w-[70%] whitespace-pre-line text-xxl font-bold text-secondary sm:w-full'>
+        <div className='flex w-full flex-col items-center justify-center gap-10'>
+          <h3
+            className={cn(
+              'w-[70%] whitespace-pre-line text-center text-xxl font-bold text-secondary sm:w-full'
+            )}
+          >
             {header}
           </h3>
           <div className='w-[50%] md:w-full sm:w-full'>

@@ -33,9 +33,9 @@ export function SidebarFilter() {
   }, [values, query]);
 
   return (
-    <div className='my-6 h-fit'>
+    <div className='my-2 h-fit w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
       <div className='flex items-center justify-center gap-2 sm:flex'>
-        <div className='flex w-[70%] gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+        <div className='flex gap-2 rounded-xl border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
           <Image
             alt=''
             className='icon'
@@ -63,7 +63,7 @@ export function SidebarFilter() {
           />
         </button>
       </div>
-      <div className='flex gap-4 sm:hidden'>
+      <div className='gap-4 sm:hidden'>
         <DropdownMultipleSelect
           wrapperClassName='mt-3'
           className=''

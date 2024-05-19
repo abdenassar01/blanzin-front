@@ -25,7 +25,7 @@ export function WalkThroughtSteps({ steps, header }: Props) {
                 src={item.icon}
                 width={200}
                 height={200}
-                className='aspect-square w-[250px] rounded-full'
+                className='aspect-square w-[50%] rounded-full'
               />
               <div className='flex items-center justify-center'>
                 <div className='w-fit rounded-full bg-secondary px-3 py-1 text-center font-bold text-main'>

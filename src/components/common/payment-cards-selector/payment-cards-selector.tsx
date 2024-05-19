@@ -40,8 +40,6 @@ const packs = [
   },
   {
     id: 2,
-    recomended: true,
-
     title: 'Standard',
     offers: [
       {
@@ -100,14 +98,18 @@ const packs = [
 
 export function PaymentCardsSelector({ control, name }: Props) {
   const {
-    field: { onChange },
-  } = useController({ control, name });
+    field: { onChange, value },
+  } = useController({ control, name, defaultValue: packs[1].id });
 
   return (
-    <div className='flex justify-between gap-3 sm:flex-col'>
+    <div className='flex justify-between sm:flex-col'>
       {React.Children.toArray(
         packs.map((card) => (
-          <PaymentCardItem handlePress={() => onChange(card.id)} pack={card} />
+          <PaymentCardItem
+            selected={value === card.id}
+            handlePress={() => onChange(card.id)}
+            pack={card}
+          />
         ))
       )}
     </div>

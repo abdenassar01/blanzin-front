@@ -8,10 +8,10 @@ import { useScopedI18n } from '@/utils/locales/client';
 import { cn } from '@/utils';
 
 type Props = {
+  selected: boolean;
   handlePress: () => any;
   pack: {
     id: number;
-    recomended?: boolean;
     title: string;
     offers: (
       | {
@@ -31,26 +31,36 @@ type Props = {
   };
 };
 
-export default function PaymentCardItem({ pack, handlePress }: Props) {
+export default function PaymentCardItem({
+  pack,
+  handlePress,
+  selected,
+}: Props) {
   const t = useScopedI18n('application');
   return (
     <div
       onClick={handlePress}
       className={cn(
-        ' relative rounded-xl bg-backgroundSecondary p-4 pt-12 dark:bg-backgroundSecondaryDark',
-        pack.recomended ? '-mt-3 border-[1px] border-success pt-16' : 'mt-3'
+        ' relative max-w-[31%] cursor-pointer rounded-xl border-[1px] bg-backgroundSecondary p-4 transition-all duration-300 dark:bg-backgroundSecondaryDark',
+        selected
+          ? '-mt-3 border-secondary shadow-xl shadow-secondary dark:border-main dark:shadow-main'
+          : 'mt-3 border-border hover:shadow-md hover:shadow-secondary'
       )}
     >
-      {pack.recomended && (
-        <div className='c-card__ribbon '>
-          <div className='text-main'>Recomended</div>
-        </div>
-      )}
+      <div className='text-center text-xl font-bold text-secondary dark:text-main'>
+        {pack.title}
+      </div>
+      <div className='mb-2 mt-5'>
+        <TranslatedText
+          className='rounded-xl text-center text-xxl font-bold text-success'
+          tranlationKey={`${pack.price} DH`}
+        />
+      </div>
       {React.Children.toArray(
         pack.offers.map((item) => (
           <div className='relative my-2 flex'>
             <TranslatedText
-              className='w-[70%] text-xs font-bold'
+              className='w-[70%] text-xs font-medium'
               tranlationKey={item.text}
             />
             <div className='absolute -right-2 top-0'>
@@ -58,13 +68,13 @@ export default function PaymentCardItem({ pack, handlePress }: Props) {
                 item.supported ? (
                   <Image
                     alt='checkbox'
-                    className='mr-2 h-[1.5vw] w-[1.5vw]'
+                    className='icon mr-2'
                     src={require('@/assets/images/icons/success-checkmark.svg')}
                   />
                 ) : (
                   <Image
                     alt='checkbox'
-                    className='mr-2 h-[1.5vw] w-[1.5vw]'
+                    className='icon mr-2'
                     src={require('@/assets/images/icons/error-mark.svg')}
                   />
                 )
@@ -78,15 +88,6 @@ export default function PaymentCardItem({ pack, handlePress }: Props) {
           </div>
         ))
       )}
-      <div className='flex items-center justify-center '>
-        <TranslatedText
-          className='mt-3 text-center text-xl font-bold text-secondary dark:text-main'
-          tranlationKey={`${pack.price} DH`}
-        />
-      </div>
-      <div className='mt-4'>
-        <Button text={t('book')} />
-      </div>
     </div>
   );
 }
