@@ -12,13 +12,16 @@ import { Button } from '@/components';
 type Props = {
   title: string;
   doc: string;
-  url: string;
 };
 
-export function ResumeToggleOperation({ doc, title, url }: Props) {
+export function ResumeToggleOperation({ doc, title }: Props) {
   const t = useI18n();
   const [showOptions, setShowOptions] = useState<boolean>(false);
-  const { control } = useForm();
+  const { control } = useForm({
+    defaultValues: {
+      description: [],
+    },
+  });
   const [currentStep, setCurrentStep] = useState<number>(1);
 
   function getStep() {

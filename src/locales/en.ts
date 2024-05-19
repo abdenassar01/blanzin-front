@@ -159,6 +159,15 @@ export default {
     send: 'Send',
   },
   reviews: 'Reviews',
+  experience: {
+    title: 'Job Title',
+    employee: 'Employee',
+    category: 'Category',
+    'start-date': 'Start Date',
+    'end-date': 'End Date',
+    description: 'Description',
+    'add-experience': 'Add Experience',
+  },
   forms: {
     email: 'Email',
     password: 'Password',
