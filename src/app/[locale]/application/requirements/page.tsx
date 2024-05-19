@@ -18,11 +18,7 @@ export default async function Requirement() {
         </div>
         <div className='mt-8 rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark'>
           <ul className='ml-6 '>
-            <ResumeToggleOperation
-              doc='/blanzin.pdf'
-              title={t('resume')}
-              url='/resume'
-            />
+            <ResumeToggleOperation doc='/blanzin.pdf' title={t('resume')} />
             <DocumentToggleOperation
               doc='/blanzin.pdf'
               title={t('lang-certificate')}
