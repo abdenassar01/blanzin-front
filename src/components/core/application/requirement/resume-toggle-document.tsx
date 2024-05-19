@@ -8,6 +8,7 @@ import { PdfViewer } from '../pdf-viewer';
 import { useForm } from 'react-hook-form';
 import { StepFour, StepOne, StepThree, StepTwo } from './resume-steps';
 import { Button } from '@/components';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   title: string;
@@ -19,10 +20,15 @@ export function ResumeToggleOperation({ doc, title }: Props) {
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const { control } = useForm({
     defaultValues: {
-      description: [],
+      experiences: [],
+      educations: [],
+      personalSkills: [],
+      languageSkills: [],
     },
   });
   const [currentStep, setCurrentStep] = useState<number>(1);
+
+  const { replace } = useRouter();
 
   function getStep() {
     switch (currentStep) {
@@ -89,7 +95,11 @@ export function ResumeToggleOperation({ doc, title }: Props) {
                 <Button
                   width='49.5%'
                   text={t('button.next')}
-                  onClick={() => setCurrentStep((prev) => prev + 1)}
+                  onClick={
+                    currentStep === 4
+                      ? () => replace('/')
+                      : () => setCurrentStep((prev) => prev + 1)
+                  }
                 />
               </div>
             </div>

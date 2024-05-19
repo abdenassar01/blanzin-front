@@ -168,6 +168,13 @@ export default {
     description: 'Description',
     'add-experience': 'Add Experience',
   },
+  education: {
+    'add-education': 'Add education',
+    'start-date': 'Start Date',
+    'end-date': 'End Date',
+    specialisation: 'Specialisation',
+    center: 'Center/School',
+  },
   forms: {
     email: 'Email',
     password: 'Password',
@@ -183,6 +190,8 @@ export default {
     dateBirth: 'Date of birth',
     placeBirth: 'Place of birth',
     budget: 'Budget (DH)',
+    'personal-skills': 'Personal Skills',
+    'language-skills': 'Languages Skills',
     peroid: 'Job Peroid',
     description: 'Description',
     category: 'Category',

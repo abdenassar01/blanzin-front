@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Control, useFieldArray, useWatch } from 'react-hook-form';
+import { Control, useFieldArray } from 'react-hook-form';
 import { TranslatedHeading } from '../../translated-text';
 import { useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
@@ -15,6 +15,7 @@ type Props = {
   label: string;
   placeholder?: string;
   name: string;
+  suggestions: string[];
 };
 
 export function DescriptionField({
@@ -24,6 +25,7 @@ export function DescriptionField({
   className,
   control,
   name,
+  suggestions,
 }: Props) {
   const [filteredItems, setFilteredItems] = useState<string[]>(items);
   const [filterValue, setFilterValue] = useState<string>('');
@@ -35,8 +37,6 @@ export function DescriptionField({
     control,
     name,
   });
-
-  const { description } = useWatch({ control });
 
   function handleAppend() {
     if (filterValue) {
@@ -58,9 +58,9 @@ export function DescriptionField({
           className
         )}
       >
-        {description.length > 0 &&
+        {suggestions.length > 0 &&
           React.Children.toArray(
-            description.map((item: string, index: number) => (
+            suggestions.map((item: string, index: number) => (
               <div className='flex h-fit w-fit flex-row items-center justify-between rounded bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
                 <h2 className=''>{item}</h2>
                 <button
@@ -87,7 +87,7 @@ export function DescriptionField({
         <div className='flex flex-row justify-between gap-2'>
           <input
             className={cn(
-              'h-[50px] w-full rounded border-main px-2 focus:border-[1px] focus:outline-none',
+              'h-[50px] w-full rounded border-main bg-background px-2 focus:border-[1px] focus:outline-none dark:bg-backgroundDark',
               className
             )}
             onChange={(e) => {
@@ -127,7 +127,7 @@ export function DescriptionField({
           {React.Children.toArray(
             filteredItems.map(
               (item) =>
-                description.filter((el: string) => el === item).length ===
+                suggestions.filter((el: string) => el === item).length ===
                   0 && (
                   <button
                     className='h-fit rounded bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'
