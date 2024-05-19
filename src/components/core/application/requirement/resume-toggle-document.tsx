@@ -59,8 +59,8 @@ export function ResumeToggleOperation({ doc, title, url }: Props) {
       </li>
       <div
         className={cn(
-          'grid overflow-hidden transition-all',
-          showOptions ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+          'grid overflow-clip transition-all',
+          showOptions ? 'grid-rows-[1fr] ' : 'grid-rows-[0fr]'
         )}
       >
         <div className='min-h-0'>

@@ -56,7 +56,7 @@ export function Dropdown<T>({
   return (
     <div
       ref={dropdownRef}
-      className={cn('relative flex w-[100%] flex-col', wrapperClassName || '')}
+      className={cn('relative flex w-full flex-col', wrapperClassName || '')}
     >
       <label
         htmlFor={name}
@@ -70,7 +70,7 @@ export function Dropdown<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'flex w-[100%] items-center justify-between rounded-lg bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
+          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
           className,
           (value || defaultValue) && 'text-text dark:text-textdark',
           (error && 'border-[1px] border-error') || ''
@@ -121,7 +121,7 @@ export function Dropdown<T>({
                   onChange(extractValueMember(item));
                   setOpenDropdown(false);
                 }}
-                className='flex w-full px-[24px] py-[14px] font-medium text-secondary hover:bg-[#dadadb] dark:text-main dark:hover:bg-backgroundDark'
+                className='flex w-full px-[24px] py-[14px] font-medium text-secondary hover:bg-[#f2f2f2] dark:text-main dark:hover:bg-[#808080]'
               >
                 <div>{extractDisplayMember(item)}</div>
               </div>

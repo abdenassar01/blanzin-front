@@ -21,6 +21,7 @@ type Props = {
   minimumDate?: Date;
   maximumDate?: Date;
   selectRange?: boolean;
+  activeDate?: Date;
 };
 
 const currentDate = new Date();
@@ -40,6 +41,7 @@ export function DatePicker({
   maximumDate,
   wrapperClassName,
   selectRange,
+  activeDate,
 }: Props) {
   const [openDatePicker, setOpenDatePicker] = useState<boolean>();
   const datePickerRef = React.useRef(null);
@@ -58,7 +60,7 @@ export function DatePicker({
   return (
     <div
       ref={datePickerRef}
-      className={cn('relative w-full', wrapperClassName)}
+      className={cn('relative z-10 w-full', wrapperClassName)}
     >
       <TranslatedHeading
         className='mb-1 text-sm text-secondary dark:text-main'
@@ -67,12 +69,12 @@ export function DatePicker({
       <button
         onClick={() => setOpenDatePicker((prev) => !prev)}
         className={cn(
-          'w-full rounded-md bg-backgroundSecondary py-3 pl-2 text-text dark:bg-backgroundSecondaryDark dark:text-textdark',
+          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text dark:bg-backgroundSecondaryDark dark:text-textdark',
           className
         )}
       >
         <TranslatedText
-          className={cn('w-full px-1 text-[13px]')}
+          className={cn('px-1 text-[13px]')}
           tranlationKey={
             (selectRange &&
               `[${moment(value[0]).format('DD-MM-YYYY')}...${moment(
@@ -87,12 +89,13 @@ export function DatePicker({
       {
         <div
           className={cn(
-            'absolute z-20 grid w-full overflow-hidden transition-all duration-500 ease-in',
+            'z-[999] grid h-fit w-full overflow-hidden transition-all duration-500 ease-in',
             openDatePicker ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
           )}
         >
-          <div className='min-h-0'>
+          <div className=' min-h-0'>
             <Calendar
+              activeStartDate={activeDate || maximumDate || maxDate}
               selectRange={selectRange}
               minDate={minimumDate || minDate}
               maxDate={maximumDate || maxDate}
