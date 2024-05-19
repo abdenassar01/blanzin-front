@@ -189,6 +189,14 @@ export default {
     'filter-trainee': 'Jobs in Germany',
     'filter-news': 'Morocco news',
   },
+  contract: {
+    header: 'Contract',
+    explain:
+      'Blanzin needs you to sign a contract of rules and terms that we need you to accept before completing your application. Click the download button to download the pdf then print it and signe it. after that you can come back and submit it to finish your application.',
+    download: 'Download Contract',
+    upload: 'Upload Signed Contract',
+    submit: 'Submit Application',
+  },
   'faq-abbr': 'Frequently asked questions',
   'send-offer': 'Send offer',
   'similar-orders': 'Similar orders',

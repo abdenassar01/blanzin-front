@@ -6,7 +6,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import { PdfViewer } from '../pdf-viewer';
 import Link from 'next/link';
-import { Button, ProgressBar } from '@/components';
+import { Button } from '@/components';
 
 type Props = {
   title: string;

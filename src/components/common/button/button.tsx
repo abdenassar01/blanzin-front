@@ -52,11 +52,13 @@ export const Button = ({
         <TranslatedText
           className={cn(
             'font-medium group-hover:text-main',
-            theme === 'secondary' || theme === 'tertiary'
-              ? 'text-main group-hover:text-secondary'
-              : theme === 'primary'
-                ? 'text-secondary '
-                : 'text-white',
+            theme === 'success'
+              ? 'text-white group-hover:text-success'
+              : theme === 'secondary' || theme === 'tertiary'
+                ? 'text-main group-hover:text-secondary'
+                : theme === 'primary'
+                  ? 'text-secondary '
+                  : 'text-white',
             textClassName
           )}
           tranlationKey={text || ''}
