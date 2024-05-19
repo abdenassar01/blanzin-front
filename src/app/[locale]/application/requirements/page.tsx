@@ -1,4 +1,9 @@
-import { Button, DocumentToggleOperation, Heading } from '@/components';
+import {
+  Button,
+  DocumentToggleOperation,
+  Heading,
+  ResumeToggleOperation,
+} from '@/components';
 import { getScopedI18n } from '@/utils/locales/server';
 import Link from 'next/link';
 import React from 'react';
@@ -13,7 +18,7 @@ export default async function Requirement() {
         </div>
         <div className='mt-8 rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark'>
           <ul className='ml-6 '>
-            <DocumentToggleOperation
+            <ResumeToggleOperation
               doc='/blanzin.pdf'
               title={t('resume')}
               url='/resume'
