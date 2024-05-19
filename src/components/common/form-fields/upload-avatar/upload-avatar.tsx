@@ -49,7 +49,7 @@ export function UploadAvatar({
           height={100}
           alt=''
           className={cn(
-            'w-[6vw] rounded sm:w-[20vw]',
+            'w-[7vw] rounded sm:w-[20vw]',
             imgClassName,
             value ? 'border-2 border-success' : ''
           )}
@@ -59,7 +59,7 @@ export function UploadAvatar({
           <Image
             alt=''
             className={cn(
-              'absolute bottom-0 right-[40%] w-[2vw] rounded-full bg-secondary p-1 sm:right-[37%] sm:w-[8vw]'
+              'absolute bottom-0 right-[43%] w-[2.5vw] rounded-full bg-secondary p-1 sm:right-[37%] sm:w-[8vw]'
             )}
             src={require('@/assets/images/icons/dark/upload.svg')}
           />
