@@ -8,6 +8,7 @@ export const footerLinks: {
   items: {
     id: number;
     icon?: any;
+    darkIcon?: any;
     label:
       | 'links.find-expert'
       | 'links.become-expert'
@@ -66,13 +67,15 @@ export const footerLinks: {
         id: 1,
         label: 'links.app-store',
         link: '',
-        icon: require('@/assets/images/icons/apple.svg'),
+        icon: require('@/assets/images/icons/light/appstore.svg'),
+        darkIcon: require('@/assets/images/icons/dark/appstore.svg'),
       },
       {
         id: 2,
         label: 'links.play-store',
         link: '',
-        icon: require('@/assets/images/icons/play-store.svg'),
+        icon: require('@/assets/images/icons/light/playstore.svg'),
+        darkIcon: require('@/assets/images/icons/dark/playstore.svg'),
       },
     ],
   },

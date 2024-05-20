@@ -39,13 +39,18 @@ export function Footer() {
   const t = useI18n();
 
   return (
-    <div className='main-background-gradient py-6'>
+    <div
+      className={cn(
+        ' py-6',
+        isDark ? 'main-background-gradient-flipped' : 'main-background-gradient'
+      )}
+    >
       <div className='container flex flex-wrap items-center justify-between p-4 md:justify-center sm:justify-center'>
         <div className='flex flex-col  items-center justify-center sm:mt-5 sm:w-full'>
           <div className='flex items-center justify-center bg-contain bg-no-repeat'>
             <Image
               alt='logo'
-              className='w-[10vw] max-w-40 sm:w-[50vw]'
+              className='drop-shadow-logo dark:drop-shadow-logo-dark w-[10vw] max-w-40 sm:w-[50vw]'
               src={
                 isDark
                   ? require('../../../assets/images/logo/logo-dark.png')
@@ -55,7 +60,7 @@ export function Footer() {
           </div>
 
           <TranslatedText
-            className='mb-4 text-center font-cairo text-xl font-semibold text-secondary'
+            className='mb-4 text-center font-cairo text-xl font-semibold text-secondary dark:text-main'
             tranlationKey='!قضي غرضك فلحين'
           />
           <div className='my-2 flex flex-row gap-2'>
@@ -74,22 +79,26 @@ export function Footer() {
           {React.Children.toArray(
             footerLinks.map((item) => (
               <div className='flex flex-col gap-2 sm:w-full'>
-                <h2 className='text-xbase font-bold text-secondary '>
+                <h2 className='text-xbase font-bold text-secondary dark:text-main'>
                   {t(item.section)}
                 </h2>
                 {React.Children.toArray(
                   item.items.map((link) => (
                     <Link
                       className={cn(
-                        'flex gap-1 font-medium  text-backgroundDark',
+                        'flex gap-1 font-medium text-textdark',
                         link.icon
-                          ? 'w-[150px] items-center rounded bg-main p-2 text-xs'
-                          : 'hover:text-secondary'
+                          ? 'w-[150px] items-center rounded bg-main p-2 text-xs text-secondary dark:bg-secondary dark:text-main'
+                          : 'hover:text-secondary dark:hover:text-main'
                       )}
                       href={link.link}
                     >
                       {link.icon && (
-                        <Image className='icon' src={link.icon} alt='' />
+                        <Image
+                          className='icon '
+                          src={isDark ? link.darkIcon : link.icon}
+                          alt=''
+                        />
                       )}
                       <span>{t(link.label)}</span>
                     </Link>
