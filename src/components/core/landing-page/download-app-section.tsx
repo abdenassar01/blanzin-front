@@ -23,7 +23,7 @@ export async function DownloadAppSection() {
               >
                 <Image
                   className='icon'
-                  src={require('@/assets/images/icons/apple.svg')}
+                  src={require('@/assets/images/icons/light/appstore.svg')}
                   alt=''
                 />
                 <span>{t('links.app-store')}</span>
@@ -35,7 +35,7 @@ export async function DownloadAppSection() {
               >
                 <Image
                   className='icon'
-                  src={require('@/assets/images/icons/play-store.svg')}
+                  src={require('@/assets/images/icons/light/playstore.svg')}
                   alt=''
                 />
 

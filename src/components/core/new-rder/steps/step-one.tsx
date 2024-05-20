@@ -19,8 +19,8 @@ export function StepOne({
   isBack,
 }: Props) {
   return (
-    <div className={cn(isBack ? 'animate-leave' : 'animate-enter')}>
-      <div className='text-center text-xm text-secondary dark:text-main'>
+    <div className={cn('w-full', isBack ? 'animate-leave' : 'animate-enter')}>
+      <div className='mb-5 text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>
       <CategorySelector
@@ -34,6 +34,11 @@ export function StepOne({
           { id: 2, label: 'Category1', icon: '/category.png' },
           { id: 3, label: 'Category1', icon: '/category.png' },
           { id: 4, label: 'Category1', icon: '/category.png' },
+          { id: 5, label: 'Category1', icon: '/category.png' },
+          { id: 5, label: 'Category1', icon: '/category.png' },
+          { id: 5, label: 'Category1', icon: '/category.png' },
+          { id: 5, label: 'Category1', icon: '/category.png' },
+          { id: 5, label: 'Category1', icon: '/category.png' },
           { id: 5, label: 'Category1', icon: '/category.png' },
         ]}
         extractDisplayMember={(item) => item.label}

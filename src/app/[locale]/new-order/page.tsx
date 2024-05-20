@@ -8,14 +8,13 @@ export default async function NewOrder({}: Props) {
   const t = await getI18n();
   return (
     <div className='my-12'>
-      <div className='container'>
-        <div className='text-xxm'>
-          <Heading
-            heading={t('new-order-header')}
-            className='mb-3 text-center'
-          />
+      <div className='container flex items-center justify-center'>
+        <div className='w-[80%]'>
+          <div className='text-xxm'>
+            <Heading heading={t('new-order-header')} className='mb-3' />
+          </div>
+          <NewOrderForm />
         </div>
-        <NewOrderForm />
       </div>
     </div>
   );

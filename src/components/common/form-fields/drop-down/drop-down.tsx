@@ -70,7 +70,7 @@ export function Dropdown<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-xs text-[#A6A6A6] dark:bg-backgroundSecondaryDark sm:text-mb-xxs',
+          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-base text-[#A6A6A6] shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-backgroundDark sm:text-mb-xxs',
           className,
           (value || defaultValue) && 'text-text dark:text-textdark',
           (error && 'border-[1px] border-error') || ''
@@ -107,7 +107,7 @@ export function Dropdown<T>({
       </p>
       <div
         className={cn(
-          'absolute top-[70px] isolate z-10 w-full  cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] sm:top-[22.816vw] sm:w-[70vw]',
+          'absolute top-[70px] isolate z-10 w-full cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] sm:top-[22.816vw] sm:w-[70vw]',
           dropdownClassName,
           openDropdown ? 'h-[200px]' : 'h-0'
         )}

@@ -45,7 +45,7 @@ export function CategorySelector<T>({
       >
         {label}
       </label>
-      <div className='mt-3 flex flex-wrap justify-center gap-5 sm:justify-between sm:gap-2'>
+      <div className='mt-10 flex flex-wrap justify-center gap-8 sm:justify-between sm:gap-2'>
         <Map
           items={items}
           render={(item) => (
@@ -55,17 +55,17 @@ export function CategorySelector<T>({
                 callback && callback();
               }}
               className={cn(
-                'flex aspect-[3/3.5] w-[30%] cursor-pointer flex-col items-center justify-center rounded-md p-4 transition-all duration-500 sm:w-[48%]',
+                'flex aspect-[3/3.5] cursor-pointer flex-col items-center justify-center rounded-md p-4 shadow-lg transition-all duration-500 dark:shadow-backgroundDark sm:w-[48%]',
                 value === extractValue(item)
                   ? 'bg-secondary text-main dark:bg-main dark:text-secondary'
-                  : 'bg-backgroundSecondary text-secondary dark:bg-backgroundSecondaryDark dark:text-main'
+                  : 'bg-backgroundSecondary text-secondary dark:bg-backgroundDark dark:text-main'
               )}
             >
               {extractIcon && (
                 <Image
                   width={200}
                   height={200}
-                  className='w-[90%]'
+                  className='w-[10vw] sm:w-[30vw]'
                   alt={extractDisplayMember(item)}
                   src={extractIcon(item)}
                 />

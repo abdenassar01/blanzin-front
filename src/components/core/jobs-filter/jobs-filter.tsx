@@ -13,11 +13,11 @@ export function JobsFilter({}: Props) {
   const { control } = useForm();
 
   return (
-    <div className='my-3 flex min-w-[30%] flex-col items-center justify-center rounded-md border-[1px] border-border bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
-      <div className='flex w-full gap-2 rounded-full border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+    <div className='h-fit w-[25%] bg-backgroundSecondary p-2 py-4 dark:bg-backgroundDark sm:w-full'>
+      <div className='flex w-full gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
         <Image
           alt=''
-          className='w-[2vw] sm:w-[6vw]'
+          className='w-5'
           src={require('@/assets/images/icons/search.svg')}
         />
         <input
@@ -28,6 +28,26 @@ export function JobsFilter({}: Props) {
         />
       </div>
       <div className=''>
+        <DropdownMultipleSelect
+          wrapperClassName='mt-3'
+          className=''
+          items={['Casablanca', 'Fes', 'Marrakech', 'Rabat', 'Tanger']}
+          control={control}
+          extractDisplayMember={(item) => item}
+          extractValueMember={(item) => item}
+          label='Location'
+          name='cities'
+        />
+        <DropdownMultipleSelect
+          wrapperClassName='mt-3'
+          className=''
+          items={['Casablanca', 'Fes', 'Marrakech', 'Rabat', 'Tanger']}
+          control={control}
+          extractDisplayMember={(item) => item}
+          extractValueMember={(item) => item}
+          label='Location'
+          name='cities'
+        />
         <DropdownMultipleSelect
           wrapperClassName='mt-3'
           className=''

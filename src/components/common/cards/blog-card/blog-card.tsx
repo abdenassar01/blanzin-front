@@ -12,7 +12,7 @@ export function BlogCard({ className }: Props) {
     <Link
       href='/blog/the-best-way-to-find'
       className={cn(
-        'group w-[31.5%] cursor-pointer md:w-[49%] sm:w-full',
+        'group w-[31.5%] cursor-pointer rounded-xl bg-backgroundSecondary p-2 shadow-lg dark:bg-backgroundDark dark:shadow-backgroundDark md:w-[49%] sm:w-full',
         className
       )}
     >
@@ -21,7 +21,7 @@ export function BlogCard({ className }: Props) {
         height={200}
         alt=''
         src='/house.jpg'
-        className='w-full rounded-xl transition-all group-hover:scale-105'
+        className='w-full transition-all group-hover:scale-105'
       />
       <h3 className='mt-2 text-base font-semibold'>
         The best way to find jobs outside of your country

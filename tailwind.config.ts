@@ -15,6 +15,10 @@ module.exports = {
         montserrat: ['Montserrat', 'sans-serif'],
         cairo: ['Cairo', 'sans-serif'],
       },
+      dropShadow: {
+        logo: '0 35px 35px rgba(255, 204, 0, 0.40)',
+        'logo-dark': '0 35px 35px rgba(0, 0, 128, 0.40)',
+      },
       keyframes: {
         enter: {
           '0%': {

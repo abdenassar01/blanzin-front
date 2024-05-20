@@ -29,16 +29,19 @@ export function OrderCard({
   return (
     <Link
       href={`/orders/${orderTitle.toLocaleLowerCase().replaceAll(' ', '-')}`}
-      className={cn('w-[25vw] text-sm text-text dark:text-textdark', className)}
+      className={cn(
+        ' rounded-xl bg-backgroundSecondary p-2 text-sm text-text shadow-lg dark:bg-backgroundDark dark:text-textdark dark:shadow-backgroundDark',
+        className
+      )}
     >
       <Image
         src={image}
         alt=''
         width={300}
         height={250}
-        className='w-full rounded-md sm:container'
+        className='w-full sm:container'
       />
-      <h3 className='text-base font-semibold text-secondary dark:text-textdark'>
+      <h3 className='mt-4 text-base font-semibold text-secondary dark:text-textdark'>
         {orderTitle}
       </h3>
       <div className=''>

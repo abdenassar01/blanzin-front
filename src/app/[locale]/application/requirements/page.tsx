@@ -11,13 +11,13 @@ import React from 'react';
 export default async function Requirement() {
   const t = await getScopedI18n('application');
   return (
-    <div className='py-12'>
+    <div className='py-12 '>
       <div className='container'>
         <div className='text-secondary'>
-          <Heading className='text-center text-xm ' heading={t('Heading')} />
+          <Heading className='text-xm ' heading={t('Heading')} />
         </div>
-        <div className='mt-8 rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark'>
-          <ul className='ml-6 '>
+        <div className='mt-8 w-full rounded-xl bg-backgroundSecondary p-4 shadow-md dark:bg-backgroundDark dark:shadow-backgroundSecondaryDark'>
+          <ul className='flex w-full flex-col gap-1 pl-6'>
             <ResumeToggleOperation doc='/blanzin.pdf' title={t('resume')} />
             <DocumentToggleOperation
               doc='/blanzin.pdf'
@@ -45,18 +45,15 @@ export default async function Requirement() {
               url='/docs'
             />
           </ul>
-          <div className='flex justify-center'>
-            <div className='mt-6 w-[30%] sm:w-full'>
-              <Link href='/application/packages'>
-                <Button
-                  textClassName='group-hover:text-success'
-                  theme='success'
-                  className=''
-                  text={t('action-btn')}
-                />
-              </Link>
-            </div>
-          </div>
+        </div>
+        <div className='mt-10 w-[20%] sm:w-full'>
+          <Link href='/application/packages'>
+            <Button
+              textClassName=''
+              className='w-fit px-4'
+              text={t('action-btn')}
+            />
+          </Link>
         </div>
       </div>
     </div>

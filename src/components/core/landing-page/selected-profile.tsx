@@ -34,10 +34,10 @@ export function SelectedProfile() {
         items={profiles}
         render={(item) => (
           <div className='mt-8'>
-            <h3 className='my-4 text-center text-xl font-bold text-secondary dark:text-main'>
+            <h3 className='my-4 text-center text-xm font-bold text-secondary dark:text-main'>
               {item.label}
             </h3>
-            <div className='flex justify-between gap-10 md:justify-center'>
+            <div className='mt-8 flex justify-between gap-10 md:justify-center'>
               <Map
                 items={item.items}
                 render={(profile) => (

@@ -1,56 +1,34 @@
 'use client';
 
-import React, { useCallback, useState } from 'react';
-import { pdfjs, Document, Page } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import type { PDFDocumentProxy } from 'pdfjs-dist';
+import React, { useState } from 'react';
+import { pdfjs } from 'react-pdf';
+import { Document, Page } from 'react-pdf';
 
-import '../../../../PDF';
-import { useResizeObserver } from '@/utils';
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 type Props = {
   file: string;
+  width?: number;
+  sidebar?: boolean;
 };
 
-const options = {
-  cMapUrl: '/cmaps/',
-  standardFontDataUrl: '/standard_fonts/',
-};
-
-const resizeObserverOptions = {};
-
-const maxWidth = 250;
-
-type PDFFile = string | File | null;
-
-export function PdfViewer({ file }: Props) {
+export function PdfViewer({ file, width, sidebar }: Props) {
   const [numPages, setNumPages] = useState<number>();
+  const [pageNumber, setPageNumber] = useState<number>(1);
 
-  function onDocumentLoadSuccess({
-    numPages: nextNumPages,
-  }: PDFDocumentProxy): void {
-    setNumPages(nextNumPages);
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages);
   }
 
-  const [containerWidth, setContainerWidth] = useState<number>(
-    window.innerWidth
-  );
-
   return (
-    <div className='aspect-[3/4] w-[37%] overflow-y-scroll rounded-xl sm:w-full'>
-      <Document
-        file={file}
-        onLoadSuccess={onDocumentLoadSuccess}
-        options={options}
-      >
+    <div className='aspect-[3.2/4] w-full overflow-y-scroll rounded-xl sm:w-full'>
+      <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
         {Array.from(new Array(numPages), (el, index) => (
           <Page
+            className='!w-full'
+            width={width}
             key={`page_${index + 1}`}
             pageNumber={index + 1}
-            width={
-              containerWidth ? Math.min(containerWidth, maxWidth) : maxWidth
-            }
           />
         ))}
       </Document>
