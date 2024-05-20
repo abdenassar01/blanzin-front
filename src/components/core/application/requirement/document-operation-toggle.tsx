@@ -10,6 +10,7 @@ import { Button, JobMainCard, Modal } from '@/components';
 import { useTheme } from 'next-themes';
 import Slider from 'react-slick';
 import { SliderDotIndicator } from '../../sliders/slider-dots-indicator';
+import { isMobile } from 'react-device-detect';
 
 type Props = {
   title: string;
@@ -29,7 +30,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
       <li>
         <div
           onClick={() => setShowOptions((prev) => !prev)}
-          className='group my-2 flex cursor-pointer items-center justify-between'
+          className='group my-2 flex w-full cursor-pointer items-center justify-between'
         >
           <div className='text-xxl'>
             <div className='font-bold text-secondary dark:text-main'>
@@ -49,7 +50,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
       </li>
       <div
         className={cn(
-          'grid w-full overflow-hidden transition-all',
+          'grid overflow-y-hidden transition-all',
           showOptions ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         )}
       >
@@ -74,14 +75,11 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
                 </div>
               </button>
             </div>
-            <div className='flex w-[80vw] gap-[5vw] overflow-x-scroll sm:gap-0'>
+            <div className='flex gap-10 overflow-x-scroll'>
               {React.Children.toArray(
                 [1, 2, 3, 4, 5, 6, 7].map((item) => (
-                  <div
-                    onClick={() => setShowModal(true)}
-                    className='w-[19.5vw]'
-                  >
-                    <PdfViewer file={doc} />
+                  <div onClick={() => setShowModal(true)} className='w-[300px]'>
+                    <PdfViewer width={300} file={doc} />
                   </div>
                 ))
               )}
@@ -90,7 +88,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
         </div>
       </div>
       <Modal visible={showModal} setVisible={setShowModal}>
-        <PdfViewer file={doc} />
+        <PdfViewer width={isMobile ? 370 : 1024} file={doc} />
       </Modal>
     </>
   );

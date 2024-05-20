@@ -17,7 +17,7 @@ export default async function Requirement() {
           <Heading className='text-xm ' heading={t('Heading')} />
         </div>
         <div className='mt-8 w-full rounded-xl bg-backgroundSecondary p-4 shadow-md dark:bg-backgroundDark dark:shadow-backgroundSecondaryDark'>
-          <ul className='ml-6 flex w-full flex-col gap-1'>
+          <ul className='flex w-full flex-col gap-1 pl-6'>
             <ResumeToggleOperation doc='/blanzin.pdf' title={t('resume')} />
             <DocumentToggleOperation
               doc='/blanzin.pdf'

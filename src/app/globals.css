@@ -64,6 +64,10 @@
   display: none;
 }
 
+.react-pdf__Page__canvas {
+  width: 100% !important;
+}
+
 .react-calendar__navigation {
   color: #0000ff;
 }

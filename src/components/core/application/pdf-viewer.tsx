@@ -1,26 +1,37 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { pdfjs } from 'react-pdf';
+import { Document, Page } from 'react-pdf';
 
-import { Viewer } from '@react-pdf-viewer/core';
-
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-
-import '@react-pdf-viewer/core/lib/styles/index.css';
-import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 type Props = {
   file: string;
-  toolbar?: boolean;
+  width?: number;
   sidebar?: boolean;
 };
 
-export function PdfViewer({ file, toolbar, sidebar }: Props) {
-  const defaultLayoutPluginInstance = defaultLayoutPlugin();
+export function PdfViewer({ file, width, sidebar }: Props) {
+  const [numPages, setNumPages] = useState<number>();
+  const [pageNumber, setPageNumber] = useState<number>(1);
+
+  function onDocumentLoadSuccess({ numPages }: { numPages: number }): void {
+    setNumPages(numPages);
+  }
 
   return (
-    <div className='w-full overflow-y-scroll rounded-xl sm:w-full'>
-      <Viewer fileUrl={file} plugins={[defaultLayoutPluginInstance]} />
+    <div className='aspect-[3.2/4] w-full overflow-y-scroll rounded-xl sm:w-full'>
+      <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
+        {Array.from(new Array(numPages), (el, index) => (
+          <Page
+            className='!w-full'
+            width={width}
+            key={`page_${index + 1}`}
+            pageNumber={index + 1}
+          />
+        ))}
+      </Document>
     </div>
   );
 }
