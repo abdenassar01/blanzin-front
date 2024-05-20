@@ -6,7 +6,9 @@ import {
   FieldText,
 } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
-import React from 'react';
+import { useTheme } from 'next-themes';
+import Image from 'next/image';
+import React, { useState } from 'react';
 import { Control, useFieldArray, useForm, useWatch } from 'react-hook-form';
 
 type Props = {
@@ -16,7 +18,9 @@ type Props = {
 export function StepTwo({ control }: Props) {
   const t = useScopedI18n('experience');
 
-  const { append } = useFieldArray({ name: 'experiences', control });
+  const { append, remove } = useFieldArray({ name: 'experiences', control });
+  const { experiences } = useWatch({ control });
+  const { theme } = useTheme();
 
   const {
     control: innerControl,
@@ -31,47 +35,77 @@ export function StepTwo({ control }: Props) {
   };
 
   return (
-    <div className='overflow-y-scroll '>
-      <div className='w-[40%] sm:w-full'>
-        <Button
-          theme='success'
-          text={t('add-experience')}
-          onClick={handleSubmit(onSubmit)}
-        />
+    <div className='mb-7 overflow-y-scroll'>
+      <div className='flex flex-wrap items-center justify-start gap-[2%]'>
+        {React.Children.toArray(
+          experiences.map((item: any, index: number) => (
+            <div className='flex w-[32%] justify-between gap-2 rounded-md border-[1px] border-border p-2 dark:bg-backgroundSecondaryDark sm:w-[49%]'>
+              <div className='text-text dark:text-textdark'>
+                {item.jobTitle}
+              </div>
+              <button
+                onClick={() => {
+                  if (confirm('Do you really want to remove')) {
+                    remove(index);
+                  }
+                }}
+              >
+                <Image
+                  alt=''
+                  className='icon'
+                  src={require('@/assets/images/icons/remove.svg')}
+                />
+              </button>
+            </div>
+          ))
+        )}
       </div>
-      <div className='flex flex-wrap justify-between gap-2 pb-3 sm:flex-col'>
+      <div className='mt-3 flex  flex-wrap justify-between gap-2 pb-3 sm:w-full sm:flex-col'>
         <FieldText
-          className='w-[49%] sm:w-full'
+          className='w-[47%] sm:w-full'
           control={innerControl}
-          inputClassName='bg-background dark:bg-backgroundDark'
+          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           label={t('title')}
           placeholder={t('title')}
           name='jobTitle'
         />
         <FieldText
-          className='w-[49%] sm:w-full'
+          className='w-[47%] sm:w-full'
           control={innerControl}
-          inputClassName='bg-background dark:bg-backgroundDark'
-          label={t('employee')}
-          placeholder={t('employee')}
+          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+          label={t('employer')}
+          placeholder={t('employer')}
           name='employee'
         />
 
         <DatePicker
           control={innerControl}
           label={t('start-date')}
+          placeholder={t('start-date')}
           name='startDate'
           maximumDate={new Date()}
-          wrapperClassName='w-[49%] sm:w-full'
-          className='bg-background dark:bg-backgroundDark'
+          wrapperClassName='w-[47%] sm:w-full'
+          className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
         />
         <DatePicker
           control={innerControl}
           label={t('end-date')}
+          placeholder={t('end-date')}
           name='enddate'
           maximumDate={new Date()}
-          wrapperClassName='w-[49%] sm:w-full'
-          className='bg-background dark:bg-backgroundDark'
+          wrapperClassName='w-[47%] sm:w-full'
+          className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+        />
+        <Dropdown
+          control={innerControl}
+          name='category'
+          items={['Morocco', 'Algeria', 'Germany']}
+          extractDisplayMember={(item) => item}
+          extractValueMember={(item) => item}
+          label={t('category')}
+          className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+          dropdownClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+          wrapperClassName='w-[47%] sm:w-full mt-3'
         />
         <DescriptionField
           control={innerControl}
@@ -79,19 +113,28 @@ export function StepTwo({ control }: Props) {
           label={t('description')}
           name='description'
           suggestions={watch('description')}
+          className='mt-2'
+          btnText='Add description'
         />
-
-        <Dropdown
-          control={innerControl}
-          name='country'
-          items={['Morocco', 'Algeria', 'Germany']}
-          extractDisplayMember={(item) => item}
-          extractValueMember={(item) => item}
-          label={t('category')}
-          className='bg-background dark:bg-backgroundDark'
-          dropdownClassName='bg-background dark:bg-backgroundDark'
-          wrapperClassName='w-[49%] sm:w-full '
-        />
+      </div>
+      <div className='my-3 w-[40%] sm:w-full'>
+        <button
+          className='flex items-center gap-1'
+          onClick={handleSubmit(onSubmit)}
+        >
+          <Image
+            className='w-5'
+            alt=''
+            src={
+              theme === 'dark'
+                ? require('@/assets/images/icons/dark/plus.svg')
+                : require('@/assets/images/icons/light/plus.svg')
+            }
+          />
+          <div className='text-xbase font-medium text-secondary dark:text-main'>
+            {t('add-experience')}
+          </div>
+        </button>
       </div>
     </div>
   );

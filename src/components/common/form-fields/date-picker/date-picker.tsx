@@ -52,7 +52,7 @@ export function DatePicker({
   } = useController({
     control,
     name: name,
-    defaultValue: defaultDate || maxDate,
+    defaultValue: defaultDate,
   });
 
   useOutsideClick(datePickerRef, () => setOpenDatePicker(false));
@@ -69,18 +69,21 @@ export function DatePicker({
       <button
         onClick={() => setOpenDatePicker((prev) => !prev)}
         className={cn(
-          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text dark:bg-backgroundSecondaryDark dark:text-textdark',
+          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-backgroundDark',
           className
         )}
       >
         <TranslatedText
-          className={cn('px-1 text-[13px]')}
+          className={cn(
+            'flex justify-start px-1 text-justify text-base text-[#A6A6A6]'
+          )}
           tranlationKey={
-            (selectRange &&
-              `[${moment(value[0]).format('DD-MM-YYYY')}...${moment(
+            (value &&
+              selectRange &&
+              `[${moment(value[0]).format('DD/MM/YYYY')}...${moment(
                 value[value.length - 1]
-              ).format('DD-MM-YYYY')}]`) ||
-            moment(value).format('DD-MM-YYYY') ||
+              ).format('DD/MM/YYYY')}]`) ||
+            moment(value).format('DD/MM/YYYY') ||
             placeholder ||
             label
           }

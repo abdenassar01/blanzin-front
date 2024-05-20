@@ -52,7 +52,7 @@ export function FieldText({
         onChange={onChange}
         onBlur={onBlur}
         className={cn(
-          'w-full rounded border-none bg-backgroundSecondary p-2 py-3 leading-4 text-text placeholder-[#A6A6A6] focus:outline-none  dark:bg-backgroundSecondaryDark dark:text-textdark',
+          'w-full rounded-lg border-none bg-backgroundSecondary p-2 py-3 text-base leading-4 text-text placeholder-[#A6A6A6] shadow-lg focus:outline-none  dark:text-textdark dark:shadow-backgroundDark',
           iconUrl && '',
           inputClassName,
           error && 'border-red-600'

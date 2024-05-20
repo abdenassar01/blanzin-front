@@ -15,7 +15,7 @@ export function HeroSection({ action, header, href, flipped }: Props) {
   return (
     <div
       className={cn(
-        ' container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-md shadow-secondary',
+        ' container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-lg shadow-secondary dark:shadow-main',
         flipped
           ? 'main-background-gradient-flipped'
           : 'main-background-gradient'
@@ -28,10 +28,10 @@ export function HeroSection({ action, header, href, flipped }: Props) {
         )}
       >
         <VideoPlayer />
-        <div className='flex w-full flex-col items-center justify-center gap-10'>
+        <div className='flex w-full flex-col items-center justify-center gap-10 text-secondary'>
           <h3
             className={cn(
-              'w-[70%] whitespace-pre-line text-center text-xxl font-bold text-secondary sm:w-full'
+              'whitespace-pre-line text-center text-xm font-medium'
             )}
           >
             {header}

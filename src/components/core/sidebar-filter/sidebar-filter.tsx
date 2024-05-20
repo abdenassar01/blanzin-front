@@ -33,12 +33,12 @@ export function SidebarFilter() {
   }, [values, query]);
 
   return (
-    <div className='my-2 h-fit w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+    <div className='h-fit w-[25%] bg-backgroundSecondary p-2 py-4 dark:bg-backgroundDark sm:w-full'>
       <div className='flex items-center justify-center gap-2 sm:flex'>
-        <div className='flex gap-2 rounded-xl border-[1px] border-[#CFD6E7] bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+        <div className='flex gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
           <Image
             alt=''
-            className='icon'
+            className='w-5'
             src={require('@/assets/images/icons/search.svg')}
           />
           <input

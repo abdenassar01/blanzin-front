@@ -24,7 +24,7 @@ export function ProgressBar({
           className='mb-1 text-main'
         />
       )}
-      <div className='relative h-2 w-full rounded-full bg-backgroundSecondary dark:bg-backgroundSecondaryDark'>
+      <div className='relative h-2 w-full rounded-full bg-backgroundSecondary dark:bg-backgroundDark'>
         <div
           style={{ width: `calc((100%/${steps})*${currentStep})` }}
           className={cn('absolute left-0  top-0 h-2 rounded-full bg-main')}
