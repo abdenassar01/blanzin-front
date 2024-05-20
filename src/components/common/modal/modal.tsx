@@ -31,9 +31,9 @@ export const Modal = ({
 
   return (
     <Rodal
-      width={width || isMobile ? 90 : 42}
-      height={height || isMobile ? 50 : 22}
-      measure='vw'
+      width={width || isMobile ? 90 : 160}
+      height={height || isMobile ? 50 : 80}
+      measure={isMobile ? 'vw' : 'vh'}
       customStyles={{ borderRadius: 20 }}
       onClose={() => setVisible(false)}
       visible={visible}
