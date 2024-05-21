@@ -1,26 +1,28 @@
-// import * as React from 'react';
-// // eslint-disable-next-line import/no-unresolved
-// // @ts-ignore
-// import { CountryCode } from 'libphonenumber-js/types';
-// import { countries } from 'country-data';
-// import { getCountryCallingCode } from 'react-phone-number-input/input';
-// import getUnicodeFlagIcon from 'country-flag-icons/unicode';
+'use client';
 
-// type Props = {
-//   onClick: () => void;
-//   country: CountryCode;
-// };
+import * as React from 'react';
+// eslint-disable-next-line import/no-unresolved
+import { CountryCode } from 'libphonenumber-js/types';
+import Flags from 'country-flag-icons/react/3x2';
+import { countries } from 'country-data';
+import { getCountryCallingCode } from 'react-phone-number-input/input';
 
-// export function DropDownItem({ onClick, country }: Props) {
-//   return (
-//     <div
-//       onClick={onClick}
-//       className='flex max-w-[100%] list-none gap-2 px-[2vw] py-[1vw] hover:bg-[#dadadb]'
-//     >
-//       {getUnicodeFlagIcon(country)}
-//       <div className=''>
-//         {countries[country].name} ( + {getCountryCallingCode(country)} )
-//       </div>
-//     </div>
-//   );
-// }
+type Props = {
+  onClick: () => void;
+  country: CountryCode;
+};
+
+export function DropDownItem({ onClick, country }: Props) {
+  const Flag = Flags[country];
+  return (
+    <div
+      onClick={onClick}
+      className='flex max-w-[100%] list-none gap-2 px-[2vw] py-[1vw] hover:bg-[#dadadb]'
+    >
+      <Flag width={25} />
+      <div className=''>
+        {countries[country].name} ( + {getCountryCallingCode(country)} )
+      </div>
+    </div>
+  );
+}
