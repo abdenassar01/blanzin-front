@@ -30,7 +30,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
       <li>
         <div
           onClick={() => setShowOptions((prev) => !prev)}
-          className='group my-2 flex w-full cursor-pointer items-center justify-between'
+          className='no-scrollbar group my-2 flex w-full cursor-pointer items-center justify-between'
         >
           <div className='text-xxl'>
             <div className='font-bold text-secondary dark:text-main'>
@@ -54,7 +54,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
           showOptions ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         )}
       >
-        <div className='min-h-0 w-full'>
+        <div className='no-scrollbar min-h-0 w-full'>
           <div className='w-full gap-3 p-2  sm:p-0'>
             <div className=' mb-5 w-[40%] sm:w-full'>
               <button
@@ -75,7 +75,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
                 </div>
               </button>
             </div>
-            <div className='flex gap-10 overflow-x-scroll'>
+            <div className='no-scrollbar flex gap-10 overflow-x-scroll'>
               {React.Children.toArray(
                 [1, 2, 3, 4, 5, 6, 7].map((item) => (
                   <div onClick={() => setShowModal(true)} className='w-[300px]'>
