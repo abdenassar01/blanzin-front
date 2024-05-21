@@ -30,7 +30,7 @@ export function OrderCard({
     <Link
       href={`/orders/${orderTitle.toLocaleLowerCase().replaceAll(' ', '-')}`}
       className={cn(
-        ' rounded-xl bg-backgroundSecondary p-2 text-sm text-text shadow-lg dark:bg-backgroundDark dark:text-textdark dark:shadow-backgroundDark',
+        ' rounded-xl bg-backgroundSecondary p-2 text-sm text-text shadow-lg dark:bg-backgroundDark dark:text-textdark dark:shadow-black',
         className
       )}
     >

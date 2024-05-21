@@ -13,6 +13,10 @@ export default {
   profile: {
     account: 'My account',
     favourites: 'Favourites',
+    'favourites-orders': 'Favourites orders',
+    'favourites-jobs': 'Favourites jobs',
+    'favourites-trainings': 'Favourites trainings',
+    'favourites-expers': 'Favourites experts',
     jobs: 'Job list',
     inbox: 'My inbox',
     docs: 'My documents',

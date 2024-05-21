@@ -37,7 +37,7 @@ export function JobMainCard({}: Props) {
   const { theme } = useTheme();
 
   return (
-    <div className='rounded-xl bg-backgroundSecondary p-4 shadow-md dark:bg-backgroundDark sm:p-2'>
+    <div className='rounded-xl bg-backgroundSecondary p-4 shadow-md dark:bg-backgroundDark dark:shadow-black sm:p-2'>
       <div className='flex gap-2 sm:flex-col'>
         <Link href={`/jobs/job-details-slug`}>
           <Image
