@@ -46,7 +46,7 @@ export function PhoneField<V extends FieldValues>({
   } = useController({ name, control });
 
   return (
-    <div className={cn('group relative flex w-[100%] flex-col', className)}>
+    <div className={cn('group relative flex w-full flex-col', className)}>
       <label
         htmlFor={name}
         className={cn('text-sm font-bold text-secondary dark:text-main')}
@@ -54,15 +54,14 @@ export function PhoneField<V extends FieldValues>({
         {label}
       </label>
       <div className='relative w-full'>
-        <div className='flex min-h-[56px] w-full items-center gap-2 rounded-lg bg-backgroundSecondary pl-2 dark:bg-backgroundDark sm:h-[14.078vw]'>
+        <div className='flex w-full gap-2 rounded-lg bg-backgroundSecondary pl-2 dark:bg-backgroundDark sm:h-[14.078vw]'>
           <div
             className={cn(
-              'flex items-center gap-2 rounded-xl bg-background p-2 text-xs text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black'
+              'flex h-[50px] items-center gap-2 rounded-xl bg-background p-2 text-xs text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black'
             )}
             onClick={() => setOpenDropDown((prev) => !prev)}
           >
-            <Flag width={40} height={30} /> +
-            {getCountryCallingCode(countryCode)}
+            <Flag width={60} /> +{getCountryCallingCode(countryCode)}
             <Image
               className='w-6'
               alt=''
@@ -91,7 +90,7 @@ export function PhoneField<V extends FieldValues>({
             'absolute top-[60px] z-20 w-full overflow-x-scroll rounded-lg bg-background transition-all duration-300 dark:bg-backgroundSecondaryDark',
             className,
             'w-full',
-            !openDropdown ? 'h-[200px]' : 'h-0'
+            openDropdown ? 'h-[200px]' : 'h-0'
           )}
         >
           <div>
