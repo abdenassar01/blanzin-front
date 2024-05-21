@@ -36,7 +36,7 @@ export function FileUpload({
   });
 
   return (
-    <div>
+    <div className='cursor-pointer'>
       <TranslatedHeading
         className='mb-1 text-sm text-secondary dark:text-main'
         tranlationKey={label}
@@ -58,7 +58,7 @@ export function FileUpload({
           className='hidden'
         />
         <TranslatedText
-          className='max-w-[90%] text-text dark:text-textdark'
+          className='max-w-[90%] text-secondary dark:text-main'
           tranlationKey={value || placeholder}
         />
         <Image

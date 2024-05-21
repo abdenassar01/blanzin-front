@@ -31,17 +31,19 @@ export function PackagesForm() {
       </div>
       <div className='mt-12 w-full sm:mt-6'>
         <div className='flex w-full gap-3 sm:flex-col'>
-          <PdfViewer file='/blanzin.pdf' />
+          <div className=''>
+            <PdfViewer file='/blanzin.pdf' />
+          </div>
           <div className='w-full'>
             <div className='text-secondary dark:text-main'>
               <Heading className='text-xxl' heading={t('header')} />
             </div>
             <div className='text-text dark:text-textdark'>{t('explain')}</div>
-            <div className='mt-4 flex gap-4'>
+            <div className='mt-4 flex flex-col gap-4'>
               <button className='w-full'>
                 <Button theme='secondary' text={t('download')} />
               </button>
-              <div className='w-full'>
+              <div className='w-full rounded-xl border-[1px] border-secondary dark:border-main'>
                 <FileUpload
                   control={control}
                   label=''
