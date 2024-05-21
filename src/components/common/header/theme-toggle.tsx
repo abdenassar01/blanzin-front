@@ -17,17 +17,25 @@ export function ThemeToggle() {
   };
 
   return (
-    <div className='flex'>
+    <div className=''>
       <div
         onClick={handleToggleTheme}
         className={cn(
-          'flex w-[65px] justify-between rounded-full bg-border p-1 transition-all duration-300 dark:bg-backgroundSecondaryDark',
+          'flex w-[65px] rounded-full bg-border p-1 dark:bg-backgroundSecondaryDark',
           theme === 'dark' ? 'flex-row-reverse' : 'flex-row'
         )}
       >
-        <div className={cn('h-6 w-6 rounded-full bg-secondary dark:bg-main')} />
+        <div
+          className={cn(
+            'h-6 w-6 rounded-full bg-secondary transition-all duration-300 dark:bg-main',
+            theme === 'dark' ? 'ml-2' : 'ml-0'
+          )}
+        />
         <Image
-          className='w-6'
+          className={cn(
+            'w-6 transition-all duration-300',
+            theme === 'dark' ? 'ml-0' : 'ml-2'
+          )}
           alt=''
           src={
             theme === 'dark'
