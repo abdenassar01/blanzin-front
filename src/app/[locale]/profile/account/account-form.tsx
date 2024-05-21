@@ -38,6 +38,30 @@ export default function AccountForm({}: Props) {
           name='phone'
           placeholder='6063962973'
         />
+        <FieldText
+          className='w-[47%] sm:w-full'
+          control={control}
+          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+          label={t('lastname')}
+          placeholder={t('lastname')}
+          name='lastname'
+        />
+        <FieldText
+          className='w-[47%] sm:w-full'
+          control={control}
+          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+          label={t('lastname')}
+          placeholder={t('lastname')}
+          name='lastname'
+        />
+        <FieldText
+          className='w-[47%] sm:w-full'
+          control={control}
+          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
+          label={t('lastname')}
+          placeholder={t('lastname')}
+          name='lastname'
+        />
       </div>
     </div>
   );

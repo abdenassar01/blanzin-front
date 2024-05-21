@@ -10,12 +10,11 @@ import {
   getCountryCallingCode,
 } from 'react-phone-number-input/input';
 import Flags from 'country-flag-icons/react/3x2';
-// eslint-disable-next-line import/no-unresolved
-import { CountryCode } from 'libphonenumber-js/types';
 import { DropDownItem } from './drop-down-item';
 import { FormField } from '@/types';
 import Image from 'next/image';
 import { cn } from '@/utils';
+import { CountryCode } from './types';
 
 type InputProps<V extends FieldValues> = {
   label: string;

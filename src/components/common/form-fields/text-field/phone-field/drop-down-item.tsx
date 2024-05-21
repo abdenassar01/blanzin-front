@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import { CountryCode } from 'libphonenumber-js/types';
 import Flags from 'country-flag-icons/react/3x2';
 import { countries } from 'country-data';
 import { getCountryCallingCode } from 'react-phone-number-input/input';
+import { CountryCode } from './types';
 
 type Props = {
   onClick: () => void;
