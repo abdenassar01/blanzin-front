@@ -1,9 +1,14 @@
+import { Heading } from '@/components';
+import { getScopedI18n } from '@/utils/locales/server';
 import React from 'react';
 
-export default function FavouritesPage() {
+export default async function FavouritesPage() {
+  const t = await getScopedI18n('profile');
   return (
     <div className='min-h-[25vw] rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
-      favourites
+      <div className='text-xxm'>
+        <Heading heading={t('favourites')} />
+      </div>
     </div>
   );
 }

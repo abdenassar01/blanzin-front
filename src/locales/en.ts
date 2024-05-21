@@ -10,11 +10,12 @@ export default {
     'service-placement': 'Service Placement',
     'jobs-in-germany': 'Jobs in Germany',
   },
-  profiles: {
-    customer: 'Customer',
-    expert: 'Expert',
-    trainee: 'Trainee',
-    employee: 'Employee',
+  profile: {
+    account: 'My account',
+    favourites: 'Favourites',
+    jobs: 'Job list',
+    inbox: 'My inbox',
+    docs: 'My documents',
   },
   section: {
     platform: 'Platform',

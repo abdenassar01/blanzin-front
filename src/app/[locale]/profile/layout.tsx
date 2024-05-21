@@ -1,33 +1,38 @@
 import { ActiveLink } from '@/components/common/active-link/active-link';
 import { LayoutProps } from '@/types';
+import { getScopedI18n } from '@/utils/locales/server';
 import React from 'react';
 
-export default function ProfileDashboardLayout({ children }: LayoutProps) {
+export default async function ProfileDashboardLayout({
+  children,
+}: LayoutProps) {
+  const t = await getScopedI18n('profile');
+
   const pages = [
     {
       id: 1,
       link: '/profile/account',
-      label: 'Account',
+      label: t('account'),
     },
     {
       id: 2,
       link: '/profile/favourites',
-      label: 'Favourites',
+      label: t('favourites'),
     },
     {
       id: 3,
-      link: '/admin/orders',
-      label: 'Orders',
+      link: '/profile/jobs',
+      label: t('jobs'),
     },
     {
       id: 4,
-      link: '/admin/users',
-      label: 'Manage users',
+      link: '/profile/inbox',
+      label: t('inbox'),
     },
     {
-      id: 6,
-      link: '/admin/security',
-      label: 'Update password',
+      id: 5,
+      link: '/profile/docs',
+      label: t('docs'),
     },
   ];
 
