@@ -11,6 +11,7 @@ type Props = {
   link: string;
   activeClassName?: string;
   active?: boolean;
+  disableHover?: boolean;
 };
 
 export function ActiveLink({
@@ -19,6 +20,7 @@ export function ActiveLink({
   children,
   activeClassName,
   active,
+  disableHover,
 }: Props) {
   const pathname = usePathname();
 
@@ -43,7 +45,9 @@ export function ActiveLink({
       >
         {children}
       </Link>
-      <div className='h-0.5 w-0 rounded-full bg-secondary transition-all duration-300 group-hover:w-full dark:bg-main' />
+      {!disableHover && (
+        <div className='h-0.5 w-0 rounded-full bg-secondary transition-all duration-300 group-hover:w-full dark:bg-main' />
+      )}
     </div>
   );
 }

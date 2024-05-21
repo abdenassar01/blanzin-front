@@ -51,6 +51,30 @@
   border-radius: 99px;
 }
 
+.board-link-active em:first-child::after {
+  content: '';
+  height: 24px;
+  width: 24px;
+  background: #f3f4f6;
+  border-end-end-radius: 999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.board-link-active em:last-child::after {
+  content: '';
+  height: 24px;
+  width: 24px;
+  background: #f3f4f6;
+  border-start-end-radius: 999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
 .rodal-dialog {
   padding: 0;
 }
