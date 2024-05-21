@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-// eslint-disable-next-line import/no-unresolved
 import Flags from 'country-flag-icons/react/3x2';
 import { countries } from 'country-data';
 import { getCountryCallingCode } from 'react-phone-number-input/input';
