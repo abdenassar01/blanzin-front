@@ -1,14 +1,14 @@
 'use client';
 
-import { Button, ProgressBar } from '@/components';
-import { useI18n, useScopedI18n } from '@/utils/locales/client';
+import { Button } from '@/components';
+import { useI18n } from '@/utils/locales/client';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { StepFour, StepOne, StepThree, StepTwo } from './steps';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
-import { isMobile } from 'react-device-detect';
+import { useRouter } from 'next/navigation';
 
 export function NewOrderForm() {
   const { control, watch } = useForm({
@@ -18,7 +18,9 @@ export function NewOrderForm() {
     },
   });
   const { theme } = useTheme();
+  const t = useI18n();
 
+  const { push } = useRouter();
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [isBack, setIsBack] = useState<boolean>(false);
 
@@ -63,8 +65,6 @@ export function NewOrderForm() {
     }
   }
 
-  const t = useI18n();
-
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='relative h-[35vw] w-full pt-6 sm:h-[50vw] sm:w-full sm:pt-0'>
@@ -97,6 +97,18 @@ export function NewOrderForm() {
         ) : (
           <div></div>
         )}
+        {(watch('category') !== 4 && currentStep === 3) ||
+          (currentStep === 4 && (
+            <Button
+              width='48%'
+              onClick={() => {
+                push('/');
+              }}
+              className='relative flex items-center'
+            >
+              <div className=''>{t('button.submit')}</div>
+            </Button>
+          ))}
         {isBack && currentStep <= 4 ? (
           <Button
             width='48%'
