@@ -42,7 +42,7 @@ export default function OrdersSlider() {
         {React.Children.toArray(
           [1, 2, 3, 4].map((item) => (
             <OrderCard
-              className=''
+              className='shadow-lg'
               createdAt={new Date()}
               image='/house.jpg'
               desc='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus qui ullam, placeat numquam nemo labore voluptas minima neque nihil saepe, quae at omnis recusandae mollitia sapiente aliquid fuga modi? Officiis!'
