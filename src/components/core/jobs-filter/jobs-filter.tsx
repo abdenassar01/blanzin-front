@@ -14,7 +14,7 @@ export function JobsFilter({}: Props) {
 
   return (
     <div className='h-fit w-[25%] bg-backgroundSecondary p-2 py-4 dark:bg-backgroundDark sm:w-full'>
-      <div className='flex w-full gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark sm:w-full'>
+      <div className='flex w-full gap-2 rounded-xl bg-background p-2 shadow-lg dark:bg-backgroundSecondaryDark sm:w-full'>
         <Image
           alt=''
           className='w-5'
@@ -24,7 +24,7 @@ export function JobsFilter({}: Props) {
           onChange={(e) => push(`?query=${e.currentTarget.value}`)}
           placeholder='query'
           type='text'
-          className='w-full bg-backgroundSecondary text-text caret-[#CFD6E7] focus:border-none focus:outline-none dark:bg-backgroundSecondaryDark dark:text-textdark'
+          className='w-full bg-background text-text caret-[#CFD6E7] focus:border-none focus:outline-none dark:bg-backgroundSecondaryDark dark:text-textdark'
         />
       </div>
       <div className=''>
