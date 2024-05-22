@@ -19,7 +19,12 @@ export function StepThree({
   isBack,
 }: Props) {
   return (
-    <div className={cn('pt-6', isBack ? 'animate-leave' : 'animate-enter')}>
+    <div
+      className={cn(
+        'absolute w-full pt-6',
+        isBack ? 'animate-leave' : 'animate-enter'
+      )}
+    >
       <div className='text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>

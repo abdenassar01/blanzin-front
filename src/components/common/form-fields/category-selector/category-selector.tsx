@@ -5,6 +5,7 @@ import React from 'react';
 import { Control, useController } from 'react-hook-form';
 import { Map } from '@/components';
 import Image from 'next/image';
+import Slider from 'react-slick';
 
 type Props<T> = {
   items: T[];
@@ -36,7 +37,7 @@ export function CategorySelector<T>({
   });
 
   return (
-    <div>
+    <div className='container'>
       <label
         htmlFor={name}
         className={cn(
@@ -45,17 +46,40 @@ export function CategorySelector<T>({
       >
         {label}
       </label>
-      <div className='mt-10 flex flex-wrap justify-center gap-8 sm:justify-between sm:gap-2'>
-        <Map
-          items={items}
-          render={(item) => (
+      <Slider
+        arrows={false}
+        className='my-5 w-full'
+        slidesToShow={4}
+        slidesToScroll={2}
+        initialSlide={2}
+        autoplay
+        cssEase='linear'
+        responsive={[
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3.5,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+            },
+          },
+        ]}
+      >
+        {React.Children.toArray(
+          items.map((item) => (
             <div
               onClick={() => {
                 onChange(extractValue(item));
                 callback && callback();
               }}
               className={cn(
-                'flex aspect-[3/3.5] cursor-pointer flex-col items-center justify-center rounded-md p-4 shadow-lg transition-all duration-500 dark:shadow-backgroundDark sm:w-[48%]',
+                'flex aspect-[3/3.5] w-[23%] cursor-pointer flex-col items-center justify-center rounded-md p-4 shadow-lg transition-all duration-500 dark:shadow-backgroundDark sm:w-[47%] ',
                 value === extractValue(item)
                   ? 'bg-secondary text-main dark:bg-main dark:text-secondary'
                   : 'bg-backgroundSecondary text-secondary dark:bg-backgroundDark dark:text-main'
@@ -65,7 +89,7 @@ export function CategorySelector<T>({
                 <Image
                   width={200}
                   height={200}
-                  className='w-[10vw] sm:w-[30vw]'
+                  className='w-[100%]'
                   alt={extractDisplayMember(item)}
                   src={extractIcon(item)}
                 />
@@ -74,9 +98,9 @@ export function CategorySelector<T>({
                 {extractDisplayMember(item)}
               </h3>
             </div>
-          )}
-        />
-      </div>
+          ))
+        )}
+      </Slider>
       <div className='text-xs text-error'>{error?.message}</div>
     </div>
   );

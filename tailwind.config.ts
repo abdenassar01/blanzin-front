@@ -22,24 +22,18 @@ module.exports = {
       keyframes: {
         enter: {
           '0%': {
-            marginRight: '-700px',
-            tramsform: 'scale(0.8)',
-            opacity: 0.5,
+            right: '-700px',
           },
           '100%': {
-            marginRight: '0',
-            tramsform: 'scale(1)',
-            opacity: 1,
+            right: '0',
           },
         },
         leave: {
           '0%': {
-            marginLeft: '-700px',
-            tramsform: 'scale(0.8)',
+            left: '-700px',
           },
           '100%': {
-            marginLeft: '0',
-            tramsform: 'scale(1)',
+            left: '0',
           },
         },
       },
