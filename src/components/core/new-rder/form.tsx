@@ -1,17 +1,16 @@
 'use client';
 
-import { ProgressBar } from '@/components';
-import { useScopedI18n } from '@/utils/locales/client';
+import { Button } from '@/components';
+import { useI18n } from '@/utils/locales/client';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { StepFour, StepOne, StepThree, StepTwo } from './steps';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
+import { useRouter } from 'next/navigation';
 
-type Props = {};
-
-export function NewOrderForm({}: Props) {
+export function NewOrderForm() {
   const { control, watch } = useForm({
     defaultValues: {
       gallery: [],
@@ -19,7 +18,9 @@ export function NewOrderForm({}: Props) {
     },
   });
   const { theme } = useTheme();
+  const t = useI18n();
 
+  const { push } = useRouter();
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [isBack, setIsBack] = useState<boolean>(false);
 
@@ -31,7 +32,7 @@ export function NewOrderForm({}: Props) {
             isBack={isBack}
             setIsBack={setIsBack}
             setCurrentStep={setCurrentStep}
-            label={t('select-category')}
+            label={t('forms.select-category')}
             control={control}
           />
         );
@@ -41,7 +42,7 @@ export function NewOrderForm({}: Props) {
             isBack={isBack}
             setIsBack={setIsBack}
             setCurrentStep={setCurrentStep}
-            label={t('select-sub-category')}
+            label={t('forms.select-sub-category')}
             control={control}
           />
         );
@@ -52,7 +53,7 @@ export function NewOrderForm({}: Props) {
               isBack={isBack}
               setIsBack={setIsBack}
               setCurrentStep={setCurrentStep}
-              label={t('select-child-sub-category')}
+              label={t('forms.select-child-sub-category')}
               control={control}
             />
           );
@@ -64,20 +65,24 @@ export function NewOrderForm({}: Props) {
     }
   }
 
-  const t = useScopedI18n('forms');
-
   return (
     <div className='flex flex-col items-center justify-center'>
-      {currentStep !== 1 && (
-        <div className='w-[80%] sm:w-full'>
-          <button
+      <div className='relative h-[35vw] w-full pt-6 sm:h-[50vw] sm:w-full sm:pt-0'>
+        {getStep()}
+      </div>
+      <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
+        {currentStep !== 1 ? (
+          <Button
             onClick={() => {
               setCurrentStep(currentStep - 1);
               setIsBack(true);
             }}
+            theme='secondary'
+            width='48%'
+            className='group relative flex items-center'
           >
             <Image
-              className='mt-2 w-[4vw] max-w-[60px] sm:w-[10vw]'
+              className='icon absolute left-2'
               alt='go back'
               src={
                 theme === 'dark'
@@ -85,10 +90,49 @@ export function NewOrderForm({}: Props) {
                   : require('@/assets/images/icons/light/back-arrow.svg')
               }
             />
-          </button>
-        </div>
-      )}
-      <div className='w-fullpt-6 sm:w-full sm:pt-0'>{getStep()}</div>
+            <div className='text-main group-hover:text-secondary'>
+              {t('button.prev')}
+            </div>
+          </Button>
+        ) : (
+          <div></div>
+        )}
+        {(watch('category') !== 4 && currentStep === 3) ||
+          (currentStep === 4 && (
+            <Button
+              width='48%'
+              onClick={() => {
+                push('/');
+              }}
+              className='relative flex items-center'
+            >
+              <div className=''>{t('button.submit')}</div>
+            </Button>
+          ))}
+        {isBack && currentStep <= 4 ? (
+          <Button
+            width='48%'
+            onClick={() => {
+              setCurrentStep(currentStep + 1);
+              setIsBack(true);
+            }}
+            className='relative flex items-center'
+          >
+            <div className=''>{t('button.next')}</div>
+            <Image
+              className='icon absolute right-2 -scale-100'
+              alt='go back'
+              src={
+                theme === 'dark'
+                  ? require('@/assets/images/icons/dark/back-arrow.svg')
+                  : require('@/assets/images/icons/light/back-arrow.svg')
+              }
+            />
+          </Button>
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 }

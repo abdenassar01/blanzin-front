@@ -20,6 +20,12 @@ const nextConfig = {
         locale: false,
       },
       {
+        source: '/profile',
+        destination: '/profile/account',
+        permanent: true,
+        locale: false,
+      },
+      {
         source: '/application',
         destination: '/application/overview',
         permanent: true,

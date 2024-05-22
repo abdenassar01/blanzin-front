@@ -10,11 +10,21 @@ export default {
     'service-placement': 'Service Placement',
     'jobs-in-germany': 'Jobs in Germany',
   },
-  profiles: {
-    customer: 'Customer',
-    expert: 'Expert',
-    trainee: 'Trainee',
-    employee: 'Employee',
+  inbox: {
+    all: 'all',
+    unread: 'unread',
+    stars: 'stars',
+  },
+  profile: {
+    account: 'My account',
+    favourites: 'Favourites',
+    'favourites-orders': 'Favourites orders',
+    'favourites-jobs': 'Favourites jobs',
+    'favourites-trainings': 'Favourites trainings',
+    'favourites-expers': 'Favourites experts',
+    jobs: 'Job list',
+    inbox: 'My inbox',
+    docs: 'My documents',
   },
   section: {
     platform: 'Platform',

@@ -26,7 +26,7 @@ export function StepFour({ control, isBack }: Props) {
   return (
     <div
       className={cn(
-        'pt-12 sm:pt-0',
+        'absolute w-full overflow-y-scroll pt-12 sm:pt-0',
         isBack ? 'animate-leave' : 'animate-enter'
       )}
     >

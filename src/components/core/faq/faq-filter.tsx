@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 import React from 'react';
 
 export function FaqFilter() {
-  const t = useScopedI18n('profiles');
+  const t = useScopedI18n('role');
 
   const searchParams = useSearchParams();
 

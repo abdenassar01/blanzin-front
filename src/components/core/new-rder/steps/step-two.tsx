@@ -19,7 +19,12 @@ export function StepTwo({
   isBack,
 }: Props) {
   return (
-    <div className={cn(isBack ? 'animate-leave' : 'animate-enter')}>
+    <div
+      className={cn(
+        'absolute w-full',
+        isBack ? 'animate-leave' : 'animate-enter'
+      )}
+    >
       <div className='text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>
