@@ -10,6 +10,11 @@ export default {
     'service-placement': 'Service Placement',
     'jobs-in-germany': 'Jobs in Germany',
   },
+  inbox: {
+    all: 'all',
+    unread: 'unread',
+    stars: 'stars',
+  },
   profile: {
     account: 'My account',
     favourites: 'Favourites',

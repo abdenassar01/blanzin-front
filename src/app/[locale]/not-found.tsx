@@ -6,23 +6,19 @@ import { getI18n } from '@/utils/locales/server';
 import { I18nProviderClient } from '@/utils/locales/client';
 import { InternationalisationParams } from '@/types';
 
-export default async function notFound({
-  params: { locale },
-}: InternationalisationParams) {
-  const t = await getI18n();
-
+export default function notFound() {
   return (
-    <html lang={locale}>
+    <html>
       <head>
         <title>Blanzin | not found</title>
       </head>
       <body>
-        <I18nProviderClient locale={locale}>
+        <I18nProviderClient locale='en'>
           <div className='bg-background dark:bg-backgroundDark '>
             <div className='font-monserat container flex min-h-[100vh] items-center justify-center'>
               <div className="ml-20 flex h-[90vh] w-full items-center justify-center bg-[url('/page_not_found.svg')] bg-no-repeat">
                 <span className='rounded bg-main p-3 text-xl font-bold text-secondary dark:text-main'>
-                  {t('errors.page-not-found')}
+                  errors.page-not-found
                 </span>
               </div>
             </div>
