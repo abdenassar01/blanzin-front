@@ -46,8 +46,8 @@ export default async function ProfileDashboardLayout({
                 <ActiveLink
                   disableHover
                   link={page.link}
-                  className='rounded-s-2 relative block h-full w-full whitespace-nowrap p-2 dark:bg-backgroundSecondaryDark sm:rounded-t-lg sm:bg-background sm:px-[24px] sm:py-[20px] sm:text-mb-base'
-                  activeClassName='prose-em:block bg-backgroundSecondary dark:bg-backgroundSecondaryDark board-link-active dark:bg-backgroundDark !text-main border-l-[12px] border-blue-500 font-normal sm:border-l-0 sm:border-t-[4px]'
+                  className='relative block h-full w-full whitespace-nowrap rounded-l-lg p-3 dark:bg-backgroundSecondaryDark sm:rounded-t-lg sm:bg-background sm:px-6 sm:py-5 sm:text-mb-base'
+                  activeClassName='prose-em:block bg-backgroundSecondary dark:bg-backgroundSecondaryDark board-link-active dark:bg-backgroundDark !text-main border-blue-500 border-l-4 font-normal  sm:border-l-0 sm:border-t-1'
                 >
                   <em className='absolute -top-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
                   <div className='flex'>{page.label}</div>
