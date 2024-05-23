@@ -11,7 +11,7 @@ export async function LatestTrainings() {
         <div className='container'>
           <div className='flex items-center justify-between text-xbase'>
             <Heading className='' heading={t('trainee.slider-header')} />
-            <Link className='text-xs text-[#3fb0fc]' href='/orders'>
+            <Link className='text-xs text-[#3fb0fc]' href='/jobs'>
               {t('view-all')}
             </Link>
           </div>
