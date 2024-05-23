@@ -7,7 +7,6 @@ import { useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
 import Image from 'next/image';
-import { useScopedI18n } from '@/utils/locales/client';
 
 type Props = {
   control: Control<any>;
@@ -17,7 +16,8 @@ type Props = {
   placeholder?: string;
   name: string;
   suggestions: string[];
-  btnText: string;
+  suggestionsLabel?: string;
+  valuesLabel?: string;
 };
 
 export function DescriptionField({
@@ -27,8 +27,9 @@ export function DescriptionField({
   className,
   control,
   name,
+  suggestionsLabel,
+  valuesLabel,
   suggestions,
-  btnText,
 }: Props) {
   const [filteredItems, setFilteredItems] = useState<string[]>(items);
   const [filterValue, setFilterValue] = useState<string>('');
@@ -57,83 +58,89 @@ export function DescriptionField({
         tranlationKey={label}
       />
 
-      <div>
-        <div className='flex w-full flex-row items-center gap-2 sm:flex-col'>
-          <input
-            className={cn(
-              'h-[70px] w-[47%] rounded border-main bg-background px-2 shadow-lg focus:border-[1px] focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black',
-              className
-            )}
-            onChange={(e) => {
-              const text = e.currentTarget.value;
-              setFilterValue(text);
-              if (text === '') {
-                setFilteredItems(items);
-              } else {
-                setFilteredItems(
-                  items.filter((item) =>
-                    item
-                      .toLocaleLowerCase()
-                      .includes(filterValue.toLocaleLowerCase())
-                  )
-                );
-              }
-            }}
-            value={filterValue}
-            placeholder={placeholder}
-          />
-          <button
-            className='ml-3 flex gap-1 text-nowrap rounded-xl border-[1px] border-secondary p-2 px-5 dark:border-main sm:ml-0'
-            onClick={handleAppend}
-          >
-            <Image
-              className='w-5'
-              alt=''
-              src={
-                isDark
-                  ? require('@/assets/images/icons/dark/plus.svg')
-                  : require('@/assets/images/icons/light/plus.svg')
-              }
-            />
-            <div className='text-secondary dark:text-main'>{btnText}</div>
-          </button>
-        </div>
-        <div className='mt-4 flex items-center justify-between sm:flex-row'>
-          <div className='mt-1 flex h-[200px] w-[47%] flex-wrap gap-3 overflow-y-scroll rounded bg-background p-2 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:h-[36.5vw]'>
-            {React.Children.toArray(
-              filteredItems.map(
-                (item) =>
-                  suggestions.filter((el: string) => el === item).length ===
-                    0 && (
-                    <button
-                      className='h-fit rounded bg-backgroundSecondary p-2 dark:bg-backgroundDark'
-                      onClick={() => {
-                        append(item);
-                        setFilterValue('');
-                        setFilteredItems(items);
-                      }}
-                    >
-                      <h2 className=''>{item}</h2>
-                    </button>
-                  )
-              )
-            )}
-          </div>
-          <Image
-            alt=''
-            className='w-6'
-            src={
-              isDark
-                ? require('@/assets/images/icons/dark/direction-arrow.svg')
-                : require('@/assets/images/icons/light/direction-arrow.svg')
-            }
-          />
+      <div className='flex w-full justify-between sm:flex-col sm:items-center'>
+        <div className='w-[47%] gap-2 sm:w-full'>
           <div
             className={cn(
-              'mb-1 flex h-[200px] w-[47%] flex-wrap gap-3 overflow-y-scroll rounded bg-background p-2 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:h-[36.5vw]',
+              'flex h-[70px] rounded border-main bg-background px-2 shadow-lg focus:border-[1px]  dark:bg-backgroundSecondaryDark dark:shadow-black sm:w-full',
               className
             )}
           >
+            <input
+              className='h-full w-full bg-[transparent] focus:outline-none'
+              onChange={(e) => {
+                const text = e.currentTarget.value;
+                setFilterValue(text);
+                if (text === '') {
+                  setFilteredItems(items);
+                } else {
+                  setFilteredItems(
+                    items.filter((item) =>
+                      item
+                        .toLocaleLowerCase()
+                        .includes(filterValue.toLocaleLowerCase())
+                    )
+                  );
+                }
+              }}
+              value={filterValue}
+              placeholder={placeholder}
+            />
+            <button
+              className='ml-3 flex gap-1 text-nowrap p-4 px-5  sm:ml-0'
+              onClick={handleAppend}
+            >
+              <Image
+                className='w-6'
+                alt=''
+                src={
+                  isDark
+                    ? require('@/assets/images/icons/dark/plus.svg')
+                    : require('@/assets/images/icons/light/plus.svg')
+                }
+              />
+            </button>
+          </div>
+          <div className='mt-4 h-[200px] w-full rounded bg-background p-2 pt-1 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black  sm:w-full'>
+            <div className='rounded p-1 text-xs text-black underline dark:text-white '>
+              {suggestionsLabel}
+            </div>
+            <div className='flex h-[90%] flex-wrap content-start gap-3 overflow-y-scroll'>
+              {React.Children.toArray(
+                filteredItems.map(
+                  (item) =>
+                    suggestions.filter((el: string) => el === item).length ===
+                      0 && (
+                      <button
+                        className='h-fit rounded bg-backgroundSecondary p-2 dark:bg-backgroundDark'
+                        onClick={() => {
+                          append(item);
+                          setFilterValue('');
+                          setFilteredItems(items);
+                        }}
+                      >
+                        <h2 className=''>{item}</h2>
+                      </button>
+                    )
+                )
+              )}
+            </div>
+          </div>
+        </div>
+        <Image
+          alt=''
+          className='w-6 sm:my-1 sm:rotate-90'
+          src={
+            isDark
+              ? require('@/assets/images/icons/dark/direction-arrow.svg')
+              : require('@/assets/images/icons/light/direction-arrow.svg')
+          }
+        />
+        <div className='mt-2 h-[286px] w-[47%] rounded bg-background p-2 pt-1 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:w-full'>
+          <div className='rounded p-1 text-xs text-black underline dark:text-white '>
+            {valuesLabel}
+          </div>
+          <div className='flex h-[90%] flex-wrap content-start gap-3 overflow-y-scroll'>
             {suggestions.length > 0 &&
               React.Children.toArray(
                 suggestions.map((item: string, index: number) => (

@@ -39,7 +39,7 @@ export default async function EmployeePage() {
       />
       <CallToAction
         heading={t('employee.call-to-action-heading')}
-        href='/jobs'
+        href='/application'
         paragraph={t('employee.call-to-action-paragraph')}
         buttonText={t('employee.call-to-action-btn')}
         callToActionText={t('employee.call-to-action')}

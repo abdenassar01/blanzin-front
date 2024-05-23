@@ -13,7 +13,7 @@ export function JobsFilter({}: Props) {
   const { control } = useForm();
 
   return (
-    <div className='h-fit w-[25%] bg-backgroundSecondary p-2 py-4 dark:bg-backgroundDark sm:w-full'>
+    <div className='mt-1 h-fit w-[25%] bg-backgroundSecondary p-2 py-4 dark:bg-backgroundDark sm:w-full'>
       <div className='flex w-full gap-2 rounded-xl bg-background p-2 shadow-lg dark:bg-backgroundSecondaryDark sm:w-full'>
         <Image
           alt=''

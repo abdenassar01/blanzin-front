@@ -109,8 +109,6 @@ export default async function MyInboxPage({ searchParams: { tab } }: Props) {
     }
   };
 
-  console.log(getInboxes());
-
   return (
     <div className='min-h-[25vw] rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
       <div className='text-xxm'>

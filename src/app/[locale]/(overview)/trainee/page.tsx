@@ -33,13 +33,13 @@ export default async function TraineePage() {
     <div className='w-full'>
       <HeroSection
         action={t('trainee.hero-action')}
-        href='/become-expert'
+        href='/jobs'
         header={t('trainee.hero-text')}
         flipped
       />
       <CallToAction
         heading={t('trainee.call-to-action-heading')}
-        href='/packs'
+        href='/application'
         paragraph={t('trainee.call-to-action-paragraph')}
         buttonText={t('trainee.call-to-action-btn')}
         callToActionText={t('trainee.call-to-action')}

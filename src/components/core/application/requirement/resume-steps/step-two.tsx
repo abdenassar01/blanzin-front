@@ -8,7 +8,7 @@ import {
 import { useScopedI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import { Control, useFieldArray, useForm, useWatch } from 'react-hook-form';
 
 type Props = {
@@ -17,6 +17,7 @@ type Props = {
 
 export function StepTwo({ control }: Props) {
   const t = useScopedI18n('experience');
+  const suggestionsT = useScopedI18n('suggestions');
 
   const { append, remove } = useFieldArray({ name: 'experiences', control });
   const { experiences } = useWatch({ control });
@@ -105,16 +106,35 @@ export function StepTwo({ control }: Props) {
           label={t('category')}
           className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           dropdownClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
-          wrapperClassName='w-[47%] sm:w-full mt-3'
+          wrapperClassName='w-[47%] sm:w-full'
         />
         <DescriptionField
           control={innerControl}
-          items={['This is a test text', 'second']}
+          items={[
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+          ]}
           label={t('description')}
           name='description'
           suggestions={watch('description')}
           className='mt-2'
-          btnText='Add description'
+          placeholder={suggestionsT('free-text')}
+          suggestionsLabel={suggestionsT('description')}
+          valuesLabel={suggestionsT('description-value')}
         />
       </div>
       <div className='my-3 w-[40%] sm:w-full'>
@@ -131,7 +151,7 @@ export function StepTwo({ control }: Props) {
                 : require('@/assets/images/icons/light/plus.svg')
             }
           />
-          <div className='text-xbase font-medium text-secondary dark:text-main'>
+          <div className='text-sm font-bold text-secondary dark:text-main'>
             {t('add-experience')}
           </div>
         </button>

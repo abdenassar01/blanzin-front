@@ -1,4 +1,4 @@
-import { FieldText, ProfileTabSelector } from '@/components';
+import { PhoneField } from '@/components';
 import { useI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control } from 'react-hook-form';
@@ -11,7 +11,7 @@ export function StepOne({ control }: Props) {
   const t = useI18n();
   return (
     <div className='my-3 flex flex-col gap-3'>
-      <FieldText
+      <PhoneField
         control={control}
         label={t('forms.phone')}
         placeholder='0666666666'

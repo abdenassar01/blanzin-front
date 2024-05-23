@@ -30,20 +30,23 @@ export function PackagesForm() {
         <PaymentPackSelector control={control} name='pack' />
       </div>
       <div className='mt-12 w-full sm:mt-6'>
-        <div className='flex w-full gap-3 sm:flex-col'>
-          <div className=''>
-            <PdfViewer file='/blanzin.pdf' />
-          </div>
+        <div className='text-secondary dark:text-main'>
+          <Heading className='text-xxl' heading={t('header')} />
+        </div>
+        <div className='text-text dark:text-textdark'>{t('explain')}</div>
+
+        <div className='flex w-full flex-col items-center justify-center'>
+          <button
+            onClick={() =>
+              confirm('Would you like to download the contract now?')
+            }
+            className='my-2 w-[30%] overflow-hidden rounded-xl sm:w-full'
+          >
+            <PdfViewer width={300} file='/blanzin.pdf' />
+          </button>
           <div className='w-full'>
-            <div className='text-secondary dark:text-main'>
-              <Heading className='text-xxl' heading={t('header')} />
-            </div>
-            <div className='text-text dark:text-textdark'>{t('explain')}</div>
-            <div className='mt-4 flex flex-col gap-4'>
-              <button className='w-full'>
-                <Button theme='secondary' text={t('download')} />
-              </button>
-              <div className='w-full rounded-xl border-[1px] border-secondary dark:border-main'>
+            <div className='mt-4 flex justify-center gap-5'>
+              <div className='w-fit rounded-xl border-[1px] border-secondary dark:border-main'>
                 <FileUpload
                   control={control}
                   label=''
@@ -52,16 +55,16 @@ export function PackagesForm() {
                 />
               </div>
             </div>
+            <div className='mt-12 flex w-full justify-start'>
+              <div className=''>
+                <Button
+                  onClick={handleSubmit(onSubmit)}
+                  theme='success'
+                  text={t('submit')}
+                />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className='mt-4 flex w-full items-center justify-center'>
-        <div className='w-[40%] sm:w-full'>
-          <Button
-            onClick={handleSubmit(onSubmit)}
-            theme='success'
-            text={t('submit')}
-          />
         </div>
       </div>
     </div>

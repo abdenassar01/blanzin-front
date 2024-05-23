@@ -23,13 +23,6 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
-
-    .no-scrollbar::-webkit-scrollbar-thumb {
-      display: none;
-      -webkit-appearance: none;
-      width: 0;
-      height: 0;
-    }
   }
 }
 
@@ -44,18 +37,25 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-track {
   display: none;
-  width: 5px;
+  width: 2px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #f8e804;
-  width: 5px;
+  width: 2px;
   border-radius: 99px;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar-thumb,
+.no-scrollbar::-webkit-scrollbar-track {
+  width: 0;
+  height: 0;
 }
 
 .board-link-active em:first-child::after {
@@ -146,6 +146,14 @@
 .slick-prev::before,
 .slick-next::before {
   color: #0000ff;
+}
+
+.documents-slider .slick-next {
+  right: -35px;
+}
+
+.documents-slider .slick-prev {
+  left: -35px;
 }
 
 .slick-list {

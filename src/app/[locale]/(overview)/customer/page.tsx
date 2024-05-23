@@ -33,7 +33,7 @@ export default async function CustomerLandingPage() {
     <div className='w-full'>
       <HeroSection
         action={t('customer.hero-action')}
-        href='/experts'
+        href='/new-order'
         header={t('customer.hero-text')}
       />
       <CallToAction

@@ -92,7 +92,7 @@ export function DatePicker({
       {
         <div
           className={cn(
-            'absolute z-50 grid h-fit w-full overflow-hidden transition-all duration-500 ease-in',
+            'absolute bottom-0 z-50 grid h-fit w-full overflow-hidden transition-all duration-500 ease-in',
             openDatePicker ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
           )}
         >
@@ -103,15 +103,18 @@ export function DatePicker({
               minDate={minimumDate || minDate}
               maxDate={maximumDate || maxDate}
               className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none sm:bg-backgroundSecondaryDark sm:text-backgroundSecondary'
-              onChange={onChange}
+              onChange={(value) => {
+                onChange(value);
+                if (!selectRange || Array.isArray(value))
+                  setOpenDatePicker(false);
+              }}
             />
           </div>
         </div>
       }
-      <TranslatedText
-        className='text-xs text-error'
-        tranlationKey={error?.message || ''}
-      />
+      <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
+        {error?.message?.toString()}
+      </p>
     </div>
   );
 }

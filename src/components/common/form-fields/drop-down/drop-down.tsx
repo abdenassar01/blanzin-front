@@ -77,7 +77,7 @@ export function Dropdown<T>({
         )}
       >
         <input
-          className='w-full rounded-md bg-[transparent] p-3 normal-case focus:border-none focus:outline-none'
+          className='w-full rounded-md bg-[transparent] p-2 text-base normal-case focus:border-none focus:outline-none'
           type='text'
           onFocus={() => setDisplayString('')}
           onChange={(e) => {
@@ -107,7 +107,7 @@ export function Dropdown<T>({
       </p>
       <div
         className={cn(
-          'absolute top-[80px] isolate z-10 w-full cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] sm:top-[22.816vw] sm:w-[70vw]',
+          'absolute top-[80px] isolate z-10 w-full cursor-pointer overflow-x-hidden rounded-xl bg-backgroundSecondary shadow-md transition-all ease-out dark:bg-backgroundSecondaryDark dark:shadow-[#dadadb21] ',
           dropdownClassName,
           openDropdown ? 'h-[200px]' : 'h-0'
         )}

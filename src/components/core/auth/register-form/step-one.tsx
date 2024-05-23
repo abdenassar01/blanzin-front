@@ -1,4 +1,4 @@
-import { FieldText, ProfileTabSelector } from '@/components';
+import { FieldText, PhoneField, ProfileTabSelector } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control } from 'react-hook-form';
@@ -16,7 +16,7 @@ export default function StepOne({ control }: Props) {
         name='profile'
         label={t('profile')}
       />
-      <FieldText
+      <PhoneField
         control={control}
         label={t('phone')}
         placeholder='0666666666'

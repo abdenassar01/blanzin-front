@@ -33,7 +33,7 @@ export function ThemeToggle() {
         />
         <Image
           className={cn(
-            'w-6 transition-all duration-300',
+            'w-6 transition-all',
             theme === 'dark' ? 'ml-0' : 'ml-2'
           )}
           alt=''

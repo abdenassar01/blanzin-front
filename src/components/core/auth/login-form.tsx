@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, FieldText, Link } from '@/components';
+import { Button, FieldText, Link, PhoneField } from '@/components';
 import { useI18n } from '@/utils/locales/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -11,7 +11,7 @@ export function LoginForm() {
 
   return (
     <div className='flex flex-col gap-3'>
-      <FieldText
+      <PhoneField
         control={control}
         label={t('forms.phone')}
         placeholder='0666666666'

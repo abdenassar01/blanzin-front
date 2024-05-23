@@ -23,7 +23,7 @@ export function TextToggle({
   const [open, setOpen] = useState<boolean>(isOpen);
 
   return (
-    <div className='flex w-[100%] flex-col rounded bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
+    <div className='flex w-[100%] flex-col rounded bg-backgroundSecondary p-2 dark:bg-backgroundDark'>
       <button
         className='mb-1 flex cursor-pointer items-start justify-between'
         onClick={() => {
@@ -39,10 +39,7 @@ export function TextToggle({
           {question}
         </div>
         <Image
-          className={cn(
-            'mt-1 w-[2vw] transition-all sm:w-[5vw]',
-            open ? 'rotate-180' : ''
-          )}
+          className={cn('icon mt-1 transition-all ', open ? 'rotate-180' : '')}
           src={icon}
           alt='toggle element'
         />

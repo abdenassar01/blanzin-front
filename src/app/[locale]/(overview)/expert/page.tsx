@@ -38,7 +38,7 @@ export default async function ExpertPage() {
       />
       <CallToAction
         heading={t('expert.call-to-action-heading')}
-        href='/jobs'
+        href='/orders'
         paragraph={t('expert.call-to-action-paragraph')}
         buttonText={t('expert.call-to-action-btn')}
         callToActionText={t('expert.call-to-action')}

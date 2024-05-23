@@ -10,6 +10,8 @@ type Props = {
 export function StepFour({ control }: Props) {
   const { personalSkills, languageSkills } = useWatch({ control });
   const t = useScopedI18n('forms');
+  const suggestionsT = useScopedI18n('suggestions');
+
   return (
     <div className='mb-10 flex flex-col gap-4 overflow-y-scroll'>
       <DescriptionField
@@ -18,7 +20,9 @@ export function StepFour({ control }: Props) {
         label={t('personal-skills')}
         name='personalSkills'
         suggestions={personalSkills}
-        btnText='Add skill'
+        placeholder={suggestionsT('free-text')}
+        suggestionsLabel={suggestionsT('skill')}
+        valuesLabel={suggestionsT('skill-value')}
       />
       <DescriptionField
         control={control}
@@ -26,7 +30,9 @@ export function StepFour({ control }: Props) {
         label={t('language-skills')}
         name='languageSkills'
         suggestions={languageSkills}
-        btnText='Add skill'
+        placeholder={suggestionsT('free-text')}
+        suggestionsLabel={suggestionsT('skill')}
+        valuesLabel={suggestionsT('skill-value')}
       />
     </div>
   );
