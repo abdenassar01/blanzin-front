@@ -23,6 +23,7 @@ export function PdfViewer({ file, width }: Props) {
       <Document file={file} onLoadSuccess={onDocumentLoadSuccess}>
         {Array.from(new Array(numPages), (el, index) => (
           <Page
+            width={width}
             className='!w-full !min-w-full'
             key={`page_${index + 1}`}
             pageNumber={index + 1}

@@ -44,7 +44,7 @@ export function FileUpload({
       <label
         htmlFor={name}
         className={cn(
-          'flex items-center justify-between rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
+          'flex items-center justify-between gap-4 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
           className
         )}
       >

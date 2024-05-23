@@ -51,15 +51,13 @@ export function ResumeToggleOperation({ title }: Props) {
           className='group my-2 flex cursor-pointer items-center justify-between'
         >
           <div className='text-xxl'>
-            <div className=' font-bold text-secondary dark:text-main'>
-              {title}
-            </div>
+            <div className='text-secondary dark:text-main'>{title}</div>
             <div className='h-[2px] w-0 rounded-full bg-secondary transition-all duration-300 group-hover:w-[100px] dark:bg-main'></div>
           </div>
           <Image
             className={cn(
-              'w-[1.5vw] transition-all duration-500 sm:w-[5vw]',
-              showOptions ? '-rotate-90' : ''
+              'icon transition-all duration-500 ',
+              showOptions ? '' : '-rotate-90'
             )}
             alt='arrow down blanzin'
             src={require('@/assets/images/icons/arrow-down.svg')}
@@ -74,7 +72,7 @@ export function ResumeToggleOperation({ title }: Props) {
       >
         <div className='min-h-0'>
           <div className='p-2 sm:p-0'>
-            <div className='w-[95%]'>
+            <div className='w-[95%] sm:w-full'>
               {getStep()}
               <div
                 className={cn(

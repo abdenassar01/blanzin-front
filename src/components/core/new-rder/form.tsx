@@ -69,20 +69,22 @@ export function NewOrderForm() {
   const getButtons = () => {
     return (
       <>
-        {currentStep !== 1 && (
+        {currentStep !== 1 ? (
           <Button
             onClick={() => {
               setCurrentStep(currentStep - 1);
               setIsBack(true);
             }}
             theme='secondary'
-            width={isMobile ? '48%' : '30%'}
+            width={isMobile ? '48%' : '25%'}
             className='group flex items-center'
           >
             <div className='text-main group-hover:text-secondary'>
               {t('button.prev')}
             </div>
           </Button>
+        ) : (
+          <div></div>
         )}
         {(watch('category') === 4 && currentStep === 4) ||
         (currentStep === 3 && watch('category') !== 4) ? (
@@ -99,8 +101,8 @@ export function NewOrderForm() {
           <Button
             width={isMobile ? '48%' : '25%'}
             onClick={() => {
-              setCurrentStep(currentStep + 1);
               setIsBack(true);
+              setCurrentStep(currentStep + 1);
             }}
             className=' flex items-center'
           >

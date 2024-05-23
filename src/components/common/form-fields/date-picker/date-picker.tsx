@@ -112,10 +112,9 @@ export function DatePicker({
           </div>
         </div>
       }
-      <TranslatedText
-        className='text-xs text-error'
-        tranlationKey={error?.message || ''}
-      />
+      <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
+        {error?.message?.toString()}
+      </p>
     </div>
   );
 }

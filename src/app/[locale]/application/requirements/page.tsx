@@ -15,10 +15,10 @@ export default async function Requirement() {
     <div className='py-12 '>
       <div className='container'>
         <div className='text-secondary'>
-          <Heading className='text-xm ' heading={t('Heading')} />
+          <Heading className='text-xm font-normal ' heading={t('Heading')} />
         </div>
         <div className='mt-8 w-full rounded-xl bg-backgroundSecondary p-4 shadow-md dark:bg-backgroundDark dark:shadow-backgroundSecondaryDark'>
-          <ul className='flex w-full flex-col gap-1 overflow-x-hidden pl-6'>
+          <ul className='flex w-full flex-col gap-1 overflow-x-hidden pl-6 sm:pl-0'>
             <ResumeToggleOperation doc='/blanzin.pdf' title={t('resume')} />
             <DocumentToggleOperation
               doc='/blanzin.pdf'

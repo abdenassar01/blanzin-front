@@ -8,7 +8,7 @@ import {
 import { useScopedI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React from 'react';
 import { Control, useFieldArray, useForm, useWatch } from 'react-hook-form';
 
 type Props = {
@@ -106,11 +106,28 @@ export function StepTwo({ control }: Props) {
           label={t('category')}
           className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           dropdownClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
-          wrapperClassName='w-[47%] sm:w-full mt-3'
+          wrapperClassName='w-[47%] sm:w-full'
         />
         <DescriptionField
           control={innerControl}
-          items={['This is a test text', 'second']}
+          items={[
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+            'This is a test text',
+            'second',
+            'Hello world',
+            'Very long testttttttttt',
+          ]}
           label={t('description')}
           name='description'
           suggestions={watch('description')}

@@ -50,7 +50,7 @@ export function Footer() {
           <div className='flex items-center justify-center bg-contain bg-no-repeat'>
             <Image
               alt='logo'
-              className='drop-shadow-logo dark:drop-shadow-logo-dark w-[10vw] max-w-40 sm:w-[50vw]'
+              className='w-[10vw] max-w-40 drop-shadow-logo dark:drop-shadow-logo-dark sm:w-[50vw]'
               src={
                 isDark
                   ? require('../../../assets/images/logo/logo-dark.png')
@@ -86,7 +86,7 @@ export function Footer() {
                   item.items.map((link) => (
                     <Link
                       className={cn(
-                        'flex gap-1 font-medium text-textdark',
+                        'flex gap-1 font-medium text-black',
                         link.icon
                           ? 'w-[150px] items-center rounded bg-main p-2 text-xs text-secondary dark:bg-secondary dark:text-main'
                           : 'hover:text-secondary dark:hover:text-main'
