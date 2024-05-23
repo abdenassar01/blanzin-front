@@ -107,7 +107,7 @@ export function StepThree({ control }: Props) {
                 : require('@/assets/images/icons/light/plus.svg')
             }
           />
-          <div className='text-xbase font-medium text-secondary dark:text-main'>
+          <div className='text-sm font-bold text-secondary dark:text-main'>
             {t('add-education')}
           </div>
         </button>

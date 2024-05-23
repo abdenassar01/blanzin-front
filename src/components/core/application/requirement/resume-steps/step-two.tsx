@@ -17,6 +17,7 @@ type Props = {
 
 export function StepTwo({ control }: Props) {
   const t = useScopedI18n('experience');
+  const suggestionsT = useScopedI18n('suggestions');
 
   const { append, remove } = useFieldArray({ name: 'experiences', control });
   const { experiences } = useWatch({ control });
@@ -114,7 +115,9 @@ export function StepTwo({ control }: Props) {
           name='description'
           suggestions={watch('description')}
           className='mt-2'
-          btnText='Add description'
+          placeholder={suggestionsT('free-text')}
+          suggestionsLabel={suggestionsT('description')}
+          valuesLabel={suggestionsT('description-value')}
         />
       </div>
       <div className='my-3 w-[40%] sm:w-full'>
@@ -131,7 +134,7 @@ export function StepTwo({ control }: Props) {
                 : require('@/assets/images/icons/light/plus.svg')
             }
           />
-          <div className='text-xbase font-medium text-secondary dark:text-main'>
+          <div className='text-sm font-bold text-secondary dark:text-main'>
             {t('add-experience')}
           </div>
         </button>

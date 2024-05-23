@@ -8,6 +8,7 @@ import { useForm } from 'react-hook-form';
 import { StepFour, StepOne, StepThree, StepTwo } from './resume-steps';
 import { Button } from '@/components';
 import { useRouter } from 'next/navigation';
+import { isMobile } from 'react-device-detect';
 
 type Props = {
   title: string;
@@ -83,7 +84,7 @@ export function ResumeToggleOperation({ title }: Props) {
               >
                 {currentStep !== 1 && (
                   <Button
-                    width='15%'
+                    width={isMobile ? '49%' : '15%'}
                     className='transition-all duration-300'
                     theme='secondary'
                     onClick={() => setCurrentStep((prev) => prev - 1)}
@@ -91,7 +92,7 @@ export function ResumeToggleOperation({ title }: Props) {
                   />
                 )}
                 <Button
-                  width='15%'
+                  width={isMobile ? '49%' : '15%'}
                   text={
                     currentStep === 4 ? t('button.submit') : t('button.next')
                   }

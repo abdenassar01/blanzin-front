@@ -233,6 +233,13 @@ export default {
     submit: 'Submit Application',
   },
   'faq-abbr': 'Frequently asked questions',
+  suggestions: {
+    description: 'Recomended descriptions:',
+    'description-value': 'Selected descriptions',
+    skill: 'Recomended skills',
+    'skill-value': 'Selected skills',
+    'free-text': 'Type description as free text',
+  },
   'send-offer': 'Send offer',
   'similar-orders': 'Similar orders',
   'new-order-header': 'Add a new order',

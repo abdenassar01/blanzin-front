@@ -103,7 +103,11 @@ export function DatePicker({
               minDate={minimumDate || minDate}
               maxDate={maximumDate || maxDate}
               className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none sm:bg-backgroundSecondaryDark sm:text-backgroundSecondary'
-              onChange={onChange}
+              onChange={(value) => {
+                onChange(value);
+                if (!selectRange || Array.isArray(value))
+                  setOpenDatePicker(false);
+              }}
             />
           </div>
         </div>

@@ -77,7 +77,7 @@ export function Dropdown<T>({
         )}
       >
         <input
-          className='w-full rounded-md bg-[transparent] p-2 normal-case focus:border-none focus:outline-none'
+          className='w-full rounded-md bg-[transparent] p-2 text-base normal-case focus:border-none focus:outline-none'
           type='text'
           onFocus={() => setDisplayString('')}
           onChange={(e) => {

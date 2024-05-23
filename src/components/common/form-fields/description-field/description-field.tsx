@@ -17,7 +17,8 @@ type Props = {
   placeholder?: string;
   name: string;
   suggestions: string[];
-  btnText: string;
+  suggestionsLabel?: string;
+  valuesLabel?: string;
 };
 
 export function DescriptionField({
@@ -27,8 +28,9 @@ export function DescriptionField({
   className,
   control,
   name,
+  suggestionsLabel,
+  valuesLabel,
   suggestions,
-  btnText,
 }: Props) {
   const [filteredItems, setFilteredItems] = useState<string[]>(items);
   const [filterValue, setFilterValue] = useState<string>('');
@@ -58,10 +60,10 @@ export function DescriptionField({
       />
 
       <div>
-        <div className='flex w-full flex-row items-center gap-2 sm:flex-col'>
+        <div className='flex w-full items-center gap-2 '>
           <input
             className={cn(
-              'h-[70px] w-[47%] rounded border-main bg-background px-2 shadow-lg focus:border-[1px] focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black',
+              'h-[70px] w-[47%] rounded border-main bg-background px-2 shadow-lg focus:border-[1px] focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black sm:w-full',
               className
             )}
             onChange={(e) => {
@@ -83,11 +85,11 @@ export function DescriptionField({
             placeholder={placeholder}
           />
           <button
-            className='ml-3 flex gap-1 text-nowrap rounded-xl border-[1px] border-secondary p-2 px-5 dark:border-main sm:ml-0'
+            className='ml-3 flex gap-1 text-nowrap rounded-xl border-[1px] border-secondary p-4 px-5 dark:border-main sm:ml-0'
             onClick={handleAppend}
           >
             <Image
-              className='w-5'
+              className='w-6'
               alt=''
               src={
                 isDark
@@ -95,11 +97,13 @@ export function DescriptionField({
                   : require('@/assets/images/icons/light/plus.svg')
               }
             />
-            <div className='text-secondary dark:text-main'>{btnText}</div>
           </button>
         </div>
-        <div className='mt-4 flex items-center justify-between sm:flex-row'>
-          <div className='mt-1 flex h-[200px] w-[47%] flex-wrap gap-3 overflow-y-scroll rounded bg-background p-2 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:h-[36.5vw]'>
+        <div className='mt-4 flex items-center justify-between sm:flex-col'>
+          <div className='relative mt-1 flex h-[200px] w-[47%] flex-wrap content-start gap-3 overflow-y-scroll rounded bg-background p-2 pt-9 align-top shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:h-[36.5vw] sm:w-full'>
+            <div className='absolute left-0.5  top-0.5 rounded bg-border p-1 text-xs text-secondary dark:text-main '>
+              {suggestionsLabel}
+            </div>
             {React.Children.toArray(
               filteredItems.map(
                 (item) =>
@@ -121,19 +125,17 @@ export function DescriptionField({
           </div>
           <Image
             alt=''
-            className='w-6'
+            className='w-6 sm:my-1 sm:rotate-90'
             src={
               isDark
                 ? require('@/assets/images/icons/dark/direction-arrow.svg')
                 : require('@/assets/images/icons/light/direction-arrow.svg')
             }
           />
-          <div
-            className={cn(
-              'mb-1 flex h-[200px] w-[47%] flex-wrap gap-3 overflow-y-scroll rounded bg-background p-2 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:h-[36.5vw]',
-              className
-            )}
-          >
+          <div className='relative mt-1 flex h-[200px] w-[47%] flex-wrap content-start gap-3 gap-y-1 overflow-y-scroll rounded bg-background p-2 pt-9 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:h-[36.5vw] sm:w-full'>
+            <div className='absolute left-0.5 top-0.5 rounded bg-border p-1 text-xs text-secondary dark:text-main '>
+              {valuesLabel}
+            </div>
             {suggestions.length > 0 &&
               React.Children.toArray(
                 suggestions.map((item: string, index: number) => (
