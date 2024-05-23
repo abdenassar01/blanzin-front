@@ -46,13 +46,11 @@ export function CategorySelector<T>({
         {label}
       </label>
       <Slider
-        arrows={false}
-        className='my-5 w-full'
+        arrows
+        className='documents-slider my-5 w-full'
         slidesToShow={4}
-        slidesToScroll={2}
+        slidesToScroll={1}
         initialSlide={1}
-        autoplay
-        cssEase='linear'
         responsive={[
           {
             breakpoint: 1024,

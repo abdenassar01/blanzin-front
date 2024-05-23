@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
 import { useRouter } from 'next/navigation';
+import { isMobile } from 'react-device-detect';
 
 export function NewOrderForm() {
   const { control, watch } = useForm({
@@ -65,73 +66,60 @@ export function NewOrderForm() {
     }
   }
 
-  return (
-    <div className='flex flex-col items-center justify-center'>
-      <div className='relative h-[35vw] w-full pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
-        {getStep()}
-      </div>
-      <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
-        {currentStep !== 1 ? (
+  const getButtons = () => {
+    return (
+      <>
+        {currentStep !== 1 && (
           <Button
             onClick={() => {
               setCurrentStep(currentStep - 1);
               setIsBack(true);
             }}
             theme='secondary'
-            width='48%'
-            className='group relative flex items-center'
+            width={isMobile ? '48%' : '30%'}
+            className='group flex items-center'
           >
-            <Image
-              className='icon absolute left-2'
-              alt='go back'
-              src={
-                theme === 'dark'
-                  ? require('@/assets/images/icons/dark/back-arrow.svg')
-                  : require('@/assets/images/icons/light/back-arrow.svg')
-              }
-            />
             <div className='text-main group-hover:text-secondary'>
               {t('button.prev')}
             </div>
           </Button>
-        ) : (
-          <div></div>
         )}
-        {(watch('category') !== 4 && currentStep === 3) ||
-          (currentStep === 4 && (
-            <Button
-              width='48%'
-              onClick={() => {
-                push('/');
-              }}
-              className='relative flex items-center'
-            >
-              <div className=''>{t('button.submit')}</div>
-            </Button>
-          ))}
-        {isBack && currentStep <= 4 ? (
+        {(watch('category') === 4 && currentStep === 4) ||
+        (currentStep === 3 && watch('category') !== 4) ? (
           <Button
-            width='48%'
+            width={isMobile ? '48%' : '25%'}
+            onClick={() => {
+              push('/');
+            }}
+            className=' flex items-center'
+          >
+            <div className=''>{t('button.submit')}</div>
+          </Button>
+        ) : isBack ? (
+          <Button
+            width={isMobile ? '48%' : '25%'}
             onClick={() => {
               setCurrentStep(currentStep + 1);
               setIsBack(true);
             }}
-            className='relative flex items-center'
+            className=' flex items-center'
           >
             <div className=''>{t('button.next')}</div>
-            <Image
-              className='icon absolute right-2 -scale-100'
-              alt='go back'
-              src={
-                theme === 'dark'
-                  ? require('@/assets/images/icons/dark/back-arrow.svg')
-                  : require('@/assets/images/icons/light/back-arrow.svg')
-              }
-            />
           </Button>
         ) : (
-          <div></div>
+          <i></i>
         )}
+      </>
+    );
+  };
+
+  return (
+    <div className='flex flex-col items-center justify-center'>
+      <div className='relative h-[35vw] w-full pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
+        {getStep()}
+      </div>
+      <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
+        {getButtons()}
       </div>
     </div>
   );

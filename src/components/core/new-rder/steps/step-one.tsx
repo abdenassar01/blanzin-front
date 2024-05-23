@@ -38,7 +38,7 @@ export function StepOne({
           { id: 1, label: 'Category1', icon: '/category.png' },
           { id: 2, label: 'Category1', icon: '/category.png' },
           { id: 3, label: 'Category1', icon: '/category.png' },
-          { id: 4, label: 'Category1', icon: '/category.png' },
+          { id: 4, label: 'Freelancer', icon: '/category.png' },
           { id: 5, label: 'Category1', icon: '/category.png' },
           { id: 6, label: 'Category1', icon: '/category.png' },
           { id: 7, label: 'Category1', icon: '/category.png' },
