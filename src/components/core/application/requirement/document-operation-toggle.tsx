@@ -18,7 +18,7 @@ type Props = {
   url: string;
 };
 
-export function DocumentToggleOperation({ doc, title, url }: Props) {
+export function DocumentToggleOperation({ doc, title }: Props) {
   const t = useScopedI18n('application');
   const [showOptions, setShowOptions] = useState<boolean>(false);
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -27,10 +27,10 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
 
   return (
     <>
-      <li>
+      <li className='no-scrollbar w-full '>
         <div
           onClick={() => setShowOptions((prev) => !prev)}
-          className='no-scrollbar group my-2 flex w-full cursor-pointer items-center justify-between'
+          className='group my-2 flex w-full cursor-pointer items-center justify-between'
         >
           <div className='text-xxl'>
             <div className='font-bold text-secondary dark:text-main'>
@@ -41,7 +41,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
           <Image
             className={cn(
               'w-[1.5vw] transition-all duration-500 sm:w-[5vw]',
-              showOptions ? '-rotate-90' : ''
+              showOptions ? '' : '-rotate-90'
             )}
             alt='arrow down blanzin'
             src={require('@/assets/images/icons/arrow-down.svg')}
@@ -50,7 +50,7 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
       </li>
       <div
         className={cn(
-          'grid overflow-y-hidden transition-all',
+          'grid w-full overflow-y-hidden transition-all',
           showOptions ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         )}
       >
@@ -75,20 +75,55 @@ export function DocumentToggleOperation({ doc, title, url }: Props) {
                 </div>
               </button>
             </div>
-            <div className='no-scrollbar flex gap-10 overflow-x-scroll'>
-              {React.Children.toArray(
-                [1, 2, 3, 4, 5, 6, 7].map((item) => (
-                  <div onClick={() => setShowModal(true)} className='w-[300px]'>
-                    <PdfViewer width={300} file={doc} />
-                  </div>
-                ))
-              )}
+            <div className='no-scrollbar flex w-full items-center justify-center'>
+              <div className='documents-slider w-[clamp(600px,60vw,1000px);] sm:w-[90vh]'>
+                <Slider
+                  arrows
+                  className='my-5'
+                  slidesToShow={3}
+                  slidesToScroll={2}
+                  initialSlide={1}
+                  // autoplay
+                  cssEase='linear'
+                  responsive={[
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                      },
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                      },
+                    },
+                  ]}
+                >
+                  {React.Children.toArray(
+                    [1, 2, 3, 4, 5, 6, 7].map((item) => (
+                      <div
+                        onClick={() => setShowModal(true)}
+                        className='!no-scrollbar my-2 w-full  overflow-x-hidden rounded-xl shadow-lg dark:shadow-black'
+                      >
+                        <PdfViewer file={doc} />
+                      </div>
+                    ))
+                  )}
+                </Slider>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <Modal visible={showModal} setVisible={setShowModal}>
-        <PdfViewer width={isMobile ? 370 : 1024} file={doc} />
+      <Modal visible={showModal} className='' setVisible={setShowModal}>
+        <div className='flex flex-col items-center justify-center'>
+          <div className=' w-[clamp(600px,60vw,1000px);] '>
+            <PdfViewer file={doc} />
+          </div>
+        </div>
       </Modal>
     </>
   );
