@@ -92,7 +92,7 @@ export function DatePicker({
       {
         <div
           className={cn(
-            'absolute z-50 grid h-fit w-full overflow-hidden transition-all duration-500 ease-in',
+            'absolute bottom-0 z-50 grid h-fit w-full overflow-hidden transition-all duration-500 ease-in',
             openDatePicker ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
           )}
         >
