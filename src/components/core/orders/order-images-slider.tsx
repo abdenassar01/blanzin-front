@@ -15,7 +15,12 @@ export function OrderImagesSlider({}: Props) {
 
   return (
     <>
-      <Slider arrows className='' slidesToShow={1} slidesToScroll={1}>
+      <Slider
+        arrows
+        className='[&>div>div]:gap-0 [&_button::before]:text-secondary dark:[&_button::before]:text-main'
+        slidesToShow={1}
+        slidesToScroll={1}
+      >
         {React.Children.toArray(
           images.map((item) => (
             <Image
@@ -25,7 +30,7 @@ export function OrderImagesSlider({}: Props) {
               }}
               width={400}
               height={340}
-              className='h-[70vh] w-full rounded-xl object-cover sm:h-[50vw]'
+              className='aspect-square w-full rounded-xl object-cover'
               alt='order image gallery'
               src={item}
             />
@@ -40,7 +45,7 @@ export function OrderImagesSlider({}: Props) {
         className='relative !aspect-video overflow-hidden p-0'
       >
         <Slider
-          className='absolute -left-1 bottom-0 right-0 top-0 w-full'
+          className='absolute bottom-0 left-0 right-0 top-0 w-full [&>div>div]:gap-0'
           arrows
           slidesToShow={1}
           slidesToScroll={1}
