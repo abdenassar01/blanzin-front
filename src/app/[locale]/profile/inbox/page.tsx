@@ -114,6 +114,8 @@ export default async function MyInboxPage({ searchParams: { tab } }: Props) {
       <div className='text-xxm'>
         <Heading heading={t('inbox')} />
       </div>
+      <InboxFilter />
+
       <div className='my-4 flex h-[40vh] flex-col gap-3 overflow-y-scroll p-1'>
         <Map
           items={getInboxes()}
@@ -125,8 +127,8 @@ export default async function MyInboxPage({ searchParams: { tab } }: Props) {
               <div className='text-md text-justify text-text dark:text-textdark'>
                 {truncateString(item.title, 35)}
               </div>
-              <div className='text-justify text-xs'>
-                {truncateString(item.content, 100)}
+              <div className='w-[90%] text-justify text-xs'>
+                {truncateString(item.content, 300)}
               </div>
               <div className=' absolute right-2 top-2'>
                 <Image
@@ -143,7 +145,6 @@ export default async function MyInboxPage({ searchParams: { tab } }: Props) {
           )}
         />
       </div>
-      <InboxFilter />
     </div>
   );
 }

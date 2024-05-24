@@ -29,7 +29,7 @@ export default function InboxFilter() {
 
   return (
     <div>
-      <div className='flex w-full justify-between gap-5 rounded-full bg-background p-1 dark:bg-backgroundSecondaryDark'>
+      <div className='mt-3 flex w-full justify-between gap-5 rounded-full bg-background p-1 dark:bg-backgroundSecondaryDark'>
         {React.Children.toArray(
           tabs.map((item) => (
             <button
