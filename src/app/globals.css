@@ -148,16 +148,23 @@
   color: #0000ff;
 }
 
-.documents-slider .slick-next {
+.documents-slider .slick-next,
+.categories-slider .slick-next {
   right: -35px;
 }
 
-.documents-slider .slick-prev {
+.documents-slider .slick-prev,
+.categories-slider .slick-prev {
   left: -35px;
 }
 
 .slick-list {
   max-height: fit-content;
+}
+
+.categories-slider .slick-prev::before,
+.categories-slider .slick-next::before {
+  content: '';
 }
 
 .main-background-gradient {

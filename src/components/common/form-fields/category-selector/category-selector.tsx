@@ -5,6 +5,7 @@ import React from 'react';
 import { Control, useController } from 'react-hook-form';
 import Image from 'next/image';
 import Slider from 'react-slick';
+import { useTheme } from 'next-themes';
 
 type Props<T> = {
   items: T[];
@@ -35,8 +36,10 @@ export function CategorySelector<T>({
     control,
   });
 
+  const { theme } = useTheme();
+
   return (
-    <div className='container'>
+    <div className=''>
       <label
         htmlFor={name}
         className={cn(
@@ -47,8 +50,34 @@ export function CategorySelector<T>({
       </label>
       <Slider
         arrows
-        className='documents-slider my-5 w-full'
-        slidesToShow={4}
+        className='categories-slider my-5 w-full'
+        slidesToShow={5}
+        prevArrow={
+          <div className=''>
+            <Image
+              className='w-8 max-w-[80px]'
+              alt=''
+              src={
+                theme === 'dark'
+                  ? require('@/assets/images/icons/dark/next-arrow.svg')
+                  : require('@/assets/images/icons/light/next-arrow.svg')
+              }
+            />
+          </div>
+        }
+        nextArrow={
+          <div className=''>
+            <Image
+              className='w-8 max-w-[80px] rotate-180'
+              alt=''
+              src={
+                theme === 'dark'
+                  ? require('@/assets/images/icons/dark/next-arrow.svg')
+                  : require('@/assets/images/icons/light/next-arrow.svg')
+              }
+            />
+          </div>
+        }
         slidesToScroll={1}
         initialSlide={1}
         responsive={[
