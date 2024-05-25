@@ -1,5 +1,7 @@
+import { AttachementModal } from '@/components';
 import { cn } from '@/utils';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const dms = [
@@ -34,25 +36,28 @@ const dms = [
 export default function page() {
   return (
     <div className='flex h-full max-h-[90vh] w-full flex-col justify-between p-2'>
-      <div className='flex h-fit items-start gap-2 rounded-full bg-background p-2 dark:bg-backgroundSecondaryDark'>
+      <Link
+        href='/experts/user-name'
+        className='mb-1 flex h-fit items-start gap-2 rounded-full bg-background p-2 dark:bg-backgroundSecondaryDark'
+      >
         <Image
           alt=''
           src='/job-image.jpg'
           width={80}
           height={80}
-          className='aspect-square w-[50px] rounded-full'
+          className='aspect-square w-[40px] rounded-full'
         />
-        <div className=''>
+        <div className='leading-4 '>
           <div className='flex items-center gap-2'>
             <span className='text-base font-medium'>Joan Doa</span>
             <div className='h-3 w-3 rounded-full bg-success' />
           </div>
-          <div className=''>
+          <div className='mt-1'>
             <span className='text-xs'>Active now</span>
           </div>
         </div>
-      </div>
-      <div className='h-full overflow-y-scroll p-2'>
+      </Link>
+      <div className='no-scrollbar h-full overflow-y-scroll p-2'>
         {React.Children.toArray(
           dms.map((message) => (
             <div
@@ -84,24 +89,24 @@ export default function page() {
           ))
         )}
       </div>
-      <div className='flex gap-1 rounded-full bg-background p-2 dark:bg-backgroundSecondaryDark'>
+      <div className='mt-1 flex gap-1 rounded-full bg-background p-2 dark:bg-backgroundSecondaryDark'>
         <div className=''>
-          <Image
-            alt=''
-            src={require('@/assets/images/icons/dark/attachments.svg')}
-            className='w-[35px] rounded-full bg-secondary p-2 dark:bg-main'
-          />
+          <AttachementModal />
         </div>
         <input
           className='w-full bg-[transparent] text-base text-text focus:border-none focus:outline-none dark:text-textdark'
-          name=''
-          id=''
+          placeholder='Say hey '
         />
         <div className=''>
           <Image
             alt=''
+            src={require('@/assets/images/icons/light/message.svg')}
+            className='w-[35px] rounded-full bg-secondary p-2 dark:hidden'
+          />
+          <Image
+            alt=''
             src={require('@/assets/images/icons/dark/message.svg')}
-            className='w-[35px] rounded-full bg-secondary p-2 dark:bg-main'
+            className='hidden w-[35px] rounded-full bg-main p-2 dark:flex'
           />
         </div>
       </div>

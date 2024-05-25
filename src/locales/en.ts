@@ -255,6 +255,11 @@ export default {
     submit: 'Submit',
     rate: 'Rate',
   },
+  'chat-options': {
+    location: 'Send location',
+    document: 'Upload document',
+    photo: 'Send Photo',
+  },
   arabic: 'Arabic',
   english: 'English',
   frensh: 'Frensh',
