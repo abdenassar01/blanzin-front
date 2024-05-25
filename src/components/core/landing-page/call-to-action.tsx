@@ -1,9 +1,4 @@
-import {
-  Button,
-  Heading,
-  ImageShapeMaker,
-  ImageShapeMakerSvg,
-} from '@/components';
+import { Button, Heading, ImageShapeMakerSvg } from '@/components';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -26,7 +21,7 @@ export function CallToAction({
   screenshot,
 }: Props) {
   return (
-    <section className='bg-backgroundSecondary py-12 dark:bg-backgroundSecondaryDark'>
+    <section className='py-12'>
       <div className='container flex items-center justify-center sm:flex-col-reverse sm:gap-6'>
         <div className='flex w-[60%] flex-col justify-center gap-8 sm:w-full'>
           <div className='text-2xl'>

@@ -2,6 +2,8 @@ export default {
   heading: {
     welcome: 'Welcome, how can we help you?',
     'jobs-page': 'Job offers',
+    about:
+      'Welcome to Blanzin: Your gateway to first class service and job placement!',
   },
   errors: {
     'page-not-found': 'Page Not Found!',
@@ -252,6 +254,11 @@ export default {
     prev: 'Previous',
     submit: 'Submit',
     rate: 'Rate',
+  },
+  'chat-options': {
+    location: 'Send location',
+    document: 'Upload document',
+    photo: 'Send Photo',
   },
   arabic: 'Arabic',
   english: 'English',

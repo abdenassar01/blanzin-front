@@ -2,10 +2,9 @@ import {
   Button,
   Heading,
   LatestOrderSlider,
-  Map,
   OrderImagesSlider,
   OrderStats,
-  ProviderProfileWidget,
+  ProfileWidget,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
 import Image from 'next/image';
@@ -19,9 +18,9 @@ export default async function OrderDetails() {
       <div className='container'>
         <div className='flex justify-between md:flex-col sm:flex-col sm:gap-3'>
           <div className='w-[69%] md:w-full sm:w-full'>
-            <div className=''>
+            <div className='w-full'>
               <OrderImagesSlider />
-              <div className='mt-4 w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
+              <div className='mt-4 w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark'>
                 <article
                   dangerouslySetInnerHTML={{
                     __html:
@@ -32,7 +31,7 @@ export default async function OrderDetails() {
               </div>
             </div>
           </div>
-          <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark md:mt-4 md:w-full sm:w-full'>
+          <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark md:mt-4 md:w-full sm:w-full'>
             <div className='mb-4 flex items-center gap-2'>
               <Button text={t('send-offer')} />
               <div className='rounded-full  bg-secondary p-2'>
@@ -50,10 +49,10 @@ export default async function OrderDetails() {
             <div className='my-4 flex flex-col gap-2'>
               <OrderStats date='20-12-2024' location='Casablanca' price={250} />
             </div>
-            <ProviderProfileWidget />
+            <ProfileWidget />
           </div>
         </div>
-        <div className='mt-2  gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark'>
+        <div className='mt-2  gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark'>
           <Heading className='mt-2 text-xl' heading={t('similar-orders')} />
           <LatestOrderSlider />
         </div>

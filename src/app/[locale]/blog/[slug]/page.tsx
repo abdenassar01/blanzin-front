@@ -25,11 +25,14 @@ export default function BlogDetails() {
             }}
           />
         </div>
-        <div className='w-full pl-3'>
+        <div className='w-full rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark'>
           <div className='text-xbase'>
-            <Heading className='text-center capitalize' heading='latst blogs' />
+            <Heading
+              className='text-center capitalize'
+              heading='latest blogs'
+            />
           </div>
-          <div className='gap-2 overflow-x-scroll md:flex sm:flex'>
+          <div className='no-scrollbar gap-2 overflow-x-scroll md:flex sm:flex'>
             <div className='sm:min-w-[80%]'>
               <BlogCard />
             </div>

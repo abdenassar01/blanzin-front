@@ -5,10 +5,10 @@ import React from 'react';
 
 type Props = {};
 
-export function ProviderProfileWidget({}: Props) {
+export function ProfileWidget({}: Props) {
   return (
     <Link
-      href='/experts/expert-name'
+      href='/experts/customer-name'
       className='mt-20 flex flex-col items-center rounded-lg bg-background p-2 dark:bg-backgroundDark'
     >
       <Image
@@ -18,7 +18,7 @@ export function ProviderProfileWidget({}: Props) {
       />
       <div className='mt-2 text-text dark:text-textdark'>
         <h2 className='text-center font-medium capitalize text-mainText dark:text-main'>
-          expert name
+          customer name
         </h2>
         <div className='my-2'>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia

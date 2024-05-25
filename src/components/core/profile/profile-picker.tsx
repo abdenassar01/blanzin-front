@@ -3,39 +3,41 @@
 import { usePathname } from '@/navigation';
 import { cn } from '@/utils';
 import { useScopedI18n } from '@/utils/locales/client';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
 
-export default function InboxFilter() {
-  const t = useScopedI18n('inbox');
+type Props = {};
+
+export function ProfilePicker({}: Props) {
+  const t = useScopedI18n('role');
 
   const { push } = useRouter();
   const pathname = usePathname();
 
   const searchParams = useSearchParams();
 
-  const selectedTab = searchParams.get('tab');
+  const selectedTab = searchParams.get('role');
 
   useEffect(() => {
-    push(pathname + '?tab=all');
+    push(pathname + '?role=customer');
   }, []);
 
   const tabs = [
-    { id: 1, label: t('all'), value: 'all' },
-    { id: 1, label: t('unread'), value: 'unread' },
-    { id: 1, label: t('stars'), value: 'stars' },
+    { label: t('customer'), value: 'customer' },
+    { label: t('expert'), value: 'expert' },
+    { label: t('trainee'), value: 'trainee' },
+    { label: t('employee'), value: 'employee' },
   ];
 
   return (
     <div>
-      <div className='mt-3 flex w-full justify-between gap-5 rounded-full bg-background p-1 dark:bg-backgroundSecondaryDark'>
+      <div className='flex w-full justify-end gap-5 rounded-full bg-background p-1 dark:bg-backgroundSecondaryDark sm:overflow-y-scroll'>
         {React.Children.toArray(
           tabs.map((item) => (
             <button
-              onClick={() => push(pathname + '?tab=' + item.value)}
+              onClick={() => push(pathname + '?role=' + item.value)}
               className={cn(
-                'w-[32%] items-center justify-center rounded-full p-3',
+                'w-[15%] items-center justify-center rounded-full p-3',
                 selectedTab === item.value
                   ? 'bg-secondary dark:bg-main'
                   : 'bg-backgroundSecondary dark:bg-backgroundDark'
