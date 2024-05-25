@@ -1,9 +1,4 @@
-import {
-  Button,
-  Heading,
-  ImageShapeMaker,
-  ImageShapeMakerSvg,
-} from '@/components';
+import { Button, Heading, ImageShapeMakerSvg } from '@/components';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
