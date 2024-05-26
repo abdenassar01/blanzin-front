@@ -116,7 +116,7 @@ export default async function MyInboxPage({ searchParams: { tab } }: Props) {
       </div>
       <InboxFilter />
 
-      <div className='my-4 flex h-[40vh] flex-col gap-3 overflow-y-scroll p-1'>
+      <div className='my-4 flex flex-col gap-3 overflow-y-scroll p-1'>
         <Map
           items={getInboxes()}
           render={(item) => (
