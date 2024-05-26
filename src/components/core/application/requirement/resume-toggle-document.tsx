@@ -72,7 +72,7 @@ export function ResumeToggleOperation({ title }: Props) {
       >
         <div className='min-h-0'>
           <div className='p-2 sm:p-0'>
-            <div className='w-[95%] sm:w-full'>
+            <div className='relative w-[95%] sm:w-full'>
               {getStep()}
               <div
                 className={cn(

@@ -16,6 +16,7 @@ type Props = {
   className?: string;
   width?: number;
   height?: number;
+  measure?: string;
 };
 
 export const Modal = ({
@@ -26,6 +27,7 @@ export const Modal = ({
   className,
   height,
   width,
+  measure,
 }: Props) => {
   const { theme } = useTheme();
 
@@ -33,7 +35,7 @@ export const Modal = ({
     <Rodal
       width={width || isMobile ? 90 : 160}
       height={height || isMobile ? 50 : 80}
-      measure={isMobile ? 'vw' : 'vh'}
+      measure={measure || isMobile ? 'vw' : 'vh'}
       customStyles={{ borderRadius: 20 }}
       onClose={() => setVisible(false)}
       visible={visible}
