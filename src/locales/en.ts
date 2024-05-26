@@ -260,6 +260,9 @@ export default {
     document: 'Upload document',
     photo: 'Send Photo',
   },
+  'become-expert': {
+    heading: 'Become blanzin expert and start getting work from today!',
+  },
   arabic: 'Arabic',
   english: 'English',
   frensh: 'Frensh',

@@ -11,7 +11,7 @@ type Props = {
   setIsBack: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export function StepOne({
+export function StepTwo({
   control,
   setCurrentStep,
   label,
@@ -25,26 +25,26 @@ export function StepOne({
         isBack ? 'animate-leave' : 'animate-enter'
       )}
     >
-      <div className='mb-5 text-center text-xm text-secondary dark:text-main'>
+      <div className='text-center text-xm text-secondary dark:text-main'>
         {label}
       </div>
       <CategorySelector
         control={control}
         callback={() => {
-          setCurrentStep(2);
+          setCurrentStep(3);
           setIsBack(false);
         }}
         items={[
           { id: 1, label: 'Category1', icon: '/category.png' },
           { id: 2, label: 'Category1', icon: '/category.png' },
           { id: 3, label: 'Category1', icon: '/category.png' },
-          { id: 4, label: 'Freelancer', icon: '/category.png' },
+          { id: 4, label: 'Category1', icon: '/category.png' },
           { id: 5, label: 'Category1', icon: '/category.png' },
         ]}
         extractDisplayMember={(item) => item.label}
         extractValue={(item) => item.id}
         extractIcon={(item) => item.icon}
-        name='category'
+        name='subCategory'
         label=''
       />
     </div>

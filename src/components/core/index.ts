@@ -10,3 +10,4 @@ export * from './orders';
 export * from './profile';
 export * from './new-rder';
 export * from './chat';
+export * from './become-expert';

@@ -1,28 +1,29 @@
 'use client';
 
-import { Button } from '@/components';
-import { useI18n } from '@/utils/locales/client';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { StepFour, StepOne, StepThree, StepTwo } from './steps';
-import { cn } from '@/utils';
-import { useRouter } from 'next/navigation';
+import { ChildCategoryStep, StepOne, StepThree, StepTwo } from './steps';
+import { Button } from '@/components/common';
 import { isMobile } from 'react-device-detect';
+import { useRouter } from 'next/navigation';
+import { useI18n } from '@/utils/locales/client';
+import { cn } from '@/utils';
 
-export function NewOrderForm() {
+export function BecomeExpertForm() {
   const { control, watch } = useForm({
     defaultValues: {
       gallery: [],
       category: 1,
     },
   });
+  const [currentStep, setCurrentStep] = useState<number>(1);
+
   const t = useI18n();
 
   const { push } = useRouter();
-  const [currentStep, setCurrentStep] = useState<number>(1);
   const [isBack, setIsBack] = useState<boolean>(false);
 
-  function getStep() {
+  function getCurrentStep() {
     switch (currentStep) {
       case 1:
         return (
@@ -47,7 +48,7 @@ export function NewOrderForm() {
       case 3:
         if (watch('category') === 4) {
           return (
-            <StepThree
+            <ChildCategoryStep
               isBack={isBack}
               setIsBack={setIsBack}
               setCurrentStep={setCurrentStep}
@@ -56,10 +57,10 @@ export function NewOrderForm() {
             />
           );
         }
-        return <StepFour isBack={isBack} control={control} />;
+        return <StepThree isBack={isBack} control={control} />;
 
       case 4:
-        return <StepFour isBack={isBack} control={control} />;
+        return <StepThree isBack={isBack} control={control} />;
     }
   }
 
@@ -115,7 +116,7 @@ export function NewOrderForm() {
   return (
     <div className='flex flex-col items-center justify-center'>
       <div className='relative h-[35vw] w-full pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
-        {getStep()}
+        {getCurrentStep()}
       </div>
       <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
         {getButtons()}
