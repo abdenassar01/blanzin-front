@@ -136,7 +136,7 @@ export function DescriptionField({
               : require('@/assets/images/icons/light/direction-arrow.svg')
           }
         />
-        <div className='mt-2 h-[286px] w-[47%] rounded bg-background p-2 pt-1 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:w-full'>
+        <div className='h-[286px] w-[47%] rounded bg-background p-2 pt-1 shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:w-full'>
           <div className='rounded p-1 text-xs text-black underline dark:text-white '>
             {valuesLabel}
           </div>
