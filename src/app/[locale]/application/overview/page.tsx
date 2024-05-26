@@ -32,7 +32,7 @@ export default async function PacksPage() {
           </h3>
           <Button width='200px' className='group mt-6' theme='secondary'>
             <Link
-              href='/application/requirements'
+              href='/application/apply'
               className='text-white group-hover:text-secondary'
             >
               {t('check-btn')}
