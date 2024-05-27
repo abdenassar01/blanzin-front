@@ -63,7 +63,7 @@ export function DatePicker({
       <button
         onClick={() => setOpenDatePicker((prev) => !prev)}
         className={cn(
-          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-backgroundDark',
+          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black',
           className
         )}
       >

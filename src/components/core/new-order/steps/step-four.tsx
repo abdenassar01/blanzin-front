@@ -33,7 +33,7 @@ export function StepFour({ control, isBack }: Props) {
       <div className='text-center text-xm text-secondary dark:text-main'>
         {/* {label} */}
       </div>
-      <div className='flex w-full flex-wrap justify-between sm:gap-3'>
+      <div className='flex w-full flex-wrap justify-between p-3 sm:gap-3'>
         <Dropdown
           control={control}
           items={['Moroccan Wide', 'Casablanca']}
@@ -41,12 +41,15 @@ export function StepFour({ control, isBack }: Props) {
           extractValueMember={(item) => item}
           label={t('forms.location')}
           name='location'
+          className='dark:bg-backgroundDark'
+          dropdownClassName='dark:bg-backgroundDark'
           wrapperClassName='w-[49%] sm:w-full'
         />
         <FieldText
           control={control}
           label={t('forms.title')}
           name='title'
+          inputClassName='dark:bg-backgroundDark'
           className='w-[49%] sm:w-full'
         />
 
@@ -56,6 +59,7 @@ export function StepFour({ control, isBack }: Props) {
           placeholder='100'
           name='budget'
           type='number'
+          inputClassName='dark:bg-backgroundDark'
           className='w-[49%] sm:w-full'
         />
         <DatePicker
@@ -65,6 +69,7 @@ export function StepFour({ control, isBack }: Props) {
           placeholder={t('forms.peroid')}
           wrapperClassName='w-[49%] sm:w-full'
           minimumDate={new Date()}
+          className='dark:bg-backgroundDark'
           maximumDate={maxDate}
           selectRange
         />
@@ -72,6 +77,7 @@ export function StepFour({ control, isBack }: Props) {
           control={control}
           label={t('forms.description')}
           placeholder={t('forms.description')}
+          className='dark:bg-backgroundDark'
         />
         <ImagesGalleryField
           control={control}

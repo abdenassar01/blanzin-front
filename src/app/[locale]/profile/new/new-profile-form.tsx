@@ -4,9 +4,7 @@ import { Switch } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 
-type Props = {};
-
-export function NewProfileForm({}: Props) {
+export function NewProfileForm() {
   const t = useScopedI18n('role');
 
   return (

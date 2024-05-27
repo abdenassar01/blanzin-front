@@ -70,7 +70,7 @@ export function Dropdown<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-base text-[#A6A6A6] placeholder-[#A6A6A6] shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-backgroundDark sm:text-mb-xxs',
+          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-base text-[#A6A6A6] placeholder-[#A6A6A6] shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:text-mb-xxs',
           className,
           (error && 'border-[1px] border-error') || ''
         )}

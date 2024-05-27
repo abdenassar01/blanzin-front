@@ -199,6 +199,7 @@ export default {
     fullname: 'Fullname',
     message: 'Message',
     location: 'Location',
+    image: 'Add picture',
     title: 'Title',
     country: 'Country',
     firstname: 'First name',

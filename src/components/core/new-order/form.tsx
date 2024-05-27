@@ -114,7 +114,7 @@ export function NewOrderForm() {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <div className='relative h-[35vw] w-full pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
+      <div className='relative h-[600px] w-full overflow-y-scroll pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
         {getStep()}
       </div>
       <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
