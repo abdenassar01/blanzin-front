@@ -21,7 +21,7 @@ export function StepThree({ control, isBack }: Props) {
         isBack ? 'animate-leave' : 'animate-enter'
       )}
     >
-      <div className='mt-12 flex w-full justify-between gap-5 sm:mt-6'>
+      <div className='mt-12 flex w-full justify-between gap-5 sm:mt-6 sm:flex-col'>
         <button
           onClick={() =>
             confirm('Would you like to download the contract now?')

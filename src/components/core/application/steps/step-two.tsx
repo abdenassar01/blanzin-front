@@ -27,7 +27,7 @@ export function StepTwo({ control, isBack }: Props) {
         <Heading className='text-center text-xm' heading={t('packs-heading')} />
       </div>
       <div className='mt-14 flex w-full justify-center'>
-        <div className='w-[80%]'>
+        <div className='w-[80%] sm:w-full'>
           <div className='sm:hidden'>
             <PaymentCardsSelector control={control} name='pack' />
           </div>
