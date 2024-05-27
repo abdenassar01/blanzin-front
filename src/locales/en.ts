@@ -27,6 +27,7 @@ export default {
     jobs: 'Job list',
     inbox: 'My inbox',
     docs: 'My documents',
+    'new-profile': 'Add Profile',
   },
   section: {
     platform: 'Platform',

@@ -14,7 +14,7 @@ export default function AccountForm({}: Props) {
 
   return (
     <div>
-      <div className='mt-3 flex flex-wrap justify-between gap-2 overflow-y-scroll pb-3 sm:w-full sm:flex-col'>
+      <div className='mt-3 flex flex-wrap justify-between gap-2 pb-3 sm:w-full sm:flex-col'>
         <div className='w-full'>
           <UploadAvatar control={control} name='avatar' />
         </div>

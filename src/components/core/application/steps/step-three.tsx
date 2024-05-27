@@ -1,4 +1,4 @@
-import { Button, FileUpload, Heading } from '@/components';
+import { FileUpload, Heading } from '@/components';
 import { cn } from '@/utils';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';

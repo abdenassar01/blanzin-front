@@ -1,6 +1,5 @@
 'use client';
 
-import { usePathname } from '@/navigation';
 import { cn } from '@/utils';
 import { useScopedI18n } from '@/utils/locales/client';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -12,15 +11,16 @@ export function ProfilePicker({}: Props) {
   const t = useScopedI18n('role');
 
   const { push } = useRouter();
-  const pathname = usePathname();
 
   const searchParams = useSearchParams();
 
   const selectedTab = searchParams.get('role');
 
   useEffect(() => {
-    push(pathname + '?role=customer');
-  }, []);
+    const role = selectedTab === null ? 'customer' : selectedTab;
+
+    push('/profile/account?role=' + role);
+  }, [selectedTab]);
 
   const tabs = [
     { label: t('customer'), value: 'customer' },
@@ -30,17 +30,17 @@ export function ProfilePicker({}: Props) {
   ];
 
   return (
-    <div>
-      <div className='flex w-full justify-end gap-5 rounded-full bg-background p-1 dark:bg-backgroundSecondaryDark sm:overflow-y-scroll'>
+    <div className='flex w-full justify-end'>
+      <div className='flex gap-5 rounded-full bg-backgroundSecondary p-1 dark:bg-backgroundDark sm:overflow-x-scroll'>
         {React.Children.toArray(
           tabs.map((item) => (
             <button
-              onClick={() => push(pathname + '?role=' + item.value)}
+              onClick={() => push('/profile/account?role=' + item.value)}
               className={cn(
-                'w-[15%] items-center justify-center rounded-full p-3',
+                'w-[200px] items-center justify-center rounded-full p-3 px-4',
                 selectedTab === item.value
                   ? 'bg-secondary dark:bg-main'
-                  : 'bg-backgroundSecondary dark:bg-backgroundDark'
+                  : 'bg-background dark:bg-backgroundSecondaryDark'
               )}
             >
               <div
