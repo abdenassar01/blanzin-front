@@ -111,7 +111,7 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
 
   return (
     <div className={cn('my-1', disabled ? 'opacity-50' : '')}>
-      <div className='flex flex-row justify-evenly rounded-xl bg-backgroundSecondary py-2 dark:bg-backgroundSecondaryDark'>
+      <div className='flex flex-row justify-evenly rounded-xl bg-backgroundSecondary py-2 dark:bg-backgroundDark'>
         {React.Children.toArray(
           packs.map((pack) => (
             <button
@@ -124,7 +124,7 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
                 'flex w-[30%] flex-col items-center rounded p-3 ',
                 selected === pack.id
                   ? 'bg-secondary dark:bg-main'
-                  : 'bg-background dark:bg-backgroundDark'
+                  : 'bg-background dark:bg-backgroundSecondaryDark'
               )}
             >
               <TranslatedHeading
@@ -138,7 +138,7 @@ export function PaymentPackSelector({ control, name, disabled }: Props) {
           ))
         )}
       </div>
-      <div className='mt-2 rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundSecondaryDark'>
+      <div className='mt-2 rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
         {React.Children.toArray(
           packs[selected - 1].offers.map((item) => (
             <div className='relative my-2 flex'>

@@ -31,7 +31,6 @@ export const Button = ({
       style={{ width: width || '100%' }}
       className={cn(
         'group items-center justify-center rounded-xl border-[1px] border-main p-3 transition-all ease-in-out',
-
         theme === 'primary'
           ? 'bg-main text-secondary hover:border-main hover:bg-[transparent] hover:text-main'
           : theme === 'secondary'
@@ -43,6 +42,7 @@ export const Button = ({
                 : theme === 'warn'
                   ? 'border-warn bg-warn hover:bg-[transparent]'
                   : 'border-error bg-error hover:bg-[transparent]',
+        disabled ? 'pointer-events-none border-border bg-border text-text' : '',
         className
       )}
     >

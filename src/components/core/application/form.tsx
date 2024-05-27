@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { StepOne, StepTwo } from './steps';
+import { StepOne, StepThree, StepTwo } from './steps';
 import { Button } from '@/components/common';
 import { useScopedI18n } from '@/utils/locales/client';
 import { isMobile } from 'react-device-detect';
@@ -13,9 +13,8 @@ export default function ApplicationFormSteps() {
   const [isBack, setIsBack] = useState<boolean>(false);
 
   const { push } = useRouter();
-  const { control } = useForm();
+  const { control, handleSubmit } = useForm();
 
-  const t = useScopedI18n('application');
   const buttonsT = useScopedI18n('button');
 
   function getStep() {
@@ -24,10 +23,15 @@ export default function ApplicationFormSteps() {
         return <StepOne isBack={isBack} />;
       case 2:
         return <StepTwo isBack={isBack} control={control} />;
-      default:
-        break;
+      case 3:
+        return <StepThree isBack={isBack} control={control} />;
     }
   }
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+    push('/');
+  };
 
   const getButtons = () => {
     return (
@@ -39,7 +43,7 @@ export default function ApplicationFormSteps() {
               setIsBack(true);
             }}
             theme='secondary'
-            width={isMobile ? '48%' : '25%'}
+            width={isMobile ? '100%' : '25%'}
             className='group flex items-center'
           >
             <div className='text-main group-hover:text-secondary'>
@@ -51,17 +55,15 @@ export default function ApplicationFormSteps() {
         )}
         {currentStep === 3 ? (
           <Button
-            width={isMobile ? '48%' : '20%'}
-            onClick={() => {
-              push('/');
-            }}
+            width={isMobile ? '100%' : '20%'}
+            onClick={handleSubmit(onSubmit)}
             className=' flex items-center'
           >
             <div className=''>{buttonsT('submit')}</div>
           </Button>
         ) : (
           <Button
-            width={isMobile ? '48%' : '20%'}
+            width={isMobile ? '100%' : '20%'}
             onClick={() => {
               setIsBack(false);
               setCurrentStep(currentStep + 1);
@@ -76,8 +78,8 @@ export default function ApplicationFormSteps() {
   };
 
   return (
-    <div className='container'>
-      <div className='relative h-[550px] border-[1px]'>{getStep()}</div>
+    <div className='container '>
+      <div className='relative h-[600px] overflow-y-scroll'>{getStep()}</div>
       <div className='mt-10 w-full'>
         <div className='mt-4 flex w-full justify-between gap-3 sm:w-full '>
           {getButtons()}
