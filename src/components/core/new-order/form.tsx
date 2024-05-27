@@ -69,8 +69,8 @@ export function NewOrderForm() {
         {currentStep !== 1 ? (
           <Button
             onClick={() => {
-              setCurrentStep(currentStep - 1);
               setIsBack(true);
+              setCurrentStep(currentStep - 1);
             }}
             theme='secondary'
             width={isMobile ? '48%' : '25%'}
@@ -98,7 +98,7 @@ export function NewOrderForm() {
           <Button
             width={isMobile ? '48%' : '25%'}
             onClick={() => {
-              setIsBack(true);
+              setIsBack(false);
               setCurrentStep(currentStep + 1);
             }}
             className=' flex items-center'

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { StepOne, StepTwo } from './steps';
 import { Button } from '@/components/common';
@@ -63,7 +63,7 @@ export default function ApplicationFormSteps() {
           <Button
             width={isMobile ? '48%' : '20%'}
             onClick={() => {
-              setIsBack(true);
+              setIsBack(false);
               setCurrentStep(currentStep + 1);
             }}
             className=' flex items-center'
