@@ -1,4 +1,4 @@
-import { BlogCard, FilterSelector, Heading } from '@/components';
+import { FilterSelector, Heading } from '@/components';
 import { LayoutProps } from '@/types';
 import { getI18n } from '@/utils/locales/server';
 import React from 'react';

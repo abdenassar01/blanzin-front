@@ -89,7 +89,7 @@ export function BecomeExpertForm() {
           <Button
             width={isMobile ? '48%' : '25%'}
             onClick={() => {
-              push('/');
+              push('/expert');
             }}
             className=' flex items-center'
           >
