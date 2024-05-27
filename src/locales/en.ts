@@ -171,6 +171,7 @@ export default {
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
     send: 'Send',
   },
+  'feedback-text': `We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.`,
   reviews: 'Reviews',
   experience: {
     title: 'Job Title',
