@@ -41,44 +41,34 @@ export function StepThree({ control, isBack }: Props) {
           extractValueMember={(item) => item}
           label={t('forms.location')}
           name='location'
+          className='dark:bg-backgroundDark'
           wrapperClassName='w-[49%] sm:w-full'
+          dropdownClassName='dark:bg-backgroundDark'
         />
         <FieldText
           control={control}
-          label={t('forms.title')}
-          name='title'
+          label={t('forms.firstname')}
+          placeholder={t('forms.firstname')}
+          name='name'
           className='w-[49%] sm:w-full'
+          inputClassName='dark:bg-backgroundDark'
         />
-
         <FieldText
           control={control}
-          label={t('forms.budget')}
-          placeholder='100'
-          name='budget'
-          type='number'
+          label={t('forms.lastname')}
+          placeholder={t('forms.lastname')}
+          name='name'
           className='w-[49%] sm:w-full'
+          inputClassName='dark:bg-backgroundDark'
         />
-        <DatePicker
-          control={control}
-          name='jobPeroid'
-          label={t('forms.peroid')}
-          placeholder={t('forms.peroid')}
-          wrapperClassName='w-[49%] sm:w-full'
-          minimumDate={new Date()}
-          maximumDate={maxDate}
-          selectRange
-        />
-        <TextArea
-          control={control}
-          label={t('forms.description')}
-          placeholder={t('forms.description')}
-        />
-        <ImagesGalleryField
-          control={control}
-          label='Gallery'
-          name='gallery'
-          className='mt-3'
-        />
+        <div className='w-full'>
+          <ImagesGalleryField
+            control={control}
+            label='Gallery'
+            name='gallery'
+            className='mt-3'
+          />
+        </div>
       </div>
     </div>
   );
