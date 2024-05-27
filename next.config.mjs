@@ -31,6 +31,12 @@ const nextConfig = {
         permanent: true,
         locale: false,
       },
+      {
+        source: '/experts',
+        destination: '/experts/application',
+        permanent: true,
+        locale: false,
+      },
     ];
   },
   webpack: (config) => {

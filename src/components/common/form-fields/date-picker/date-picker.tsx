@@ -8,7 +8,7 @@ import { useState } from 'react';
 import moment from 'moment';
 import { cn } from '@/utils';
 import Calendar from 'react-calendar';
-import { useOutsideClick } from '@/utils/hooks/use-outside-click';
+import { Modal } from '../../modal';
 
 type Props = {
   control: Control<any>;
@@ -43,8 +43,7 @@ export function DatePicker({
   selectRange,
   activeDate,
 }: Props) {
-  const [openDatePicker, setOpenDatePicker] = useState<boolean>();
-  const datePickerRef = React.useRef(null);
+  const [openDatePicker, setOpenDatePicker] = useState<boolean>(false);
 
   const {
     fieldState: { error },
@@ -55,13 +54,8 @@ export function DatePicker({
     defaultValue: defaultDate,
   });
 
-  useOutsideClick(datePickerRef, () => setOpenDatePicker(false));
-
   return (
-    <div
-      ref={datePickerRef}
-      className={cn('relative z-10 w-full', wrapperClassName)}
-    >
+    <div className={cn('w-[200px]', wrapperClassName)}>
       <TranslatedHeading
         className='mb-1 text-sm text-secondary dark:text-main'
         tranlationKey={label}
@@ -69,7 +63,7 @@ export function DatePicker({
       <button
         onClick={() => setOpenDatePicker((prev) => !prev)}
         className={cn(
-          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-backgroundDark',
+          'w-full rounded-md bg-backgroundSecondary py-2.5 pl-2 text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black',
           className
         )}
       >
@@ -89,29 +83,33 @@ export function DatePicker({
           }
         />
       </button>
-      {
+      <Modal
+        width={10}
+        header=''
+        height={10}
+        visible={openDatePicker}
+        setVisible={setOpenDatePicker}
+      >
         <div
           className={cn(
-            'absolute bottom-0 z-50 grid h-fit w-full overflow-hidden transition-all duration-500 ease-in',
-            openDatePicker ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+            'grid h-fit w-full overflow-hidden transition-all duration-500 ease-in'
+            // openDatePicker ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
           )}
         >
-          <div className=' min-h-0'>
-            <Calendar
-              activeStartDate={activeDate || maximumDate || maxDate}
-              selectRange={selectRange}
-              minDate={minimumDate || minDate}
-              maxDate={maximumDate || maxDate}
-              className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none sm:bg-backgroundSecondaryDark sm:text-backgroundSecondary'
-              onChange={(value) => {
-                onChange(value);
-                if (!selectRange || Array.isArray(value))
-                  setOpenDatePicker(false);
-              }}
-            />
-          </div>
+          <Calendar
+            activeStartDate={activeDate || maximumDate || maxDate}
+            selectRange={selectRange}
+            minDate={minimumDate || minDate}
+            maxDate={maximumDate || maxDate}
+            className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none sm:bg-backgroundSecondaryDark sm:text-backgroundSecondary'
+            onChange={(value) => {
+              onChange(value);
+              if (!selectRange || Array.isArray(value))
+                setOpenDatePicker(false);
+            }}
+          />
         </div>
-      }
+      </Modal>
       <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
         {error?.message?.toString()}
       </p>

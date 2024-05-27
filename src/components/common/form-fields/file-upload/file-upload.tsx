@@ -1,19 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import { Control, FieldValue, useController } from 'react-hook-form';
 import { TranslatedHeading, TranslatedText } from '../..';
 import { cn } from '@/utils';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
-import { useScopedI18n } from '@/utils/locales/client';
 
-type Props = {
+type Props = InputHTMLAttributes<HTMLInputElement> & {
   control: Control<FieldValue<any>>;
   name: string;
   label: string;
-  className?: string;
-  placeholder?: string;
 };
 
 export function FileUpload({
@@ -22,10 +19,9 @@ export function FileUpload({
   name,
   className,
   placeholder,
+  ...props
 }: Props) {
   const { theme } = useTheme();
-
-  const t = useScopedI18n('forms');
 
   const {
     field: { onChange, value },
@@ -44,11 +40,12 @@ export function FileUpload({
       <label
         htmlFor={name}
         className={cn(
-          'flex items-center justify-between gap-4 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
+          'flex cursor-pointer items-center justify-between gap-4 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
           className
         )}
       >
         <input
+          accept=''
           id={name}
           onChange={(e) => {
             onChange(e.currentTarget.value);
@@ -56,6 +53,7 @@ export function FileUpload({
           }}
           type='file'
           className='hidden'
+          {...props}
         />
         <TranslatedText
           className='max-w-[90%] text-secondary dark:text-main'

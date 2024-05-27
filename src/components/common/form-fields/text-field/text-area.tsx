@@ -41,7 +41,7 @@ export function TextArea({
             onBlur={onBlur}
             style={{ borderRadius: 4 }}
             className={cn(
-              'rounded-[10px] border-none bg-backgroundSecondary p-2 placeholder-[#A6A6A6] focus:outline-none dark:bg-backgroundSecondaryDark',
+              'rounded-[10px] border-none bg-backgroundSecondary p-2 placeholder-[#A6A6A6] shadow-lg focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black',
               className,
               error ? 'border-red-600' : ''
             )}

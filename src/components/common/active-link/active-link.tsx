@@ -11,6 +11,7 @@ type Props = {
   link: string;
   activeClassName?: string;
   active?: boolean;
+  suffix?: string;
   disableHover?: boolean;
 };
 
@@ -21,6 +22,7 @@ export function ActiveLink({
   activeClassName,
   active,
   disableHover,
+  suffix,
 }: Props) {
   const pathname = usePathname();
 
@@ -41,7 +43,7 @@ export function ActiveLink({
             : ' text-secondary dark:text-main',
           ''
         )}
-        href={link}
+        href={link + suffix}
       >
         {children}
       </Link>

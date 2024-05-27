@@ -15,6 +15,7 @@ export default function DesktopNavbar() {
             className=''
             active={item.link === '/'}
             link={item.link || ''}
+            suffix=''
           >
             {t(item.text)}
           </ActiveLink>

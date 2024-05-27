@@ -70,14 +70,13 @@ export function Dropdown<T>({
       <div
         onClick={() => setOpenDropdown((prev) => !prev)}
         className={cn(
-          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-base text-[#A6A6A6] shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-backgroundDark sm:text-mb-xxs',
+          'flex w-full items-center justify-between rounded-lg bg-backgroundSecondary text-base text-[#A6A6A6] placeholder-[#A6A6A6] shadow-lg dark:bg-backgroundSecondaryDark dark:shadow-black sm:text-mb-xxs',
           className,
-          (value || defaultValue) && 'text-text dark:text-textdark',
           (error && 'border-[1px] border-error') || ''
         )}
       >
         <input
-          className='w-full rounded-md bg-[transparent] p-2 text-base normal-case focus:border-none focus:outline-none'
+          className='w-full rounded-md bg-[transparent] p-2 py-3 text-base normal-case focus:border-none focus:outline-none'
           type='text'
           onFocus={() => setDisplayString('')}
           onChange={(e) => {

@@ -27,6 +27,7 @@ export default {
     jobs: 'Job list',
     inbox: 'My inbox',
     docs: 'My documents',
+    'new-profile': 'Add Profile',
   },
   section: {
     platform: 'Platform',
@@ -170,6 +171,7 @@ export default {
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
     send: 'Send',
   },
+  'feedback-text': `We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.`,
   reviews: 'Reviews',
   experience: {
     title: 'Job Title',
@@ -197,6 +199,7 @@ export default {
     fullname: 'Fullname',
     message: 'Message',
     location: 'Location',
+    image: 'Add picture',
     title: 'Title',
     country: 'Country',
     firstname: 'First name',
@@ -259,6 +262,9 @@ export default {
     location: 'Send location',
     document: 'Upload document',
     photo: 'Send Photo',
+  },
+  'become-expert': {
+    heading: 'Become blanzin expert and start getting work from today!',
   },
   arabic: 'Arabic',
   english: 'English',

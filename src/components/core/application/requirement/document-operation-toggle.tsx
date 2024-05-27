@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 import { PdfViewer } from '../pdf-viewer';
 import { Modal } from '@/components';
 import { useTheme } from 'next-themes';
-import Slider from 'react-slick';
 
 type Props = {
   title: string;
@@ -51,63 +50,59 @@ export function DocumentToggleOperation({ doc, title }: Props) {
       >
         <div className='no-scrollbar min-h-0 w-full'>
           <div className='w-full gap-3 p-2  sm:p-0'>
-            <div className=' mb-5 sm:w-full '>
-              <button
-                className='flex items-center gap-1'
-                onClick={() => console.log('')}
-              >
-                <Image
-                  className='w-5'
-                  alt=''
-                  src={
-                    theme === 'dark'
-                      ? require('@/assets/images/icons/dark/plus.svg')
-                      : require('@/assets/images/icons/light/plus.svg')
-                  }
-                />
-                <div className='font-normale text-base text-secondary underline dark:text-main'>
-                  {t('add')}
-                </div>
-              </button>
-            </div>
             <div className='no-scrollbar flex w-full items-center justify-center'>
-              <div className='documents-slider w-[clamp(600px,60vw,1000px);] sm:w-[90vh]'>
-                <Slider
-                  arrows
-                  className='my-5'
-                  slidesToShow={4.5}
-                  slidesToScroll={2}
-                  initialSlide={2}
-                  // autoplay
-                  cssEase='linear'
-                  responsive={[
-                    {
-                      breakpoint: 1024,
-                      settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                      },
-                    },
-                    {
-                      breakpoint: 480,
-                      settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                      },
-                    },
-                  ]}
-                >
-                  {React.Children.toArray(
-                    [1, 2, 3, 4, 5, 6, 7].map((item) => (
+              <div className='flex flex-wrap gap-3 sm:w-[90vh]'>
+                {React.Children.toArray(
+                  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+                    <div className='aspect-[3/4] w-[140px] rounded-xl border-[1px] border-border'>
+                      <button
+                        onClick={() =>
+                          confirm('Are you sure you want to delete')
+                        }
+                        className='flex w-full justify-end p-1'
+                      >
+                        <Image
+                          alt=''
+                          className='w-[24px]'
+                          src={require('@/assets/images/icons/remove.svg')}
+                        />
+                      </button>
                       <div
                         onClick={() => setShowModal(true)}
-                        className='!no-scrollbar my-2 w-full  overflow-x-hidden rounded-xl shadow-lg dark:shadow-black'
+                        className='flex h-[80%] w-full cursor-pointer flex-col items-center justify-center p-2'
                       >
-                        <PdfViewer width={300} file={doc} />
+                        <div className='text-center text-text dark:text-textdark'>
+                          document name {item}
+                        </div>
                       </div>
-                    ))
-                  )}
-                </Slider>
+                    </div>
+                  ))
+                )}
+                <label htmlFor='file_input' className='cursor-pointer'>
+                  <div
+                    onClick={() => console.log('Adding doc')}
+                    className='flex aspect-[3/4] w-[140px] flex-col items-center justify-center rounded-xl border-[1px] border-border p-2 transition-all hover:border-success'
+                  >
+                    <Image
+                      alt=''
+                      className='w-[24px]'
+                      src={
+                        theme === 'dark'
+                          ? require('@/assets/images/icons/dark/upload.svg')
+                          : require('@/assets/images/icons/light/upload.svg')
+                      }
+                    />
+                    <input
+                      type='file'
+                      name='file_input'
+                      className='hidden'
+                      id='file_input'
+                    />
+                    <div className='mt-2 text-center text-xs text-secondary dark:text-main'>
+                      {t('add')}
+                    </div>
+                  </div>
+                </label>
               </div>
             </div>
           </div>

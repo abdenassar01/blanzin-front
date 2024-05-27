@@ -1,5 +1,4 @@
 import {
-  Button,
   DatePicker,
   DescriptionField,
   Dropdown,
@@ -61,7 +60,7 @@ export function StepTwo({ control }: Props) {
           ))
         )}
       </div>
-      <div className='mt-3 flex  flex-wrap justify-between gap-2 pb-3 sm:w-full sm:flex-col'>
+      <div className='mt-3 flex flex-wrap justify-between gap-2 pb-3 sm:w-full sm:flex-col'>
         <FieldText
           className='w-[47%] sm:w-full'
           control={innerControl}
@@ -110,28 +109,10 @@ export function StepTwo({ control }: Props) {
         />
         <DescriptionField
           control={innerControl}
-          items={[
-            'This is a test text',
-            'second',
-            'Hello world',
-            'Very long testttttttttt',
-            'This is a test text',
-            'second',
-            'Hello world',
-            'Very long testttttttttt',
-            'This is a test text',
-            'second',
-            'Hello world',
-            'Very long testttttttttt',
-            'This is a test text',
-            'second',
-            'Hello world',
-            'Very long testttttttttt',
-          ]}
+          items={['This is a test text', 'second', 'Hello world']}
           label={t('description')}
           name='description'
           suggestions={watch('description')}
-          className='mt-2'
           placeholder={suggestionsT('free-text')}
           suggestionsLabel={suggestionsT('description')}
           valuesLabel={suggestionsT('description-value')}

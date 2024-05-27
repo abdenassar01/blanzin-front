@@ -11,6 +11,7 @@ import {
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
 import Image from 'next/image';
+import { useScopedI18n } from '@/utils/locales/client';
 
 type Props = {
   control: Control<any>;
@@ -28,6 +29,8 @@ export function ImagesGalleryField({ control, name, label, className }: Props) {
   const value = useWatch({
     control,
   });
+
+  const t = useScopedI18n('forms');
 
   const { theme } = useTheme();
   const isDark = useMemo(() => theme === 'dark', [theme]);
@@ -55,7 +58,7 @@ export function ImagesGalleryField({ control, name, label, className }: Props) {
             >
               <div
                 className={cn(
-                  'flex h-[120px] min-w-[32%] flex-col items-center justify-center overflow-hidden rounded-md border-[1px]',
+                  'flex aspect-[3/4] w-[110px] min-w-[32%] flex-col items-center justify-center overflow-hidden rounded-md border-[1px]',
                   value.gallery[index || 0]
                     ? 'border-0'
                     : 'border-secondary dark:border-main'
@@ -82,7 +85,7 @@ export function ImagesGalleryField({ control, name, label, className }: Props) {
                     />
                     <TranslatedText
                       className='text-xs text-secondary dark:text-main'
-                      tranlationKey='add-image-label'
+                      tranlationKey={t('image')}
                     />
                   </>
                 )}

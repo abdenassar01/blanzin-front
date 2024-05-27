@@ -8,5 +8,6 @@ export * from './sidebar-filter';
 export * from './application';
 export * from './orders';
 export * from './profile';
-export * from './new-rder';
+export * from './new-order';
 export * from './chat';
+export * from './become-expert';

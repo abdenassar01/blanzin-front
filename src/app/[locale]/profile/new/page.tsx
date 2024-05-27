@@ -1,17 +1,17 @@
 import { Heading } from '@/components';
 import { getScopedI18n } from '@/utils/locales/server';
 import React from 'react';
-import AccountForm from './account-form';
+import { NewProfileForm } from './new-profile-form';
 
-export default async function AccountPage() {
+export default async function NewProfilePage() {
   const t = await getScopedI18n('profile');
   return (
     <div className='min-h-[40vw] rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
       <div className='text-xxm'>
-        <Heading heading={t('account')} />
+        <Heading heading={t('new-profile')} />
       </div>
       <div className=''>
-        <AccountForm />
+        <NewProfileForm />
       </div>
     </div>
   );
