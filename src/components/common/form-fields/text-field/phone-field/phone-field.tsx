@@ -15,6 +15,7 @@ import { FormField } from '@/types';
 import Image from 'next/image';
 import { cn } from '@/utils';
 import { CountryCode } from './types';
+import { useScopedI18n } from '@/utils/locales/client';
 
 type InputProps<V extends FieldValues> = {
   label: string;
@@ -34,6 +35,8 @@ export function PhoneField<V extends FieldValues>({
   const [countryCode, setCountryCode] = useState<CountryCode>('MA');
   const [openDropdown, setOpenDropDown] = useState<boolean>(false);
   const Flag = Flags[countryCode];
+
+  const t = useScopedI18n('errors');
 
   const handleSelectCountry = (country: CountryCode) => {
     setCountryCode(country);
@@ -105,7 +108,10 @@ export function PhoneField<V extends FieldValues>({
         </div>
       </div>
       {error && (
-        <p className='text-xxs text-error'>{error?.message?.toString()}</p>
+        <p className='text-xxs text-error'>
+          {/* @ts-ignore */}
+          {error?.message && t(error.message)}
+        </p>
       )}
     </div>
   );

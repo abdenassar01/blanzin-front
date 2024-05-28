@@ -7,6 +7,12 @@ export default {
   },
   errors: {
     'page-not-found': 'Page Not Found!',
+    'phone-required': 'Phone number is required',
+    'phone-invalid': 'Phone number is invalid',
+    'password-required': 'Password is required',
+    'password-invalid': 'Password is not strong enought',
+    'password-confirm-required': 'Password confirm is required',
+    'password-mismatch': "The passwords does'nt match",
   },
   titles: {
     'service-placement': 'Service Placement',

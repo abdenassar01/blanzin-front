@@ -6,6 +6,7 @@ import icon from '@/assets/images/icons/eye.svg';
 import iconClosed from '@/assets/images/icons/eye-closed.svg';
 import Image from 'next/image';
 import { cn } from '@/utils';
+import { useScopedI18n } from '@/utils/locales/client';
 
 type InputProps = HTMLProps<HTMLInputElement> & {
   control: Control<any>;
@@ -35,6 +36,8 @@ export function FieldText({
     field: { onBlur, onChange },
     fieldState: { error },
   } = useController({ name, control });
+
+  const t = useScopedI18n('errors');
 
   return (
     <div className={cn('group relative flex w-[100%] flex-col', className)}>
@@ -76,7 +79,8 @@ export function FieldText({
         />
       )}
       <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
-        {error?.message?.toString()}
+        {/* @ts-ignore */}
+        {error?.message && t(error.message)}
       </p>
     </div>
   );
