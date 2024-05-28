@@ -16,12 +16,12 @@ export function StepThree({ control }: Props) {
   const t = useScopedI18n('application');
 
   return (
-    <div className={cn('absolute w-full')}>
+    <div>
       <div className='my-6 text-secondary dark:text-main'>
-        <Heading className='text-center text-xm' heading={t('packs-heading')} />
+        <Heading className='text-xm' heading={t('packs-heading')} />
       </div>
       <div className='mt-14 flex w-full justify-center'>
-        <div className='w-[80%] sm:w-full'>
+        <div className='w-full sm:w-full'>
           <div className='sm:hidden'>
             <PaymentCardsSelector control={control} name='pack' />
           </div>
