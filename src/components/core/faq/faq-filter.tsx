@@ -3,8 +3,8 @@
 import { cn } from '@/utils';
 import { useScopedI18n } from '@/utils/locales/client';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import React from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import React, { useEffect } from 'react';
 
 export function FaqFilter() {
   const t = useScopedI18n('role');
@@ -12,6 +12,11 @@ export function FaqFilter() {
   const searchParams = useSearchParams();
 
   const currentTab = searchParams.get('tab');
+  const { push } = useRouter();
+
+  useEffect(() => {
+    push('/faq?tab=customer');
+  }, []);
 
   const tabs = [
     { label: t('customer'), tab: 'customer' },
