@@ -1,4 +1,5 @@
 import createNextIntlPlugin from 'next-intl/plugin';
+import routingRedirects from './redirect-routes.js';
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -6,38 +7,7 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig = {
   typescript: {},
   async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/customer',
-        permanent: true,
-        locale: false,
-      },
-      {
-        source: '/blog',
-        destination: '/blog/all',
-        permanent: true,
-        locale: false,
-      },
-      {
-        source: '/profile',
-        destination: '/profile/account',
-        permanent: true,
-        locale: false,
-      },
-      {
-        source: '/application',
-        destination: '/application/overview',
-        permanent: true,
-        locale: false,
-      },
-      {
-        source: '/experts',
-        destination: '/experts/application',
-        permanent: true,
-        locale: false,
-      },
-    ];
+    return routingRedirects;
   },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
