@@ -52,8 +52,10 @@ export default {
     'action-btn': 'Choose your package!',
     update: 'Update',
     add: 'Add document',
+    contract: 'Contract',
+    'docs-folder': 'Documents folder',
     delete: 'Remove',
-    'packs-heading': 'Discover our exclusive package packages',
+    'packs-heading': 'Packages',
     book: 'Continue booking',
   },
   'premuim-pack': {
