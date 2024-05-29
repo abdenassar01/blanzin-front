@@ -16,9 +16,10 @@ export default function InboxFilter() {
   const searchParams = useSearchParams();
 
   const selectedTab = searchParams.get('tab');
+  const role = searchParams.get('role');
 
   useEffect(() => {
-    push(pathname + '?tab=all');
+    push(pathname + '?role=' + role + '&tab=all');
   }, []);
 
   const tabs = [
@@ -33,7 +34,9 @@ export default function InboxFilter() {
         {React.Children.toArray(
           tabs.map((item) => (
             <button
-              onClick={() => push(pathname + '?tab=' + item.value)}
+              onClick={() =>
+                push(pathname + '?role=' + role + '&tab=' + item.value)
+              }
               className={cn(
                 'w-[32%] items-center justify-center rounded-full p-3',
                 selectedTab === item.value

@@ -11,7 +11,7 @@ export default async function FAQ() {
         <div className=''>
           <Heading className='text-2xl' heading={t('links.faq')} />
           <div className='flex sm:flex-col'>
-            <h4 className='mr-4 w-[45vw] sm:w-full'>{t('faq-heading')}</h4>
+            <h4 className='mr-4 w-[55vw] sm:w-full'>{t('faq-heading')}</h4>
             <FaqFilter />
           </div>
         </div>

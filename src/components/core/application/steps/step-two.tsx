@@ -1,40 +1,51 @@
-import {
-  Heading,
-  PaymentCardsSelector,
-  PaymentPackSelector,
-} from '@/components/common';
-import { cn } from '@/utils';
+import { FileUploadDropable, Heading } from '@/components/common';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
-import { Control } from 'react-hook-form';
+import { Control, FieldValue } from 'react-hook-form';
 
 type Props = {
-  control: Control<any>;
-  isBack: boolean;
+  control: Control<FieldValue<any>>;
 };
 
-export function StepTwo({ control, isBack }: Props) {
+export function StepTwo({ control }: Props) {
   const t = useScopedI18n('application');
 
   return (
-    <div
-      className={cn(
-        'absolute w-full',
-        isBack ? 'animate-leave' : 'animate-enter'
-      )}
-    >
-      <div className='my-6 text-secondary dark:text-main'>
-        <Heading className='text-center text-xm' heading={t('packs-heading')} />
+    <div className=''>
+      <div className='text-xxm'>
+        <Heading heading={t('docs-folder')} />
       </div>
-      <div className='mt-14 flex w-full justify-center'>
-        <div className='w-[80%] sm:w-full'>
-          <div className='sm:hidden'>
-            <PaymentCardsSelector control={control} name='pack' />
-          </div>
-          <div className='hidden sm:block'>
-            <PaymentPackSelector control={control} name='pack' />
-          </div>
-        </div>
+      <div className='mt-5 flex flex-wrap gap-4'>
+        <FileUploadDropable
+          label={t('lang-certificate')}
+          name='lang'
+          placeholder={t('lang-certificate')}
+          control={control}
+        />
+        <FileUploadDropable
+          label={t('diploma')}
+          name='diploma'
+          placeholder={t('diploma')}
+          control={control}
+        />
+        <FileUploadDropable
+          label={t('job-certificates')}
+          name='jobs'
+          placeholder={t('job-certificates')}
+          control={control}
+        />
+        <FileUploadDropable
+          label={t('intenship')}
+          name='internships'
+          placeholder={t('intenship')}
+          control={control}
+        />
+        <FileUploadDropable
+          label={t('acknowledgement')}
+          name='acknowledgement'
+          placeholder={t('acknowledgement')}
+          control={control}
+        />
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ export default function PaymentCardItem({
     <div
       onClick={handlePress}
       className={cn(
-        ' relative max-w-[31%] cursor-pointer rounded-xl border-[1px] bg-backgroundSecondary p-4 transition-all duration-300 dark:bg-backgroundSecondaryDark',
+        ' relative max-w-[32%] cursor-pointer rounded-xl border-[1px] bg-backgroundSecondary p-4 transition-all duration-300 dark:bg-backgroundSecondaryDark',
         selected
           ? '-mt-3 border-secondary shadow-xl shadow-secondary dark:border-main dark:shadow-main'
           : 'mt-3 border-border hover:shadow-md hover:shadow-secondary'

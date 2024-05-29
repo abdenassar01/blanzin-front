@@ -1,11 +1,6 @@
 'use client';
 
-import {
-  DatePicker,
-  Dropdown,
-  FieldText,
-  UploadAvatarResemee,
-} from '@/components';
+import { DatePicker, FieldText, UploadAvatarResemee } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control } from 'react-hook-form';

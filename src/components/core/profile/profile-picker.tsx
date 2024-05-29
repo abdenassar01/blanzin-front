@@ -31,7 +31,7 @@ export function ProfilePicker({}: Props) {
 
   return (
     <div className='flex w-full justify-end'>
-      <div className='flex gap-5 rounded-full bg-backgroundSecondary p-1 dark:bg-backgroundDark sm:overflow-x-scroll'>
+      <div className='flex gap-5 overflow-y-scroll rounded-full bg-backgroundSecondary p-1 dark:bg-backgroundDark sm:overflow-x-scroll'>
         {React.Children.toArray(
           tabs.map((item) => (
             <button

@@ -8,7 +8,7 @@ export default async function BecomeExpert() {
   return (
     <div className='my-12'>
       <div className='container'>
-        <div className='text-center text-xxm'>
+        <div className='text-xxm'>
           <Heading heading={t('heading')} />
         </div>
         <div className=''>

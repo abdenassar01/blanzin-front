@@ -1,51 +1,32 @@
-import { FileUpload, Heading } from '@/components';
+import {
+  Heading,
+  PaymentCardsSelector,
+  PaymentPackSelector,
+} from '@/components/common';
 import { cn } from '@/utils';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control } from 'react-hook-form';
-import { PdfViewer } from '../pdf-viewer';
-import { isMobile } from 'react-device-detect';
 
 type Props = {
   control: Control<any>;
-  isBack: boolean;
 };
 
-export function StepThree({ control, isBack }: Props) {
-  const t = useScopedI18n('contract');
+export function StepThree({ control }: Props) {
+  const t = useScopedI18n('application');
 
   return (
-    <div
-      className={cn(
-        'absolute w-full',
-        isBack ? 'animate-leave' : 'animate-enter'
-      )}
-    >
-      <div className='mt-12 flex w-full justify-between gap-5 sm:mt-6 sm:flex-col'>
-        <button
-          onClick={() =>
-            confirm('Would you like to download the contract now?')
-          }
-          className='my-2 w-[49%] overflow-hidden rounded-xl sm:w-full'
-        >
-          <PdfViewer width={isMobile ? 300 : 450} file='/blanzin.pdf' />
-        </button>
-        <div className='flex w-full flex-col'>
-          <div className='text-secondary dark:text-main'>
-            <Heading className='text-xxl' heading={t('header')} />
+    <div>
+      <div className='my-6 text-secondary dark:text-main'>
+        <Heading className='text-xm' heading={t('packs-heading')} />
+      </div>
+      <div className='mt-14 flex w-full justify-center'>
+        <div className='w-full sm:w-full'>
+          <div className='sm:hidden'>
+            <PaymentCardsSelector control={control} name='pack' />
           </div>
-          <div className='text-text dark:text-textdark'>{t('explain')}</div>
-
-          <div className='mt-4 gap-5'>
-            <div className='w-fit rounded-xl border-[1px] border-secondary dark:border-main'>
-              <FileUpload
-                accept='application/pdf'
-                control={control}
-                label=''
-                name='contract'
-                placeholder={t('upload')}
-              />
-            </div>
+          <div className='hidden sm:block'>
+            <PaymentPackSelector control={control} name='pack' />
           </div>
         </div>
       </div>

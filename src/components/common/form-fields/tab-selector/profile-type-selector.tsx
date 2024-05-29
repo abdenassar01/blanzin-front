@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Map, TranslatedHeading } from "../..";
-import ProfileTypeSelectorItem from "./profile-type-selector-item";
+import React, { useState } from 'react';
+import { Map, TranslatedHeading } from '../..';
+import ProfileTypeSelectorItem from './profile-type-selector-item';
 import {
   ROLE,
   ROOT_ROLE,
   RootApplicationRole,
-} from "../../../../../constants/role";
+} from '../../../../../constants/role';
 
 type Props = {
   label?: string;
@@ -16,39 +16,39 @@ type Props = {
 const tabs = [
   {
     value: ROOT_ROLE.SERVICE_PLACEMENT,
-    icon: require("@/assets/images/icons/select-profile/light/provider.png"),
-    darkIcon: require("@/assets/images/icons/select-profile/dark/provider.png"),
+    icon: require('@/assets/images/icons/select-profile/light/provider.png'),
+    darkIcon: require('@/assets/images/icons/select-profile/dark/provider.png'),
     items: [
       {
         role: ROLE.CUSTOMER,
-        image: require("@/assets/images/icons/select-profile/light/customer.png"),
-        imageDark: require("@/assets/images/icons/select-profile/dark/customer.png"),
-        label: "roles.customer",
+        image: require('@/assets/images/icons/select-profile/light/customer.png'),
+        imageDark: require('@/assets/images/icons/select-profile/dark/customer.png'),
+        label: 'roles.customer',
       },
       {
-        role: ROLE.PROVIDER,
-        image: require("@/assets/images/icons/select-profile/light/provider.png"),
-        imageDark: require("@/assets/images/icons/select-profile/dark/provider.png"),
-        label: "roles.provider",
+        role: ROLE.EXPERT,
+        image: require('@/assets/images/icons/select-profile/light/provider.png'),
+        imageDark: require('@/assets/images/icons/select-profile/dark/provider.png'),
+        label: 'roles.provider',
       },
     ],
   },
   {
     value: ROOT_ROLE.JOBS_IN_GERMANY,
-    icon: require("@/assets/images/icons/select-profile/light/jobs-in-germany.png"),
-    darkIcon: require("@/assets/images/icons/select-profile/dark/german-trainee.png"),
+    icon: require('@/assets/images/icons/select-profile/light/jobs-in-germany.png'),
+    darkIcon: require('@/assets/images/icons/select-profile/dark/german-trainee.png'),
     items: [
       {
         role: ROLE.TRAINEE,
-        image: require("@/assets/images/icons/select-profile/light/trainee.png"),
-        imageDark: require("@/assets/images/icons/select-profile/dark/trainee.png"),
-        label: "roles.trainee",
+        image: require('@/assets/images/icons/select-profile/light/trainee.png'),
+        imageDark: require('@/assets/images/icons/select-profile/dark/trainee.png'),
+        label: 'roles.trainee',
       },
       {
         role: ROLE.SKILLED_WORKER,
-        image: require("@/assets/images/icons/select-profile/light/provider.png"),
-        imageDark: require("@/assets/images/icons/select-profile/dark/provider.png"),
-        label: "roles.worker",
+        image: require('@/assets/images/icons/select-profile/light/provider.png'),
+        imageDark: require('@/assets/images/icons/select-profile/dark/provider.png'),
+        label: 'roles.worker',
       },
     ],
   },
@@ -58,12 +58,12 @@ export function ProfileTypeSelector({ label }: Props) {
   const [selected, setSelected] = useState<RootApplicationRole>(tabs[0].value);
 
   return (
-    <div className="w-full">
+    <div className='w-full'>
       <TranslatedHeading
-        tranlationKey={label || ""}
-        className="text-secondary dark:text-main"
+        tranlationKey={label || ''}
+        className='text-secondary dark:text-main'
       />
-      <div className="flex flex-col mt-1 gap-2 w-full">
+      <div className='mt-1 flex w-full flex-col gap-2'>
         <Map
           items={tabs}
           render={(tab) => (
