@@ -3,11 +3,9 @@
 import { ActiveLink } from '@/components/common/active-link/active-link';
 import { useScopedI18n } from '@/utils/locales/client';
 import { useSearchParams } from 'next/navigation';
-import React from 'react';
+import React, { useEffect } from 'react';
 
-type Props = {};
-
-export function ProfileSidebar({}: Props) {
+export function ProfileSidebar() {
   const t = useScopedI18n('profile');
 
   const searchParams = useSearchParams();
@@ -51,6 +49,8 @@ export function ProfileSidebar({}: Props) {
       roles: ['trainee', 'employee', 'customer', 'expert'],
     },
   ];
+
+  useEffect(() => console.log('rerender: ', role), []);
 
   return (
     <ul className='sm:no-scrollbar mt-[30px] w-full sm:mx-3 sm:flex sm:gap-[24px] sm:overflow-y-scroll'>
