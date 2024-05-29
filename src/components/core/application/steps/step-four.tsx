@@ -22,9 +22,9 @@ export function StepFour({ control }: Props) {
         <PdfViewer width={isMobile ? 300 : 450} file='/blanzin.pdf' />
         <div className='absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-[#00000078]'>
           <Image
-            className='icon'
+            className='w-8'
             alt=''
-            src={require('@/assets/images/icons/dark/upload.svg')}
+            src={require('@/assets/images/icons/download.svg')}
           />
         </div>
       </button>
