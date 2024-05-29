@@ -115,7 +115,7 @@ export function BecomeExpertForm() {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <div className='relative h-[35vw] w-full pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
+      <div className='relative h-[650px] w-full pt-6 sm:h-[100vh] sm:w-full sm:pt-0'>
         {getCurrentStep()}
       </div>
       <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
