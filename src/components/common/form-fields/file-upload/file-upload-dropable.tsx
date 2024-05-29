@@ -45,12 +45,15 @@ export function FileUploadDropable({
   });
 
   return (
-    <div className=' max-w-[30%] cursor-pointer'>
+    <div className='w-[30%] cursor-pointer sm:w-[47%]'>
       <h3 className='mb-1 text-sm text-secondary dark:text-main'>{label}</h3>
       <label
         htmlFor={name}
         className={cn(
-          'flex aspect-[3/4] w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-[2px] border-dashed  p-2 ',
+          'flex aspect-[3/4] w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-[2px] p-2 ',
+          value
+            ? 'border-solid border-secondary dark:border-main'
+            : 'border-dashed',
           isDragReject
             ? 'border-error'
             : isDragActive

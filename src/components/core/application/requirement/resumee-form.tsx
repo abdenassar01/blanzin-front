@@ -11,6 +11,7 @@ import { isMobile } from 'react-device-detect';
 
 export function ResumeeForm() {
   const t = useI18n();
+
   const { control } = useForm({
     defaultValues: {
       experiences: [],

@@ -5,13 +5,22 @@ import { useScopedI18n } from '@/utils/locales/client';
 import React, { useState } from 'react';
 import { StepFour, StepOne, StepThree, StepTwo } from './steps';
 import { useForm } from 'react-hook-form';
+import { Button } from '@/components';
 
 type Props = {};
 
 export function ApplicationStepsForm({}: Props) {
   const t = useScopedI18n('application');
 
-  const { control } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  function onSubmit(data: any) {
+    console.log(data);
+  }
 
   const [currentStep, setCurrentStep] = useState<number>(1);
 
@@ -39,7 +48,7 @@ export function ApplicationStepsForm({}: Props) {
       case 1:
         return <StepOne />;
       case 2:
-        return <StepTwo />;
+        return <StepTwo control={control} />;
       case 3:
         return <StepThree control={control} />;
       case 4:
@@ -78,7 +87,14 @@ export function ApplicationStepsForm({}: Props) {
         </div>
       </div>
       <div className='mt-3 flex w-full justify-end'>
-        <div className=''>hallo</div>
+        <div className='w-[20%] sm:w-[50%]'>
+          <Button
+            disabled={errors ? true : false}
+            theme='success'
+            text={t('submit')}
+            onClick={handleSubmit(onSubmit)}
+          />
+        </div>
       </div>
     </div>
   );

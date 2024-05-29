@@ -57,6 +57,7 @@ export default {
     delete: 'Remove',
     'packs-heading': 'Packages',
     book: 'Continue booking',
+    submit: 'Send application',
   },
   'premuim-pack': {
     header: 'Welcome to our exclusive package',
