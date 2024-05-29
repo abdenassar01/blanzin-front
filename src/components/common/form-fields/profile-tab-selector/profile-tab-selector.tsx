@@ -17,7 +17,7 @@ const profiles: {
   role: RoleType;
 }[] = [
   { label: 'customer', role: ROLE.CUSTOMER },
-  { label: 'expert', role: ROLE.PROVIDER },
+  { label: 'expert', role: ROLE.EXPERT },
   { label: 'trainee', role: ROLE.TRAINEE },
   { label: 'employee', role: ROLE.SKILLED_WORKER },
 ];
