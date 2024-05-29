@@ -44,13 +44,32 @@ export function ProfileSidebar() {
     },
     {
       id: 6,
+      link: '/profile/orders',
+      label: t('my-orders'),
+      roles: ['customer'],
+    },
+
+    {
+      id: 7,
+      link: '/chat',
+      label: t('chat'),
+      roles: ['customer', 'expert'],
+      root: true,
+    },
+    {
+      id: 8,
       link: '/profile/new',
       label: t('new-profile'),
       roles: ['trainee', 'employee', 'customer', 'expert'],
     },
+    {
+      id: 9,
+      link: '/new-order',
+      label: t('new-order'),
+      roles: ['customer'],
+      root: true,
+    },
   ];
-
-  useEffect(() => console.log('rerender: ', role), []);
 
   return (
     <ul className='sm:no-scrollbar mt-[30px] w-full sm:mx-3 sm:flex sm:gap-[24px] sm:overflow-y-scroll'>
@@ -61,7 +80,7 @@ export function ProfileSidebar() {
               <ActiveLink
                 disableHover
                 link={page.link}
-                suffix={'?role=' + role}
+                suffix={page.root ? '' : '?role=' + role}
                 className='relative block h-full w-full whitespace-nowrap rounded-l-lg p-3 dark:bg-backgroundSecondaryDark sm:rounded-t-lg sm:bg-background sm:px-6 sm:py-5 sm:text-mb-base'
                 activeClassName='prose-em:block bg-backgroundSecondary dark:bg-backgroundSecondaryDark board-link-active dark:bg-backgroundDark !text-main border-blue-500 border-l-4 font-normal  sm:border-l-0 sm:border-t-1'
               >
