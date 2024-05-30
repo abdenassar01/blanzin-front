@@ -99,8 +99,8 @@ export function DatePicker({
           <Calendar
             activeStartDate={activeDate || maximumDate || maxDate}
             selectRange={selectRange}
-            minDate={minimumDate || minDate}
-            maxDate={maximumDate || maxDate}
+            // minDate={minimumDate || minDate}
+            // maxDate={maximumDate || maxDate}
             className='mt-1 !w-full rounded !border-none !font-montserrat !outline-none sm:bg-backgroundSecondaryDark sm:text-backgroundSecondary'
             onChange={(value) => {
               onChange(value);
