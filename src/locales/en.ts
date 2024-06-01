@@ -23,6 +23,15 @@ export default {
     unread: 'unread',
     stars: 'stars',
   },
+  resumee: {
+    experience: 'Experience',
+    'work-experience': 'Work experience',
+    'education-level': 'Education',
+    languages: 'Languages',
+    education: 'Education Level',
+    category: 'Category',
+    skills: 'Skills',
+  },
   profile: {
     account: 'My account',
     favourites: 'Favourites',
