@@ -45,7 +45,7 @@ export function FileUploadDropable({
   });
 
   return (
-    <div className='w-[30%] cursor-pointer sm:w-[47%]'>
+    <div className='w-full cursor-pointer sm:w-[47%]'>
       <h3 className='mb-1 text-sm text-secondary dark:text-main'>{label}</h3>
       <label
         htmlFor={name}

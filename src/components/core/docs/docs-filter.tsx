@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-export function DocsFilter() {
+export function DocsFilter({ noRole }: { noRole?: boolean }) {
   const t = useScopedI18n('application');
 
   const searchParams = useSearchParams();
@@ -25,28 +25,36 @@ export function DocsFilter() {
   ];
 
   useEffect(() => {
-    push(pathname + '?role=' + role + '&doc=lang');
+    push(
+      noRole ? pathname + '?doc=lang' : pathname + '?role=' + role + '&doc=lang'
+    );
   }, []);
 
   const pathname = usePathname();
 
   return (
-    <div className='w-[35vw] border-r-[1px] border-border sm:w-[50vw]'>
+    <div className='w-full border-r-[1px] border-border sm:w-[50vw]'>
       <Map
         items={tabs}
         render={(item) => (
-          <div
-            className={cn(
-              'border-[1px] border-border p-3',
-              docParam === item.doc
-                ? 'bg-border text-secondary dark:text-main'
-                : ' text-text dark:text-textdark'
-            )}
+          <Link
+            href={
+              noRole
+                ? pathname + '?doc=' + item.doc
+                : pathname + '?role=' + role + '&doc=' + item.doc
+            }
           >
-            <Link href={pathname + '?role=' + role + '&doc=' + item.doc}>
+            <div
+              className={cn(
+                'border-[1px] border-border p-3',
+                docParam === item.doc
+                  ? 'bg-border text-secondary dark:text-main'
+                  : ' text-text dark:text-textdark'
+              )}
+            >
               {item.label}
-            </Link>
-          </div>
+            </div>
+          </Link>
         )}
       />
     </div>
