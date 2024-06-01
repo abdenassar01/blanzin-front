@@ -11,3 +11,5 @@ export * from './profile';
 export * from './new-order';
 export * from './chat';
 export * from './become-expert';
+export * from './docs';
+export * from './resumee-viewer';

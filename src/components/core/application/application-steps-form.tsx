@@ -86,7 +86,7 @@ export function ApplicationStepsForm({}: Props) {
           {getStep()}
         </div>
       </div>
-      <div className='mt-3 flex w-full justify-end'>
+      <div className='mt-10 flex w-full justify-end'>
         <div className='w-[20%] sm:w-[50%]'>
           <Button
             disabled={errors ? true : false}

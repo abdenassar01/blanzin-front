@@ -99,7 +99,7 @@ const packs = [
 export function PaymentCardsSelector({ control, name }: Props) {
   const {
     field: { onChange, value },
-  } = useController({ control, name, defaultValue: packs[1].id });
+  } = useController({ control, name });
 
   return (
     <div className='flex justify-between sm:flex-col'>
