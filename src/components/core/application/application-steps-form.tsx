@@ -16,7 +16,15 @@ export function ApplicationStepsForm({}: Props) {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      lang: [],
+      jobs: [],
+      diploma: [],
+      intenship: [],
+      acknowledgement: [],
+    },
+  });
 
   function onSubmit(data: any) {
     console.log(data);
