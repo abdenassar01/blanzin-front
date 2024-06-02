@@ -57,10 +57,10 @@ export function PhoneField<V extends FieldValues>({
         {label}
       </label>
       <div className='relative w-full'>
-        <div className='flex w-full gap-2 rounded-lg bg-backgroundSecondary pl-2 dark:bg-backgroundDark sm:h-[14.078vw]'>
+        <div className='flex w-full gap-2 rounded-lg bg-background pl-2 dark:bg-backgroundDark sm:h-[14.078vw]'>
           <div
             className={cn(
-              'flex h-[50px] items-center gap-2 rounded-xl bg-background p-2 text-xs text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black'
+              'flex h-[50px] items-center gap-2 rounded-xl bg-backgroundSecondary p-2 text-xs text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black'
             )}
             onClick={() => setOpenDropDown((prev) => !prev)}
           >
@@ -83,7 +83,7 @@ export function PhoneField<V extends FieldValues>({
             name={name}
             placeholder={placeholder}
             className={cn(
-              'w-full rounded-[10px] border-none bg-background py-[16px] pl-1.5 pr-6 text-sm leading-4 shadow-lg focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black sm:p-[5.097vw] sm:text-mb-xxs',
+              'w-full rounded-[10px] border-none bg-backgroundSecondary py-[16px] pl-1.5 pr-6 text-sm leading-4 shadow-lg focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black sm:p-[5.097vw] sm:text-mb-xxs',
               inputClassName
             )}
           />

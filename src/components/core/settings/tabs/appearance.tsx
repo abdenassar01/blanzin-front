@@ -1,5 +1,5 @@
 import React from 'react';
 
 export function AppearanceTab() {
-  return <div>StepOne</div>;
+  return <div>Dark mode and lang</div>;
 }

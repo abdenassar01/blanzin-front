@@ -32,6 +32,12 @@ export default {
     category: 'Category',
     skills: 'Skills',
   },
+  security: {
+    old: 'Old password',
+    new: 'New password',
+    'confirm-new': 'Confirm new password',
+    submit: 'Update password',
+  },
   profile: {
     account: 'My account',
     favourites: 'Favourites',
