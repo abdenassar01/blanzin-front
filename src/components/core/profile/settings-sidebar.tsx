@@ -39,7 +39,7 @@ export function SettingsSidebar({
   const pathname = usePathname();
 
   return (
-    <div className={cn('flex w-full flex-col gap-4 sm:w-[50vw]', className)}>
+    <div className={cn('flex w-full flex-col gap-4', className)}>
       <Map
         items={tabs}
         render={(item) => (
@@ -52,7 +52,7 @@ export function SettingsSidebar({
           >
             <div
               className={cn(
-                'rounded-lg p-3 shadow-md transition-all',
+                'rounded-lg bg-background p-3 shadow-md transition-all dark:bg-backgroundSecondaryDark',
                 tab === item.tab
                   ? 'scale-105 bg-main text-secondary shadow-secondary dark:shadow-main'
                   : ' text-black dark:text-textdark'

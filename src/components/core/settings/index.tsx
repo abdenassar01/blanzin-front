@@ -19,5 +19,9 @@ export function SettingSelectedTab({ selected }: Props) {
     }
   }
 
-  return <div className='px-4'>{getSelectedTab()}</div>;
+  return (
+    <div className='rounded-xl bg-background p-3 dark:bg-backgroundSecondaryDark'>
+      {getSelectedTab()}
+    </div>
+  );
 }

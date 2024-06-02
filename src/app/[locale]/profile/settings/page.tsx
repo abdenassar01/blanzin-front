@@ -8,7 +8,7 @@ type Props = {
 export default function SettingsPage({ searchParams: { tab } }: Props) {
   return (
     <div className='flex gap-8'>
-      <div className='w-[20%]'>
+      <div className='w-[30%]'>
         <SettingsSidebar />
       </div>
       <div className='w-full'>
