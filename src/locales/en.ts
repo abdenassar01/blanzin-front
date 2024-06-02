@@ -66,6 +66,10 @@ export default {
     support: 'Support',
     apps: 'Apps',
   },
+  'appearance-settings': {
+    theme: 'Dark theme',
+    langue: 'Current Language',
+  },
   application: {
     Heading: 'Check application requirements',
     'packages-explain':

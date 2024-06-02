@@ -54,7 +54,7 @@ export function SettingsSidebar({
               className={cn(
                 'rounded-lg bg-background p-3 shadow-md transition-all dark:bg-backgroundSecondaryDark',
                 tab === item.tab
-                  ? 'scale-105 bg-main text-secondary shadow-secondary dark:shadow-main'
+                  ? 'scale-105 bg-main text-secondary shadow-secondary dark:bg-main dark:text-secondary'
                   : ' text-black dark:text-textdark'
               )}
             >
