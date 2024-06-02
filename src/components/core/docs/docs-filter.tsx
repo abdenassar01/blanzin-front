@@ -8,7 +8,13 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-export function DocsFilter({ noRole }: { noRole?: boolean }) {
+export function DocsFilter({
+  noRole,
+  className,
+}: {
+  noRole?: boolean;
+  className?: string;
+}) {
   const t = useScopedI18n('application');
 
   const searchParams = useSearchParams();
@@ -33,7 +39,7 @@ export function DocsFilter({ noRole }: { noRole?: boolean }) {
   const pathname = usePathname();
 
   return (
-    <div className='w-full border-r-[1px] border-border sm:w-[50vw]'>
+    <div className={cn('flex w-full flex-col gap-4 sm:w-[50vw]', className)}>
       <Map
         items={tabs}
         render={(item) => (
@@ -46,10 +52,10 @@ export function DocsFilter({ noRole }: { noRole?: boolean }) {
           >
             <div
               className={cn(
-                'border-[1px] border-border p-3',
+                'rounded-lg p-3 shadow-md transition-all',
                 docParam === item.doc
-                  ? 'bg-border text-secondary dark:text-main'
-                  : ' text-text dark:text-textdark'
+                  ? 'scale-105 bg-main text-secondary shadow-secondary dark:shadow-main'
+                  : ' text-black dark:text-textdark'
               )}
             >
               {item.label}

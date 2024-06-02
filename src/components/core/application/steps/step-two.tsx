@@ -64,11 +64,9 @@ export function StepTwo({ control }: Props) {
         <Heading heading={t('docs-folder')} />
       </div>
       <div className='mt-5 flex w-full flex-wrap gap-4'>
-        <div className='mt-4 flex w-full border-[1px] border-border'>
-          <div className='w-[50%]'>
-            <DocsFilter noRole />
-          </div>
-          <div className='w-full p-3'>
+        <div className='mt-4 flex w-full'>
+          <DocsFilter noRole className='w-[50%]' />
+          <div className='ml-4 w-full px-4'>
             <div className=''>
               <FileUploadDropableGallery
                 items={getItems()}

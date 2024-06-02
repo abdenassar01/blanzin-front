@@ -39,12 +39,12 @@ export function ResumeeForm() {
 
   return (
     <>
-      <div className='sm:p-0'>
-        <div className='relative w-[95%] sm:w-full'>
-          {getStep()}
+      <div className='h-[90%] sm:p-0'>
+        <div className='flex h-full w-[95%] flex-col justify-between sm:w-full'>
+          <div className=''>{getStep()}</div>
           <div
             className={cn(
-              'mb-6 flex justify-between gap-4 sm:w-full',
+              'flex w-full justify-between gap-4',
               currentStep === 1 ? 'justify-end' : 'justify-between'
             )}
           >

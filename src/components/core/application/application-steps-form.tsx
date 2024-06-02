@@ -75,22 +75,22 @@ export function ApplicationStepsForm({}: Props) {
                   <button
                     onClick={() => setCurrentStep(page.step)}
                     className={cn(
-                      'relative block h-full w-full whitespace-nowrap rounded-l-lg p-3  sm:rounded-t-lg sm:px-6 sm:py-5 sm:text-mb-base',
+                      'relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 sm:rounded-t-lg sm:px-6 sm:py-5 sm:text-mb-base',
                       currentStep === page.step
-                        ? 'board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary font-normal !text-main prose-em:block dark:bg-backgroundDark sm:border-l-0'
-                        : 'dark:bg-backgroundSecondaryDark '
+                        ? 'board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary font-normal !text-main shadow-lg prose-em:block dark:bg-backgroundDark sm:border-l-0'
+                        : 'text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark'
                     )}
                   >
-                    <em className='absolute -top-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
+                    {/* <em className='absolute -top-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' /> */}
                     <div className='flex'>{page.label}</div>
-                    <em className='absolute -bottom-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:z-50 dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
+                    {/* <em className='absolute -bottom-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:z-50 dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' /> */}
                   </button>
                 </li>
               ))
             )}
           </ul>
         </div>
-        <div className='min-h-[500px] w-full overflow-hidden rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
+        <div className='relative h-[88vh] w-full overflow-hidden rounded-xl bg-backgroundSecondary p-4 shadow-lg dark:bg-backgroundDark'>
           {getStep()}
         </div>
       </div>

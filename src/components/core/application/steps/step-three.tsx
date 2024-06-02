@@ -20,7 +20,8 @@ export function StepThree({ control }: Props) {
       <div className='my-6 text-secondary dark:text-main'>
         <Heading className='text-xm' heading={t('packs-heading')} />
       </div>
-      <div className='mt-14 flex w-full justify-center'>
+      <div className=''>{t('packages-explain')}</div>
+      <div className='mt-6 flex w-full justify-center'>
         <div className='w-full sm:w-full'>
           <div className='sm:hidden'>
             <PaymentCardsSelector control={control} name='pack' />

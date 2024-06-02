@@ -21,7 +21,7 @@ export function FileUploadDropableGallery({
   placeholder,
   ...props
 }: Props) {
-  const { append, fields } = useFieldArray({ name, control });
+  const { append, fields, replace, remove } = useFieldArray({ name, control });
 
   const { theme } = useTheme();
 
@@ -32,6 +32,7 @@ export function FileUploadDropableGallery({
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({
       onDrop,
+
       accept: {
         'application/pdf': ['.pdf'],
       },
@@ -43,15 +44,23 @@ export function FileUploadDropableGallery({
 
   return (
     <>
-      <h3 className='mb-1 text-sm text-secondary dark:text-main'>{label}</h3>
-      <div className='flex flex-wrap justify-between gap-y-4'>
+      <h3 className='mb-4 text-xbase font-bold text-secondary dark:text-main'>
+        {label}
+      </h3>
+      <div className='flex flex-wrap gap-[5%] gap-y-4'>
         {React.Children.toArray(
           items.map((field, index) => (
-            <div className='w-[48%] cursor-pointer sm:w-full'>
+            <div className='relative w-[30%] cursor-pointer sm:w-[49%]'>
+              <Image
+                onClick={() => remove(index)}
+                alt=''
+                src={require('@/assets/images/icons/remove.svg')}
+                className='absolute right-2 top-2 w-5'
+              />
               <label
                 htmlFor={name + index}
                 className={cn(
-                  'flex aspect-[3/4] w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-[2px] border-dashed border-border p-2 ',
+                  'flex aspect-[3/3.2] w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-[2px] border-dashed border-border p-2 ',
                   isDragReject
                     ? 'border-error'
                     : isDragActive
@@ -87,11 +96,11 @@ export function FileUploadDropableGallery({
             </div>
           ))
         )}
-        <div className='w-[48%] cursor-pointer sm:w-full '>
+        <div className='w-[30%] cursor-pointer sm:w-[49%]'>
           <label
             htmlFor={name + fields.length}
             className={cn(
-              'flex aspect-[3/4] w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-[2px] border-dashed border-border p-2 ',
+              'flex aspect-[3/3.2] w-full cursor-pointer flex-col items-center justify-center gap-4 rounded-xl border-[2px] border-dashed border-border p-2 ',
               isDragReject
                 ? 'border-error'
                 : isDragActive

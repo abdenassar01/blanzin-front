@@ -6,14 +6,14 @@ export function StepOne() {
   const t = useScopedI18n('application');
 
   return (
-    <div>
+    <div className='h-full'>
       <div className='text-xxm'>
         <Heading heading={t('resume')} />
       </div>
-      <div className='mt-8 w-full rounded-xl bg-backgroundSecondary dark:bg-backgroundDark'>
-        <ul className='flex w-full flex-col gap-1 overflow-x-hidden sm:pl-0'>
+      <div className='mt-8 h-full w-full rounded-xl '>
+        <div className='flex h-full w-full flex-col gap-1 overflow-x-hidden sm:pl-0'>
           <ResumeeForm />
-        </ul>
+        </div>
       </div>
     </div>
   );
