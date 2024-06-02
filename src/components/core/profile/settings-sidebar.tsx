@@ -23,13 +23,16 @@ export function SettingsSidebar({
   const tab = searchParams.get('tab');
 
   const tabs = [
+    { label: t('appearance'), tab: 'appearance' },
     { label: t('security'), tab: 'security' },
-    { label: t('add-profile'), tab: 'new' },
+    { label: t('add-profile'), tab: 'new-profile' },
   ];
 
   useEffect(() => {
     push(
-      noRole ? pathname + '?tab=lang' : pathname + '?role=' + role + '&tab=lang'
+      noRole
+        ? pathname + '?tab=appearance'
+        : pathname + '?role=' + role + '&tab=appearance'
     );
   }, []);
 

@@ -1,13 +1,19 @@
-import { SettingsSidebar } from '@/components';
+import { SettingSelectedTab, SettingsSidebar } from '@/components';
 import React from 'react';
 
-export default function SettingsPage() {
+type Props = {
+  searchParams: { tab: 'security' | 'new-profile' | 'appearance' };
+};
+
+export default function SettingsPage({ searchParams: { tab } }: Props) {
   return (
-    <div className='flex'>
-      <div className='w-[40%]'>
+    <div className='flex gap-8'>
+      <div className='w-[20%]'>
         <SettingsSidebar />
       </div>
-      <div className=''>test</div>
+      <div className='w-full'>
+        <SettingSelectedTab selected={tab} />
+      </div>
     </div>
   );
 }

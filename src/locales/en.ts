@@ -52,6 +52,7 @@ export default {
   settings: {
     security: 'Security',
     'add-profile': 'Add Profile',
+    appearance: 'Appearance',
   },
   section: {
     platform: 'Platform',
