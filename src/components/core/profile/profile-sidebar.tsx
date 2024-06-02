@@ -109,7 +109,7 @@ export function ProfileSidebar() {
                   link={page.link}
                   suffix={page.root ? '' : '?role=' + role}
                   className='relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark sm:rounded-t-lg sm:px-6 sm:py-5'
-                  activeClassName='board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary font-normal !text-main shadow-lg sm:border-l-0'
+                  activeClassName='board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary dark:bg-backgroundDark font-normal !text-main shadow-lg sm:border-l-0'
                 >
                   <div className='flex'>{page.label}</div>
                 </ActiveLink>
