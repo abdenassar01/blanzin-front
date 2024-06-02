@@ -90,12 +90,10 @@ export function ProfileSidebar() {
                   disableHover
                   link={page.link}
                   suffix={page.root ? '' : '?role=' + role}
-                  className='relative block h-full w-full whitespace-nowrap rounded-l-lg p-3 dark:bg-backgroundSecondaryDark sm:rounded-t-lg sm:bg-background sm:px-6 sm:py-5 sm:text-mb-base'
-                  activeClassName='prose-em:block bg-backgroundSecondary dark:bg-backgroundSecondaryDark board-link-active dark:bg-backgroundDark !text-main border-blue-500 border-l-4 font-normal  sm:border-l-0 sm:border-t-1'
+                  className='relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark sm:rounded-t-lg sm:px-6 sm:py-5'
+                  activeClassName='board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary font-normal !text-main shadow-lg sm:border-l-0'
                 >
-                  <em className='absolute -top-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
                   <div className='flex'>{page.label}</div>
-                  <em className='absolute -bottom-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:z-50 dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
                 </ActiveLink>
               </li>
             )

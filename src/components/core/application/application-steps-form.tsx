@@ -75,15 +75,13 @@ export function ApplicationStepsForm({}: Props) {
                   <button
                     onClick={() => setCurrentStep(page.step)}
                     className={cn(
-                      'relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 sm:rounded-t-lg sm:px-6 sm:py-5 sm:text-mb-base',
+                      'relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 sm:rounded-t-lg sm:px-6 sm:py-5 ',
                       currentStep === page.step
                         ? 'board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary font-normal !text-main shadow-lg prose-em:block dark:bg-backgroundDark sm:border-l-0'
                         : 'text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark'
                     )}
                   >
-                    {/* <em className='absolute -top-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' /> */}
                     <div className='flex'>{page.label}</div>
-                    {/* <em className='absolute -bottom-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:z-50 dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' /> */}
                   </button>
                 </li>
               ))
