@@ -49,6 +49,10 @@ export default {
     'new-profile': 'Add Profile',
     settings: 'Settings',
   },
+  settings: {
+    security: 'Security',
+    'add-profile': 'Add Profile',
+  },
   section: {
     platform: 'Platform',
     blanzin: 'Blanzin',
