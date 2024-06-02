@@ -15,7 +15,9 @@ export default function ProfileDashboardLayout({ children }: Props) {
           <div className='w-[19.444vw] sm:w-[100%]'>
             <ProfileSidebar />
           </div>
-          <div className='w-full overflow-hidden'>{children}</div>
+          <div className='min-h-[88vh] w-full rounded-xl bg-backgroundSecondary p-4 shadow-lg dark:bg-backgroundDark dark:shadow-black'>
+            {children}
+          </div>
         </div>
       </div>
     </div>

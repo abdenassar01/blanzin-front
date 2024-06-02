@@ -2,7 +2,7 @@ import React from 'react';
 
 function InboxDetails() {
   return (
-    <div className='min-h-[25vw] rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
+    <div className=''>
       <div className='text-xbase font-bold text-text dark:text-textdark'>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque eveniet
         nostrum.

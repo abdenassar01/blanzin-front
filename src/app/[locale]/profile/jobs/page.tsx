@@ -6,7 +6,7 @@ export default async function MyJobsPage() {
   const t = await getScopedI18n('profile');
   const arr = [1, 2, 3, 4, 5, 6];
   return (
-    <div className='min-h-[25vw] overflow-y-scroll rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark sm:h-[100vh]'>
+    <div className=''>
       <div className='text-xxm'>
         <Heading heading={t('favourites-orders')} />
       </div>

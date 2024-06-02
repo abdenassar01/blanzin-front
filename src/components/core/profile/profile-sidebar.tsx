@@ -27,6 +27,12 @@ export function ProfileSidebar() {
       roles: ['expert'],
     },
     {
+      id: 2,
+      link: '/profile/favourites-experts',
+      label: t('favourites-expers'),
+      roles: ['customer'],
+    },
+    {
       id: 3,
       link: '/profile/jobs',
       label: t('jobs'),
@@ -54,9 +60,15 @@ export function ProfileSidebar() {
       id: 7,
       link: '/profile/orders',
       label: t('my-orders'),
-      roles: ['customer'],
+      roles: ['customer', 'expert'],
     },
-
+    {
+      id: 2,
+      link: '/orders',
+      label: t('order-list'),
+      roles: ['expert'],
+      root: true,
+    },
     {
       id: 8,
       link: '/chat',
@@ -64,18 +76,24 @@ export function ProfileSidebar() {
       roles: ['customer', 'expert'],
       root: true,
     },
-    {
-      id: 9,
-      link: '/profile/new',
-      label: t('new-profile'),
-      roles: ['trainee', 'employee', 'customer', 'expert'],
-    },
+    // {
+    //   id: 9,
+    //   link: '/profile/new',
+    //   label: t('new-profile'),
+    //   roles: ['trainee', 'employee', 'customer', 'expert'],
+    // },
     {
       id: 10,
       link: '/new-order',
       label: t('new-order'),
       roles: ['customer'],
       root: true,
+    },
+    {
+      id: 1,
+      link: '/profile/settings',
+      label: t('settings'),
+      roles: ['trainee', 'employee', 'customer', 'expert'],
     },
   ];
 
