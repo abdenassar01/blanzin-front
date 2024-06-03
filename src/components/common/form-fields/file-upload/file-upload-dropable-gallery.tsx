@@ -21,13 +21,13 @@ export function FileUploadDropableGallery({
   placeholder,
   ...props
 }: Props) {
-  const { append, fields, replace, remove } = useFieldArray({ name, control });
+  const { append, fields, remove } = useFieldArray({ name, control });
 
   const { theme } = useTheme();
 
-  const onDrop = useCallback((acceptedFiles: FileWithPath[]) => {
+  const onDrop = (acceptedFiles: FileWithPath[]) => {
     append(acceptedFiles[0]?.path);
-  }, []);
+  };
 
   const { getRootProps, getInputProps, isDragActive, isDragReject } =
     useDropzone({

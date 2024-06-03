@@ -17,8 +17,10 @@ type Props = {
 export function StepTwo({ control }: Props) {
   const t = useScopedI18n('application');
 
+  const form = useWatch({ control });
+
   const searchParams = useSearchParams();
-  const doc = searchParams.get('doc');
+  const doc = searchParams.get('doc') || 'lang';
 
   useEffect(() => console.log(form), [doc]);
 
@@ -38,8 +40,6 @@ export function StepTwo({ control }: Props) {
         return '';
     }
   }
-
-  const form = useWatch({ control });
 
   function getItems() {
     switch (doc) {
@@ -71,7 +71,7 @@ export function StepTwo({ control }: Props) {
               <FileUploadDropableGallery
                 items={getItems()}
                 control={control}
-                name={doc || 'doc'}
+                name={doc}
                 label={getDocTitle()}
               />
             </div>
