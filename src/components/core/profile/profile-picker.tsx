@@ -5,9 +5,7 @@ import { useScopedI18n } from '@/utils/locales/client';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-type Props = {};
-
-export function ProfilePicker({}: Props) {
+export function ProfilePicker() {
   const t = useScopedI18n('role');
 
   const { push } = useRouter();
@@ -17,9 +15,10 @@ export function ProfilePicker({}: Props) {
   const selectedTab = searchParams.get('role');
 
   useEffect(() => {
-    const role = selectedTab === null ? 'customer' : selectedTab;
-
-    push('/profile/account?role=' + role);
+    setTimeout(
+      () => push('/profile/account?role=' + (selectedTab || 'customer')),
+      100
+    );
   }, [selectedTab]);
 
   const tabs = [

@@ -28,7 +28,7 @@ export function NewProfile() {
         </div>
         <Switch active onActiveChange={() => alert('adding trainee profile')} />
       </div>
-      <div className='flex w-full justify-between'>
+      <div className='mt-4 flex w-full justify-between'>
         <div className='font-meduim text-xbase text-text dark:text-textdark'>
           {t('employee')}
         </div>
