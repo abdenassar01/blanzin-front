@@ -32,20 +32,33 @@ export default {
     category: 'Category',
     skills: 'Skills',
   },
+  security: {
+    old: 'Old password',
+    new: 'New password',
+    'confirm-new': 'Confirm new password',
+    submit: 'Update password',
+  },
   profile: {
     account: 'My account',
     favourites: 'Favourites',
-    'favourites-orders': 'Favourites orders',
-    'favourites-jobs': 'Favourites jobs',
-    'favourites-trainings': 'Favourites trainings',
-    'favourites-expers': 'Favourites experts',
-    jobs: 'Job list',
+    'favourites-orders': 'My Favourites orders',
+    'favourites-jobs': 'My Favourites jobs',
+    'favourites-trainings': 'My Favourites trainings',
+    'favourites-expers': 'My Favourites experts',
+    jobs: 'My job list',
+    'order-list': 'My order List',
     inbox: 'My inbox',
     'my-orders': 'My Orders',
     chat: 'Chat',
     'new-order': 'New Order',
-    docs: 'My documents',
+    docs: 'My documents folder',
     'new-profile': 'Add Profile',
+    settings: 'Settings',
+  },
+  settings: {
+    security: 'Security',
+    'add-profile': 'Add Profile',
+    appearance: 'Appearance',
   },
   section: {
     platform: 'Platform',
@@ -53,8 +66,14 @@ export default {
     support: 'Support',
     apps: 'Apps',
   },
+  'appearance-settings': {
+    theme: 'Dark theme',
+    langue: 'Current Language',
+  },
   application: {
     Heading: 'Check application requirements',
+    'packages-explain':
+      'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
     resume: 'Resumee',
     'lang-certificate': 'German language certificate',
     diploma: 'Diploma',
@@ -76,7 +95,7 @@ export default {
     text: 'Discover how our platform can help you find your dream job in Germany. In this video, we show you how easy it is to take the first step towards your professional goals.',
     'check-heading':
       'Have you fulfilled all the requirements for the application?',
-    'check-btn': 'Check now!',
+    'check-btn': 'Find your dream job!',
   },
   links: {
     'find-expert': 'Find Expert',

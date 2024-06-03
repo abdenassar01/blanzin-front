@@ -15,67 +15,67 @@ export function ProfileSidebar() {
 
   const pages = [
     {
-      id: 1,
       link: '/profile/account',
       label: t('account'),
       roles: ['trainee', 'employee', 'customer', 'expert'],
     },
     {
-      id: 2,
       link: '/profile/favourites',
       label: t('favourites'),
       roles: ['expert'],
     },
     {
-      id: 3,
+      link: '/profile/favourites-experts',
+      label: t('favourites-expers'),
+      roles: ['customer'],
+    },
+    {
       link: '/profile/jobs',
       label: t('jobs'),
       roles: ['trainee', 'employee'],
     },
     {
-      id: 4,
       link: '/profile/inbox',
       label: t('inbox'),
       roles: ['trainee', 'employee'],
     },
     {
-      id: 5,
       link: '/profile/resume',
       label: docsT('resume'),
       roles: ['trainee', 'employee'],
     },
     {
-      id: 6,
       link: '/profile/docs',
       label: t('docs'),
       roles: ['trainee', 'employee'],
     },
     {
-      id: 7,
       link: '/profile/orders',
       label: t('my-orders'),
-      roles: ['customer'],
+      roles: ['customer', 'expert'],
     },
-
     {
-      id: 8,
+      link: '/orders',
+      label: t('order-list'),
+      roles: ['expert'],
+      root: true,
+    },
+    {
       link: '/chat',
       label: t('chat'),
       roles: ['customer', 'expert'],
       root: true,
     },
     {
-      id: 9,
-      link: '/profile/new',
-      label: t('new-profile'),
-      roles: ['trainee', 'employee', 'customer', 'expert'],
-    },
-    {
-      id: 10,
       link: '/new-order',
       label: t('new-order'),
       roles: ['customer'],
       root: true,
+    },
+    {
+      link: '/profile/settings',
+      label: t('settings'),
+      roles: ['trainee', 'employee', 'customer', 'expert'],
     },
   ];
 
@@ -90,12 +90,10 @@ export function ProfileSidebar() {
                   disableHover
                   link={page.link}
                   suffix={page.root ? '' : '?role=' + role}
-                  className='relative block h-full w-full whitespace-nowrap rounded-l-lg p-3 dark:bg-backgroundSecondaryDark sm:rounded-t-lg sm:bg-background sm:px-6 sm:py-5 sm:text-mb-base'
-                  activeClassName='prose-em:block bg-backgroundSecondary dark:bg-backgroundSecondaryDark board-link-active dark:bg-backgroundDark !text-main border-blue-500 border-l-4 font-normal  sm:border-l-0 sm:border-t-1'
+                  className='relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark sm:rounded-t-lg sm:px-6 sm:py-5'
+                  activeClassName='board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary dark:bg-backgroundDark font-normal !text-main shadow-lg sm:border-l-0'
                 >
-                  <em className='absolute -top-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
                   <div className='flex'>{page.label}</div>
-                  <em className='absolute -bottom-6 right-0 hidden h-6 w-6 bg-backgroundSecondary dark:z-50 dark:bg-backgroundDark dark:after:!bg-backgroundSecondaryDark sm:hidden' />
                 </ActiveLink>
               </li>
             )

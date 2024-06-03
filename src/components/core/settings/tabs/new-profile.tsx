@@ -1,14 +1,12 @@
-'use client';
-
-import { Switch } from '@/components';
-import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
+import { useScopedI18n } from '@/utils/locales/client';
+import { Switch } from '@/components/common';
 
-export function NewProfileForm() {
+export function NewProfile() {
   const t = useScopedI18n('role');
 
   return (
-    <div className='my-3 flex flex-col gap-5 rounded-xl bg-background p-2 dark:bg-backgroundSecondaryDark'>
+    <div className='flex flex-col gap-5'>
       <div className='flex w-full justify-between'>
         <div className='font-meduim text-xbase text-text dark:text-textdark'>
           {t('customer')}
@@ -30,7 +28,7 @@ export function NewProfileForm() {
         </div>
         <Switch active onActiveChange={() => alert('adding trainee profile')} />
       </div>
-      <div className='flex w-full justify-between'>
+      <div className='mt-4 flex w-full justify-between'>
         <div className='font-meduim text-xbase text-text dark:text-textdark'>
           {t('employee')}
         </div>

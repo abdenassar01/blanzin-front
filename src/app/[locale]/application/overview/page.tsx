@@ -33,7 +33,7 @@ export default async function PacksPage() {
           <Button width='200px' className='group mt-6' theme='secondary'>
             <Link
               href='/application/apply'
-              className='text-white group-hover:text-secondary'
+              className='text-main group-hover:text-secondary'
             >
               {t('check-btn')}
             </Link>

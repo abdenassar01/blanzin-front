@@ -6,7 +6,7 @@ import AccountForm from './account-form';
 export default async function AccountPage() {
   const t = await getScopedI18n('profile');
   return (
-    <div className='min-h-[40vw] rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
+    <div className=''>
       <div className='text-xxm'>
         <Heading heading={t('account')} />
       </div>

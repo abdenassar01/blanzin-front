@@ -67,7 +67,7 @@ export function FieldText({
       {iconUrl && (
         <div
           style={{ backgroundImage: `url('${iconUrl}')` }}
-          className='absolute left-[4%] top-[55%] h-[1.05vw] w-[1.389vw] bg-contain bg-no-repeat group-placeholder-shown:block sm:top-[60%] sm:h-[3.883vw] sm:w-[4.854vw]'
+          className='absolute left-[4%] top-[40%] h-[1.05vw] w-[1.389vw] bg-contain bg-no-repeat group-placeholder-shown:block sm:top-[60%] sm:h-[3.883vw] sm:w-[4.854vw]'
         />
       )}
       {type === 'password' && (

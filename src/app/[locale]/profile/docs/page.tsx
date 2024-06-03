@@ -1,62 +1,93 @@
-import {
-  DocsFilter,
-  DocumentViewerWithModal,
-  Heading,
-  Map,
-  Modal,
-  PdfViewer,
-} from '@/components';
-import { getScopedI18n } from '@/utils/locales/server';
+'use client';
+
+import { DocsFilter, FileUploadDropableGallery, Heading } from '@/components';
+import { useScopedI18n } from '@/utils/locales/client';
+
+import { useSearchParams } from 'next/navigation';
 import React from 'react';
-import { isMobile } from 'react-device-detect';
+import { useForm } from 'react-hook-form';
 
-export default async function MyDocumentsPage({
-  searchParams: { doc },
-}: {
-  searchParams: { doc: string };
-}) {
-  const t = await getScopedI18n('profile');
+export default function MyDocumentsPage() {
+  const t = useScopedI18n('profile');
 
-  const applicationT = await getScopedI18n('application');
+  const applicationT = useScopedI18n('application');
 
-  function getDocTitle() {
+  const saerchParams = useSearchParams();
+  const doc = saerchParams.get('doc');
+
+  const { control, watch, handleSubmit } = useForm({
+    defaultValues: {
+      lang: [],
+      jobs: [],
+      diploma: [],
+      intenship: [],
+      acknowledgement: [],
+    },
+  });
+
+  function getGallery() {
     switch (doc) {
       case 'lang':
-        return applicationT('lang-certificate');
+        return (
+          <FileUploadDropableGallery
+            items={watch('lang')}
+            control={control}
+            name={'lang'}
+            label={applicationT('lang-certificate')}
+          />
+        );
       case 'jobs':
-        return applicationT('job-certificates');
+        return (
+          <FileUploadDropableGallery
+            items={watch('jobs')}
+            control={control}
+            name={'lang'}
+            label={applicationT('job-certificates')}
+          />
+        );
       case 'diploma':
-        return applicationT('diploma');
+        return (
+          <FileUploadDropableGallery
+            items={watch('diploma')}
+            control={control}
+            name='diploma'
+            label={applicationT('diploma')}
+          />
+        );
       case 'intenship':
-        return applicationT('intenship');
+        return (
+          <FileUploadDropableGallery
+            items={watch('intenship')}
+            control={control}
+            name='internship'
+            label={applicationT('intenship')}
+          />
+        );
       case 'acknowledgement':
-        return applicationT('acknowledgement');
+        return (
+          <FileUploadDropableGallery
+            items={watch('acknowledgement')}
+            control={control}
+            name='acknowledgement'
+            label={applicationT('acknowledgement')}
+          />
+        );
       default:
-        return '';
+        return [];
     }
   }
+  // TODO: Fix
 
   return (
-    <div className='min-h-[40vw] rounded-xl bg-backgroundSecondary p-4 dark:bg-backgroundDark'>
+    <div className=''>
       <div className='text-xxm'>
         <Heading heading={t('docs')} />
       </div>
-      <div className='mt-4 flex border-[1px] border-border'>
-        <DocsFilter />
-        <div className='p-3'>
-          <div className='text-xxl'>
-            <Heading heading={getDocTitle()} />
-          </div>
-          <div className='mt-6 flex flex-wrap gap-4'>
-            {
-              <Map
-                items={[1, 2, 3, 4, 5]}
-                render={(item) => (
-                  <DocumentViewerWithModal doc='/blanzin.pdf' />
-                )}
-              />
-            }
-          </div>
+      <button onClick={handleSubmit((data) => console.log(data))}>Hello</button>
+      <div className='mt-4 flex'>
+        <DocsFilter className='w-[50%]' />
+        <div className='ml-4 w-full px-4'>
+          <div className=''>{getGallery()}</div>
         </div>
       </div>
     </div>

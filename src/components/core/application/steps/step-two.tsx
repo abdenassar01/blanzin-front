@@ -17,8 +17,10 @@ type Props = {
 export function StepTwo({ control }: Props) {
   const t = useScopedI18n('application');
 
+  const form = useWatch({ control });
+
   const searchParams = useSearchParams();
-  const doc = searchParams.get('doc');
+  const doc = searchParams.get('doc') || 'lang';
 
   useEffect(() => console.log(form), [doc]);
 
@@ -38,8 +40,6 @@ export function StepTwo({ control }: Props) {
         return '';
     }
   }
-
-  const form = useWatch({ control });
 
   function getItems() {
     switch (doc) {
@@ -64,16 +64,14 @@ export function StepTwo({ control }: Props) {
         <Heading heading={t('docs-folder')} />
       </div>
       <div className='mt-5 flex w-full flex-wrap gap-4'>
-        <div className='mt-4 flex w-full border-[1px] border-border'>
-          <div className='w-[50%]'>
-            <DocsFilter noRole />
-          </div>
-          <div className='w-full p-3'>
+        <div className='mt-4 flex w-full'>
+          <DocsFilter noRole className='w-[50%]' />
+          <div className='ml-4 w-full px-4'>
             <div className=''>
               <FileUploadDropableGallery
                 items={getItems()}
                 control={control}
-                name={doc || 'doc'}
+                name={doc}
                 label={getDocTitle()}
               />
             </div>

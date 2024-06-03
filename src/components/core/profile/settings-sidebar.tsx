@@ -8,53 +8,53 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 
-export function DocsFilter({
+export function SettingsSidebar({
   noRole,
   className,
 }: {
   noRole?: boolean;
   className?: string;
 }) {
-  const t = useScopedI18n('application');
+  const t = useScopedI18n('settings');
 
   const searchParams = useSearchParams();
   const { push } = useRouter();
   const role = searchParams.get('role');
-  const docParam = searchParams.get('doc');
+  const tab = searchParams.get('tab');
 
   const tabs = [
-    { label: t('lang-certificate'), doc: 'lang' },
-    { label: t('job-certificates'), doc: 'jobs' },
-    { label: t('diploma'), doc: 'diploma' },
-    { label: t('intenship'), doc: 'intenship' },
-    { label: t('acknowledgement'), doc: 'acknowledgement' },
+    { label: t('appearance'), tab: 'appearance' },
+    { label: t('security'), tab: 'security' },
+    { label: t('add-profile'), tab: 'new-profile' },
   ];
 
   useEffect(() => {
     push(
-      noRole ? pathname + '?doc=lang' : pathname + '?role=' + role + '&doc=lang'
+      noRole
+        ? pathname + '?tab=appearance'
+        : pathname + '?role=' + role + '&tab=appearance'
     );
   }, []);
 
   const pathname = usePathname();
 
   return (
-    <div className={cn('flex w-full flex-col gap-4 sm:w-[50vw]', className)}>
+    <div className={cn('flex w-full flex-col gap-4', className)}>
       <Map
         items={tabs}
         render={(item) => (
           <Link
             href={
               noRole
-                ? pathname + '?doc=' + item.doc
-                : pathname + '?role=' + role + '&doc=' + item.doc
+                ? pathname + '?tab=' + item.tab
+                : pathname + '?role=' + role + '&tab=' + item.tab
             }
           >
             <div
               className={cn(
-                'rounded-lg p-3 shadow-md transition-all',
-                docParam === item.doc
-                  ? 'scale-105 bg-main text-secondary shadow-secondary dark:shadow-main'
+                'rounded-lg bg-background p-3 shadow-md transition-all dark:bg-backgroundSecondaryDark',
+                tab === item.tab
+                  ? 'scale-105 bg-main text-secondary shadow-secondary dark:bg-main dark:text-secondary'
                   : ' text-black dark:text-textdark'
               )}
             >
