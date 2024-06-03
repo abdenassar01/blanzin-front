@@ -1,16 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Map, TranslatedHeading } from '../..';
+import { Heading, Map, TranslatedHeading } from '../..';
 import ProfileTypeSelectorItem from './profile-type-selector-item';
 import {
   ROLE,
   ROOT_ROLE,
   RootApplicationRole,
 } from '../../../../../constants/role';
+import { Control, useController } from 'react-hook-form';
 
 type Props = {
   label?: string;
+  control: Control<any>;
+  name: string;
 };
 
 const tabs = [
@@ -54,23 +57,24 @@ const tabs = [
   },
 ];
 
-export function ProfileTypeSelector({ label }: Props) {
-  const [selected, setSelected] = useState<RootApplicationRole>(tabs[0].value);
+export function ProfileTypeSelector({ label, control, name }: Props) {
+  const {
+    field: { value, onChange },
+  } = useController({ name, control, defaultValue: tabs[0].value });
 
   return (
-    <div className='w-full'>
-      <TranslatedHeading
-        tranlationKey={label || ''}
-        className='text-secondary dark:text-main'
-      />
+    <div className='my-3 w-full'>
+      <div className='text-secondary dark:text-main'>
+        <Heading className='text-xbase' heading={label || ''} />
+      </div>
       <div className='mt-1 flex w-full flex-col gap-2'>
         <Map
           items={tabs}
           render={(tab) => (
             <ProfileTypeSelectorItem
-              setSelected={setSelected}
+              onSelectedUpdate={() => onChange(tab.value)}
               darkIcon={tab.darkIcon}
-              selected={tab.value === selected}
+              selected={tab.value === value}
               icon={tab.icon}
               items={tab.items}
               value={tab.value}

@@ -13,9 +13,7 @@ export function StepThree({ control }: Props) {
   return (
     <div className='mb-[15vh]'>
       <div className='my-3 flex flex-col items-center justify-center'>
-        <label className='w-full text-base font-bold text-secondary dark:text-main'>
-          Label
-        </label>
+        <label className='w-full text-base font-bold text-secondary dark:text-main'></label>
         <Otp
           value={value}
           onChange={onChange}

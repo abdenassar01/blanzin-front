@@ -1,13 +1,13 @@
-import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
+import React, { Dispatch, SetStateAction, useMemo, useState } from 'react';
 
-import { TranslatedText } from "../..";
-import { RoleType, RootApplicationRole } from "../../../../../constants/role";
-import { useTheme } from "next-themes";
-import { cn } from "@/utils";
-import Image from "next/image";
+import { TranslatedText } from '../..';
+import { RoleType, RootApplicationRole } from '../../../../../constants/role';
+import { useTheme } from 'next-themes';
+import { cn } from '@/utils';
+import Image from 'next/image';
 
 type Props = {
-  setSelected: Dispatch<SetStateAction<RootApplicationRole>>;
+  onSelectedUpdate: () => void;
   value: RootApplicationRole;
   icon: any;
   darkIcon: any;
@@ -25,52 +25,49 @@ export default function ProfileTypeSelectorItem({
   selected,
   icon,
   items,
-  setSelected,
+  onSelectedUpdate,
   value,
 }: Props) {
-  // const {currentProfile, setCurrentProfile} = useProfileTypeStore();
-
   const [expands, setExpands] = useState<boolean>(false);
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme === "dark", [theme]);
+  const isDark = useMemo(() => theme === 'dark', [theme]);
 
   return (
     <>
       <div
         onClick={() => {
-          setSelected(value);
-
+          onSelectedUpdate();
           setExpands((prev) => !prev);
         }}
         className={cn(
-          "w-full flex items-center rounded-xl cursor-pointer",
+          'flex w-full cursor-pointer items-center rounded-xl',
           selected
-            ? "bg-success"
-            : "bg-backgroundSecondary dark:bg-backgroundSecondaryDark"
+            ? 'bg-success'
+            : 'bg-backgroundSecondary dark:bg-backgroundSecondaryDark'
         )}
         key={`role-tab-${value}`}
       >
-        <div className="">
+        <div className=''>
           <Image
-            alt=""
-            className="w-[100px] h-[100px] "
+            alt=''
+            className='h-[100px] w-[100px] '
             src={isDark ? darkIcon : icon}
           />
         </div>
         <TranslatedText
           className={cn(
-            "font-bold capitalize",
+            'font-bold capitalize',
             selected
-              ? "text-backgroundSecondary dark:text-backgroundSecondaryDark"
-              : "text-secondary dark:text-main"
+              ? 'text-backgroundSecondary dark:text-backgroundSecondaryDark'
+              : 'text-secondary dark:text-main'
           )}
-          tranlationKey={value.replaceAll("_", " ")}
+          tranlationKey={value.replaceAll('_', ' ')}
         />
       </div>
       <div
         className={cn(
-          "flex justify-between transition-all duration-500 ease-in",
-          expands ? "h-[120px]" : "h-0 "
+          'flex justify-between transition-all duration-500 ease-in',
+          expands ? 'h-[120px]' : 'h-0 '
         )}
       >
         {expands &&
@@ -79,28 +76,28 @@ export default function ProfileTypeSelectorItem({
               <button
                 onClick={() => {}}
                 className={cn(
-                  "flex flex-col items-center py-2 rounded-xl my-1 w-[49%]",
+                  'my-1 flex w-[49%] flex-col items-center rounded-xl py-2',
                   true
-                    ? "bg-chat"
-                    : "bg-backgroundSecondary dark:bg-backgroundSecondaryDark"
+                    ? 'bg-chat'
+                    : 'bg-backgroundSecondary dark:bg-backgroundSecondaryDark'
                 )}
               >
-                <div className="">
+                <div className=''>
                   <Image
-                    className="w-[70px] h-[70px] "
-                    alt=""
+                    className='h-[70px] w-[70px] '
+                    alt=''
                     src={isDark ? item.imageDark : item.image}
                   />
                 </div>
                 <TranslatedText
                   className={cn(
-                    "font-bold capitalize",
+                    'font-bold capitalize',
                     //currentProfile === item.role
                     true
-                      ? "text-backgroundSecondary dark:text-backgroundSecondaryDark"
-                      : "text-secondary dark:text-main"
+                      ? 'text-backgroundSecondary dark:text-backgroundSecondaryDark'
+                      : 'text-secondary dark:text-main'
                   )}
-                  tranlationKey={item.role.replaceAll("_", " ")}
+                  tranlationKey={item.role.replaceAll('_', ' ')}
                 />
               </button>
             ))

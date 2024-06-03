@@ -3,19 +3,22 @@
 import { Button, Link, ProgressBar } from '@/components';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import StepOne from './step-one';
 import { useI18n } from '@/utils/locales/client';
-import StepTwo from './step-two';
 import { StepThree } from './step-three';
+import { StepZero } from './step-zero';
+import { StepOne } from './step-one';
+import { StepTwo } from './step-two';
 
 export function RegisterForm() {
   const { control } = useForm();
-  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [currentStep, setCurrentStep] = useState<number>(0);
 
   const t = useI18n();
 
   const getCurrentStep = () => {
     switch (currentStep) {
+      case 0:
+        return <StepZero control={control} />;
       case 1:
         return <StepOne control={control} />;
       case 2:
@@ -27,11 +30,11 @@ export function RegisterForm() {
 
   return (
     <div className='flex h-full flex-col justify-between '>
-      <ProgressBar currentStep={currentStep} />
+      <ProgressBar currentStep={currentStep + 1} steps={4} />
       {getCurrentStep()}
       <div className=''>
         <div className='flex justify-end gap-2'>
-          {currentStep !== 1 && (
+          {currentStep !== 0 && (
             <Button
               text={t('button.prev')}
               theme='secondary'
@@ -39,7 +42,7 @@ export function RegisterForm() {
             />
           )}
           <Button
-            width={currentStep === 1 ? '49%' : '100%'}
+            width={currentStep === 0 ? '49%' : '100%'}
             text={t('button.next')}
             onClick={() => setCurrentStep((prev) => prev + 1)}
           />
