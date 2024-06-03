@@ -8,7 +8,7 @@ export default async function FavouritesExpertsPage() {
   return (
     <>
       <div className='text-xxm'>
-        <Heading heading={t('favourites-orders')} />
+        <Heading heading={t('favourite-experts')} />
       </div>
       <div className='flex flex-wrap gap-4'>
         <ExpertCard className='w-[49%]' />

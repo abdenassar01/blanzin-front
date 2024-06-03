@@ -25,7 +25,7 @@ export function SettingsSidebar({
   const tabs = [
     { label: t('appearance'), tab: 'appearance' },
     { label: t('security'), tab: 'security' },
-    { label: t('add-profile'), tab: 'new-profile' },
+    { label: t('profile-administration'), tab: 'new-profile' },
   ];
 
   useEffect(() => {

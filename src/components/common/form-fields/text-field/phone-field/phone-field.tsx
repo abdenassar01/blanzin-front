@@ -22,6 +22,7 @@ type InputProps<V extends FieldValues> = {
   className?: string;
   placeholder?: string;
   inputClassName?: string;
+  wrapperClassName?: string;
 } & FormField<V>;
 
 export function PhoneField<V extends FieldValues>({
@@ -31,6 +32,7 @@ export function PhoneField<V extends FieldValues>({
   placeholder,
   className,
   inputClassName,
+  wrapperClassName,
 }: InputProps<V>) {
   const [countryCode, setCountryCode] = useState<CountryCode>('MA');
   const [openDropdown, setOpenDropDown] = useState<boolean>(false);
@@ -57,10 +59,16 @@ export function PhoneField<V extends FieldValues>({
         {label}
       </label>
       <div className='relative w-full'>
-        <div className='flex w-full gap-2 rounded-lg bg-background pl-2 dark:bg-backgroundDark sm:h-[14.078vw]'>
+        <div
+          className={cn(
+            'flex w-full gap-2 rounded-lg bg-background pl-2 dark:bg-backgroundDark sm:h-[14.078vw]',
+            wrapperClassName
+          )}
+        >
           <div
             className={cn(
-              'flex h-[50px] items-center gap-2 rounded-xl bg-backgroundSecondary p-2 text-xs text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black'
+              'flex h-[50px] items-center gap-2 rounded-xl bg-backgroundSecondary p-2 text-xs text-text shadow-lg dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black',
+              inputClassName
             )}
             onClick={() => setOpenDropDown((prev) => !prev)}
           >

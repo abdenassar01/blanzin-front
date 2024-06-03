@@ -8,7 +8,7 @@ export default async function FavouritesPage() {
   return (
     <div className=''>
       <div className='text-xxm'>
-        <Heading heading={t('favourites-orders')} />
+        <Heading heading={t('favourite-orders')} />
       </div>
       <div className='flex flex-wrap gap-4'>
         {React.Children.toArray(
