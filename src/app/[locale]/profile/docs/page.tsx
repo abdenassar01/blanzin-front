@@ -76,7 +76,6 @@ export default function MyDocumentsPage() {
         return [];
     }
   }
-  // TODO: Fix
 
   return (
     <div className=''>

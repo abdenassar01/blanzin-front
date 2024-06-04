@@ -1,12 +1,14 @@
 'use client';
 
 import { cn } from '@/utils';
+import { useCurrentLocale } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React from 'react';
 
 export function ThemeToggle() {
   const { setTheme, theme } = useTheme();
+  const locale = useCurrentLocale();
 
   const handleToggleTheme = () => {
     if (theme === 'dark') {
@@ -28,13 +30,25 @@ export function ThemeToggle() {
         <div
           className={cn(
             'h-6 w-6 rounded-full bg-secondary transition-all duration-300 dark:bg-main',
-            theme === 'dark' ? 'ml-2' : 'ml-0'
+            locale === 'ar'
+              ? theme === 'dark'
+                ? 'mr-2'
+                : 'mr-0'
+              : theme === 'dark'
+                ? 'ml-2'
+                : 'ml-0'
           )}
         />
         <Image
           className={cn(
             'w-6 transition-all',
-            theme === 'dark' ? 'ml-0' : 'ml-2'
+            locale === 'ar'
+              ? theme === 'dark'
+                ? 'mr-0'
+                : 'mr-2'
+              : theme === 'dark'
+                ? 'ml-0'
+                : 'ml-2'
           )}
           alt=''
           src={
