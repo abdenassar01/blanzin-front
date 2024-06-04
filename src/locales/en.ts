@@ -202,6 +202,9 @@ export default {
     login: 'Login',
     signup: 'Sign Up',
     logout: 'Logout',
+    'otp-label': 'Verification code',
+    'otp-text':
+      "Please write the code you've recieved in your whatsapp to complete your registration on our platform.",
   },
   role: {
     trainee: 'Trainee',
@@ -214,7 +217,8 @@ export default {
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
     send: 'Send',
   },
-  'feedback-text': `We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.`,
+  'feedback-text':
+    "We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.",
   reviews: 'Reviews',
   experience: {
     title: 'Job Title',

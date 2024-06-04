@@ -8,10 +8,12 @@ import { StepThree } from './step-three';
 import { StepZero } from './step-zero';
 import { StepOne } from './step-one';
 import { StepTwo } from './step-two';
+import { useRouter } from 'next/navigation';
 
 export function RegisterForm() {
   const { control } = useForm();
   const [currentStep, setCurrentStep] = useState<number>(0);
+  const { push } = useRouter();
 
   const t = useI18n();
 
@@ -31,7 +33,7 @@ export function RegisterForm() {
   return (
     <div className='flex h-full flex-col justify-between '>
       <ProgressBar currentStep={currentStep + 1} steps={4} />
-      <div className='min-h-[500px]'>{getCurrentStep()}</div>
+      <div className='h-full min-h-[500px]'>{getCurrentStep()}</div>
       <div className=''>
         <div className='flex justify-end gap-2'>
           {currentStep !== 0 && (
@@ -43,8 +45,10 @@ export function RegisterForm() {
           )}
           <Button
             width={currentStep === 0 ? '49%' : '100%'}
-            text={t('button.next')}
-            onClick={() => setCurrentStep((prev) => prev + 1)}
+            text={currentStep !== 3 ? t('button.next') : t('button.submit')}
+            onClick={() =>
+              currentStep === 3 ? push('/') : setCurrentStep((prev) => prev + 1)
+            }
           />
         </div>
         <div className='flex justify-center gap-1'>
