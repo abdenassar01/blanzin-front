@@ -8,12 +8,13 @@ type Props = {
   control: Control<any>;
 };
 
-export default function StepTwo({ control }: Props) {
+export function StepTwo({ control }: Props) {
   const t = useScopedI18n('forms');
 
   return (
     <div className='mt-5'>
       <UploadAvatar
+        className='w-fit'
         imgClassName='border-[1px] border-secondary rounded-full'
         control={control}
         name='avatar'

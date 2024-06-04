@@ -1,13 +1,16 @@
-import React, { Dispatch, SetStateAction, useMemo, useState } from "react";
+'use client';
 
-import { TranslatedText } from "../..";
-import { RoleType, RootApplicationRole } from "../../../../../constants/role";
-import { useTheme } from "next-themes";
-import { cn } from "@/utils";
-import Image from "next/image";
+import React, { useMemo, useState } from 'react';
+
+import { TranslatedText } from '../..';
+import { RoleType, RootApplicationRole } from '../../../../../constants/role';
+import { useTheme } from 'next-themes';
+import { cn } from '@/utils';
+import Image from 'next/image';
+import { useProfileTypeStore } from '@/modals/profile-type/profile-type';
 
 type Props = {
-  setSelected: Dispatch<SetStateAction<RootApplicationRole>>;
+  onSelectedUpdate: () => void;
   value: RootApplicationRole;
   icon: any;
   darkIcon: any;
@@ -25,82 +28,78 @@ export default function ProfileTypeSelectorItem({
   selected,
   icon,
   items,
-  setSelected,
+  onSelectedUpdate,
   value,
 }: Props) {
-  // const {currentProfile, setCurrentProfile} = useProfileTypeStore();
-
   const [expands, setExpands] = useState<boolean>(false);
   const { theme } = useTheme();
-  const isDark = useMemo(() => theme === "dark", [theme]);
+  const isDark = useMemo(() => theme === 'dark', [theme]);
+
+  const { currentProfile, setCurrentProfile } = useProfileTypeStore();
 
   return (
     <>
       <div
         onClick={() => {
-          setSelected(value);
-
+          onSelectedUpdate();
           setExpands((prev) => !prev);
         }}
         className={cn(
-          "w-full flex items-center rounded-xl cursor-pointer",
-          selected
-            ? "bg-success"
-            : "bg-backgroundSecondary dark:bg-backgroundSecondaryDark"
+          'flex w-full cursor-pointer items-center justify-between rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark',
+          selected ? '' : ''
         )}
         key={`role-tab-${value}`}
       >
-        <div className="">
+        <div className='flex items-center gap-2'>
           <Image
-            alt=""
-            className="w-[100px] h-[100px] "
+            alt=''
+            className='h-[100px] w-[100px] '
             src={isDark ? darkIcon : icon}
           />
+          <TranslatedText
+            className={cn('font-bold capitalize text-secondary dark:text-main')}
+            tranlationKey={value.replaceAll('_', ' ')}
+          />
         </div>
-        <TranslatedText
+        <Image
           className={cn(
-            "font-bold capitalize",
-            selected
-              ? "text-backgroundSecondary dark:text-backgroundSecondaryDark"
-              : "text-secondary dark:text-main"
+            'icon mr-5 transition-all duration-300',
+            expands ? '' : '-rotate-90'
           )}
-          tranlationKey={value.replaceAll("_", " ")}
+          alt=''
+          src={require('@/assets/images/icons/arrow-down.svg')}
         />
       </div>
       <div
         className={cn(
-          "flex justify-between transition-all duration-500 ease-in",
-          expands ? "h-[120px]" : "h-0 "
+          'flex justify-between transition-all duration-500 ease-in',
+          expands ? 'h-[120px]' : 'h-0 '
         )}
       >
         {expands &&
           React.Children.toArray(
             items.map((item) => (
               <button
-                onClick={() => {}}
+                onClick={() => setCurrentProfile(item.role)}
                 className={cn(
-                  "flex flex-col items-center py-2 rounded-xl my-1 w-[49%]",
-                  true
-                    ? "bg-chat"
-                    : "bg-backgroundSecondary dark:bg-backgroundSecondaryDark"
+                  'my-1 flex w-[49%] flex-col items-center rounded-xl py-2',
+                  currentProfile === item.role
+                    ? 'bg-main dark:bg-secondary'
+                    : 'bg-backgroundSecondary dark:bg-backgroundSecondaryDark'
                 )}
               >
-                <div className="">
+                <div className=''>
                   <Image
-                    className="w-[70px] h-[70px] "
-                    alt=""
+                    className='h-[70px] w-[70px] '
+                    alt=''
                     src={isDark ? item.imageDark : item.image}
                   />
                 </div>
                 <TranslatedText
                   className={cn(
-                    "font-bold capitalize",
-                    //currentProfile === item.role
-                    true
-                      ? "text-backgroundSecondary dark:text-backgroundSecondaryDark"
-                      : "text-secondary dark:text-main"
+                    'font-bold capitalize text-secondary dark:text-main'
                   )}
-                  tranlationKey={item.role.replaceAll("_", " ")}
+                  tranlationKey={item.role.replaceAll('_', ' ')}
                 />
               </button>
             ))

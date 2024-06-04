@@ -88,7 +88,7 @@ export function ApplicationStepsForm({}: Props) {
             )}
           </ul>
         </div>
-        <div className='relative min-h-[88vh] w-full overflow-hidden rounded-xl bg-backgroundSecondary p-4 shadow-lg dark:bg-backgroundDark dark:shadow-black'>
+        <div className='relative h-[1020px] w-full rounded-xl bg-backgroundSecondary p-4 shadow-lg dark:bg-backgroundDark dark:shadow-black'>
           {getStep()}
         </div>
       </div>

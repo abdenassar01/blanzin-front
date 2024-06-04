@@ -37,27 +37,30 @@ export default {
     new: 'New password',
     'confirm-new': 'Confirm new password',
     submit: 'Update password',
+    title: 'Change password',
   },
   profile: {
     account: 'My account',
-    favourites: 'Favourites',
-    'favourites-orders': 'My Favourites orders',
-    'favourites-jobs': 'My Favourites jobs',
-    'favourites-trainings': 'My Favourites trainings',
-    'favourites-expers': 'My Favourites experts',
-    jobs: 'My job list',
-    'order-list': 'My order List',
+    favourites: 'My favourites',
+    'favourite-orders': 'My favourite  orders',
+    'favourite-jobs': 'My favourite jobs',
+    'favourite-trainings': 'My favourite trainings',
+    'favourite-experts': 'My favourite experts',
+    jobs: 'Job list',
+    'order-list': 'Order List',
     inbox: 'My inbox',
     'my-orders': 'My Orders',
     chat: 'Chat',
     'new-order': 'New Order',
-    docs: 'My documents folder',
-    'new-profile': 'Add Profile',
+    docs: 'My documents',
     settings: 'Settings',
+    resume: 'My resumee',
   },
   settings: {
     security: 'Security',
-    'add-profile': 'Add Profile',
+    'category-administration': '',
+
+    'profile-administration': 'Profile administration',
     appearance: 'Appearance',
   },
   section: {
@@ -199,6 +202,9 @@ export default {
     login: 'Login',
     signup: 'Sign Up',
     logout: 'Logout',
+    'otp-label': 'Verification code',
+    'otp-text':
+      "Please write the code you've recieved in your whatsapp to complete your registration on our platform.",
   },
   role: {
     trainee: 'Trainee',
@@ -211,7 +217,8 @@ export default {
     text: 'You can contact blanzin from this page. you should provide us with your email, name and the message you want to send. Blanzin will reply if necessary.',
     send: 'Send',
   },
-  'feedback-text': `We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.`,
+  'feedback-text':
+    "We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.",
   reviews: 'Reviews',
   experience: {
     title: 'Job Title',
@@ -297,6 +304,7 @@ export default {
     prev: 'Previous',
     submit: 'Submit',
     rate: 'Rate',
+    apply: 'Apply',
   },
   'chat-options': {
     location: 'Send location',

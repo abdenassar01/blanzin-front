@@ -36,7 +36,7 @@ export function StepTwo({ control }: Props) {
 
   return (
     <div className='mb-7 overflow-y-scroll'>
-      <div className='flex flex-wrap items-center justify-start gap-[2%]'>
+      <div className='flex max-h-[120px] flex-wrap items-center justify-start gap-[2%] gap-y-4 overflow-y-scroll'>
         {React.Children.toArray(
           experiences.map((item: any, index: number) => (
             <div className='flex w-[32%] justify-between gap-2 rounded-md border-[1px] border-border p-2 dark:bg-backgroundSecondaryDark sm:w-[49%]'>

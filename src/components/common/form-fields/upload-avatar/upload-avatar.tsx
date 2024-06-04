@@ -31,19 +31,13 @@ export function UploadAvatar({
 
   return (
     <>
-      <div className='flex w-full justify-center'>
+      <div className=' w-full '>
         <TranslatedText
-          tranlationKey={label || 'avatar'}
+          tranlationKey={label || ''}
           className='font-bold capitalize text-secondary dark:text-main'
         />
       </div>
-      <label
-        htmlFor={name}
-        className={cn(
-          'relative flex w-full items-center justify-center',
-          className
-        )}
-      >
+      <label htmlFor={name} className={cn('relative flex', className)}>
         <Image
           width={100}
           height={100}
@@ -56,13 +50,13 @@ export function UploadAvatar({
           src={require('@/assets/images/avatar.png')}
         />
         {!value && (
-          <Image
-            alt=''
-            className={cn(
-              'absolute bottom-0 right-[43%] w-[2.5vw] rounded-full bg-secondary p-1 sm:right-[37%] sm:w-[8vw]'
-            )}
-            src={require('@/assets/images/icons/dark/upload.svg')}
-          />
+          <div className='absolute bottom-0 right-[40%] rounded-full bg-[rgb(34,46,49)] p-1.5'>
+            <Image
+              alt=''
+              className={cn('aspect-square w-[20px]')}
+              src={require('@/assets/images/icons/edit.svg')}
+            />
+          </div>
         )}
 
         <div className='items-center'>

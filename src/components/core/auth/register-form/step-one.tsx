@@ -7,15 +7,10 @@ type Props = {
   control: Control<any>;
 };
 
-export default function StepOne({ control }: Props) {
+export function StepOne({ control }: Props) {
   const t = useScopedI18n('forms');
   return (
     <div className='my-3 flex flex-col gap-3'>
-      <ProfileTabSelector
-        control={control}
-        name='profile'
-        label={t('profile')}
-      />
       <PhoneField
         control={control}
         label={t('phone')}

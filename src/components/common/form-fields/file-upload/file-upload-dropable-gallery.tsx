@@ -50,7 +50,7 @@ export function FileUploadDropableGallery({
       <div className='flex flex-wrap gap-[5%] gap-y-4'>
         {React.Children.toArray(
           items.map((field, index) => (
-            <div className='relative w-[30%] cursor-pointer sm:w-[49%]'>
+            <div className='relative w-[30%] cursor-pointer overflow-hidden sm:w-[49%]'>
               <Image
                 onClick={() => remove(index)}
                 alt=''

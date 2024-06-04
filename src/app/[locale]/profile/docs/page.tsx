@@ -83,7 +83,6 @@ export default function MyDocumentsPage() {
       <div className='text-xxm'>
         <Heading heading={t('docs')} />
       </div>
-      <button onClick={handleSubmit((data) => console.log(data))}>Hello</button>
       <div className='mt-4 flex'>
         <DocsFilter className='w-[50%]' />
         <div className='ml-4 w-full px-4'>
