@@ -83,9 +83,9 @@ export default function MyDocumentsPage() {
       <div className='text-xxm'>
         <Heading heading={t('docs')} />
       </div>
-      <div className='mt-4 flex'>
-        <DocsFilter className='w-[50%]' />
-        <div className='ml-4 w-full px-4'>
+      <div className='mt-4 flex sm:flex-col'>
+        <DocsFilter className='w-[50%] sm:w-full' />
+        <div className='ml-4 w-full px-4 sm:ml-0 sm:mt-5 sm:px-0'>
           <div className=''>{getGallery()}</div>
         </div>
       </div>

@@ -66,7 +66,7 @@ export async function ResumeeViewer() {
 
   return (
     <div>
-      <div className='flex items-start justify-between'>
+      <div className='flex items-start justify-between sm:flex-col-reverse sm:gap-6'>
         <div className='flex flex-col gap-6 text-secondary dark:text-textdark'>
           <div className=''>
             <div className='text-xbase'>
