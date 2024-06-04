@@ -31,7 +31,7 @@ export function RegisterForm() {
   return (
     <div className='flex h-full flex-col justify-between '>
       <ProgressBar currentStep={currentStep + 1} steps={4} />
-      {getCurrentStep()}
+      <div className='min-h-[500px]'>{getCurrentStep()}</div>
       <div className=''>
         <div className='flex justify-end gap-2'>
           {currentStep !== 0 && (

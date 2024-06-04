@@ -1,10 +1,13 @@
-import React, { Dispatch, SetStateAction, useMemo, useState } from 'react';
+'use client';
+
+import React, { useMemo, useState } from 'react';
 
 import { TranslatedText } from '../..';
 import { RoleType, RootApplicationRole } from '../../../../../constants/role';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
 import Image from 'next/image';
+import { useProfileTypeStore } from '@/modals/profile-type/profile-type';
 
 type Props = {
   onSelectedUpdate: () => void;
@@ -32,6 +35,8 @@ export default function ProfileTypeSelectorItem({
   const { theme } = useTheme();
   const isDark = useMemo(() => theme === 'dark', [theme]);
 
+  const { currentProfile, setCurrentProfile } = useProfileTypeStore();
+
   return (
     <>
       <div
@@ -40,28 +45,29 @@ export default function ProfileTypeSelectorItem({
           setExpands((prev) => !prev);
         }}
         className={cn(
-          'flex w-full cursor-pointer items-center rounded-xl',
-          selected
-            ? 'bg-success'
-            : 'bg-backgroundSecondary dark:bg-backgroundSecondaryDark'
+          'flex w-full cursor-pointer items-center justify-between rounded-xl bg-backgroundSecondary dark:bg-backgroundSecondaryDark',
+          selected ? '' : ''
         )}
         key={`role-tab-${value}`}
       >
-        <div className=''>
+        <div className='flex items-center gap-2'>
           <Image
             alt=''
             className='h-[100px] w-[100px] '
             src={isDark ? darkIcon : icon}
           />
+          <TranslatedText
+            className={cn('font-bold capitalize text-secondary dark:text-main')}
+            tranlationKey={value.replaceAll('_', ' ')}
+          />
         </div>
-        <TranslatedText
+        <Image
           className={cn(
-            'font-bold capitalize',
-            selected
-              ? 'text-backgroundSecondary dark:text-backgroundSecondaryDark'
-              : 'text-secondary dark:text-main'
+            'icon mr-5 transition-all duration-300',
+            expands ? '' : '-rotate-90'
           )}
-          tranlationKey={value.replaceAll('_', ' ')}
+          alt=''
+          src={require('@/assets/images/icons/arrow-down.svg')}
         />
       </div>
       <div
@@ -74,11 +80,11 @@ export default function ProfileTypeSelectorItem({
           React.Children.toArray(
             items.map((item) => (
               <button
-                onClick={() => {}}
+                onClick={() => setCurrentProfile(item.role)}
                 className={cn(
                   'my-1 flex w-[49%] flex-col items-center rounded-xl py-2',
-                  true
-                    ? 'bg-chat'
+                  currentProfile === item.role
+                    ? 'bg-main dark:bg-secondary'
                     : 'bg-backgroundSecondary dark:bg-backgroundSecondaryDark'
                 )}
               >
@@ -91,11 +97,7 @@ export default function ProfileTypeSelectorItem({
                 </div>
                 <TranslatedText
                   className={cn(
-                    'font-bold capitalize',
-                    //currentProfile === item.role
-                    true
-                      ? 'text-backgroundSecondary dark:text-backgroundSecondaryDark'
-                      : 'text-secondary dark:text-main'
+                    'font-bold capitalize text-secondary dark:text-main'
                   )}
                   tranlationKey={item.role.replaceAll('_', ' ')}
                 />
