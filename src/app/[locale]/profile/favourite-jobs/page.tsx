@@ -8,7 +8,7 @@ export default async function MyJobsPage() {
   return (
     <div className=''>
       <div className='text-xxm'>
-        <Heading heading={t('favourites-orders')} />
+        <Heading heading={t('favourite-jobs')} />
       </div>
       <div className='flex flex-col gap-4 py-4'>
         {React.Children.toArray(arr.map((item) => <JobMainCard />))}

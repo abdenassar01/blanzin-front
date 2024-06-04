@@ -38,22 +38,22 @@ export function ProfileSidebar() {
       roles: ['trainee', 'employee'],
     },
     {
-      link: '/profile/favourites-experts',
+      link: '/profile/favourite-experts',
       label: t('favourites'),
       roles: ['customer'],
     },
     {
-      link: '/profile/favourites-orders',
+      link: '/profile/favourite-orders',
       label: t('favourites'),
       roles: ['expert'],
     },
     {
-      link: '/profile/favourites-trainings',
+      link: '/profile/favourite-trainings',
       label: t('favourites'),
       roles: ['trainee'],
     },
     {
-      link: '/profile/jobs',
+      link: '/profile/favourite-jobs',
       label: t('favourites'),
       roles: ['employee'],
     },
