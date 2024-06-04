@@ -1,7 +1,7 @@
 import { cn } from '@/utils';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
-import React, { InputHTMLAttributes, useCallback } from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import { FileWithPath, useDropzone } from 'react-dropzone';
 import { Control, FieldValue, useFieldArray } from 'react-hook-form';
 

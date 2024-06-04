@@ -127,7 +127,7 @@ export async function ResumeeViewer() {
             </ul>
           </div>
         </div>
-        <div className='rounded-lg border-[1px] border-secondary p-4 text-secondary dark:border-border dark:text-textdark'>
+        <div className='rounded-lg p-4 text-secondary shadow-xl dark:text-textdark dark:shadow-black'>
           <div className='flex items-center gap-4'>
             <Image
               width={200}
