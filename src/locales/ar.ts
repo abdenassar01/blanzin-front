@@ -227,7 +227,7 @@ export default {
   },
   education: {
     specialization: 'التخصص',
-    centert: 'المركز/المدرسة',
+    center: 'المركز/المدرسة',
     degree: 'الدرجة',
     'add-education': 'أضف تعليم',
     'start-date': 'تاريخ البدء',
