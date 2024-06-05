@@ -57,8 +57,7 @@ export default {
   },
   settings: {
     security: 'Security',
-    'category-administration': '',
-
+    'category-administration': 'Category administration',
     'profile-administration': 'Profile administration',
     appearance: 'Appearance',
   },
