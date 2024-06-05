@@ -2,8 +2,7 @@ export default {
   heading: {
     welcome: 'Welcome, how can we help you?',
     'jobs-page': 'Job offers',
-    about:
-      'Welcome to Blanzin: Your gateway to first class service and job placement!',
+    about: '',
   },
   errors: {
     'page-not-found': 'Page Not Found!',
