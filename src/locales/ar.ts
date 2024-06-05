@@ -215,7 +215,7 @@ export default {
     send: 'إرسال',
   },
   'feedback-text':
-    "We appreciate your feedbacks. If you have anything to say about our service please don't hesitate to tell us about it.",
+    'كانقدرو بزاف التعليقات ديالكم. يلا شفتو أي حاجة نقدرو نطورو بيها الخدمة ديالنا ماتبخلوش علينا بالأراء ديالكم',
   reviews: 'التقييمات',
   experience: {
     title: 'عنوان العمل',
