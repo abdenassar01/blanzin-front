@@ -221,6 +221,7 @@ export default {
     title: 'عنوان العمل',
     employer: 'صاحب العمل',
     description: 'الوصف',
+    category: 'الصنف',
     'start-date': 'تاريخ البدء',
     'end-date': 'تاريخ الانتهاء',
     'add-experience': 'أضف تجربة',
