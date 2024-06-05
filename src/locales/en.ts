@@ -2,6 +2,7 @@ export default {
   heading: {
     welcome: 'Welcome, how can we help you?',
     'jobs-page': 'Job offers',
+    about: '',
   },
   errors: {
     'page-not-found': 'Page Not Found!',

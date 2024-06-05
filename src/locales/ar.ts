@@ -2,6 +2,7 @@ export default {
   heading: {
     welcome: 'مرحبا بيك، كيفاش ممكن نعاونوك ؟',
     'jobs-page': 'عروض العمل',
+    about: '',
   },
   errors: {
     'page-not-found': 'Page Not Found!',
