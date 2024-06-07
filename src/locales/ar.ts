@@ -313,6 +313,6 @@ export default {
     heading: 'كن خبير معانا و استقبل طلبات العمل من اليوم الأول!',
   },
   arabic: 'العربية',
-  english: 'الفرنسية',
-  frensh: 'الإنجليزية',
+  english: 'الإنجليزية',
+  frensh: 'الفرنسية',
 } as const;

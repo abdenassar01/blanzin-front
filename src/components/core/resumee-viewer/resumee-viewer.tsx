@@ -72,7 +72,7 @@ export async function ResumeeViewer() {
             <div className='text-xbase'>
               <Heading heading={t('work-experience')} />
             </div>
-            <div className='ml-4 mt-6 flex flex-col gap-4  text-sm'>
+            <div className='ml-4 mr-4 mt-6 flex flex-col  gap-4 text-sm'>
               {React.Children.toArray(
                 experiences.map((item) => (
                   <div className=''>
@@ -84,7 +84,7 @@ export async function ResumeeViewer() {
                     <div className='my-2 font-bold capitalize'>
                       {item.company}
                     </div>
-                    <ul className='ml-6 list-disc'>
+                    <ul className='ml-6 mr-6 list-disc'>
                       {React.Children.toArray(
                         item.tasks.map((task) => <li className=''>{task}</li>)
                       )}
@@ -98,7 +98,7 @@ export async function ResumeeViewer() {
             <div className='text-xbase'>
               <Heading heading={t('education-level')} />
             </div>
-            <div className='ml-4 mt-6 flex flex-col gap-4  text-sm'>
+            <div className='ml-4 mr-4 mt-6 flex flex-col gap-4 text-sm'>
               {React.Children.toArray(
                 educations.map((item) => (
                   <div className=''>
@@ -120,14 +120,14 @@ export async function ResumeeViewer() {
             <div className='text-xbase'>
               <Heading heading={t('skills')} />
             </div>
-            <ul className='ml-10 mt-6 list-disc'>
+            <ul className='ml-10 mr-10 mt-6 list-disc'>
               {React.Children.toArray(
                 skills.map((skill) => <li className=''>{skill}</li>)
               )}
             </ul>
           </div>
         </div>
-        <div className='rounded-lg p-4 text-secondary shadow-xl dark:text-textdark dark:shadow-black'>
+        <div className='rounded-lg p-4 text-secondary shadow-xl shadow-secondary dark:text-textdark dark:shadow-main'>
           <div className='flex items-center gap-4'>
             <Image
               width={200}

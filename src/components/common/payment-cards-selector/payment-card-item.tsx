@@ -3,8 +3,7 @@
 import React from 'react';
 import { TranslatedText } from '../translated-text';
 import Image from 'next/image';
-import { Button } from '../button';
-import { useScopedI18n } from '@/utils/locales/client';
+import { useCurrentLocale } from '@/utils/locales/client';
 import { cn } from '@/utils';
 
 type Props = {
@@ -36,7 +35,7 @@ export default function PaymentCardItem({
   handlePress,
   selected,
 }: Props) {
-  const t = useScopedI18n('application');
+  const locale = useCurrentLocale();
   return (
     <div
       onClick={handlePress}
@@ -63,7 +62,12 @@ export default function PaymentCardItem({
               )}
               tranlationKey={item.text}
             />
-            <div className='absolute -right-2 top-0'>
+            <div
+              className={cn(
+                'absolute  top-0',
+                locale === 'ar' ? '-left-2' : '-right-2'
+              )}
+            >
               {item?.super ? (
                 item.supported ? (
                   <Image

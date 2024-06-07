@@ -2,15 +2,13 @@
 
 import { cn, useOnHoverOutside, useOutsideClick } from '@/utils';
 import Image from 'next/image';
-import { useRouter, usePathname } from '@/navigation';
-import React, { startTransition, useRef, useState } from 'react';
-import { useParams } from 'next/navigation';
+import React, { useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
-import { useI18n } from '@/utils/locales/client';
+import { useChangeLocale, useI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 
 const languages: {
-  value: string;
+  value: 'en' | 'fr' | 'ar';
   label: 'english' | 'arabic' | 'frensh';
   icon: any;
 }[] = [
@@ -36,20 +34,16 @@ type Props = {
 };
 
 export default function LanguagesToggle({ className }: Props) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const params = useParams();
   const locale = useLocale();
 
   const t = useI18n();
 
   const { theme } = useTheme();
 
-  function onLangClick(nextLocale: string) {
-    startTransition(() => {
-      //@ts-ignore
-      router.replace({ pathname, params }, { locale: nextLocale });
-    });
+  const changeLocale = useChangeLocale();
+
+  function onLangClick(nextLocale: 'en' | 'ar' | 'fr') {
+    changeLocale(nextLocale);
   }
 
   const dropdownRef = useRef(null);
