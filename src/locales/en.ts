@@ -76,7 +76,7 @@ export default {
     'packages-explain':
       'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
     resume: 'Resumee',
-    'lang-certificate': 'German language certificate',
+    'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
     intenship: 'Internship',
     'job-certificates': 'Job certificates',

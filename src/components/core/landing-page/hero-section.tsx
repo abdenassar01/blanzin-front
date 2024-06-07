@@ -14,6 +14,7 @@ type Props = {
 export function HeroSection({ action, header, href, flipped }: Props) {
   return (
     <div
+      dir='ltr'
       className={cn(
         ' container my-12 mb-6 flex w-full items-center justify-center rounded-3xl bg-main py-12 shadow-lg shadow-secondary dark:shadow-main',
         flipped
