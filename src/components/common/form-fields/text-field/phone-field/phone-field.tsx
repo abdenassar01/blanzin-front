@@ -60,6 +60,7 @@ export function PhoneField<V extends FieldValues>({
       </label>
       <div className='relative w-full'>
         <div
+          dir='ltr'
           className={cn(
             'flex w-full gap-2 rounded-lg bg-background pl-2 dark:bg-backgroundDark sm:h-[14.078vw]',
             wrapperClassName
@@ -91,7 +92,7 @@ export function PhoneField<V extends FieldValues>({
             name={name}
             placeholder={placeholder}
             className={cn(
-              'w-full rounded-[10px] border-none bg-backgroundSecondary py-[16px] pl-1.5 pr-6 text-sm leading-4 shadow-lg focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black sm:p-[5.097vw] sm:text-mb-xxs',
+              'w-full rounded-xl border-none bg-backgroundSecondary py-4 pl-1.5 pr-6 font-montserrat text-sm leading-4 shadow-lg focus:outline-none dark:bg-backgroundSecondaryDark dark:shadow-black sm:p-[5.097vw] sm:text-mb-xxs',
               inputClassName
             )}
           />
