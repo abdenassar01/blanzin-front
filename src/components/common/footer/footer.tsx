@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { footerLinks } from '../../../../constants/footer-links';
-import { useI18n } from '@/utils/locales/client';
+import { useCurrentLocale, useI18n } from '@/utils/locales/client';
 import { cn } from '@/utils';
 
 const socialMedia = [
@@ -36,10 +36,19 @@ export function Footer() {
   const { theme } = useTheme();
   let isDark = useMemo(() => theme === 'dark', [theme]);
 
+  const locale = useCurrentLocale();
+
   const t = useI18n();
 
   return (
-    <div className={cn('main-background-gradient py-6')}>
+    <div
+      className={cn(
+        ' py-6',
+        locale === 'ar'
+          ? 'main-background-gradient-flipped'
+          : 'main-background-gradient'
+      )}
+    >
       <div className='container flex flex-wrap items-center justify-between p-4 md:justify-center sm:justify-center'>
         <div className='flex flex-col  items-center justify-center sm:mt-5 sm:w-full'>
           <div className='flex items-center justify-center bg-contain bg-no-repeat'>

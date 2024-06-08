@@ -86,13 +86,13 @@
   padding: 0;
 }
 
+.rodal-close {
+  display: none;
+}
+
 .dots-indicators {
   display: flex !important;
   justify-content: center;
-}
-
-.rodal-close {
-  display: none;
 }
 
 .react-pdf__Page__canvas {
@@ -176,7 +176,11 @@
 }
 
 .main-background-gradient-flipped {
-  background: linear-gradient(135deg, rgb(0, 0, 128) 0%, rgb(255, 204, 0) 100%)
+  background: linear-gradient(
+      135deg,
+      rgb(0, 0, 128) -20%,
+      rgb(255, 204, 0) 100%
+    )
     0px 0px / 436.137px 256px;
 
   background-repeat: no-repeat;
