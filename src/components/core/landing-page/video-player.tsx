@@ -4,7 +4,11 @@ import { Modal } from '@/components';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-export function VideoPlayer() {
+type Props = {
+  video: string;
+};
+
+export function VideoPlayer({ video }: Props) {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
 
   return (
@@ -27,7 +31,7 @@ export function VideoPlayer() {
       >
         <video
           controls
-          src='/video.mp4'
+          src={video}
           className='absolute bottom-0 left-0 right-0 top-0 w-full'
         />
       </Modal>

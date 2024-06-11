@@ -28,7 +28,7 @@ export function HeroSection({ action, header, href, flipped }: Props) {
           flipped ? 'flex-row' : 'text flex-row-reverse'
         )}
       >
-        <VideoPlayer />
+        <VideoPlayer video='/video.mp4' />
         <div className='flex w-full flex-col items-center justify-center gap-10 text-secondary'>
           <h3
             className={cn(
