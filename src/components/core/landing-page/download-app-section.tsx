@@ -1,13 +1,23 @@
 import { Button, ImageShapeMakerSvg } from '@/components';
-import { getI18n } from '@/utils/locales/server';
+import { cn } from '@/utils';
+import { getCurrentLocale, getI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 export async function DownloadAppSection() {
   const t = await getI18n();
+
+  const locale = getCurrentLocale();
   return (
-    <section className="bg-[url('/download-app-background.svg')] bg-cover bg-no-repeat py-12">
+    <section
+      className={cn(
+        'bg-cover bg-no-repeat py-12',
+        locale === 'ar'
+          ? 'main-background-gradient-flipped'
+          : 'main-background-gradient'
+      )}
+    >
       <div className='container flex items-center sm:flex-col-reverse sm:gap-6'>
         <div className='flex w-[50%] items-center justify-center sm:w-full sm:flex-wrap'>
           <ImageShapeMakerSvg

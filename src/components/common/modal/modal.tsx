@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Dispatch, ReactNode, SetStateAction, useMemo } from 'react';
+import React, { Dispatch, ReactNode, SetStateAction } from 'react';
 import { TranslatedHeading } from '..';
 import Image from 'next/image';
 import { cn } from '@/utils';
