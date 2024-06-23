@@ -32,6 +32,7 @@ export default async function TraineePage() {
   return (
     <div className='w-full'>
       <HeroSection
+        video='/trainee.mp4'
         action={t('trainee.hero-action')}
         href='/jobs'
         header={t('trainee.hero-text')}

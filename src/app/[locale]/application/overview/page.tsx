@@ -19,7 +19,7 @@ export default async function PacksPage() {
           <div className='flex justify-center '>
             <video
               controls
-              src='/video.mp4'
+              src='/premium-packages.mov'
               className='w-[70%] rounded-xl sm:w-full'
             />
           </div>
