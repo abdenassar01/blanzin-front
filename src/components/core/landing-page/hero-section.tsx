@@ -9,9 +9,18 @@ type Props = {
   action: string;
   href: string;
   flipped?: boolean;
+  video: string;
+  thumbnail: string;
 };
 
-export function HeroSection({ action, header, href, flipped }: Props) {
+export function HeroSection({
+  action,
+  header,
+  href,
+  flipped,
+  video,
+  thumbnail,
+}: Props) {
   return (
     <div
       dir='ltr'
@@ -28,7 +37,7 @@ export function HeroSection({ action, header, href, flipped }: Props) {
           flipped ? 'flex-row' : 'text flex-row-reverse'
         )}
       >
-        <VideoPlayer video='/video.mp4' />
+        <VideoPlayer thumbnail={thumbnail} video={video} />
         <div className='flex w-full flex-col items-center justify-center gap-10 text-secondary'>
           <h3
             className={cn(

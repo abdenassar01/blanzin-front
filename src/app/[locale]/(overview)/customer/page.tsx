@@ -32,6 +32,8 @@ export default async function CustomerLandingPage() {
   return (
     <div className='w-full'>
       <HeroSection
+        thumbnail='/customer-thumbnail.png'
+        video='/customer.mp4'
         action={t('customer.hero-action')}
         href='/new-order'
         header={t('customer.hero-text')}

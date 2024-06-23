@@ -32,6 +32,8 @@ export default async function ExpertPage() {
   return (
     <div className='w-full'>
       <HeroSection
+        thumbnail='/expert-thumbnail.png'
+        video='/expert.mp4'
         action={t('expert.hero-action')}
         href='/become-expert'
         header={t('expert.hero-text')}

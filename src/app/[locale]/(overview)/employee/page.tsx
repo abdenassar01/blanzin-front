@@ -32,6 +32,8 @@ export default async function EmployeePage() {
   return (
     <div className='w-full'>
       <HeroSection
+        video='/employee.mp4'
+        thumbnail='/employee-thumbnail.png'
         action={t('employee.hero-action')}
         href='/jobs'
         header={t('employee.hero-text')}
