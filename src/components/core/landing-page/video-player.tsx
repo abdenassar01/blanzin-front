@@ -6,9 +6,10 @@ import React, { useRef, useState } from 'react';
 
 type Props = {
   video: string;
+  thumbnail: string;
 };
 
-export function VideoPlayer({ video }: Props) {
+export function VideoPlayer({ video, thumbnail }: Props) {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const vidRef = useRef(null);
 
@@ -16,11 +17,11 @@ export function VideoPlayer({ video }: Props) {
     <>
       <button onClick={() => setVisibleModal((prev) => !prev)}>
         <Image
-          className='w-[70vw] sm:w-[90vw]'
+          className='w-[70vw] rounded-xl sm:w-[90vw]'
           width={350}
           height={275}
-          alt=''
-          src='/video-main.png'
+          alt='Blanzin '
+          src={thumbnail}
         />
       </button>
       <Modal
