@@ -2,7 +2,7 @@
 
 import { Modal } from '@/components';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 type Props = {
   video: string;
@@ -10,6 +10,7 @@ type Props = {
 
 export function VideoPlayer({ video }: Props) {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
+  const vidRef = useRef(null);
 
   return (
     <>
@@ -23,6 +24,8 @@ export function VideoPlayer({ video }: Props) {
         />
       </button>
       <Modal
+        // @ts-ignore
+        callback={() => vidRef?.current?.pause()}
         width={108}
         height={60}
         className='relative !aspect-video overflow-hidden p-0'
@@ -30,6 +33,7 @@ export function VideoPlayer({ video }: Props) {
         visible={visibleModal}
       >
         <video
+          ref={vidRef}
           controls
           src={video}
           className='absolute bottom-0 left-0 right-0 top-0 w-full'

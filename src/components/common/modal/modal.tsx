@@ -17,6 +17,7 @@ type Props = {
   width?: number;
   height?: number;
   measure?: string;
+  callback?: () => void;
 };
 
 export const Modal = ({
@@ -28,6 +29,7 @@ export const Modal = ({
   height,
   width,
   measure,
+  callback,
 }: Props) => {
   const { theme } = useTheme();
 
@@ -37,7 +39,10 @@ export const Modal = ({
       height={height || isMobile ? 50 : 80}
       measure={measure || isMobile ? 'vw' : 'vh'}
       customStyles={{ borderRadius: 20 }}
-      onClose={() => setVisible(false)}
+      onClose={() => {
+        setVisible(false);
+        callback && callback();
+      }}
       visible={visible}
       closeOnEsc
     >
