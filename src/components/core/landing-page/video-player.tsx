@@ -27,8 +27,6 @@ export function VideoPlayer({ video, thumbnail }: Props) {
       <Modal
         // @ts-ignore
         callback={() => vidRef?.current?.pause()}
-        width={108}
-        height={60}
         className='relative !aspect-video overflow-hidden p-0'
         setVisible={setVisibleModal}
         visible={visibleModal}
