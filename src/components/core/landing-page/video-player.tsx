@@ -20,11 +20,13 @@ export function VideoPlayer({ video, thumbnail }: Props) {
           className='w-[70vw] rounded-xl sm:w-[90vw]'
           width={350}
           height={275}
-          alt='Blanzin '
+          alt='Blanzin'
           src={thumbnail}
         />
       </button>
       <Modal
+        width={108}
+        height={60}
         // @ts-ignore
         callback={() => vidRef?.current?.pause()}
         className='relative !aspect-video overflow-hidden p-0'
