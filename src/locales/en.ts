@@ -131,7 +131,7 @@ export default {
     'call-to-action-heading':
       'Blanzin: Your Gateway to Exciting Career Opportunities',
     'call-to-action-paragraph':
-      "Welcome to Blanzin, where your professional journey begins anew. Whether you're starting fresh or bringing experience, opportunities abound here.",
+      "Choose our Premium Package and let us handle the job search for you! With our extensive network in Germany, we'll find the perfect job for you. Save time and effort, and benefit from our expertise to make your professional dream in Germany come true.",
     'call-to-action':
       'Register today and start your journey to <strong>success</strong>',
     'call-to-action-btn': 'Start now!',
@@ -154,7 +154,7 @@ export default {
     'hero-action': 'Find Trainings!',
     'call-to-action-heading': 'Start your career in Germany with Blanzin',
     'call-to-action-paragraph':
-      'Welcome to Blanzin, your gateway to an exciting professional future. \nWhether you have just finished school or already have experience in the world of work, you will find the right opportunity to realise your dreams with us.',
+      "Choose our Premium Package and let us handle the job search for you! With our extensive network in Germany, we'll find the perfect job for you. Save time and effort, and benefit from our expertise to make your professional dream in Germany come true.",
     'call-to-action':
       'Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY!</strong>',
     'call-to-action-btn': 'Start now!',

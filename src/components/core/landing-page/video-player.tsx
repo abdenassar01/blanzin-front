@@ -11,7 +11,7 @@ type Props = {
 
 export function VideoPlayer({ video, thumbnail }: Props) {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
-  const vidRef = useRef(null);
+  const vidRef = useRef<any>(null);
 
   return (
     <>
@@ -27,7 +27,6 @@ export function VideoPlayer({ video, thumbnail }: Props) {
       <Modal
         width={108}
         height={60}
-        // @ts-ignore
         callback={() => vidRef?.current?.pause()}
         className='relative !aspect-video overflow-hidden p-0'
         setVisible={setVisibleModal}
