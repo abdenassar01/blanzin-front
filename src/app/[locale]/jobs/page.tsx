@@ -27,7 +27,7 @@ export default async function JobsPage() {
                 <JobMainCard />
                 <JobMainCard />
                 <div className='flex justify-center'>
-                  <Button className='' text='Load More' />
+                  <Button width='20%' className='' text='Load More' />
                 </div>
               </div>
             </div>
