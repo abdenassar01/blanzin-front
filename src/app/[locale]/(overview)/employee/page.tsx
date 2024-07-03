@@ -15,17 +15,17 @@ export default async function EmployeePage() {
     {
       step: `${t('step-heading')} 1`,
       icon: '/steps/step-1.jpeg',
-      text: t('employee-steps.find-expert-step-one'),
+      text: t('jobs-in-germany-steps.first'),
     },
     {
       step: `${t('step-heading')} 2`,
       icon: '/steps/step-2.jpeg',
-      text: t('employee-steps.find-expert-step-two'),
+      text: t('jobs-in-germany-steps.second'),
     },
     {
       step: `${t('step-heading')} 3`,
       icon: '/steps/step-3.jpeg',
-      text: t('employee-steps.find-expert-step-three'),
+      text: t('jobs-in-germany-steps.third'),
     },
   ];
 
@@ -50,7 +50,7 @@ export default async function EmployeePage() {
       <LatestJobs />
       <DownloadAppSection />
       <WalkThroughtSteps
-        header={t('employee-steps.big-header')}
+        header={t('jobs-in-germany-steps.header')}
         steps={steps}
       />
     </div>
