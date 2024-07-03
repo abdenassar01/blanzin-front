@@ -62,17 +62,31 @@ export function StepFour({ control, isBack }: Props) {
           inputClassName='dark:bg-backgroundDark'
           className='w-[49%] sm:w-full'
         />
-        <DatePicker
-          control={control}
-          name='jobPeroid'
-          label={t('forms.peroid')}
-          placeholder={t('forms.peroid')}
-          wrapperClassName='w-[49%] sm:w-full'
-          minimumDate={new Date()}
-          className='dark:bg-backgroundDark'
-          maximumDate={maxDate}
-          selectRange
-        />
+        <div className='flex w-[49%] gap-2 sm:w-full'>
+          <DatePicker
+            control={control}
+            name='jobPeroid'
+            label={t('forms.start-date')}
+            placeholder={t('forms.start-date')}
+            wrapperClassName=''
+            minimumDate={new Date()}
+            className='dark:bg-backgroundDark'
+            maximumDate={maxDate}
+            selectRange
+          />
+          <DatePicker
+            control={control}
+            name='jobPeroid'
+            label={t('forms.end-date')}
+            placeholder={t('forms.end-date')}
+            wrapperClassName=''
+            minimumDate={new Date()}
+            className='dark:bg-backgroundDark'
+            maximumDate={maxDate}
+            selectRange
+          />
+        </div>
+
         <TextArea
           control={control}
           label={t('forms.description')}
