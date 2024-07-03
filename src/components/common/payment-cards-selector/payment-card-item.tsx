@@ -11,21 +11,19 @@ type Props = {
   handlePress: () => any;
   pack: {
     id: number;
-    title: string;
-    offers: (
-      | {
-          text: string;
-          super: boolean;
-          supported: boolean;
-          qte?: undefined;
-        }
-      | {
-          text: string;
-          qte: string;
-          supported: boolean;
-          super?: undefined;
-        }
-    )[];
+    title: {
+      en: string;
+      ar: string;
+      fr: string;
+    };
+    offers: {
+      en: string;
+      ar: string;
+      fr: string;
+      qte?: string;
+      supported: boolean;
+      super?: boolean;
+    }[];
     price: number;
   };
 };
@@ -40,19 +38,19 @@ export default function PaymentCardItem({
     <div
       onClick={handlePress}
       className={cn(
-        ' relative max-w-[32%] cursor-pointer rounded-xl border-[1px] border-border bg-backgroundSecondary p-4 transition-all duration-300 dark:bg-backgroundSecondaryDark',
+        'relative cursor-pointer rounded-xl border-[1px] border-border bg-backgroundSecondary p-4 transition-all duration-300 dark:bg-backgroundSecondaryDark',
         selected
           ? '-mt-3 border-main bg-main shadow-xl shadow-secondary dark:bg-main dark:shadow-main'
           : 'mt-3 border-border hover:shadow-md hover:shadow-secondary'
       )}
     >
       <div className='text-center text-xl font-bold text-secondary dark:text-main'>
-        {pack.title}
+        {pack.title[locale]}
       </div>
 
       {React.Children.toArray(
         pack.offers.map((item) => (
-          <div className='relative my-2 flex'>
+          <div className='relative my-4 flex'>
             <TranslatedText
               className={cn(
                 'w-[70%] text-xs font-medium',
@@ -60,7 +58,7 @@ export default function PaymentCardItem({
                   ? 'text-secondary dark:text-backgroundSecondaryDark'
                   : 'text-text dark:text-textdark'
               )}
-              tranlationKey={item.text}
+              tranlationKey={item[locale]}
             />
             <div
               className={cn(

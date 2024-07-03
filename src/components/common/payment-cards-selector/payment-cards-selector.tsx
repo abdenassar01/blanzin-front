@@ -12,87 +12,69 @@ type Props = {
 const packs = [
   {
     id: 1,
-    title: 'Basic',
+    title: {
+      en: 'Blan 3adi',
+      ar: 'ar- Blan 3adi',
+      fr: 'fr- Blan 3adi',
+    },
     offers: [
       {
-        text: 'Personal support with employer selection in Germany.',
+        en: 'Review and optimisation of application documents.',
+        ar: 'ar- Review and optimisation of application documents.',
+        fr: 'fr- Review and optimisation of application documents.',
         super: true,
         supported: true,
       },
+
       {
-        text: 'Review and optimisation of application documents.',
-        super: true,
+        en: 'Job interviews',
+        ar: 'ar- Job interviews',
+        fr: 'fr- Job interviews',
+        qte: 'x3',
         supported: true,
       },
       {
-        text: 'Personal support and assistance from our experts.',
-        supported: false,
-        super: true,
-      },
-      { text: 'Job interviews', qte: 'x3', supported: true },
-      {
-        text: 'Video call counselling bevor the first interview',
+        en: 'Video call counselling before the first interview',
+        ar: 'ar- Video call counselling before the first interview',
+        fr: 'fr- Video call counselling before the first interview',
         super: true,
         supported: false,
       },
     ],
-    price: 1500,
+    price: 900,
   },
   {
-    id: 2,
-    title: 'Standard',
+    id: 3,
+    title: {
+      en: 'Blan Zin',
+      ar: 'ar- Blan Zin',
+      fr: 'fr- Blan Zin',
+    },
     offers: [
       {
-        text: 'Personal support with employer selection in Germany.',
+        en: 'Review and optimisation of application documents.',
+        ar: 'ar- Review and optimisation of application documents.',
+        fr: 'fr- Review and optimisation of application documents.',
         super: true,
         supported: true,
       },
+
       {
-        text: 'Review and optimisation of application documents.',
-        super: true,
+        en: 'Job interviews',
+        ar: 'ar- Job interviews',
+        fr: 'fr- Job interviews',
+        qte: 'x1',
         supported: true,
       },
       {
-        text: 'Personal support and assistance from our experts.',
-        supported: true,
-        super: true,
-      },
-      { text: 'Job interviews', qte: 'Unlimited', supported: true },
-      {
-        text: 'Video call counselling bevor the first interview',
+        en: 'Video call counselling before the first interview',
+        ar: 'ar- Video call counselling before the first interview',
+        fr: 'fr- Video call counselling before the first interview',
         qte: 'x1',
         supported: true,
       },
     ],
-    price: 2500,
-  },
-  {
-    id: 3,
-    title: 'Premium',
-    offers: [
-      {
-        text: 'Personal support with employer selection in Germany.',
-        super: true,
-        supported: true,
-      },
-      {
-        text: 'Review and optimisation of application documents.',
-        super: true,
-        supported: true,
-      },
-      {
-        text: 'Personal support and assistance from our experts.',
-        supported: true,
-        super: true,
-      },
-      { text: 'Job interviews', qte: 'Unlimited', supported: true },
-      {
-        text: 'Video call counselling bevor the first interview',
-        supported: true,
-        qte: 'Unlimited',
-      },
-    ],
-    price: 3500,
+    price: 1600,
   },
 ];
 
@@ -102,16 +84,18 @@ export function PaymentCardsSelector({ control, name }: Props) {
   } = useController({ control, name });
 
   return (
-    <div className='flex justify-between sm:flex-col'>
-      {React.Children.toArray(
-        packs.map((card) => (
-          <PaymentCardItem
-            selected={value === card.id}
-            handlePress={() => onChange(card.id)}
-            pack={card}
-          />
-        ))
-      )}
+    <div className='flex w-full items-center justify-center'>
+      <div className='flex gap-3 sm:flex-col'>
+        {React.Children.toArray(
+          packs.map((card) => (
+            <PaymentCardItem
+              selected={value === card.id}
+              handlePress={() => onChange(card.id)}
+              pack={card}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 }
