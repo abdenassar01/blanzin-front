@@ -294,8 +294,11 @@ export default {
     applicants: 'Applicants list',
     'send-offer': 'Send offer',
     'similar-orders': 'Similar orders',
+    delete: 'Remove',
+    update: 'Update',
   },
   'new-order-header': 'Add a new order',
+  'update-order-header': 'Update your order',
   'otp-request-text':
     'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':

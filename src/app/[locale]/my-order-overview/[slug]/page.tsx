@@ -1,5 +1,6 @@
 import {
   Button,
+  DeleteOrderModal,
   Heading,
   OrderImagesSlider,
   OrderStats,
@@ -8,6 +9,7 @@ import {
 import { getScopedI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 export default async function MyOrderDetails() {
   const t = await getScopedI18n('order');
@@ -32,14 +34,10 @@ export default async function MyOrderDetails() {
           </div>
           <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark md:mt-4 md:w-full sm:w-full'>
             <div className='mb-4 flex items-center gap-2'>
-              <Button text={t('send-offer')} />
-              <div className='rounded-full  bg-secondary p-2'>
-                <Image
-                  className='icon'
-                  alt='blanzin favourite'
-                  src={require('@/assets/images/icons/dark/favourite-fill.svg')}
-                />
-              </div>
+              <Link className='w-full' href='/update-order/my-order'>
+                <Button className='' text={t('update')} theme='secondary' />
+              </Link>
+              <DeleteOrderModal text={t('delete')} />
             </div>
             <div className='text-xbase font-bold'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
