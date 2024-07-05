@@ -299,6 +299,10 @@ export default {
     rate: 'Rate',
     apply: 'Apply',
   },
+  'orders-filter': {
+    active: 'Active orders',
+    done: 'Finished orders',
+  },
   'chat-options': {
     location: 'Send location',
     document: 'Upload document',

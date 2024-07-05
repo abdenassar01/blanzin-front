@@ -4,3 +4,4 @@ export { ProfilePicker } from './profile-picker';
 export { ProfileSidebar } from './profile-sidebar';
 export { DocumentViewerWithModal } from './document-viewer-with-modal';
 export { SettingsSidebar } from './settings-sidebar';
+export { OrderFilter } from './order-filter';
