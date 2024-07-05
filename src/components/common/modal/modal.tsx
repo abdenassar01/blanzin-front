@@ -14,6 +14,7 @@ type Props = {
   setVisible: Dispatch<SetStateAction<boolean>>;
   header?: string;
   className?: string;
+  contentClassName?: string;
   width?: number;
   height?: number;
   measure?: string;
@@ -29,6 +30,7 @@ export const Modal = ({
   height,
   width,
   measure,
+  contentClassName,
   callback,
 }: Props) => {
   const { theme } = useTheme();
@@ -48,7 +50,7 @@ export const Modal = ({
     >
       <div
         className={cn(
-          'h-full w-full  rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundSecondaryDark',
+          'h-full w-full rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundDark',
           className
         )}
       >
@@ -76,7 +78,12 @@ export const Modal = ({
             />
           </button>
         </div>
-        <div className='no-scrollbar max-h-[90%] overflow-y-scroll'>
+        <div
+          className={cn(
+            'no-scrollbar max-h-[90%] overflow-y-scroll',
+            contentClassName
+          )}
+        >
           {children}
         </div>
       </div>

@@ -4,6 +4,11 @@ export default {
     'jobs-page': 'Job offers',
     about: '',
   },
+  modal: {
+    delete: 'Are you sure you want to continue deleting this item?',
+    yes: 'Yes, sure',
+    cancel: 'Cancel',
+  },
   errors: {
     'page-not-found': 'Page Not Found!',
     'phone-required': 'Phone number is required',
@@ -285,8 +290,11 @@ export default {
     'skill-value': 'Selected skills:',
     'free-text': 'Type description as free text',
   },
-  'send-offer': 'Send offer',
-  'similar-orders': 'Similar orders',
+  order: {
+    applicants: 'Applicants list',
+    'send-offer': 'Send offer',
+    'similar-orders': 'Similar orders',
+  },
   'new-order-header': 'Add a new order',
   'otp-request-text':
     'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',

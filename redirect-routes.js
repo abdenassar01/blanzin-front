@@ -29,4 +29,10 @@ module.exports = [
     permanent: true,
     locale: false,
   },
+  {
+    source: '/my-order-overview',
+    destination: '/customer',
+    permanent: true,
+    locale: false,
+  },
 ];

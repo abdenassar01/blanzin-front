@@ -1,17 +1,16 @@
 import {
   Button,
   Heading,
-  LatestOrderSlider,
   OrderImagesSlider,
   OrderStats,
   ProfileWidget,
 } from '@/components';
-import { getI18n } from '@/utils/locales/server';
+import { getScopedI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
 
-export default async function OrderDetails() {
-  const t = await getI18n();
+export default async function MyOrderDetails() {
+  const t = await getScopedI18n('order');
 
   return (
     <div className='my-12'>
@@ -49,12 +48,17 @@ export default async function OrderDetails() {
             <div className='my-4 flex flex-col gap-2'>
               <OrderStats date='20-12-2024' location='Casablanca' price={250} />
             </div>
-            <ProfileWidget />
+            <div className='text-secondary'>
+              <Heading
+                heading={t('applicants')}
+                className='mt-12 text-center text-xxl font-bold'
+              />
+              <ProfileWidget />
+              <ProfileWidget />
+              <ProfileWidget />
+              <ProfileWidget />
+            </div>
           </div>
-        </div>
-        <div className='mt-2  gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark'>
-          <Heading className='mt-2 text-xl' heading={t('similar-orders')} />
-          <LatestOrderSlider />
         </div>
       </div>
     </div>
