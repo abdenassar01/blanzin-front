@@ -26,7 +26,7 @@ export function DocsFilter({
     { label: t('lang-certificate'), doc: 'lang' },
     { label: t('job-certificates'), doc: 'jobs' },
     { label: t('diploma'), doc: 'diploma' },
-    { label: t('intenship'), doc: 'intenship' },
+    { label: t('internship'), doc: 'internship' },
     { label: t('acknowledgement'), doc: 'acknowledgement' },
   ];
 

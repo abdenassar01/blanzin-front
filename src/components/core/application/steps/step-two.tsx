@@ -32,8 +32,8 @@ export function StepTwo({ control }: Props) {
         return t('job-certificates');
       case 'diploma':
         return t('diploma');
-      case 'intenship':
-        return t('intenship');
+      case 'internship':
+        return t('internship');
       case 'acknowledgement':
         return t('acknowledgement');
       default:
@@ -49,7 +49,7 @@ export function StepTwo({ control }: Props) {
         return form.jobs;
       case 'diploma':
         return form.diploma;
-      case 'intenship':
+      case 'internship':
         return form.intenship;
       case 'acknowledgement':
         return form.acknowledgement;

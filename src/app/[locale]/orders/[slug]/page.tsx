@@ -6,12 +6,12 @@ import {
   OrderStats,
   ProfileWidget,
 } from '@/components';
-import { getI18n } from '@/utils/locales/server';
+import { getI18n, getScopedI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
 
 export default async function OrderDetails() {
-  const t = await getI18n();
+  const t = await getScopedI18n('order');
 
   return (
     <div className='my-12'>
