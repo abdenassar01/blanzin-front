@@ -46,6 +46,7 @@ export function OrderFilter(props: Props) {
         {React.Children.toArray(
           [1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
             <OrderCard
+              self
               className='w-[32%] shadow-lg sm:w-full'
               createdAt={new Date()}
               image='/house.jpg'

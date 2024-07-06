@@ -51,6 +51,50 @@
   border-radius: 99px;
 }
 
+
+.rdw-editor-toolbar,
+.rdw-inline-wrapper,
+.rdw-text-align-wrapper,
+.rdw-list-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rdw-text-align-wrapper {
+  margin: 5px 20px;
+  border-radius: 10px;
+  padding: 0 5px;
+  background: #f3f4f6;
+}
+
+.rdw-option-wrapper {
+  height: 50px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rdw-option-wrapper img {
+  height: 50%;
+  object-fit: contain;
+}
+
+.rdw-option-wrapper,
+.rdw-option-active {
+  border: none !important;
+  color: #0a2a43 !important;
+  padding: 3px;
+}
+
+.rdw-option-active {
+  background-color: #ffcc00 !important;
+  box-shadow: none !important;
+}
+
 .no-scrollbar::-webkit-scrollbar,
 .no-scrollbar::-webkit-scrollbar-thumb,
 .no-scrollbar::-webkit-scrollbar-track {

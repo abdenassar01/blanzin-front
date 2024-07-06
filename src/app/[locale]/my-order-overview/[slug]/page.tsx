@@ -1,6 +1,7 @@
 import {
   Button,
   DeleteOrderModal,
+  ExpertOffer,
   Heading,
   OrderImagesSlider,
   OrderStats,
@@ -51,10 +52,9 @@ export default async function MyOrderDetails() {
                 heading={t('applicants')}
                 className='mt-12 text-center text-xxl font-bold'
               />
-              <ProfileWidget />
-              <ProfileWidget />
-              <ProfileWidget />
-              <ProfileWidget />
+              <ExpertOffer />
+              <ExpertOffer />
+              <ExpertOffer />
             </div>
           </div>
         </div>

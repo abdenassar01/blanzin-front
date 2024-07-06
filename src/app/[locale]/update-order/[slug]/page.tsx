@@ -1,6 +1,7 @@
-import { Heading, NewOrderForm } from '@/components';
+import { Heading } from '@/components';
 import { getI18n } from '@/utils/locales/server';
 import React from 'react';
+import { UpdateOrderForm } from '@/components/core/update-order';
 
 export default async function NewOrder() {
   const t = await getI18n();
@@ -10,7 +11,7 @@ export default async function NewOrder() {
         <div className='text-xxm'>
           <Heading heading={t('update-order-header')} className='mb-3' />
         </div>
-        <NewOrderForm />
+        <UpdateOrderForm />
       </div>
     </div>
   );

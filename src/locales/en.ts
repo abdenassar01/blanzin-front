@@ -266,6 +266,7 @@ export default {
     feedback: 'Tell us more...',
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
+    max: 'Max. {max} characters - {left} characters left',
   },
   blog: {
     header: 'Welcome to the Blanzin Blog',
