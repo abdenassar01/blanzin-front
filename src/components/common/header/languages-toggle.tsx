@@ -1,6 +1,6 @@
 'use client';
 
-import { cn, useOnHoverOutside, useOutsideClick } from '@/utils';
+import { cn, useOutsideClick } from '@/utils';
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import { useLocale } from 'next-intl';
@@ -9,7 +9,7 @@ import { useTheme } from 'next-themes';
 
 const languages: {
   value: 'en' | 'fr' | 'ar';
-  label: 'english' | 'arabic' | 'frensh';
+  label: 'english' | 'arabic' | 'french';
   icon: any;
 }[] = [
   {
@@ -19,7 +19,7 @@ const languages: {
   },
   {
     value: 'fr',
-    label: 'frensh',
+    label: 'french',
     icon: require('@/assets/images/languages/frensh.png'),
   },
   {
@@ -55,16 +55,12 @@ export default function LanguagesToggle({ className }: Props) {
     setShowLanguesDropdown(false);
   };
 
-  useOnHoverOutside(dropdownRef, closeDropdown);
   useOutsideClick(dropdownRef, closeDropdown);
 
   return (
     <div ref={dropdownRef} className='relative'>
       <div
         onClick={() => {
-          setShowLanguesDropdown((prev) => !prev);
-        }}
-        onMouseMove={() => {
           setShowLanguesDropdown((prev) => !prev);
         }}
       >

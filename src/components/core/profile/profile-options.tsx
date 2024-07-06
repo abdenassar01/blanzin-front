@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Modal } from '@/components/common';
-import { useI18n } from '@/utils/locales/client';
+import { useI18n, useScopedI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React, { useState } from 'react';
@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 type Props = {};
 
 export function ProfileOptions({}: Props) {
-  const t = useI18n();
+  const t = useScopedI18n('order');
 
   const [favourite, setFavourite] = useState<boolean>(false);
   const [showReportModal, setShowReportModal] = useState<boolean>(false);

@@ -4,8 +4,8 @@ import moment from 'moment';
 import Image from 'next/image';
 import React from 'react';
 
-export async function ResumeeViewer() {
-  const t = await getScopedI18n('resumee');
+export async function ResumeViewer() {
+  const t = await getScopedI18n('resume');
 
   const infos = [
     {
@@ -22,7 +22,7 @@ export async function ResumeeViewer() {
     },
     {
       label: t('languages'),
-      value: 'English, German, Frensch',
+      value: 'English, German, French',
       icon: require('@/assets/images/icons/light/languages.svg'),
       darkIcon: require('@/assets/images/icons/dark/languages.svg'),
     },

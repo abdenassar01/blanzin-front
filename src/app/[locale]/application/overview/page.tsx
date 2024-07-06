@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 
 export default async function PacksPage() {
-  const t = await getScopedI18n('premuim-pack');
+  const t = await getScopedI18n('premium-pack');
 
   return (
     <div className='my-12'>

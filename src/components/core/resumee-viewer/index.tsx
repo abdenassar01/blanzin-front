@@ -1,1 +1,1 @@
-export { ResumeeViewer } from './resumee-viewer';
+export { ResumeViewer } from './resume-viewer';

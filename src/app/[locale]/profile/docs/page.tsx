@@ -20,7 +20,7 @@ export default function MyDocumentsPage() {
       lang: [],
       jobs: [],
       diploma: [],
-      intenship: [],
+      internship: [],
       acknowledgement: [],
     },
   });
@@ -57,10 +57,10 @@ export default function MyDocumentsPage() {
       case 'intenship':
         return (
           <FileUploadDropableGallery
-            items={watch('intenship')}
+            items={watch('internship')}
             control={control}
             name='internship'
-            label={applicationT('intenship')}
+            label={applicationT('internship')}
           />
         );
       case 'acknowledgement':

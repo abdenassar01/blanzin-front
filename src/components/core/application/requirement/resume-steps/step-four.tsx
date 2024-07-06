@@ -1,4 +1,4 @@
-import { DescriptionField } from '@/components';
+import { DescriptionField, LanguagesField } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { Control, useWatch } from 'react-hook-form';
@@ -12,6 +12,8 @@ export function StepFour({ control }: Props) {
   const t = useScopedI18n('forms');
   const suggestionsT = useScopedI18n('suggestions');
 
+  const { languages } = useWatch({ control });
+
   return (
     <div className='mb-10 flex flex-col gap-4 overflow-y-scroll'>
       <DescriptionField
@@ -24,15 +26,13 @@ export function StepFour({ control }: Props) {
         suggestionsLabel={suggestionsT('skill')}
         valuesLabel={suggestionsT('skill-value')}
       />
-      <DescriptionField
+      <LanguagesField
+        items={languages}
+        extractDisplayString={(item: any) => `${item.language} - ${item.level}`}
+        extractLanguage={(item) => item.language}
         control={control}
-        items={['Copyrighting', 'Arabic', 'English', 'Frensh']}
+        name='languages'
         label={t('language-skills')}
-        name='languageSkills'
-        suggestions={languageSkills}
-        placeholder={suggestionsT('free-text')}
-        suggestionsLabel={suggestionsT('skill')}
-        valuesLabel={suggestionsT('skill-value')}
       />
     </div>
   );

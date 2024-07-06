@@ -15,17 +15,17 @@ export default async function CustomerLandingPage() {
     {
       step: `${t('step-heading')} 1`,
       icon: '/steps/step-1.jpeg',
-      text: t('customer-steps.find-expert-step-one'),
+      text: t('customer-steps.first'),
     },
     {
       step: `${t('step-heading')} 2`,
       icon: '/steps/step-2.jpeg',
-      text: t('customer-steps.find-expert-step-two'),
+      text: t('customer-steps.second'),
     },
     {
       step: `${t('step-heading')} 3`,
       icon: '/steps/step-3.jpeg',
-      text: t('customer-steps.find-expert-step-three'),
+      text: t('customer-steps.third'),
     },
   ];
 
@@ -47,10 +47,7 @@ export default async function CustomerLandingPage() {
         screenshot='/screenshots/blanzin-dark.jpg'
       />
       <DownloadAppSection />
-      <WalkThroughtSteps
-        steps={steps}
-        header={t('customer-steps.big-header')}
-      />
+      <WalkThroughtSteps steps={steps} header={t('customer-steps.header')} />
     </div>
   );
 }

@@ -21,6 +21,7 @@ export function SettingsSidebar({
   const { push } = useRouter();
   const role = searchParams.get('role');
   const tab = searchParams.get('tab');
+  const pathname = usePathname();
 
   const tabs = [
     { label: t('appearance'), tab: 'appearance' },
@@ -34,9 +35,7 @@ export function SettingsSidebar({
         ? pathname + '?tab=appearance'
         : pathname + '?role=' + role + '&tab=appearance'
     );
-  }, []);
-
-  const pathname = usePathname();
+  }, [noRole, push, role, pathname]);
 
   return (
     <div className={cn('flex w-full flex-col gap-4', className)}>

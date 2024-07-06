@@ -1,16 +1,18 @@
 import {
   Button,
+  DeleteOrderModal,
+  ExpertOffer,
   Heading,
-  LatestOrderSlider,
   OrderImagesSlider,
   OrderStats,
   ProfileWidget,
 } from '@/components';
-import { getI18n, getScopedI18n } from '@/utils/locales/server';
+import { getScopedI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
-export default async function OrderDetails() {
+export default async function MyOrderDetails() {
   const t = await getScopedI18n('order');
 
   return (
@@ -33,14 +35,10 @@ export default async function OrderDetails() {
           </div>
           <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark md:mt-4 md:w-full sm:w-full'>
             <div className='mb-4 flex items-center gap-2'>
-              <Button text={t('send-offer')} />
-              <div className='rounded-full  bg-secondary p-2'>
-                <Image
-                  className='icon'
-                  alt='blanzin favourite'
-                  src={require('@/assets/images/icons/dark/favourite-fill.svg')}
-                />
-              </div>
+              <Link className='w-full' href='/update-order/my-order'>
+                <Button className='' text={t('update')} theme='secondary' />
+              </Link>
+              <DeleteOrderModal text={t('delete')} />
             </div>
             <div className='text-xbase font-bold'>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -49,12 +47,16 @@ export default async function OrderDetails() {
             <div className='my-4 flex flex-col gap-2'>
               <OrderStats date='20-12-2024' location='Casablanca' price={250} />
             </div>
-            <ProfileWidget />
+            <div className='text-secondary'>
+              <Heading
+                heading={t('applicants')}
+                className='mt-12 text-center text-xxl font-bold'
+              />
+              <ExpertOffer />
+              <ExpertOffer />
+              <ExpertOffer />
+            </div>
           </div>
-        </div>
-        <div className='mt-2  gap-2 rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark'>
-          <Heading className='mt-2 text-xl' heading={t('similar-orders')} />
-          <LatestOrderSlider />
         </div>
       </div>
     </div>

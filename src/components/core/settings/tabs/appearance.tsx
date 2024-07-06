@@ -27,7 +27,7 @@ export function AppearanceTab() {
 
   const languages: {
     value: 'en' | 'fr' | 'ar';
-    label: 'english' | 'arabic' | 'frensh';
+    label: 'english' | 'arabic' | 'french';
     icon: any;
   }[] = [
     {
@@ -37,7 +37,7 @@ export function AppearanceTab() {
     },
     {
       value: 'fr',
-      label: 'frensh',
+      label: 'french',
       icon: require('@/assets/images/languages/frensh.png'),
     },
     {
@@ -57,7 +57,7 @@ export function AppearanceTab() {
       </div>
       <div className='flex items-center justify-between'>
         <div className='font-meduim text-base text-text dark:text-textdark'>
-          {t('appearance-settings.langue')}
+          {t('appearance-settings.language')}
         </div>
         <div className='mt-4 flex gap-2'>
           {React.Children.toArray(

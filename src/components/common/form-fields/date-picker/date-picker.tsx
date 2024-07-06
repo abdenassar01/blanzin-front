@@ -28,7 +28,7 @@ export function DatePicker({
 }: Props) {
   const {
     fieldState: { error },
-    field: { onChange },
+    field: { onChange, value },
   } = useController({
     control,
     name: name,
@@ -57,7 +57,7 @@ export function DatePicker({
         id={name}
         onChange={(e) => {
           const date = e.currentTarget.value.split('-');
-          onChange(date[2] + '/' + date[1] + '/' + date[0]);
+          onChange(date[1] + '/' + date[2] + '/' + date[0]);
         }}
       />
       <div className='text-sm text-error'>{error?.message}</div>

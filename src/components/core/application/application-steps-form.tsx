@@ -21,7 +21,7 @@ export function ApplicationStepsForm({}: Props) {
       lang: [],
       jobs: [],
       diploma: [],
-      intenship: [],
+      internship: [],
       acknowledgement: [],
     },
   });
@@ -95,7 +95,7 @@ export function ApplicationStepsForm({}: Props) {
       <div className='mt-10 flex w-full justify-end'>
         <div className='w-[20%] sm:w-[50%]'>
           <Button
-            disabled={errors ? true : false}
+            disabled={!!errors}
             theme='success'
             text={t('submit')}
             onClick={handleSubmit(onSubmit)}

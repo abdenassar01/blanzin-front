@@ -4,14 +4,19 @@ export default {
     'jobs-page': 'Job offers',
     about: '',
   },
+  modal: {
+    delete: 'Are you sure you want to continue deleting this item?',
+    yes: 'Yes, sure',
+    cancel: 'Cancel',
+  },
   errors: {
     'page-not-found': 'Page Not Found!',
     'phone-required': 'Phone number is required',
     'phone-invalid': 'Phone number is invalid',
     'password-required': 'Password is required',
-    'password-invalid': 'Password is not strong enought',
+    'password-invalid': 'Password is not strong enough',
     'password-confirm-required': 'Password confirm is required',
-    'password-mismatch': "The passwords does'nt match",
+    'password-mismatch': "The passwords doesn't match",
   },
   titles: {
     'service-placement': 'Service Placement',
@@ -22,7 +27,7 @@ export default {
     unread: 'unread',
     stars: 'stars',
   },
-  resumee: {
+  resume: {
     experience: 'Experience',
     'work-experience': 'Work experience',
     'education-level': 'Education',
@@ -53,7 +58,7 @@ export default {
     'new-order': 'New Order',
     docs: 'My documents',
     settings: 'Settings',
-    resume: 'My resumee',
+    resume: 'My resume',
   },
   settings: {
     security: 'Security',
@@ -69,16 +74,16 @@ export default {
   },
   'appearance-settings': {
     theme: 'Dark theme',
-    langue: 'Current Language',
+    language: 'Current Language',
   },
   application: {
     Heading: 'Check application requirements',
     'packages-explain':
       'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
-    resume: 'Resumee',
+    resume: 'Resume',
     'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
-    intenship: 'Internship',
+    internship: 'Internship',
     'job-certificates': 'Job certificates',
     acknowledgement: 'Acknowledgement (optional)',
     'action-btn': 'Choose your package!',
@@ -91,7 +96,7 @@ export default {
     book: 'Continue booking',
     submit: 'Send application',
   },
-  'premuim-pack': {
+  'premium-pack': {
     header: 'Welcome to our exclusive package',
     text: 'Discover how our platform can help you find your dream job in Germany. In this video, we show you how easy it is to take the first step towards your professional goals.',
     'check-heading':
@@ -163,32 +168,26 @@ export default {
   'download-app-heading': 'Get your task done without lifting a finger!',
   'download-app-btn-text': 'Download the App',
   'view-all': 'View all offers',
-  location: 'Locatin',
+  location: 'Location',
   'step-heading': 'Step',
   date: 'Date',
   'customer-steps': {
-    'big-header': 'How to find the right expert',
-    'find-expert-step-one': 'Place your order free of charge',
-    'find-expert-step-two': 'Experts answer you',
-    'find-expert-step-three': 'Compare expert profiles and choose from',
+    header: 'How to find the right expert',
+    first: 'Place your order free of charge',
+    second: 'Experts answer you',
+    third: 'Compare expert profiles and choose from',
   },
   'expert-steps': {
-    'big-header': 'How to find your desired orders',
-    'find-expert-step-one': 'Get suitable order proposals',
-    'find-expert-step-two': 'show your interest',
-    'find-expert-step-three': 'Contact and arrange',
+    header: 'How to find your desired orders',
+    first: 'Get suitable order proposals',
+    second: 'show your interest',
+    third: 'Contact and arrange',
   },
-  'trainee-steps': {
-    'big-header': 'How to find your desired orders',
-    'find-expert-step-one': 'Get suitable order proposals',
-    'find-expert-step-two': 'show your interest',
-    'find-expert-step-three': 'Contact and arrange',
-  },
-  'employee-steps': {
-    'big-header': 'How to find your desired jobs',
-    'find-expert-step-one': 'Get suitable job proposals',
-    'find-expert-step-two': 'show your interest',
-    'find-expert-step-three': 'Contact and arrange',
+  'jobs-in-germany-steps': {
+    header: 'How to find your desired jobs',
+    first: 'Fill in the CV',
+    second: 'Upload your documents',
+    third: 'Apply for the right jobs',
   },
   auth: {
     'login-heading': 'Welcome back!',
@@ -202,7 +201,7 @@ export default {
     logout: 'Logout',
     'otp-label': 'Verification code',
     'otp-text':
-      "Please write the code you've recieved in your whatsapp to complete your registration on our platform.",
+      "Please write the code you've received in your whatsapp to complete your registration on our platform.",
   },
   role: {
     trainee: 'Trainee',
@@ -254,7 +253,8 @@ export default {
     budget: 'Budget (DH)',
     'personal-skills': 'Personal Skills',
     'language-skills': 'Languages Skills',
-    peroid: 'Job Peroid',
+    'start-date': 'Start date',
+    'end-date': 'End date',
     description: 'Description',
     category: 'Category',
     'sub-category': 'Sub Category',
@@ -263,9 +263,12 @@ export default {
     'select-child-sub-category': 'Select a child sub category',
     'child-su-category': 'Child Sub Category',
     phone: 'Phone',
+    'select-lang': 'Select a language',
+    'select-level': 'Select level',
     feedback: 'Tell us more...',
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
+    max: 'Max. {max} characters - {left} characters left',
   },
   blog: {
     header: 'Welcome to the Blanzin Blog',
@@ -284,15 +287,21 @@ export default {
   },
   'faq-abbr': 'Frequently asked questions',
   suggestions: {
-    description: 'Recomended descriptions:',
+    description: 'Recommended descriptions:',
     'description-value': 'Selected descriptions:',
-    skill: 'Recomended skills:',
+    skill: 'Recommended skills:',
     'skill-value': 'Selected skills:',
     'free-text': 'Type description as free text',
   },
-  'send-offer': 'Send offer',
-  'similar-orders': 'Similar orders',
+  order: {
+    applicants: 'Applicants list',
+    'send-offer': 'Send offer',
+    'similar-orders': 'Similar orders',
+    delete: 'Remove',
+    update: 'Update',
+  },
   'new-order-header': 'Add a new order',
+  'update-order-header': 'Update your order',
   'otp-request-text':
     'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':
@@ -303,6 +312,11 @@ export default {
     submit: 'Submit',
     rate: 'Rate',
     apply: 'Apply',
+    add: 'Add',
+  },
+  'orders-filter': {
+    active: 'Active orders',
+    done: 'Finished orders',
   },
   'chat-options': {
     location: 'Send location',
@@ -314,5 +328,5 @@ export default {
   },
   arabic: 'Arabic',
   english: 'English',
-  frensh: 'Frensh',
+  french: 'French',
 } as const;
