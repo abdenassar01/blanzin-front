@@ -17,7 +17,7 @@ export function ResumeeForm() {
       experiences: [],
       educations: [],
       personalSkills: [],
-      languageSkills: [],
+      languages: [],
     },
   });
   const [currentStep, setCurrentStep] = useState<number>(1);

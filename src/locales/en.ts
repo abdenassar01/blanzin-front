@@ -263,6 +263,8 @@ export default {
     'select-child-sub-category': 'Select a child sub category',
     'child-su-category': 'Child Sub Category',
     phone: 'Phone',
+    'select-lang': 'Select a language',
+    'select-level': 'Select level',
     feedback: 'Tell us more...',
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
@@ -310,6 +312,7 @@ export default {
     submit: 'Submit',
     rate: 'Rate',
     apply: 'Apply',
+    add: 'Add',
   },
   'orders-filter': {
     active: 'Active orders',

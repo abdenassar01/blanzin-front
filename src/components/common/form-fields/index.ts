@@ -16,3 +16,4 @@ export * from './profile-tab-selector';
 export * from './upload-avatar';
 export * from './category-selector';
 export * from './images-gallery';
+export * from './languages-field';
