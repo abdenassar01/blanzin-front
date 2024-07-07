@@ -35,14 +35,16 @@ export function CallToAction({
             className='text-xbase text-secondary prose-strong:text-xxl prose-strong:uppercase dark:text-main'
           />
           <div className='w-[40%] md:w-[80%] sm:w-[80%]'>
-            <Button className='group dark:hover:border-main' theme='secondary'>
-              <Link
-                className='font-semibold text-main group-hover:text-secondary dark:group-hover:text-main'
-                href={href}
+            <Link href={href}>
+              <Button
+                className='group dark:hover:border-main'
+                theme='secondary'
               >
-                {buttonText}
-              </Link>
-            </Button>
+                <div className='font-semibold text-main group-hover:text-secondary dark:group-hover:text-main'>
+                  {buttonText}
+                </div>
+              </Button>
+            </Link>
           </div>
         </div>
         <div className='flex w-[40%] items-center justify-center'>
