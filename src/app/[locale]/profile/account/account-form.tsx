@@ -32,7 +32,6 @@ export default function AccountForm() {
             name='email'
           />
         </div>
-
         <PhoneField
           inputClassName='bg-background'
           wrapperClassName='bg-backgroundSecondary'

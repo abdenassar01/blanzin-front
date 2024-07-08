@@ -295,7 +295,7 @@ export default {
   },
   order: {
     applicants: 'Applicants list',
-    'send-offer': 'Send offer',
+    contact: 'Contact',
     'similar-orders': 'Similar orders',
     delete: 'Remove',
     update: 'Update',

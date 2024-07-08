@@ -5,6 +5,7 @@ import { useI18n, useScopedI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 type Props = {};
 
@@ -18,7 +19,9 @@ export function ProfileOptions({}: Props) {
   return (
     <>
       <div className='w-[80%]'>
-        <Button text={t('send-offer')} />
+        <Link href='/chat/someone'>
+          <Button text={t('contact')} />
+        </Link>
         <div className='mt-3 flex gap-2'>
           <Image
             onClick={() => setFavourite((prev) => !prev)}
@@ -46,7 +49,11 @@ export function ProfileOptions({}: Props) {
           />
         </div>
       </div>
-      <Modal visible={showReportModal} setVisible={setShowReportModal}>
+      <Modal
+        width={20}
+        visible={showReportModal}
+        setVisible={setShowReportModal}
+      >
         <div className=''>Hello</div>
       </Modal>
     </>

@@ -24,7 +24,7 @@ const feedbacks = [
     },
     rating: 3.5,
     message:
-      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis rem molestias sapiente, magnam ab maxime qui quam nesciunt quibusdam. Nobis amet vitae repudiandae',
+      'Lorem ipsum dolor sit amet consectetur, radicalising elit. Quis rem molestias sapiente, magnam ab maxime qui quam nesciunt quibusdam. Nobis amet vitae repudiandae',
   },
   {
     user: {
