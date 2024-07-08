@@ -1,20 +1,25 @@
 'use client';
 
-import { Button, Modal } from '@/components/common';
+import { Button, FieldText, Modal, TextArea } from '@/components/common';
 import { useI18n, useScopedI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useForm } from 'react-hook-form';
+import { isMobile } from 'react-device-detect';
 
 type Props = {};
 
 export function ProfileOptions({}: Props) {
   const t = useScopedI18n('order');
+  const formT = useScopedI18n('forms');
 
   const [favourite, setFavourite] = useState<boolean>(false);
   const [showReportModal, setShowReportModal] = useState<boolean>(false);
   const { theme } = useTheme();
+
+  const { control } = useForm();
 
   return (
     <>
@@ -54,7 +59,24 @@ export function ProfileOptions({}: Props) {
         visible={showReportModal}
         setVisible={setShowReportModal}
       >
-        <div className=''>Hello</div>
+        <div className='mt-3 flex flex-col gap-1 rounded-lg bg-background p-3'>
+          <FieldText
+            name='title'
+            control={control}
+            label={formT('title')}
+            placeholder={formT('title')}
+            className=''
+          />
+          <TextArea
+            control={control}
+            label={formT('complaint')}
+            placeholder={formT('complaint')}
+            name='complaint'
+          />
+          <div className='mt-4 flex justify-end'>
+            <Button width={isMobile ? '50%' : '25%'} text={t('send')} />
+          </div>
+        </div>
       </Modal>
     </>
   );
