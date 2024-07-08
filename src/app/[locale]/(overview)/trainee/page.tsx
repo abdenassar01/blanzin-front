@@ -14,7 +14,7 @@ export default async function TraineePage() {
   const steps = [
     {
       step: `${t('step-heading')} 1`,
-      icon: '/steps/8.svg',
+      icon: '/steps/6.svg',
       text: t('jobs-in-germany-steps.first'),
     },
     {
@@ -24,7 +24,7 @@ export default async function TraineePage() {
     },
     {
       step: `${t('step-heading')} 3`,
-      icon: '/steps/6.svg',
+      icon: '/steps/8.svg',
       text: t('jobs-in-germany-steps.third'),
     },
   ];
