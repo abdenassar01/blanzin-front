@@ -6,7 +6,7 @@ import {
   OrderStats,
   ProfileWidget,
 } from '@/components';
-import { getI18n, getScopedI18n } from '@/utils/locales/server';
+import { getScopedI18n } from '@/utils/locales/server';
 import Image from 'next/image';
 import React from 'react';
 
@@ -33,7 +33,7 @@ export default async function OrderDetails() {
           </div>
           <div className='w-[30%] rounded-xl bg-backgroundSecondary p-2 dark:bg-backgroundDark md:mt-4 md:w-full sm:w-full'>
             <div className='mb-4 flex items-center gap-2'>
-              <Button text={t('send-offer')} />
+              <Button text={t('send')} />
               <div className='rounded-full  bg-secondary p-2'>
                 <Image
                   className='icon'

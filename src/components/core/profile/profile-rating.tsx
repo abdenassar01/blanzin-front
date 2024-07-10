@@ -33,7 +33,7 @@ export function ProfileRating({ rating }: Props) {
           {t('button.rate')}
         </div>
       </div>
-      <Modal visible={showModal} setVisible={setShowModal}>
+      <Modal width={20} visible={showModal} setVisible={setShowModal}>
         <div className='max-h-full overflow-y-scroll'>
           <div className='flex flex-col items-center justify-center gap-3 overflow-y-hidden rounded p-2'>
             <RatingMultipleQuestions

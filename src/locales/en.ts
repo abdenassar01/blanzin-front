@@ -237,6 +237,7 @@ export default {
   },
   forms: {
     email: 'Email',
+    complaint: 'Complaint',
     password: 'Password',
     'password-confirm': 'Password confirm',
     username: 'Username',
@@ -295,10 +296,11 @@ export default {
   },
   order: {
     applicants: 'Applicants list',
-    'send-offer': 'Send offer',
+    contact: 'Contact',
     'similar-orders': 'Similar orders',
     delete: 'Remove',
     update: 'Update',
+    send: 'Send complaint',
   },
   'new-order-header': 'Add a new order',
   'update-order-header': 'Update your order',

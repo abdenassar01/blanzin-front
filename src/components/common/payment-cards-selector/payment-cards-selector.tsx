@@ -30,7 +30,7 @@ const packs = [
         en: 'Job interviews',
         ar: 'ar- Job interviews',
         fr: 'fr- Job interviews',
-        qte: 'x3',
+        qte: 'x1',
         supported: true,
       },
       {
@@ -63,7 +63,7 @@ const packs = [
         en: 'Job interviews',
         ar: 'ar- Job interviews',
         fr: 'fr- Job interviews',
-        qte: 'x1',
+        qte: 'x3',
         supported: true,
       },
       {

@@ -14,17 +14,17 @@ export default async function TraineePage() {
   const steps = [
     {
       step: `${t('step-heading')} 1`,
-      icon: '/steps/step-1.jpeg',
+      icon: '/steps/6.svg',
       text: t('jobs-in-germany-steps.first'),
     },
     {
       step: `${t('step-heading')} 2`,
-      icon: '/steps/step-2.jpeg',
+      icon: '/steps/7.svg',
       text: t('jobs-in-germany-steps.second'),
     },
     {
       step: `${t('step-heading')} 3`,
-      icon: '/steps/step-3.jpeg',
+      icon: '/steps/8.svg',
       text: t('jobs-in-germany-steps.third'),
     },
   ];

@@ -50,7 +50,7 @@ export function StepTwo({ control }: Props) {
       case 'diploma':
         return form.diploma;
       case 'internship':
-        return form.intenship;
+        return form.internship;
       case 'acknowledgement':
         return form.acknowledgement;
       default:
