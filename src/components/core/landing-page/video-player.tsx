@@ -2,7 +2,7 @@
 
 import { Modal } from '@/components';
 import Image from 'next/image';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type Props = {
   video: string;
@@ -12,6 +12,10 @@ type Props = {
 export function VideoPlayer({ video, thumbnail }: Props) {
   const [visibleModal, setVisibleModal] = useState<boolean>(false);
   const vidRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (visibleModal) vidRef?.current?.play();
+  }, [visibleModal]);
 
   return (
     <>
