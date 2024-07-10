@@ -1,7 +1,6 @@
-import { Heading, Map } from '@/components';
+import { Heading, InboxFilter, Map } from '@/components';
 import { getScopedI18n } from '@/utils/locales/server';
 import React from 'react';
-import InboxFilter from './inbox-filter';
 import { truncateString } from '@/utils';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -90,11 +89,15 @@ const dms = [
 ];
 
 type Props = {
-  searchParams: { tab: string };
+  searchParams: { tab: string; role: string };
 };
 
-export default async function MyInboxPage({ searchParams: { tab } }: Props) {
+export default async function MyInboxPage({
+  searchParams: { tab, role },
+}: Props) {
   const t = await getScopedI18n('profile');
+
+  console.log('Role: ', role);
 
   const getInboxes = () => {
     switch (tab) {
@@ -121,7 +124,7 @@ export default async function MyInboxPage({ searchParams: { tab } }: Props) {
           items={getInboxes()}
           render={(item) => (
             <Link
-              href='/profile/inbox/12'
+              href={'/profile/inbox/12?role=' + role}
               className='relative w-full rounded-lg bg-background p-2 shadow-xl dark:bg-backgroundSecondaryDark'
             >
               <div className='text-md text-justify text-text dark:text-textdark'>
