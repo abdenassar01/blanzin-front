@@ -21,6 +21,7 @@ export function UpdateOrderForm() {
     },
   });
   const t = useScopedI18n('forms');
+  const btnT = useScopedI18n('button');
 
   return (
     <div className='flex flex-col items-center justify-center'>
@@ -126,8 +127,10 @@ export function UpdateOrderForm() {
           </div>
         </div>
       </div>
-      <div className={cn('mt-4 flex w-full justify-between gap-3 sm:w-full')}>
-        <Button text='submit' />
+      <div className={cn('mt-4 flex w-full justify-end gap-3 sm:w-full')}>
+        <div className='w-[15%] sm:w-[45%]'>
+          <Button text={btnT('submit')} />
+        </div>
       </div>
     </div>
   );
