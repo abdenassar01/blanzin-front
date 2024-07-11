@@ -16,7 +16,11 @@ export function ProfilePicker() {
 
   useEffect(() => {
     setTimeout(
-      () => push('/profile/account?role=' + (selectedTab || 'customer')),
+      () =>
+        push(
+          `/profile/${selectedTab === 'customer' ? 'account' : 'dashboard'}?role=` +
+            (selectedTab || 'customer')
+        ),
       100
     );
   }, [selectedTab]);
@@ -34,7 +38,7 @@ export function ProfilePicker() {
         {React.Children.toArray(
           tabs.map((item) => (
             <button
-              onClick={() => push('/profile/account?role=' + item.value)}
+              onClick={() => push('/profile/dashboard?role=' + item.value)}
               className={cn(
                 'w-[200px] items-center justify-center rounded-full p-3 px-4',
                 selectedTab === item.value

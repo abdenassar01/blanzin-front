@@ -43,7 +43,27 @@ export default {
     submit: 'Update password',
     title: 'Change password',
   },
+  dashboard: {
+    title: 'Dashboard',
+    appointment: 'My appointments',
+    'open-orders': 'My open orders',
+    'completed-orders': 'My completed orders',
+    jobs: 'My job positions',
+    'recommended-jobs': 'recommended jobs',
+    'actions-title': 'Actions',
+    'required-action-title': 'You will have to pay to attend the interview',
+    'required-action-content':
+      'you have not completed an order after the expiry date. have you completed this order?',
+    recommendations: 'Recommendations',
+    'account-status': 'My account status',
+    'status-personal': 'Personal data',
+    'status-professional': 'Professional data',
+    'status-explain':
+      'To improve your chances of getting more orders, you must fill in the data completely',
+    'general-recommendations-title': 'General recommendations',
+  },
   profile: {
+    dashboard: 'Dashboard',
     account: 'My account',
     favourites: 'My favourites',
     'favourite-orders': 'My favourite  orders',

@@ -17,6 +17,11 @@ export function ProfileSidebar() {
 
   const pages = [
     {
+      link: '/profile/dashboard',
+      label: t('dashboard'),
+      roles: ['trainee', 'employee', 'expert'],
+    },
+    {
       link: '/profile/account',
       label: t('account'),
       roles: ['trainee', 'employee', 'customer', 'expert'],
