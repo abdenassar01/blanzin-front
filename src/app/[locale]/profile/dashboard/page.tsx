@@ -1,13 +1,16 @@
 import * as React from 'react';
-import { Heading, ProfileProgress } from '@/components';
+import { Button, Heading, ProfileProgress } from '@/components';
 import { getScopedI18n } from '@/utils/locales/server';
 import Image from 'next/image';
-import ReactSpeedometer from 'react-d3-speedometer';
+import Link from 'next/link';
 
-type Props = {};
+interface Props {
+  searchParams: { role: string | string[] | undefined };
+}
 
-export default async function UserDashboard({}: Props) {
+export default async function UserDashboard({ searchParams: { role } }: Props) {
   const t = await getScopedI18n('dashboard');
+  const isExpert = role === 'expert';
 
   return (
     <div className='my-6'>
@@ -15,20 +18,24 @@ export default async function UserDashboard({}: Props) {
         <Heading className='text-center' heading={t('title')} />
       </div>
       <div className='mt-6 flex justify-between'>
-        <div className='flex w-[30%] flex-col gap-2 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
-          <div className='text-center text-xl font-bold '>{t('jobs')}</div>
+        <div className='flex w-[30%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
+          <div className='text-center text-xl font-bold '>
+            {t('appointment')}
+          </div>
           <div className='text-center '>Your next appointment on</div>
           <div className='text-bold text-center'>24.08.2024</div>
         </div>
-        <div className='flex w-[30%] flex-col gap-2 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
-          <div className='text-center text-xl font-bold '>{t('jobs')}</div>
-          <div className='text-center '>Your next appointment on</div>
-          <div className='text-bold text-center'>24.08.2024</div>
+        <div className='flex w-[30%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
+          <div className='text-center text-xl font-bold '>
+            {isExpert ? t('open-orders') : t('jobs')}
+          </div>
+          <div className='text-bold text-center'>5</div>
         </div>
-        <div className='flex w-[30%] flex-col gap-2 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
-          <div className='text-center text-xl font-bold '>{t('jobs')}</div>
-          <div className='text-center '>Your next appointment on</div>
-          <div className='text-bold text-center'>24.08.2024</div>
+        <div className='flex w-[30%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
+          <div className='text-center text-xl font-bold '>
+            {isExpert ? t('completed-orders') : t('recommended-jobs')}
+          </div>
+          <div className='text-bold text-center'>2</div>
         </div>
       </div>
       <div className='mt-8 overflow-hidden rounded-lg border border-border'>
@@ -47,10 +54,16 @@ export default async function UserDashboard({}: Props) {
             className='mt-2 w-8'
           />
           <div className=''>
-            <h3 className='text-xbase font-semibold'>
-              {t('required-action-title')}
+            <h3 className='text-xl font-semibold'>
+              {isExpert
+                ? t('expert-required-action-title')
+                : t('required-action-title')}
             </h3>
-            <div className='mt-2 text-xl '>{t('required-action-content')}</div>
+            <div className='mt-2  '>
+              {isExpert
+                ? t('expert-required-action-content')
+                : t('required-action-content')}
+            </div>
           </div>
         </div>
       </div>
@@ -60,13 +73,13 @@ export default async function UserDashboard({}: Props) {
         </div>
         <div className='flex justify-between gap-3 p-3 px-5 sm:flex-col'>
           <div className='w-[40%] rounded-md border border-border shadow-lg dark:shadow-lg dark:shadow-black sm:w-full'>
-            <div className=' border-b border-border p-2 text-secondary dark:text-main'>
+            <div className='border-b border-border p-2 text-center font-medium text-secondary dark:text-main'>
               {t('account-status')}
             </div>
             <div className='p-2 text-mainText dark:text-textdark'>
               <div className='text-center '>{t('status-explain')}</div>
               <div className='my-5'>
-                <ProfileProgress value={40} />
+                <ProfileProgress value={60} />
               </div>
               <div className=''>
                 <div className='flex justify-between'>
@@ -81,24 +94,37 @@ export default async function UserDashboard({}: Props) {
             </div>
           </div>
           <div className='w-[40%] rounded-md border border-border shadow-lg dark:shadow-lg dark:shadow-black sm:w-full'>
-            <div className='border-b border-border p-2 text-secondary dark:text-main'>
-              {t('general-recommendations-title')}
+            <div className='border-b border-border p-2 text-center font-medium text-secondary dark:text-main'>
+              {isExpert
+                ? t('general-recommendations-title')
+                : t('increase-opportunities')}
             </div>
             <div className='p-2 text-mainText dark:text-textdark'>
-              <div className='text-center'>
-                For a better workflow, you need to consider these points
-              </div>
-              <div
-                className='prose mt-3 prose-li:text-mainText dark:text-white prose-li:dark:text-white'
-                dangerouslySetInnerHTML={{
-                  __html:
-                    '<ul>' +
-                    '    <li><span>switch on the push notifications so that you are always up to date</span></li>\n' +
-                    '    <li><span>complete the orders so that you can optimise your work processes at the end</span></li>\n' +
-                    '    <li><span>react quickly to messages from customers so that your competitors do not take advantage of the opportunity</span></li>\n' +
-                    '</ul>',
-                }}
-              />
+              {isExpert ? (
+                <div
+                  className='prose mt-3 prose-li:text-mainText dark:text-white prose-li:dark:text-white'
+                  dangerouslySetInnerHTML={{
+                    __html: t('expert-recommendations-content'),
+                  }}
+                />
+              ) : (
+                <div className='flex w-full flex-col items-center justify-center gap-5 p-3 py-5 text-secondary dark:text-textdark'>
+                  <Image
+                    src={require('@/assets/images/icons/mark.webp')}
+                    alt='blanzin mark'
+                    className='w-20'
+                  />
+                  <p className='text-center'>
+                    {t('increase-opportunities-text')}
+                  </p>
+                  <Link href='/application' className='w-[70%]'>
+                    <Button
+                      theme='secondary'
+                      text={t('increase-opportunities-action')}
+                    />
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>

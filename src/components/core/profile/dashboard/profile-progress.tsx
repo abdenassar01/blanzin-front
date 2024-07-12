@@ -34,7 +34,7 @@ export function ProfileProgress({ value }: Props) {
         height={190}
         minValue={0}
         segmentValueFormatter={(textValue) =>
-          textValue === value.toString() ? `${value}%` : ''
+          textValue === value.toString() ? `${textValue}%` : ''
         }
         segments={10}
         maxValue={100}

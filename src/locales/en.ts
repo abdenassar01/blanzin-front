@@ -52,9 +52,24 @@ export default {
     'recommended-jobs': 'recommended jobs',
     'actions-title': 'Actions',
     'required-action-title': 'You will have to pay to attend the interview',
-    'required-action-content':
+    'expert-required-action-title': 'Action required',
+    'increase-opportunities': 'Increase your opportunities',
+    'increase-opportunities-text':
+      'Choose our premium package! With our premium package, we support you in finding the right employer in Germany. ',
+    'increase-opportunities-action': 'Start now',
+    'expert-required-action-content':
       'You have not completed an order after the expiry date. have you completed this order?',
+    'required-action-content':
+      'you have been given an appointment for an interview. to take part, you must pay for one of our packages',
     recommendations: 'Recommendations',
+    'expert-recommendations-content':
+      "<div className='text-center'>\n" +
+      '                For a better workflow, you need to consider these points\n' +
+      '              </div><ul>' +
+      '                        <li><span>switch on the push notifications so that you are always up to date</span></li>' +
+      '                        <li><span>complete the orders so that you can optimise your work processes at the end</span></li>' +
+      '                        <li><span>react quickly to messages from customers so that your competitors do not take advantage of the opportunity</span></li>' +
+      '                    </ul>',
     'account-status': 'My account status',
     'status-personal': 'Personal data',
     'status-professional': 'Professional data',
