@@ -63,7 +63,7 @@ export default {
       'you have been given an appointment for an interview. to take part, you must pay for one of our packages',
     recommendations: 'Recommendations',
     'expert-recommendations-content':
-      "<div className='text-center'>\n" +
+      "<div class='text-center'>\n" +
       '                For a better workflow, you need to consider these points\n' +
       '              </div><ul>' +
       '                        <li><span>switch on the push notifications so that you are always up to date</span></li>' +
@@ -305,6 +305,9 @@ export default {
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
     max: 'Max. {max} characters - {left} characters left',
+    'freelancer-details': 'Freelancer Details',
+    'professional-skills': 'Professional skills',
+    tools: 'Tools',
   },
   blog: {
     header: 'Welcome to the Blanzin Blog',

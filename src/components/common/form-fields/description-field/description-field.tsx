@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { Control, useFieldArray } from 'react-hook-form';
-import { TranslatedHeading } from '../../translated-text';
 import { useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
@@ -42,8 +41,6 @@ export function DescriptionField({
     name,
   });
 
-  console.log(name, ' Suggestion ', suggestions);
-
   function handleAppend() {
     if (filterValue) {
       append(filterValue);
@@ -54,11 +51,7 @@ export function DescriptionField({
 
   return (
     <div className='mb-2 w-full'>
-      <TranslatedHeading
-        className='mb-1 text-sm text-secondary dark:text-main'
-        tranlationKey={label}
-      />
-
+      <h4 className='mb-1 text-sm text-secondary dark:text-main'>{label}</h4>
       <div className='flex w-full justify-between sm:flex-col sm:items-center'>
         <div className='w-[47%] gap-2 sm:w-full'>
           <div
