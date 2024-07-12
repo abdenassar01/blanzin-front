@@ -73,7 +73,8 @@ export function PhoneField<V extends FieldValues>({
             )}
             onClick={() => setOpenDropDown((prev) => !prev)}
           >
-            <Flag width={60} /> +{getCountryCallingCode(countryCode)}
+            <Flag width={60} style={{ borderRadius: 5 }} /> +
+            {getCountryCallingCode(countryCode)}
             <Image
               className='w-6'
               alt=''
@@ -99,7 +100,7 @@ export function PhoneField<V extends FieldValues>({
         </div>
         <div
           className={cn(
-            'absolute top-[60px] z-20 w-full overflow-x-scroll rounded-lg bg-background transition-all duration-300 dark:bg-backgroundSecondaryDark',
+            'absolute top-[60px] z-20 w-full overflow-x-scroll rounded-lg bg-background shadow-lg transition-all duration-300 dark:bg-backgroundSecondaryDark dark:shadow-black',
             className,
             'w-full',
             openDropdown ? 'h-[200px]' : 'h-0'
