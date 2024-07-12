@@ -1,15 +1,34 @@
 'use client';
 
-import { Button, FieldText, PhoneField } from '@/components';
+import {
+  Button,
+  DescriptionField,
+  FieldText,
+  Heading,
+  PhoneField,
+  TagsField,
+} from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useSearchParams } from 'next/navigation';
 
 export default function AccountForm() {
-  const { control } = useForm();
+  const { control, watch } = useForm({
+    defaultValues: {
+      professionalSkills: [],
+      tools: [],
+      phone: '',
+      email: '',
+    },
+  });
 
   const t = useScopedI18n('forms');
   const buttonsT = useScopedI18n('button');
+  const suggestionsT = useScopedI18n('suggestions');
+
+  const searchParams = useSearchParams();
+  const role = searchParams.get('role');
 
   return (
     <div>
@@ -41,6 +60,42 @@ export default function AccountForm() {
           name='phone'
           placeholder='6063962973'
         />
+        {role === 'expert' && (
+          <div className='my-5 w-full'>
+            <div className='mb-3 text-xm'>
+              <Heading heading={t('freelancer-details')} />
+            </div>
+            <DescriptionField
+              control={control}
+              items={watch('professionalSkills')}
+              label={t('professional-skills')}
+              name='professionalSkills'
+              suggestions={[
+                'Dev mobile',
+                'Front end',
+                'Database administration',
+              ]}
+              placeholder={suggestionsT('free-text')}
+              suggestionsLabel={suggestionsT('description')}
+              valuesLabel={suggestionsT('description-value')}
+            />
+
+            <DescriptionField
+              control={control}
+              items={watch('tools')}
+              label={t('professional-skills')}
+              name='tools'
+              suggestions={[
+                'Dev mobile',
+                'Front end',
+                'Database administration',
+              ]}
+              placeholder={suggestionsT('free-text')}
+              suggestionsLabel={suggestionsT('description')}
+              valuesLabel={suggestionsT('description-value')}
+            />
+          </div>
+        )}
         <div className='mt-6 flex w-full justify-end'>
           <div className='w-[20%] sm:w-[50%]'>
             <Button text={buttonsT('apply')} />

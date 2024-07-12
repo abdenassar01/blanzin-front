@@ -2,7 +2,6 @@
 
 import * as React from 'react';
 import { Control, useFieldArray } from 'react-hook-form';
-import { TranslatedHeading } from '../../translated-text';
 import { useMemo, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/utils';
@@ -46,18 +45,13 @@ export function DescriptionField({
     if (filterValue) {
       append(filterValue);
       setFilterValue('');
-
       setFilteredItems(items);
     }
   }
 
   return (
     <div className='mb-2 w-full'>
-      <TranslatedHeading
-        className='mb-1 text-sm text-secondary dark:text-main'
-        tranlationKey={label}
-      />
-
+      <h4 className='mb-1 text-sm text-secondary dark:text-main'>{label}</h4>
       <div className='flex w-full justify-between sm:flex-col sm:items-center'>
         <div className='w-[47%] gap-2 sm:w-full'>
           <div
@@ -107,10 +101,9 @@ export function DescriptionField({
             </div>
             <div className='flex h-[90%] flex-wrap content-start gap-3 overflow-y-scroll'>
               {React.Children.toArray(
-                filteredItems.map(
+                suggestions.map(
                   (item) =>
-                    suggestions.filter((el: string) => el === item).length ===
-                      0 && (
+                    items.filter((el: string) => el === item).length === 0 && (
                       <button
                         className='h-fit rounded bg-backgroundSecondary p-2 dark:bg-backgroundDark'
                         onClick={() => {
@@ -141,9 +134,9 @@ export function DescriptionField({
             {valuesLabel}
           </div>
           <div className='flex h-[90%] flex-wrap content-start gap-3 overflow-y-scroll'>
-            {suggestions.length > 0 &&
+            {items.length > 0 &&
               React.Children.toArray(
-                suggestions.map((item: string, index: number) => (
+                items.map((item: string, index: number) => (
                   <div className='flex h-fit w-fit flex-row items-center justify-between rounded bg-backgroundSecondary p-2 shadow-lg dark:bg-backgroundDark'>
                     <h2 className=''>{item}</h2>
                     <button

@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function InboxFilter() {
+export function InboxFilter() {
   const t = useScopedI18n('inbox');
 
   const { push } = useRouter();
@@ -15,12 +15,12 @@ export default function InboxFilter() {
 
   const searchParams = useSearchParams();
 
-  const selectedTab = searchParams.get('tab');
+  const selectedTab = searchParams.get('tab') || 'all';
   const role = searchParams.get('role');
 
   useEffect(() => {
-    push(pathname + '?role=' + role + '&tab=all');
-  }, []);
+    push(pathname + '?role=' + role + '&tab=' + selectedTab);
+  }, [selectedTab]);
 
   const tabs = [
     { id: 1, label: t('all'), value: 'all' },

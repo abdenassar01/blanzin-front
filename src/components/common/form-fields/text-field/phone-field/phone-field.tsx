@@ -15,7 +15,6 @@ import { FormField } from '@/types';
 import Image from 'next/image';
 import { cn } from '@/utils';
 import { CountryCode } from './types';
-import { useScopedI18n } from '@/utils/locales/client';
 
 type InputProps<V extends FieldValues> = {
   label: string;
@@ -37,8 +36,6 @@ export function PhoneField<V extends FieldValues>({
   const [countryCode, setCountryCode] = useState<CountryCode>('MA');
   const [openDropdown, setOpenDropDown] = useState<boolean>(false);
   const Flag = Flags[countryCode];
-
-  const t = useScopedI18n('errors');
 
   const handleSelectCountry = (country: CountryCode) => {
     setCountryCode(country);
@@ -73,7 +70,8 @@ export function PhoneField<V extends FieldValues>({
             )}
             onClick={() => setOpenDropDown((prev) => !prev)}
           >
-            <Flag width={60} /> +{getCountryCallingCode(countryCode)}
+            <Flag width={60} style={{ borderRadius: 5 }} /> +
+            {getCountryCallingCode(countryCode)}
             <Image
               className='w-6'
               alt=''
@@ -82,10 +80,9 @@ export function PhoneField<V extends FieldValues>({
           </div>
           <input
             onChange={(e) =>
-              onChange({
-                countryCode: `+${getCountryCallingCode(countryCode)}`,
-                phone: e.target.value,
-              })
+              onChange(
+                `+${getCountryCallingCode(countryCode)} ${e.currentTarget.value}`
+              )
             }
             type='number'
             value={value?.phone}
@@ -99,7 +96,7 @@ export function PhoneField<V extends FieldValues>({
         </div>
         <div
           className={cn(
-            'absolute top-[60px] z-20 w-full overflow-x-scroll rounded-lg bg-background transition-all duration-300 dark:bg-backgroundSecondaryDark',
+            'absolute top-[60px] z-20 w-full overflow-x-scroll rounded-lg bg-background shadow-lg transition-all duration-300 dark:bg-backgroundSecondaryDark dark:shadow-black',
             className,
             'w-full',
             openDropdown ? 'h-[200px]' : 'h-0'
@@ -116,12 +113,7 @@ export function PhoneField<V extends FieldValues>({
           </div>
         </div>
       </div>
-      {error && (
-        <p className='text-xxs text-error'>
-          {/* @ts-ignore */}
-          {error?.message && t(error.message)}
-        </p>
-      )}
+      <p className='text-xxs text-error'>{error?.message}</p>
     </div>
   );
 }
