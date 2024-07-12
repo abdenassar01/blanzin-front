@@ -53,7 +53,7 @@ export default {
     'actions-title': 'Actions',
     'required-action-title': 'You will have to pay to attend the interview',
     'required-action-content':
-      'you have not completed an order after the expiry date. have you completed this order?',
+      'You have not completed an order after the expiry date. have you completed this order?',
     recommendations: 'Recommendations',
     'account-status': 'My account status',
     'status-personal': 'Personal data',
