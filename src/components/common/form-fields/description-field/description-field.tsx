@@ -42,11 +42,12 @@ export function DescriptionField({
     name,
   });
 
+  console.log(name, ' Suggestion ', suggestions);
+
   function handleAppend() {
     if (filterValue) {
       append(filterValue);
       setFilterValue('');
-
       setFilteredItems(items);
     }
   }
@@ -107,10 +108,9 @@ export function DescriptionField({
             </div>
             <div className='flex h-[90%] flex-wrap content-start gap-3 overflow-y-scroll'>
               {React.Children.toArray(
-                filteredItems.map(
+                suggestions.map(
                   (item) =>
-                    suggestions.filter((el: string) => el === item).length ===
-                      0 && (
+                    items.filter((el: string) => el === item).length === 0 && (
                       <button
                         className='h-fit rounded bg-backgroundSecondary p-2 dark:bg-backgroundDark'
                         onClick={() => {
@@ -141,9 +141,9 @@ export function DescriptionField({
             {valuesLabel}
           </div>
           <div className='flex h-[90%] flex-wrap content-start gap-3 overflow-y-scroll'>
-            {suggestions.length > 0 &&
+            {items.length > 0 &&
               React.Children.toArray(
-                suggestions.map((item: string, index: number) => (
+                items.map((item: string, index: number) => (
                   <div className='flex h-fit w-fit flex-row items-center justify-between rounded bg-backgroundSecondary p-2 shadow-lg dark:bg-backgroundDark'>
                     <h2 className=''>{item}</h2>
                     <button
