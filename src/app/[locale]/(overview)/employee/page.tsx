@@ -39,6 +39,12 @@ export default async function EmployeePage() {
         header={t('employee.hero-text')}
         flipped
       />
+      <WalkThroughtSteps
+        header={t('jobs-in-germany-steps.header')}
+        steps={steps}
+      />
+      <LatestJobs />
+      <DownloadAppSection />
       <CallToAction
         heading={t('employee.call-to-action-heading')}
         href='/application'
@@ -46,12 +52,6 @@ export default async function EmployeePage() {
         buttonText={t('employee.call-to-action-btn')}
         callToActionText={t('employee.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
-      />
-      <LatestJobs />
-      <DownloadAppSection />
-      <WalkThroughtSteps
-        header={t('jobs-in-germany-steps.header')}
-        steps={steps}
       />
     </div>
   );

@@ -39,6 +39,12 @@ export default async function TraineePage() {
         header={t('trainee.hero-text')}
         flipped
       />
+      <WalkThroughtSteps
+        header={t('jobs-in-germany-steps.header')}
+        steps={steps}
+      />
+      <LatestTrainings />
+      <DownloadAppSection />
       <CallToAction
         heading={t('trainee.call-to-action-heading')}
         href='/application'
@@ -46,12 +52,6 @@ export default async function TraineePage() {
         buttonText={t('trainee.call-to-action-btn')}
         callToActionText={t('trainee.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
-      />
-      <LatestTrainings />
-      <DownloadAppSection />
-      <WalkThroughtSteps
-        header={t('jobs-in-germany-steps.header')}
-        steps={steps}
       />
     </div>
   );

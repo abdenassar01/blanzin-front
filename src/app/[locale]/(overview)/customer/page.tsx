@@ -38,6 +38,8 @@ export default async function CustomerLandingPage() {
         href='/new-order'
         header={t('customer.hero-text')}
       />
+      <WalkThroughtSteps steps={steps} header={t('customer-steps.header')} />
+      <DownloadAppSection />
       <CallToAction
         heading={t('customer.call-to-action-heading')}
         href='/new-order'
@@ -46,8 +48,6 @@ export default async function CustomerLandingPage() {
         callToActionText={t('customer.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
       />
-      <DownloadAppSection />
-      <WalkThroughtSteps steps={steps} header={t('customer-steps.header')} />
     </div>
   );
 }
