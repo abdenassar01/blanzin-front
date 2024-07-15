@@ -19,16 +19,16 @@ export function ProfileProgress({ value }: Props) {
         value={value}
         width={isMobile ? 250 : 300}
         segmentColors={[
-          '#FFD432',
-          '#FFD432',
-          '#FFD432',
-          '#70A44A',
-          '#70A44A',
-          '#70A44A',
-          '#70A44A',
           '#ED1C24',
           '#ED1C24',
           '#ED1C24',
+          '#FFD432',
+          '#FFD432',
+          '#FFD432',
+          '#FFD432',
+          '#70A44A',
+          '#70A44A',
+          '#70A44A',
         ]}
         ringWidth={25}
         height={190}
