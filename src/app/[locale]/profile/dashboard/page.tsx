@@ -18,25 +18,46 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
         <Heading className='text-center' heading={t('title')} />
       </div>
       <div className='mt-6 flex justify-between'>
-        <div className='flex w-[30%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
+        <Link
+          href={
+            role === 'expert'
+              ? `/profile/orders?role=${role}`
+              : '/profile/appointments'
+          }
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black'
+        >
           <div className='text-center text-xl font-bold '>
-            {t('appointment')}
+            {role === 'expert' ? t('delivery-date') : t('appointment')}
           </div>
-          <div className='text-center '>Your next appointment on</div>
+          <div className='text-center '>Your next delivery on</div>
           <div className='text-bold text-center'>24.08.2024</div>
-        </div>
-        <div className='flex w-[30%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
+        </Link>
+        <Link
+          href={
+            role === 'expert'
+              ? `/profile/orders?role=${role}&tab=active`
+              : '/profile/jobs'
+          }
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black'
+        >
           <div className='text-center text-xl font-bold '>
             {isExpert ? t('open-orders') : t('jobs')}
           </div>
           <div className='text-bold text-center'>5</div>
-        </div>
-        <div className='flex w-[30%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg dark:text-main dark:shadow-black'>
+        </Link>
+        <Link
+          href={
+            role === 'expert'
+              ? `/profile/orders?role=${role}&tab=done`
+              : `/jobs?role=${role}`
+          }
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black'
+        >
           <div className='text-center text-xl font-bold '>
             {isExpert ? t('completed-orders') : t('recommended-jobs')}
           </div>
           <div className='text-bold text-center'>2</div>
-        </div>
+        </Link>
       </div>
       <div className='mt-8 overflow-hidden rounded-lg border border-border'>
         <div className='flex items-center gap-2 border-b border-border p-2'>

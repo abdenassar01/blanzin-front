@@ -46,6 +46,7 @@ export default {
   dashboard: {
     title: 'Dashboard',
     appointment: 'My appointments',
+    'delivery-date': 'Next delivery',
     'open-orders': 'My open orders',
     'completed-orders': 'My completed orders',
     jobs: 'My job positions',
