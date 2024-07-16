@@ -6,7 +6,7 @@ type Props = {
     step: string;
     icon: string;
     text: string;
-    desc: string;
+    desc?: string;
   }[];
   header: string;
 };
