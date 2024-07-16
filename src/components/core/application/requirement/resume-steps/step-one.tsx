@@ -11,9 +11,18 @@ type Props = {
 
 export function StepOne({ control }: Props) {
   const t = useScopedI18n('forms');
+  const resumeT = useScopedI18n('resume');
 
   return (
     <div className='overflow-y-scroll'>
+      <div className='my-3'>
+        <div className='text-xm text-secondary'>
+          {resumeT('work-experience')}
+        </div>
+        <div className='text-text dark:text-textdark'>
+          {resumeT('step-one-text')}
+        </div>
+      </div>
       <UploadAvatarResemee control={control} name='avatar' className='' />
       <div className='my-4 flex flex-wrap justify-between gap-2 sm:flex-col'>
         <FieldText

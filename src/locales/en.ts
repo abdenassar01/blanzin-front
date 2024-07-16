@@ -30,6 +30,11 @@ export default {
   resume: {
     experience: 'Experience',
     'work-experience': 'Work experience',
+    'step-one-text':
+      'Describe here where you have worked and in what position, whether it was a job or an internship.',
+    'step-two-text': 'Tell us here what you have learnt. And tell us where.',
+    'step-three-text':
+      'Tell us what you are particularly good at and what makes you special.',
     'education-level': 'Education',
     languages: 'Languages',
     education: 'Education Level',
@@ -113,10 +118,11 @@ export default {
     language: 'Current Language',
   },
   application: {
+    resume: 'Resume',
     Heading: 'Check application requirements',
     'packages-explain':
       'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
-    resume: 'Resume',
+    'personal-infos': 'Personal information',
     'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
     internship: 'Internship',
