@@ -6,3 +6,6 @@ export { WalkThroughtSteps } from './find-experts-steps';
 export { LatestOrders } from './latest-orders';
 export { LatestJobs } from './latest-jobs';
 export { LatestTrainings } from './latest-trainings';
+export { TraineeVisaSection } from './trainee-visa-section';
+export { EmployeeVisaSection } from './employee-visa-section';
+export { VisaCard } from './visa-card';

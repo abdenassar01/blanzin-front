@@ -1,6 +1,7 @@
 import {
   CallToAction,
   DownloadAppSection,
+  EmployeeVisaSection,
   HeroSection,
   LatestJobs,
   WalkThroughtSteps,
@@ -16,16 +17,19 @@ export default async function EmployeePage() {
       step: `${t('step-heading')} 1`,
       icon: '/steps/6.svg',
       text: t('jobs-in-germany-steps.first'),
+      desc: t('jobs-in-germany-steps.first-desc'),
     },
     {
       step: `${t('step-heading')} 2`,
       icon: '/steps/7.svg',
       text: t('jobs-in-germany-steps.second'),
+      desc: t('jobs-in-germany-steps.second-desc'),
     },
     {
       step: `${t('step-heading')} 3`,
       icon: '/steps/8.svg',
       text: t('jobs-in-germany-steps.third'),
+      desc: t('jobs-in-germany-steps.third-desc'),
     },
   ];
 
@@ -45,6 +49,7 @@ export default async function EmployeePage() {
       />
       <LatestJobs />
       <DownloadAppSection />
+      <EmployeeVisaSection />
       <CallToAction
         heading={t('employee.call-to-action-heading')}
         href='/application'

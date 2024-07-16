@@ -6,6 +6,7 @@ type Props = {
     step: string;
     icon: string;
     text: string;
+    desc: string;
   }[];
   header: string;
 };
@@ -20,7 +21,7 @@ export function WalkThroughtSteps({ steps, header }: Props) {
         <div className='mt-6 flex w-[80%] items-start justify-between sm:w-full sm:flex-col '>
           {React.Children.toArray(
             steps.map((item) => (
-              <div className='flex  flex-col items-center justify-center gap-3'>
+              <div className='flex w-[31%] flex-col items-center justify-center gap-3 sm:w-full'>
                 <Image
                   alt={item.text}
                   src={item.icon}
@@ -33,9 +34,10 @@ export function WalkThroughtSteps({ steps, header }: Props) {
                     {item.step}
                   </div>
                 </div>
-                <p className='w-[220px] text-center text-base font-bold text-secondary dark:text-textdark'>
+                <p className='text-center text-base font-bold text-secondary dark:text-textdark'>
                   {item.text}
                 </p>
+                <p className='text-center text-xs'>{item.desc}</p>
               </div>
             ))
           )}

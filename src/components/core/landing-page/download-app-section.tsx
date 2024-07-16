@@ -21,7 +21,7 @@ export async function DownloadAppSection() {
       <div className='container flex items-center sm:flex-col-reverse sm:gap-6'>
         <div className='flex w-[50%] items-center justify-center sm:w-full sm:flex-wrap'>
           <ImageShapeMakerSvg
-            screenshot='/screenshots/blanzin.svg'
+            screenshot='/screenshots/blanzin.jpg'
             id='DownloadApp'
             className='relative'
           >
