@@ -1,6 +1,7 @@
 import {
   CallToAction,
   DownloadAppSection,
+  EmployeeVisaSection,
   HeroSection,
   LatestJobs,
   WalkThroughtSteps,
@@ -16,16 +17,19 @@ export default async function EmployeePage() {
       step: `${t('step-heading')} 1`,
       icon: '/steps/6.svg',
       text: t('jobs-in-germany-steps.first'),
+      desc: t('jobs-in-germany-steps.first-desc'),
     },
     {
       step: `${t('step-heading')} 2`,
       icon: '/steps/7.svg',
       text: t('jobs-in-germany-steps.second'),
+      desc: t('jobs-in-germany-steps.second-desc'),
     },
     {
       step: `${t('step-heading')} 3`,
       icon: '/steps/8.svg',
       text: t('jobs-in-germany-steps.third'),
+      desc: t('jobs-in-germany-steps.third-desc'),
     },
   ];
 
@@ -39,6 +43,13 @@ export default async function EmployeePage() {
         header={t('employee.hero-text')}
         flipped
       />
+      <WalkThroughtSteps
+        header={t('jobs-in-germany-steps.header')}
+        steps={steps}
+      />
+      <LatestJobs />
+      <DownloadAppSection />
+      <EmployeeVisaSection />
       <CallToAction
         heading={t('employee.call-to-action-heading')}
         href='/application'
@@ -46,12 +57,6 @@ export default async function EmployeePage() {
         buttonText={t('employee.call-to-action-btn')}
         callToActionText={t('employee.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
-      />
-      <LatestJobs />
-      <DownloadAppSection />
-      <WalkThroughtSteps
-        header={t('jobs-in-germany-steps.header')}
-        steps={steps}
       />
     </div>
   );

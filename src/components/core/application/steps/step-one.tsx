@@ -8,9 +8,9 @@ export function StepOne() {
   return (
     <div className='h-full'>
       <div className='text-xxm'>
-        <Heading heading={t('resume')} />
+        <Heading heading={t('personal-infos')} />
       </div>
-      <div className='mt-8 h-full w-full rounded-xl '>
+      <div className=' h-full w-full rounded-xl '>
         <div className='flex h-full w-full flex-col gap-1 overflow-x-hidden sm:pl-0'>
           <ResumeeForm />
         </div>

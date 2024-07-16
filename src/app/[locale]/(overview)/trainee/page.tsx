@@ -3,6 +3,7 @@ import {
   DownloadAppSection,
   HeroSection,
   LatestTrainings,
+  TraineeVisaSection,
   WalkThroughtSteps,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
@@ -16,16 +17,19 @@ export default async function TraineePage() {
       step: `${t('step-heading')} 1`,
       icon: '/steps/6.svg',
       text: t('jobs-in-germany-steps.first'),
+      desc: t('jobs-in-germany-steps.first-desc'),
     },
     {
       step: `${t('step-heading')} 2`,
       icon: '/steps/7.svg',
       text: t('jobs-in-germany-steps.second'),
+      desc: t('jobs-in-germany-steps.second-desc'),
     },
     {
       step: `${t('step-heading')} 3`,
       icon: '/steps/8.svg',
       text: t('jobs-in-germany-steps.third'),
+      desc: t('jobs-in-germany-steps.third-desc'),
     },
   ];
 
@@ -39,6 +43,13 @@ export default async function TraineePage() {
         header={t('trainee.hero-text')}
         flipped
       />
+      <WalkThroughtSteps
+        header={t('jobs-in-germany-steps.header')}
+        steps={steps}
+      />
+      <LatestTrainings />
+      <DownloadAppSection />
+      <TraineeVisaSection />
       <CallToAction
         heading={t('trainee.call-to-action-heading')}
         href='/application'
@@ -46,12 +57,6 @@ export default async function TraineePage() {
         buttonText={t('trainee.call-to-action-btn')}
         callToActionText={t('trainee.call-to-action')}
         screenshot='/screenshots/blanzin-dark.jpg'
-      />
-      <LatestTrainings />
-      <DownloadAppSection />
-      <WalkThroughtSteps
-        header={t('jobs-in-germany-steps.header')}
-        steps={steps}
       />
     </div>
   );

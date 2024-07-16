@@ -11,6 +11,7 @@ type Props = {
 
 export function StepThree({ control }: Props) {
   const t = useScopedI18n('education');
+  const resumeT = useScopedI18n('resume');
 
   const { append, remove } = useFieldArray({ name: 'educations', control });
   const { theme } = useTheme();
@@ -24,6 +25,12 @@ export function StepThree({ control }: Props) {
 
   return (
     <div className='overflow-y-scroll '>
+      <div className='my-3'>
+        <div className='text-xm text-secondary'>{resumeT('skills')}</div>
+        <div className='text-text dark:text-textdark'>
+          {resumeT('step-three-text')}
+        </div>
+      </div>
       <div className='flex max-h-[120px] flex-wrap items-center justify-start gap-[2%] gap-y-4 overflow-y-scroll'>
         {React.Children.toArray(
           educations.map((item: any, index: number) => (

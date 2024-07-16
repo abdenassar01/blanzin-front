@@ -38,6 +38,9 @@ export default async function ExpertPage() {
         href='/become-expert'
         header={t('expert.hero-text')}
       />
+      <WalkThroughtSteps header={t('expert-steps.header')} steps={steps} />
+      <LatestOrders />
+      <DownloadAppSection />
       <CallToAction
         heading={t('expert.call-to-action-heading')}
         href='/orders'
@@ -46,9 +49,6 @@ export default async function ExpertPage() {
         callToActionText={t('expert.call-to-action')}
         screenshot='/screenshots/blanzin.jpg'
       />
-      <LatestOrders />
-      <DownloadAppSection />
-      <WalkThroughtSteps header={t('expert-steps.header')} steps={steps} />
     </div>
   );
 }

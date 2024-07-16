@@ -41,7 +41,7 @@ export function ResumeeForm() {
     <>
       <div className='h-[90%] sm:p-0'>
         <div className='flex h-full w-[95%] flex-col justify-between sm:w-full'>
-          <div className=''>{getStep()}</div>
+          <div className='mt-3'>{getStep()}</div>
           <div
             className={cn(
               'flex w-full justify-between gap-4',

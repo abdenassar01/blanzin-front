@@ -12,16 +12,12 @@ export function ProfilePicker() {
 
   const searchParams = useSearchParams();
 
-  const selectedTab = searchParams.get('role');
+  const selectedTab = searchParams.get('role') || 'customer';
 
   useEffect(() => {
-    setTimeout(
-      () =>
-        push(
-          `/profile/${selectedTab === 'customer' ? 'account' : 'dashboard'}?role=` +
-            (selectedTab || 'customer')
-        ),
-      100
+    push(
+      `/profile/${selectedTab === 'customer' ? 'account' : 'dashboard'}?role=` +
+        (selectedTab || 'customer')
     );
   }, [selectedTab]);
 

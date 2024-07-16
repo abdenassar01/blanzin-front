@@ -30,6 +30,11 @@ export default {
   resume: {
     experience: 'Experience',
     'work-experience': 'Work experience',
+    'step-one-text':
+      'Describe here where you have worked and in what position, whether it was a job or an internship.',
+    'step-two-text': 'Tell us here what you have learnt. And tell us where.',
+    'step-three-text':
+      'Tell us what you are particularly good at and what makes you special.',
     'education-level': 'Education',
     languages: 'Languages',
     education: 'Education Level',
@@ -46,6 +51,7 @@ export default {
   dashboard: {
     title: 'Dashboard',
     appointment: 'My appointments',
+    'delivery-date': 'Next delivery',
     'open-orders': 'My open orders',
     'completed-orders': 'My completed orders',
     jobs: 'My job positions',
@@ -112,10 +118,11 @@ export default {
     language: 'Current Language',
   },
   application: {
+    resume: 'Resume',
     Heading: 'Check application requirements',
     'packages-explain':
       'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
-    resume: 'Resume',
+    'personal-infos': 'Personal information',
     'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
     internship: 'Internship',
@@ -176,6 +183,9 @@ export default {
       'Register today and start your journey to <strong>success</strong>',
     'call-to-action-btn': 'Start now!',
     'slider-header': 'Latest job offers',
+    visa: {
+      title: 'Types of visa',
+    },
   },
   expert: {
     'hero-text': 'Become a Blanzin partner now and receive orders!',
@@ -199,6 +209,17 @@ export default {
       'Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY!</strong>',
     'call-to-action-btn': 'Start now!',
     'slider-header': 'Latest training offers',
+    visa: {
+      title:
+        'What requirements must be met in order to obtain a visa to complete vocational training?',
+      content:
+        '<ul>' +
+        '<li>Proof of school graduation and any completed vocational training or university studies (if applicable) </li>' +
+        '<li>Apprenticeship contract including details of the gross annual salary</li>' +
+        '<li>Original recognized language certificate (at least level B1 of the Common European Framework of Reference</li>' +
+        '<li>Proof of financial means: The trainee must have at least 927 EUR gross per month. This remuneration must be paid by the employer as a training salary.</li>' +
+        '</ul>',
+    },
   },
   'download-app-heading': 'Get your task done without lifting a finger!',
   'download-app-btn-text': 'Download the App',
@@ -221,8 +242,14 @@ export default {
   'jobs-in-germany-steps': {
     header: 'How to find your desired jobs',
     first: 'Fill in the CV',
+    'first-desc':
+      'The more detailed your CV is, the better we can support you in your search for an apprenticeship.',
     second: 'Upload your documents',
+    'second-desc':
+      'Please upload all required documents, including your language certificates, diplomas, transcripts, internship certificates, and grades. Your documents should be either in German or English.',
     third: 'Apply for the right jobs',
+    'third-desc':
+      'You can search for <a href="/jobs">open positions</a> and apply or leave the application process to us by selecting our Premium package.',
   },
   auth: {
     'login-heading': 'Welcome back!',
