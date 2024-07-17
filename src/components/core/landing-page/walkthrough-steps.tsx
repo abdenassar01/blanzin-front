@@ -11,9 +11,9 @@ type Props = {
   header: string;
 };
 
-export function WalkThroughtSteps({ steps, header }: Props) {
+export function WalkThroughSteps({ steps, header }: Props) {
   return (
-    <div className='no-scrollbar container overflow-x-scroll pt-12'>
+    <div className='no-scrollbar container overflow-x-scroll py-12'>
       <h2 className='mb-5 text-center text-xm font-bold text-secondary dark:text-main'>
         {header}
       </h2>
