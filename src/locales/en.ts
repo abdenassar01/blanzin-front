@@ -367,6 +367,13 @@ export default {
     update: 'Update',
     send: 'Send complaint',
   },
+  'visa-overwhelmed': {
+    title: 'Feeling overwhelmed by the various visa options?',
+    desc:
+      'Leave the entire visa process to us and relax. With our Premium Package, we handle all the formalities and help you obtain your visa quickly and easily.\n' +
+      '<br><br><strong>Does this sound interesting to you?</strong>  Choose our Premium Package now and let us do the work for you.',
+    'call-to-action': 'Choose Premium Package',
+  },
   'new-order-header': 'Add a new order',
   'update-order-header': 'Update your order',
   'otp-request-text':
