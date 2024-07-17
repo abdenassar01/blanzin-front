@@ -37,7 +37,12 @@ export function WalkThroughtSteps({ steps, header }: Props) {
                 <p className='text-center text-base font-bold text-secondary dark:text-textdark'>
                   {item.text}
                 </p>
-                <p className='text-center text-xs'>{item.desc}</p>
+                {item.desc && (
+                  <p
+                    className='text-center text-xs text-mainText prose-a:text-[#4385ff] prose-a:underline dark:text-textdark'
+                    dangerouslySetInnerHTML={{ __html: item.desc }}
+                  />
+                )}
               </div>
             ))
           )}
