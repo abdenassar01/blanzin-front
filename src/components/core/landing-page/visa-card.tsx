@@ -13,7 +13,7 @@ export function VisaCard({ visa: { img, title, description } }: Props) {
   return (
     <div className='flex w-[32%] flex-col justify-between rounded-xl border border-secondary p-2 dark:border-main sm:w-full'>
       <Image
-        src='/job-image.jpg'
+        src={img}
         width={300}
         height={200}
         className='w-full rounded'
