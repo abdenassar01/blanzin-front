@@ -7,6 +7,7 @@ import {
   Heading,
   PhoneField,
   TagsField,
+  TextArea,
 } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
@@ -61,7 +62,7 @@ export default function AccountForm() {
           placeholder='6063962973'
         />
         {role === 'expert' && (
-          <div className='my-5 w-full'>
+          <div className='my-5 flex w-full flex-col gap-2'>
             <div className='mb-3 text-xm'>
               <Heading heading={t('freelancer-details')} />
             </div>
@@ -83,16 +84,18 @@ export default function AccountForm() {
             <DescriptionField
               control={control}
               items={watch('tools')}
-              label={t('professional-skills')}
+              label={t('tools')}
               name='tools'
-              suggestions={[
-                'Dev mobile',
-                'Front end',
-                'Database administration',
-              ]}
+              suggestions={['Java', 'TypeScript', 'Laravel Framework', 'Mysql']}
               placeholder={suggestionsT('free-text')}
               suggestionsLabel={suggestionsT('description')}
               valuesLabel={suggestionsT('description-value')}
+            />
+            <TextArea
+              className='bg-background dark:bg-backgroundSecondaryDark'
+              control={control}
+              name='description'
+              label='Description'
             />
           </div>
         )}

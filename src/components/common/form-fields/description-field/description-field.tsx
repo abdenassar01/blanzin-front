@@ -51,7 +51,9 @@ export function DescriptionField({
 
   return (
     <div className='mb-2 w-full'>
-      <h4 className='mb-1 text-sm text-secondary dark:text-main'>{label}</h4>
+      <h4 className='mb-1 text-sm font-bold text-secondary dark:text-main'>
+        {label}
+      </h4>
       <div className='flex w-full justify-between sm:flex-col sm:items-center'>
         <div className='w-[47%] gap-2 sm:w-full'>
           <div
