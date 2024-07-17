@@ -29,6 +29,7 @@ export default {
   },
   resume: {
     experience: 'Experience',
+    'personal-infos': 'Personal information',
     'work-experience': 'Work experience',
     'step-one-text':
       'Describe here where you have worked and in what position, whether it was a job or an internship.',
@@ -122,7 +123,6 @@ export default {
     Heading: 'Check application requirements',
     'packages-explain':
       'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
-    'personal-infos': 'Personal information',
     'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
     internship: 'Internship',

@@ -1,2 +1,2 @@
 export { DocumentToggleOperation } from './document-operation-toggle';
-export { ResumeeForm } from './resumee-form';
+export { ResumeForm } from './resume-form';

@@ -9,7 +9,7 @@ import { Button } from '@/components';
 import { useRouter } from 'next/navigation';
 import { isMobile } from 'react-device-detect';
 
-export function ResumeeForm() {
+export function ResumeForm() {
   const t = useI18n();
 
   const { control } = useForm({
