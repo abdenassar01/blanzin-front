@@ -11,11 +11,18 @@ export function StepFour({ control }: Props) {
   const { personalSkills, languageSkills } = useWatch({ control });
   const t = useScopedI18n('forms');
   const suggestionsT = useScopedI18n('suggestions');
+  const resumeT = useScopedI18n('resume');
 
   const { languages } = useWatch({ control });
 
   return (
     <div className='mb-10 flex flex-col gap-4 overflow-y-scroll'>
+      <div className='my-3'>
+        <div className='text-xm text-secondary'>{resumeT('skills')}</div>
+        <div className='text-text dark:text-textdark'>
+          {resumeT('step-three-text')}
+        </div>
+      </div>
       <DescriptionField
         control={control}
         items={['Team Work', 'Skill2']}

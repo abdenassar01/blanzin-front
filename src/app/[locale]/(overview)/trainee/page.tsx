@@ -4,7 +4,7 @@ import {
   HeroSection,
   LatestTrainings,
   TraineeVisaSection,
-  WalkThroughtSteps,
+  WalkThroughSteps,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
 import React from 'react';
@@ -43,7 +43,7 @@ export default async function TraineePage() {
         header={t('trainee.hero-text')}
         flipped
       />
-      <WalkThroughtSteps
+      <WalkThroughSteps
         header={t('jobs-in-germany-steps.header')}
         steps={steps}
       />

@@ -3,7 +3,7 @@ import {
   DownloadAppSection,
   HeroSection,
   LatestOrders,
-  WalkThroughtSteps,
+  WalkThroughSteps,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
 import React from 'react';
@@ -38,7 +38,7 @@ export default async function ExpertPage() {
         href='/become-expert'
         header={t('expert.hero-text')}
       />
-      <WalkThroughtSteps header={t('expert-steps.header')} steps={steps} />
+      <WalkThroughSteps header={t('expert-steps.header')} steps={steps} />
       <LatestOrders />
       <DownloadAppSection />
       <CallToAction

@@ -2,7 +2,7 @@ export { SelectedProfile } from './selected-profile';
 export { HeroSection } from './hero-section';
 export { CallToAction } from './call-to-action';
 export { DownloadAppSection } from './download-app-section';
-export { WalkThroughtSteps } from './find-experts-steps';
+export { WalkThroughSteps } from './walkthrough-steps';
 export { LatestOrders } from './latest-orders';
 export { LatestJobs } from './latest-jobs';
 export { LatestTrainings } from './latest-trainings';

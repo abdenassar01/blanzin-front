@@ -38,9 +38,11 @@ export function StepTwo({ control }: Props) {
   return (
     <>
       <div className='my-3'>
-        <div className='text-xm text-secondary'>{resumeT('education')}</div>
+        <div className='text-xm text-secondary'>
+          {resumeT('work-experience')}
+        </div>
         <div className='text-text dark:text-textdark'>
-          {resumeT('step-two-text')}
+          {resumeT('step-one-text')}
         </div>
       </div>
       <div className='mb-7 overflow-y-scroll'>

@@ -17,10 +17,7 @@ export function StepOne({ control }: Props) {
     <div className='overflow-y-scroll'>
       <div className='my-3'>
         <div className='text-xm text-secondary'>
-          {resumeT('work-experience')}
-        </div>
-        <div className='text-text dark:text-textdark'>
-          {resumeT('step-one-text')}
+          {resumeT('personal-infos')}
         </div>
       </div>
       <UploadAvatarResemee control={control} name='avatar' className='' />

@@ -2,7 +2,7 @@ import {
   CallToAction,
   DownloadAppSection,
   HeroSection,
-  WalkThroughtSteps,
+  WalkThroughSteps,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
 
@@ -38,7 +38,7 @@ export default async function CustomerLandingPage() {
         href='/new-order'
         header={t('customer.hero-text')}
       />
-      <WalkThroughtSteps steps={steps} header={t('customer-steps.header')} />
+      <WalkThroughSteps steps={steps} header={t('customer-steps.header')} />
       <DownloadAppSection />
       <CallToAction
         heading={t('customer.call-to-action-heading')}

@@ -24,11 +24,11 @@ export function StepThree({ control }: Props) {
   };
 
   return (
-    <div className='overflow-y-scroll '>
+    <div className='mb-10 flex flex-col gap-4 overflow-y-scroll'>
       <div className='my-3'>
-        <div className='text-xm text-secondary'>{resumeT('skills')}</div>
+        <div className='text-xm text-secondary'>{resumeT('education')}</div>
         <div className='text-text dark:text-textdark'>
-          {resumeT('step-three-text')}
+          {resumeT('step-two-text')}
         </div>
       </div>
       <div className='flex max-h-[120px] flex-wrap items-center justify-start gap-[2%] gap-y-4 overflow-y-scroll'>

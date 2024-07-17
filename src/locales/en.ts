@@ -29,6 +29,7 @@ export default {
   },
   resume: {
     experience: 'Experience',
+    'personal-infos': 'Personal information',
     'work-experience': 'Work experience',
     'step-one-text':
       'Describe here where you have worked and in what position, whether it was a job or an internship.',
@@ -122,7 +123,6 @@ export default {
     Heading: 'Check application requirements',
     'packages-explain':
       'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
-    'personal-infos': 'Personal information',
     'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
     internship: 'Internship',
@@ -366,6 +366,13 @@ export default {
     delete: 'Remove',
     update: 'Update',
     send: 'Send complaint',
+  },
+  'visa-overwhelmed': {
+    title: 'Feeling overwhelmed by the various visa options?',
+    desc:
+      'Leave the entire visa process to us and relax. With our Premium Package, we handle all the formalities and help you obtain your visa quickly and easily.\n' +
+      '<br><br><strong>Does this sound interesting to you?</strong>  Choose our Premium Package now and let us do the work for you.',
+    'call-to-action': 'Choose Premium Package',
   },
   'new-order-header': 'Add a new order',
   'update-order-header': 'Update your order',

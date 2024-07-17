@@ -11,7 +11,7 @@ export async function TraineeVisaSection() {
           <Heading heading={t('title')} className='text-center' />
         </div>
         <div
-          className='prose mt-12 min-w-full prose-li:w-full prose-li:list-disc prose-li:text-xl'
+          className='prose mt-12 min-w-full prose-li:w-full prose-li:list-disc prose-li:text-xl prose-li:text-mainText dark:prose-li:text-textdark'
           dangerouslySetInnerHTML={{ __html: t('content') }}
         />
       </div>
