@@ -27,7 +27,6 @@ export default function AccountForm() {
 
   const t = useScopedI18n('forms');
   const buttonsT = useScopedI18n('button');
-  const suggestionsT = useScopedI18n('suggestions');
 
   const searchParams = useSearchParams();
   const role = searchParams.get('role');
@@ -71,19 +70,9 @@ export default function AccountForm() {
               control={control}
               name='professionalSkills'
               label={t('professional-skills')}
-              placeholder={suggestionsT('free-text')}
             />
+            <TasksField control={control} name='tools' label={t('tools')} />
 
-            <DescriptionField
-              control={control}
-              items={watch('tools')}
-              label={t('tools')}
-              name='tools'
-              suggestions={['Java', 'TypeScript', 'Laravel Framework', 'Mysql']}
-              placeholder={suggestionsT('free-text')}
-              suggestionsLabel={suggestionsT('description')}
-              valuesLabel={suggestionsT('description-value')}
-            />
             <TextArea
               className='bg-background dark:bg-backgroundSecondaryDark'
               control={control}
