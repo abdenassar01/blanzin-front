@@ -13,6 +13,7 @@ import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'next/navigation';
+import { TasksField } from '@/components/common/form-fields/tasks-field';
 
 export default function AccountForm() {
   const { control, watch } = useForm({
@@ -26,7 +27,6 @@ export default function AccountForm() {
 
   const t = useScopedI18n('forms');
   const buttonsT = useScopedI18n('button');
-  const suggestionsT = useScopedI18n('suggestions');
 
   const searchParams = useSearchParams();
   const role = searchParams.get('role');
@@ -66,31 +66,13 @@ export default function AccountForm() {
             <div className='mb-3 text-xm'>
               <Heading heading={t('freelancer-details')} />
             </div>
-            <DescriptionField
+            <TasksField
               control={control}
-              items={watch('professionalSkills')}
-              label={t('professional-skills')}
               name='professionalSkills'
-              suggestions={[
-                'Dev mobile',
-                'Front end',
-                'Database administration',
-              ]}
-              placeholder={suggestionsT('free-text')}
-              suggestionsLabel={suggestionsT('description')}
-              valuesLabel={suggestionsT('description-value')}
+              label={t('professional-skills')}
             />
+            <TasksField control={control} name='tools' label={t('tools')} />
 
-            <DescriptionField
-              control={control}
-              items={watch('tools')}
-              label={t('tools')}
-              name='tools'
-              suggestions={['Java', 'TypeScript', 'Laravel Framework', 'Mysql']}
-              placeholder={suggestionsT('free-text')}
-              suggestionsLabel={suggestionsT('description')}
-              valuesLabel={suggestionsT('description-value')}
-            />
             <TextArea
               className='bg-background dark:bg-backgroundSecondaryDark'
               control={control}

@@ -387,6 +387,7 @@ export default {
     rate: 'Rate',
     apply: 'Apply',
     add: 'Add',
+    remove: 'Remove',
   },
   'orders-filter': {
     active: 'Active orders',

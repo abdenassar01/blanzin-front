@@ -14,7 +14,7 @@ export default async function ExpertPage() {
   const steps = [
     {
       step: `${t('step-heading')} 1`,
-      icon: '/steps/step-1.jpeg',
+      icon: '/steps/expert-step-1.svg',
       text: t('expert-steps.first'),
     },
     {
@@ -24,7 +24,7 @@ export default async function ExpertPage() {
     },
     {
       step: `${t('step-heading')} 3`,
-      icon: '/steps/step-3.jpeg',
+      icon: '/steps/expert-step-3.svg',
       text: t('expert-steps.third'),
     },
   ];

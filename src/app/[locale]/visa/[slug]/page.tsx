@@ -60,9 +60,11 @@ export default async function Page() {
               dangerouslySetInnerHTML={{ __html: t('desc') }}
               className='text-xl text-mainText dark:text-textdark'
             />
-            <Link href='/application' className='w-[50%] sm:w-full'>
-              <Button theme='secondary' text={t('call-to-action')} />
-            </Link>
+            <div className='flex w-full items-center justify-center'>
+              <Link href='/application' className='w-[50%] sm:w-full'>
+                <Button theme='secondary' text={t('call-to-action')} />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
