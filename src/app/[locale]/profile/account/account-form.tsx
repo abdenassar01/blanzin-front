@@ -13,6 +13,7 @@ import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'next/navigation';
+import { TasksField } from '@/components/common/form-fields/tasks-field';
 
 export default function AccountForm() {
   const { control, watch } = useForm({
@@ -66,19 +67,11 @@ export default function AccountForm() {
             <div className='mb-3 text-xm'>
               <Heading heading={t('freelancer-details')} />
             </div>
-            <DescriptionField
+            <TasksField
               control={control}
-              items={watch('professionalSkills')}
-              label={t('professional-skills')}
               name='professionalSkills'
-              suggestions={[
-                'Dev mobile',
-                'Front end',
-                'Database administration',
-              ]}
+              label={t('professional-skills')}
               placeholder={suggestionsT('free-text')}
-              suggestionsLabel={suggestionsT('description')}
-              valuesLabel={suggestionsT('description-value')}
             />
 
             <DescriptionField
