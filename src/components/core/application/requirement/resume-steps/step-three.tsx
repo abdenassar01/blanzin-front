@@ -1,4 +1,4 @@
-import { Button, DatePicker, FieldText } from '@/components';
+import { Button, DatePicker, Dropdown, FieldText } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
@@ -73,13 +73,16 @@ export function StepThree({ control }: Props) {
           name='employee'
         />
         <div className='w-full'>
-          <FieldText
-            className='w-[47%] sm:w-full'
+          <Dropdown
+            wrapperClassName='w-[47%]'
+            className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
             control={innerControl}
-            inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
             label={t('degree')}
             placeholder={t('degree')}
-            name='employee'
+            name='degree'
+            items={['Master', 'Licence']}
+            extractDisplayMember={(item) => item}
+            extractValueMember={(item) => item}
           />
         </div>
 

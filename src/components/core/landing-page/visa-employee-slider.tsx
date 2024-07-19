@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Slider from 'react-slick';
-import { JobMainCard, Map, VisaCard } from '@/components';
+import { VisaCard } from '@/components';
 import { SliderDotIndicator } from '@/components/core/sliders/slider-dots-indicator';
 import { useState } from 'react';
 
