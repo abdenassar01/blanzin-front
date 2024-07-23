@@ -92,7 +92,7 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
         <div className='flex justify-between gap-3 p-3 px-5 sm:flex-col'>
           <div className='w-[47%] rounded-md border border-border shadow-lg dark:shadow-lg dark:shadow-black sm:w-full'>
             <div className='border-b border-border p-2 text-center font-bold text-secondary dark:text-main'>
-              {t('account-status')}
+              {isExpert ? t('account-status') : t('app-folder')}
             </div>
             <div className='p-2 text-mainText dark:text-textdark'>
               <div className='text-center '>{t('status-explain')}</div>

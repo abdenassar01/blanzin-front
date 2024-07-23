@@ -78,6 +78,7 @@ export default {
       '                        <li><span>react quickly to messages from customers so that your competitors do not take advantage of the opportunity</span></li>' +
       '                    </ul>',
     'account-status': 'My account status',
+    'app-folder': ' My application folder',
     'status-personal': 'Personal data',
     'status-professional': 'Professional data',
     'status-explain':
