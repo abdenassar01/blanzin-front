@@ -17,14 +17,14 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
       <div className='text-xxm'>
         <Heading className='text-center' heading={t('title')} />
       </div>
-      <div className='mt-6 flex justify-between'>
+      <div className='mt-6 flex justify-between gap-4 sm:flex-col'>
         <Link
           href={
             role === 'expert'
               ? `/profile/orders?role=${role}`
               : '/profile/appointments'
           }
-          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black'
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'
         >
           <div className='text-center text-xl font-bold '>
             {role === 'expert' ? t('delivery-date') : t('appointment')}
@@ -38,7 +38,7 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
               ? `/profile/orders?role=${role}&tab=active`
               : '/profile/jobs'
           }
-          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black'
+          className='flex w-[32%] flex-col  justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'
         >
           <div className='text-center text-xl font-bold '>
             {isExpert ? t('open-orders') : t('jobs')}
@@ -51,7 +51,7 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
               ? `/profile/orders?role=${role}&tab=done`
               : `/jobs?role=${role}`
           }
-          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black'
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'
         >
           <div className='text-center text-xl font-bold '>
             {isExpert ? t('completed-orders') : t('recommended-jobs')}

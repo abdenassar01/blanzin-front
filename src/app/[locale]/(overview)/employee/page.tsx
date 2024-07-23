@@ -1,7 +1,6 @@
 import {
   CallToAction,
   DownloadAppSection,
-  EmployeeVisaSection,
   HeroSection,
   LatestJobs,
   WalkThroughSteps,
@@ -49,7 +48,6 @@ export default async function EmployeePage() {
       />
       <LatestJobs />
       <DownloadAppSection />
-      <EmployeeVisaSection />
       <CallToAction
         heading={t('employee.call-to-action-heading')}
         href='/application'

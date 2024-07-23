@@ -3,7 +3,6 @@ import {
   DownloadAppSection,
   HeroSection,
   LatestTrainings,
-  TraineeVisaSection,
   WalkThroughSteps,
 } from '@/components';
 import { getI18n } from '@/utils/locales/server';
@@ -49,7 +48,6 @@ export default async function TraineePage() {
       />
       <LatestTrainings />
       <DownloadAppSection />
-      <TraineeVisaSection />
       <CallToAction
         heading={t('trainee.call-to-action-heading')}
         href='/application'
