@@ -68,12 +68,6 @@ export function ProfileSidebar() {
       roles: ['trainee', 'employee'],
     },
     {
-      link: '/profile/inbox',
-      label: t('inbox'),
-      roles: ['trainee', 'employee'],
-    },
-
-    {
       link: '/profile/orders',
       label: t('my-orders'),
       roles: ['customer', 'expert'],
