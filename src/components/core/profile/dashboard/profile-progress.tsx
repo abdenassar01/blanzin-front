@@ -18,25 +18,15 @@ export function ProfileProgress({ value }: Props) {
       <ReactSpeedometer
         value={value}
         width={isMobile ? 250 : 300}
-        segmentColors={[
-          '#ED1C24',
-          '#ED1C24',
-          '#ED1C24',
-          '#FFD432',
-          '#FFD432',
-          '#FFD432',
-          '#FFD432',
-          '#70A44A',
-          '#70A44A',
-          '#70A44A',
-        ]}
+        startColor='#ED1C24'
+        endColor='#70A44A'
         ringWidth={25}
         height={190}
         minValue={0}
+        segments={222}
         segmentValueFormatter={(textValue) =>
           textValue === value.toString() ? `${textValue}%` : ''
         }
-        segments={10}
         maxValue={100}
         valueFormat={''}
         needleHeightRatio={0.8}

@@ -25,10 +25,10 @@ export function StepFour({ control }: Props) {
       </div>
       <DescriptionField
         control={control}
-        items={['Team Work', 'Skill2']}
+        suggestions={['Team Work', 'Skill2']}
         label={t('personal-skills')}
         name='personalSkills'
-        suggestions={personalSkills}
+        items={personalSkills}
         placeholder={suggestionsT('free-text')}
         suggestionsLabel={suggestionsT('skill')}
         valuesLabel={suggestionsT('skill-value')}

@@ -58,7 +58,8 @@ export default {
     jobs: 'My job positions',
     'recommended-jobs': 'recommended jobs',
     'actions-title': 'Actions',
-    'required-action-title': 'You will have to pay to attend the interview',
+    'required-action-title':
+      'You will have to pay to attend the interview-coaching',
     'expert-required-action-title': 'Action required',
     'increase-opportunities': 'Increase your opportunities',
     'increase-opportunities-text':
@@ -67,7 +68,7 @@ export default {
     'expert-required-action-content':
       'You have not completed an order after the expiry date. have you completed this order?',
     'required-action-content':
-      'you have been given an appointment for an interview. to take part, you must pay for one of our packages',
+      'you have been given an appointment for an interview-coaching. to take part, you must pay for one of our packages',
     recommendations: 'Recommendations',
     'expert-recommendations-content':
       "<div class='text-center'>\n" +
@@ -78,6 +79,7 @@ export default {
       '                        <li><span>react quickly to messages from customers so that your competitors do not take advantage of the opportunity</span></li>' +
       '                    </ul>',
     'account-status': 'My account status',
+    'app-folder': ' My application folder',
     'status-personal': 'Personal data',
     'status-professional': 'Professional data',
     'status-explain':
@@ -98,7 +100,12 @@ export default {
     'my-orders': 'My Orders',
     chat: 'Chat',
     'new-order': 'New Order',
-    docs: 'My documents',
+    folder: 'My application folder',
+    'interview-invite': 'Interview invitations',
+    courses: 'Language course',
+    'interview-coaching': 'Interview coaching',
+    contract: 'Employment contract',
+    visa: 'Visa',
     settings: 'Settings',
     resume: 'My resume',
   },

@@ -1,14 +1,6 @@
 'use client';
 
-import {
-  Button,
-  DescriptionField,
-  FieldText,
-  Heading,
-  PhoneField,
-  TagsField,
-  TextArea,
-} from '@/components';
+import { Button, FieldText, Heading, PhoneField, TextArea } from '@/components';
 import { useScopedI18n } from '@/utils/locales/client';
 import React from 'react';
 import { useForm } from 'react-hook-form';
@@ -72,7 +64,6 @@ export default function AccountForm() {
               label={t('professional-skills')}
             />
             <TasksField control={control} name='tools' label={t('tools')} />
-
             <TextArea
               className='bg-background dark:bg-backgroundSecondaryDark'
               control={control}

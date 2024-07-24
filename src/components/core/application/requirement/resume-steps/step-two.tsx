@@ -119,10 +119,10 @@ export function StepTwo({ control }: Props) {
           />
           <DescriptionField
             control={innerControl}
-            items={['This is a test text', 'second', 'Hello world']}
+            suggestions={['This is a test text', 'second', 'Hello world']}
             label={t('description')}
             name='description'
-            suggestions={watch('description')}
+            items={watch('description')}
             placeholder={suggestionsT('free-text')}
             suggestionsLabel={suggestionsT('description')}
             valuesLabel={suggestionsT('description-value')}

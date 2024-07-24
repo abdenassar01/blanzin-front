@@ -38,11 +38,6 @@ export function ProfileSidebar() {
       roles: ['trainee', 'employee'],
     },
     {
-      link: '/profile/docs',
-      label: t('docs'),
-      roles: ['trainee', 'employee'],
-    },
-    {
       link: '/profile/favourite-experts',
       label: t('favourites'),
       roles: ['customer'],
@@ -63,16 +58,40 @@ export function ProfileSidebar() {
       roles: ['employee'],
     },
     {
+      link: '/application/apply',
+      label: t('folder'),
+      roles: ['trainee', 'employee'],
+    },
+    {
+      link: '/profile/interview-invite',
+      label: t('interview-invite'),
+      roles: ['trainee', 'employee'],
+    },
+    {
+      link: '/profile/courses',
+      label: t('courses'),
+      roles: ['trainee', 'employee'],
+    },
+    {
+      link: '/profile/interview-coaching',
+      label: t('interview-coaching'),
+      roles: ['trainee', 'employee'],
+    },
+    {
+      link: '/profile/contract',
+      label: t('contract'),
+      roles: ['trainee', 'employee'],
+    },
+    {
+      link: '/profile/visa',
+      label: t('visa'),
+      roles: ['trainee', 'employee'],
+    },
+    {
       link: '/jobs',
       label: t('jobs'),
       roles: ['trainee', 'employee'],
     },
-    {
-      link: '/profile/inbox',
-      label: t('inbox'),
-      roles: ['trainee', 'employee'],
-    },
-
     {
       link: '/profile/orders',
       label: t('my-orders'),
