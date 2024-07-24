@@ -33,8 +33,8 @@ export function ProfileSidebar() {
       root: true,
     },
     {
-      link: '/profile/resume',
-      label: t('resume'),
+      link: '/jobs',
+      label: t('jobs'),
       roles: ['trainee', 'employee'],
     },
     {
@@ -57,6 +57,7 @@ export function ProfileSidebar() {
       label: t('favourites'),
       roles: ['employee'],
     },
+
     {
       link: '/application/apply',
       label: t('folder'),
@@ -87,11 +88,7 @@ export function ProfileSidebar() {
       label: t('visa'),
       roles: ['trainee', 'employee'],
     },
-    {
-      link: '/jobs',
-      label: t('jobs'),
-      roles: ['trainee', 'employee'],
-    },
+
     {
       link: '/profile/orders',
       label: t('my-orders'),
