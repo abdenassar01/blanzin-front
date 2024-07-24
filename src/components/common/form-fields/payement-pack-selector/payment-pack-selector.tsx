@@ -35,7 +35,7 @@ const packs = [
       },
       { text: 'Job interviews', qte: 'x3', supported: true },
       {
-        text: 'Video call counselling bevor the first interview',
+        text: 'Video call counselling bevor the first interview-coaching',
         super: true,
         supported: false,
       },
@@ -63,7 +63,7 @@ const packs = [
       },
       { text: 'Job interviews', qte: 'Unlimited', supported: true },
       {
-        text: 'Video call counselling bevor the first interview',
+        text: 'Video call counselling bevor the first interview-coaching',
         qte: 'x1',
         supported: true,
       },
@@ -91,7 +91,7 @@ const packs = [
       },
       { text: 'Job interviews', qte: 'Unlimited', supported: true },
       {
-        text: 'Video call counselling bevor the first interview',
+        text: 'Video call counselling bevor the first interview-coaching',
         supported: true,
         qte: 'Unlimited',
       },
