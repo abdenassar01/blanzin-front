@@ -12,18 +12,13 @@ export function ProfilePicker() {
 
   const searchParams = useSearchParams();
 
-  const selectedTab = searchParams.get('role') || 'customer';
+  const selectedTab = searchParams.get('role') || 'trainee';
 
   useEffect(() => {
-    push(
-      `/profile/${selectedTab === 'customer' ? 'account' : 'dashboard'}?role=` +
-        (selectedTab || 'customer')
-    );
+    push(`/profile/dashboard?role=` + (selectedTab || 'trainee'));
   }, [selectedTab]);
 
   const tabs = [
-    { label: t('customer'), value: 'customer' },
-    { label: t('expert'), value: 'expert' },
     { label: t('trainee'), value: 'trainee' },
     { label: t('employee'), value: 'employee' },
   ];

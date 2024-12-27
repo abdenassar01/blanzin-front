@@ -1,22 +1,24 @@
-'use client';
+'use client'
 
-import React, { HTMLProps, useState } from 'react';
-import { Control, useController } from 'react-hook-form';
-import icon from '@/assets/images/icons/eye.svg';
-import iconClosed from '@/assets/images/icons/eye-closed.svg';
-import Image from 'next/image';
-import { cn } from '@/utils';
-import { useScopedI18n } from '@/utils/locales/client';
+import React, { HTMLProps, useState } from 'react'
+import { Control, useController } from 'react-hook-form'
+import icon from '@/assets/images/icons/eye.svg'
+import iconClosed from '@/assets/images/icons/eye-closed.svg'
+import Image from 'next/image'
+import { cn } from '@/utils'
+import { TranslateFunc, useScopedI18n } from '@/utils/locales/client'
+import { FormConrolPopoverExplaination } from '../form-control-popover-explaination'
 
 type InputProps = HTMLProps<HTMLInputElement> & {
-  control: Control<any>;
-  name: string;
-  label: string;
-  inputClassName?: string;
-  className?: string;
-  labelClassName?: string;
-  iconUrl?: string;
-};
+  control: Control<any>
+  name: string
+  label: string
+  inputClassName?: string
+  className?: string
+  labelClassName?: string
+  iconUrl?: string
+  popoverText?: string
+}
 
 export function FieldText({
   control,
@@ -27,38 +29,42 @@ export function FieldText({
   inputClassName,
   className = '',
   labelClassName,
+  popoverText,
   iconUrl,
   ...props
 }: InputProps) {
-  const [isPassword, setIsPassword] = useState<boolean>(type === 'password');
+  const [isPassword, setIsPassword] = useState<boolean>(type === 'password')
 
   const {
     field: { onBlur, onChange },
     fieldState: { error },
-  } = useController({ name, control });
+  } = useController({ name, control })
 
-  const t = useScopedI18n('errors');
+  const t = useScopedI18n('errors')
 
   return (
     <div className={cn('group relative flex w-[100%] flex-col', className)}>
-      <label
-        htmlFor={name}
-        className={cn(
-          'text-sm font-bold text-secondary dark:text-main',
-          labelClassName
-        )}
-      >
-        {label}
-      </label>
+      <div className='flex'>
+        <label
+          htmlFor={name}
+          className={cn(
+            'text-sm font-bold text-secondary dark:text-main',
+            labelClassName,
+          )}>
+          {label}
+        </label>
+        {popoverText && <FormConrolPopoverExplaination text={popoverText} />}
+      </div>
+
       <input
         id={name}
         onChange={onChange}
         onBlur={onBlur}
         className={cn(
-          'w-full rounded-lg border-none bg-backgroundSecondary p-2 py-3 text-base text-text placeholder-[#A6A6A6] shadow-lg focus:outline-none  dark:bg-backgroundSecondaryDark dark:text-textdark dark:shadow-black',
+          'w-full rounded-lg border-none bg-backgroundSecondary p-2 py-3 text-base text-text placeholder-[#A6A6A6] shadow-lg focus:outline-none  dark:bg-backgroundDark dark:text-textdark dark:shadow-black',
           iconUrl && '',
           inputClassName,
-          error && 'border-red-600'
+          error && 'border-red-600',
         )}
         placeholder={placeholder}
         type={isPassword ? 'password' : 'text'}
@@ -72,16 +78,16 @@ export function FieldText({
       )}
       {type === 'password' && (
         <Image
-          onClick={() => setIsPassword((prev) => !prev)}
+          onClick={() => setIsPassword(prev => !prev)}
           src={isPassword ? icon : iconClosed}
           alt='password toggle'
           className='absolute right-[2%] top-[40%] w-6'
         />
       )}
-      <p className='h-[2vh] text-xxs text-error sm:h-[4vw]'>
+      <p className='h-[10px] text-xxs text-error'>
         {/* @ts-ignore */}
         {error?.message && t(error.message)}
       </p>
     </div>
-  );
+  )
 }

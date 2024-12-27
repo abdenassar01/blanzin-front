@@ -1,9 +1,10 @@
 'use client';
 
-import { usePathname } from '@/navigation';
 import { cn } from '@/utils';
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { usePathname } from '@/navigation';
+import { useCurrentLocale } from '@/utils/locales/client';
 
 type Props = {
   className?: string;
@@ -20,11 +21,12 @@ export function ActiveLink({
   className,
   children,
   activeClassName,
-  active,
   disableHover,
   suffix,
 }: Props) {
   const pathname = usePathname();
+
+  const locale = useCurrentLocale();
 
   return (
     <div className='group'>
@@ -32,13 +34,8 @@ export function ActiveLink({
         className={cn(
           'font-[500] ',
           className,
-          (
-            active
-              ? ['/customer', '/expert', '/trainee', '/employee'].includes(
-                  pathname
-                )
-              : pathname.startsWith(link)
-          )
+          (link === '/' && pathname === link) ||
+            (link !== '/' && pathname.includes(link))
             ? cn('text-main dark:text-white', activeClassName)
             : ' text-secondary dark:text-main',
           ''

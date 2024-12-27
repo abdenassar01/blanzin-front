@@ -1,21 +1,15 @@
 export const ROLE = {
-  EXPERT: 'EXPERT',
-  CUSTOMER: 'CUSTOMER',
   TRAINEE: 'TRAINEE',
-  SKILLED_WORKER: 'SKILLED_WORKER',
+  EMPLOYEE: 'EMPLOYEE',
+  BOTH: 'BOTH',
   ADMIN: 'ADMIN',
-} as const;
+} as const
 
-export type RoleType =
-  | 'EXPERT'
-  | 'CUSTOMER'
-  | 'ADMIN'
-  | 'SKILLED_WORKER'
-  | 'TRAINEE';
+export type RoleType = 'ROLE_TRAINEE' | 'ROLE_EMPLOYEE' | 'ROLE_ADMIN'
 
 export const ROOT_ROLE = {
   SERVICE_PLACEMENT: 'SERVICE_PLACEMENT',
   JOBS_IN_GERMANY: 'JOBS_IN_GERMANY',
-} as const;
+} as const
 
-export type RootApplicationRole = 'SERVICE_PLACEMENT' | 'JOBS_IN_GERMANY';
+export type RootApplicationRole = 'SERVICE_PLACEMENT' | 'JOBS_IN_GERMANY'

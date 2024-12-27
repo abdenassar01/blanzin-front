@@ -1,107 +1,97 @@
-'use client';
+'use client'
 
-import { cn } from '@/utils';
-import { useScopedI18n } from '@/utils/locales/client';
-import React, { useState } from 'react';
-import { StepFour, StepOne, StepThree, StepTwo } from './steps';
-import { useForm } from 'react-hook-form';
-import { Button } from '@/components';
+import { useScopedI18n } from '@/utils/locales/client'
+import React, { useState } from 'react'
+import { StepOne, StepThree, StepTwo, StepZero } from './steps'
+import { useForm } from 'react-hook-form'
+import { Button, ProgressBarClickSteps } from '@/components'
+import {
+  ApplicationFolder,
+  applicationFolderSchema,
+} from '@/services/core/api/application/application-folder/types'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'react-toastify'
+import { addNewApplicationFolder } from '@/services'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
-type Props = {};
+export function ApplicationStepsForm() {
+  const t = useScopedI18n('application')
+  const buttonsT = useScopedI18n('button')
+  const notificationsT = useScopedI18n('notification')
 
-export function ApplicationStepsForm({}: Props) {
-  const t = useScopedI18n('application');
+  const { replace } = useRouter()
+  const { data } = useSession()
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { control, handleSubmit } = useForm<ApplicationFolder>({
+    resolver: zodResolver(applicationFolderSchema),
     defaultValues: {
-      lang: [],
-      jobs: [],
-      diploma: [],
-      internship: [],
-      acknowledgement: [],
+      docs: [],
     },
-  });
+  })
 
-  function onSubmit(data: any) {
-    console.log(data);
+  function onSubmit(application: ApplicationFolder) {
+    application.user = { id: data?.user?.id }
+
+    const submitted = toast.promise(addNewApplicationFolder(application), {
+      error: notificationsT('application-not-submitted'),
+      success: notificationsT('application-submitted'),
+      pending: notificationsT('application-pending'),
+    })
+
+    submitted.then(isSubmitted => isSubmitted && replace('/profile'))
   }
 
-  const [currentStep, setCurrentStep] = useState<number>(1);
-
-  const pages = [
-    {
-      step: 1,
-      label: t('resume'),
-    },
-    {
-      step: 2,
-      label: t('docs-folder'),
-    },
-    {
-      step: 3,
-      label: t('packs-heading'),
-    },
-    {
-      step: 4,
-      label: t('contract'),
-    },
-  ];
+  const [currentStep, setCurrentStep] = useState<number>(0)
+  const [disableNext, setDisableNext] = useState<boolean>(true)
 
   function getStep() {
     switch (currentStep) {
+      case 0:
+        return <StepZero nextStep={() => setCurrentStep(prev => prev + 1)} />
       case 1:
-        return <StepOne />;
+        return <StepOne control={control} setDisableNext={setDisableNext} />
       case 2:
-        return <StepTwo control={control} />;
+        return <StepTwo control={control} />
       case 3:
-        return <StepThree control={control} />;
-      case 4:
-        return <StepFour control={control} />;
+        return <StepThree control={control} />
     }
   }
 
   return (
-    <div className=''>
-      <div className='flex sm:flex-col'>
-        <div className='w-[19.444vw] sm:w-[100%]'>
-          <ul className='sm:no-scrollbar mt-[30px] w-full sm:mx-3 sm:flex sm:gap-[24px] sm:overflow-y-scroll'>
-            {React.Children.toArray(
-              pages.map((page) => (
-                <li className=' text-cardText w-full text-base'>
-                  <button
-                    onClick={() => setCurrentStep(page.step)}
-                    className={cn(
-                      'relative block h-full w-[85%] whitespace-nowrap rounded-lg p-3 sm:rounded-t-lg sm:px-6 sm:py-5 ',
-                      currentStep === page.step
-                        ? 'board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary font-normal !text-main shadow-lg prose-em:block dark:bg-backgroundDark sm:border-l-0'
-                        : 'text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark'
-                    )}
-                  >
-                    <div className='flex'>{page.label}</div>
-                  </button>
-                </li>
-              ))
-            )}
-          </ul>
-        </div>
-        <div className='relative h-[1020px] w-full rounded-xl bg-backgroundSecondary p-4 shadow-lg dark:bg-backgroundDark dark:shadow-black'>
-          {getStep()}
-        </div>
-      </div>
-      <div className='mt-10 flex w-full justify-end'>
-        <div className='w-[20%] sm:w-[50%]'>
-          <Button
-            disabled={!!errors}
-            theme='success'
-            text={t('submit')}
-            onClick={handleSubmit(onSubmit)}
+    <div className='no-scrollbar'>
+      <div className='relative w-full rounded-xl p-4'>
+        <div className='mb-10'>
+          <ProgressBarClickSteps
+            currentStep={currentStep}
+            steps={[
+              { title: t('check'), value: 0 },
+              { title: t('resume'), value: 1 },
+              { title: t('docs-folder'), value: 2 },
+              { title: t('contract'), value: 3 },
+            ]}
+            setStep={setCurrentStep}
           />
         </div>
+        {getStep()}
       </div>
+      {currentStep !== 0 && (
+        <div className='flex w-full justify-end'>
+          <div className='w-[20%] sm:w-[50%]'>
+            {!(currentStep === 1 && disableNext) && (
+              <Button
+                theme={currentStep == 3 ? 'success' : 'secondary'}
+                text={currentStep == 3 ? t('submit') : buttonsT('next')}
+                onClick={
+                  currentStep == 3
+                    ? handleSubmit(onSubmit, err => console.log('Err: ', err))
+                    : () => setCurrentStep(prev => prev + 1)
+                }
+              />
+            )}
+          </div>
+        </div>
+      )}
     </div>
-  );
+  )
 }

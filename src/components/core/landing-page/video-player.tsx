@@ -1,27 +1,28 @@
-'use client';
+'use client'
 
-import { Modal } from '@/components';
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import { Modal } from '@/components'
+import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react'
+import { isMobile } from 'react-device-detect'
 
 type Props = {
-  video: string;
-  thumbnail: string;
-};
+  video: string
+  thumbnail: string
+}
 
 export function VideoPlayer({ video, thumbnail }: Props) {
-  const [visibleModal, setVisibleModal] = useState<boolean>(false);
-  const vidRef = useRef<any>(null);
+  const [visibleModal, setVisibleModal] = useState<boolean>(false)
+  const vidRef = useRef<any>(null)
 
   useEffect(() => {
-    if (visibleModal) vidRef?.current?.play();
-  }, [visibleModal]);
+    if (visibleModal) vidRef?.current?.play()
+  }, [visibleModal])
 
   return (
     <>
-      <button onClick={() => setVisibleModal((prev) => !prev)}>
+      <button className='w-full' onClick={() => setVisibleModal(prev => !prev)}>
         <Image
-          className='w-[70vw] rounded-xl sm:w-[90vw]'
+          className='w-full rounded-xl'
           width={350}
           height={275}
           alt='Blanzin'
@@ -29,13 +30,10 @@ export function VideoPlayer({ video, thumbnail }: Props) {
         />
       </button>
       <Modal
-        width={108}
-        height={60}
         callback={() => vidRef?.current?.pause()}
         className='relative !aspect-video overflow-hidden p-0'
         setVisible={setVisibleModal}
-        visible={visibleModal}
-      >
+        visible={visibleModal}>
         <video
           ref={vidRef}
           controls
@@ -44,5 +42,5 @@ export function VideoPlayer({ video, thumbnail }: Props) {
         />
       </Modal>
     </>
-  );
+  )
 }

@@ -1,0 +1,9 @@
+{
+  "i18n-ally.localesPaths": [
+    "src/locales",
+    "src/utils/locales",
+    "src/assets/images/languages",
+    "src/services/core/api/application/resume/static-data/languages"
+  ],
+  "cSpell.words": ["Blanzin"]
+}

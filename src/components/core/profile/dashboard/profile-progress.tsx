@@ -1,39 +1,41 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import ReactSpeedometer from 'react-d3-speedometer';
-import colors from '@/configs/colors';
-import { useTheme } from 'next-themes';
-import { isMobile } from 'react-device-detect';
+import colors from '@/configs/colors'
+import { useTheme } from 'next-themes'
+import GaugeComponent from 'react-gauge-component'
 
 type Props = {
-  value: number;
-};
+  value: number
+}
 
 export function ProfileProgress({ value }: Props) {
-  const { theme } = useTheme();
+  const { theme } = useTheme()
 
   return (
     <div className='my-3 flex w-full items-center justify-center'>
-      <ReactSpeedometer
+      <GaugeComponent
+        type='radial'
+        arc={{
+          colorArray: ['#70A44A', '#ED1C24'],
+          padding: 0.02,
+          subArcs: [{ limit: value }, { limit: 100 }],
+        }}
+        className='text-main'
+        pointer={{ type: 'needle', animationDelay: 0, color: '#70A44A' }}
         value={value}
-        width={isMobile ? 250 : 300}
-        startColor='#ED1C24'
-        endColor='#70A44A'
-        ringWidth={25}
-        height={190}
+        labels={{
+          valueLabel: {
+            style: {
+              fill: colors.secondary,
+              fontSize: 34,
+              fontWeight: 700,
+              textShadow: 'none',
+            },
+          },
+        }}
         minValue={0}
-        segments={222}
-        segmentValueFormatter={(textValue) =>
-          textValue === value.toString() ? `${textValue}%` : ''
-        }
         maxValue={100}
-        valueFormat={''}
-        needleHeightRatio={0.8}
-        needleColor={theme === 'dark' ? colors.white : colors.secondary}
-        needleTransitionDuration={500}
-        textColor={theme === 'dark' ? colors.main : colors.mainText}
       />
     </div>
-  );
+  )
 }

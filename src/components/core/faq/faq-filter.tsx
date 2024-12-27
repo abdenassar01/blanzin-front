@@ -19,8 +19,6 @@ export function FaqFilter() {
   }, []);
 
   const tabs = [
-    { label: t('customer'), tab: 'customer' },
-    { label: t('expert'), tab: 'expert' },
     { label: t('trainee'), tab: 'trainee' },
     { label: t('employee'), tab: 'employee' },
   ];

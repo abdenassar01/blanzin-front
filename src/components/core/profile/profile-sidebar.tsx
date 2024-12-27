@@ -1,149 +1,69 @@
-'use client';
+'use client'
 
-import { UploadAvatar } from '@/components/common';
-import { ActiveLink } from '@/components/common/active-link/active-link';
-import { useScopedI18n } from '@/utils/locales/client';
-import { useSearchParams } from 'next/navigation';
-import React from 'react';
-import { useForm } from 'react-hook-form';
+import { ActiveLink } from '@/components/common/active-link/active-link'
+import { useScopedI18n } from '@/utils/locales/client'
+import React from 'react'
 
 export function ProfileSidebar() {
-  const t = useScopedI18n('profile');
-
-  const searchParams = useSearchParams();
-  const role = searchParams.get('role');
-
-  const { control } = useForm();
+  const t = useScopedI18n('profile')
 
   const pages = [
     {
       link: '/profile/dashboard',
       label: t('dashboard'),
-      roles: ['trainee', 'employee', 'expert'],
     },
     {
-      link: '/profile/account',
-      label: t('account'),
-      roles: ['trainee', 'employee', 'customer', 'expert'],
-    },
-    {
-      link: '/new-order',
-      label: t('new-order'),
-      roles: ['customer'],
-      root: true,
-    },
-    {
-      link: '/jobs',
-      label: t('jobs'),
-      roles: ['trainee', 'employee'],
-    },
-    {
-      link: '/profile/favourite-experts',
-      label: t('favourites'),
-      roles: ['customer'],
-    },
-    {
-      link: '/profile/favourite-orders',
-      label: t('favourites'),
-      roles: ['expert'],
-    },
-    {
-      link: '/profile/favourite-trainings',
-      label: t('favourites'),
-      roles: ['trainee'],
-    },
-    {
-      link: '/profile/favourite-jobs',
-      label: t('favourites'),
-      roles: ['employee'],
+      link: '/profile/application',
+      label: t('folder'),
     },
 
     {
-      link: '/application/apply',
-      label: t('folder'),
-      roles: ['trainee', 'employee'],
-    },
-    {
       link: '/profile/interview-invite',
       label: t('interview-invite'),
-      roles: ['trainee', 'employee'],
-    },
-    {
-      link: '/profile/courses',
-      label: t('courses'),
-      roles: ['trainee', 'employee'],
     },
     {
       link: '/profile/interview-coaching',
       label: t('interview-coaching'),
-      roles: ['trainee', 'employee'],
     },
+
     {
       link: '/profile/contract',
       label: t('contract'),
-      roles: ['trainee', 'employee'],
     },
     {
       link: '/profile/visa',
       label: t('visa'),
-      roles: ['trainee', 'employee'],
-    },
-
-    {
-      link: '/profile/orders',
-      label: t('my-orders'),
-      roles: ['customer', 'expert'],
     },
     {
-      link: '/orders',
-      label: t('order-list'),
-      roles: ['expert'],
-      root: true,
+      link: '/profile/jobs',
+      label: t('jobs'),
     },
     {
-      link: '/chat',
-      label: t('chat'),
-      roles: ['customer', 'expert'],
-      root: true,
+      link: '/profile/courses',
+      label: t('courses'),
     },
-    {
-      link: '/profile/settings',
-      label: t('settings'),
-      roles: ['trainee', 'employee', 'customer', 'expert'],
-    },
-  ];
+  ]
 
   return (
-    <div className=' w-[85%]'>
-      <div className=' w-full justify-start'>
-        <UploadAvatar
-          control={control}
-          name='avatar'
-          className=''
-          imgClassName=''
-          defaultValue=''
-        />
-      </div>
-      <ul className='sm:no-scrollbar mt-[30px] w-full sm:mx-3 sm:flex sm:gap-[24px] sm:overflow-y-scroll'>
+    <div className='no-scrollbar h-[100vh] overflow-y-scroll bg-backgroundSecondary p-4 dark:bg-backgroundDark sm:hidden'>
+      <ul className='no-scrollbar mt-4 flex w-full flex-col gap-2'>
         {React.Children.toArray(
-          pages.map(
-            (page) =>
-              page.roles.includes(role || '') && (
-                <li className='w-full text-base'>
-                  <ActiveLink
-                    disableHover
-                    link={page.link}
-                    suffix={page.root ? '' : '?role=' + role}
-                    className='relative block h-full whitespace-nowrap rounded-lg p-3 text-secondary dark:bg-backgroundSecondaryDark dark:text-textdark sm:rounded-t-lg sm:px-6 sm:py-5'
-                    activeClassName='board-link-active border-blue-500 sm:border-t-1 border-l-4 bg-backgroundSecondary dark:bg-backgroundDark font-normal !text-main shadow-lg sm:border-l-0'
-                  >
-                    <div className='flex'>{page.label}</div>
-                  </ActiveLink>
-                </li>
-              )
-          )
+          pages.map(page => (
+            <li
+              key={`page-item-${page.label}`}
+              className='h-[50px] w-full text-base'>
+              <ActiveLink
+                disableHover
+                suffix=''
+                link={page.link}
+                className='relative block h-full whitespace-nowrap rounded-lg bg-backgroundSecondary p-3 text-secondary dark:bg-backgroundDark dark:text-textdark sm:rounded-t-lg sm:px-6 sm:py-5 sm:pb-3'
+                activeClassName='board-link-active !font-bold font-normal shadow-md bg-[#f5f6fa] sm:bg-background dark:bg-backgroundSecondaryDark !text-secondary dark:!text-main'>
+                <div className='flex'>{page.label}</div>
+              </ActiveLink>
+            </li>
+          )),
         )}
       </ul>
     </div>
-  );
+  )
 }

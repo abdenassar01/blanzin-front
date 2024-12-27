@@ -1,5 +1,7 @@
 export type InternationalisationParams = {
   params: {
-    locale: string;
-  };
-};
+    locale: Locale
+  }
+}
+
+export type Locale = 'en' | 'ar' | 'fr'

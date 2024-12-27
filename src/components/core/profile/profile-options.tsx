@@ -12,7 +12,6 @@ import { isMobile } from 'react-device-detect';
 type Props = {};
 
 export function ProfileOptions({}: Props) {
-  const t = useScopedI18n('order');
   const formT = useScopedI18n('forms');
 
   const [favourite, setFavourite] = useState<boolean>(false);
@@ -25,7 +24,7 @@ export function ProfileOptions({}: Props) {
     <>
       <div className='w-[80%]'>
         <Link href='/chat/someone'>
-          <Button text={t('contact')} />
+          <Button text='contact ???' />
         </Link>
         <div className='mt-3 flex gap-2'>
           <Image
@@ -74,7 +73,7 @@ export function ProfileOptions({}: Props) {
             name='complaint'
           />
           <div className='mt-4 flex justify-end'>
-            <Button width={isMobile ? '50%' : '25%'} text={t('send')} />
+            <Button width={isMobile ? '50%' : '25%'} text='sendddd?' />
           </div>
         </div>
       </Modal>

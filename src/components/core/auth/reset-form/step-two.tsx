@@ -1,20 +1,18 @@
-import { FieldText } from '@/components/common';
-import { UploadAvatar } from '@/components';
-import { useI18n, useScopedI18n } from '@/utils/locales/client';
-import React from 'react';
-import { Control, useController } from 'react-hook-form';
-import OTPInput from 'react-otp-input';
+import { useI18n } from '@/utils/locales/client'
+import React from 'react'
+import { Control, useController } from 'react-hook-form'
+import OTPInput from 'react-otp-input'
 
 type Props = {
-  control: Control<any>;
-};
+  control: Control<any>
+}
 
 export function StepTwo({ control }: Props) {
-  const t = useI18n();
+  const t = useI18n()
 
   const {
     field: { value, onChange },
-  } = useController({ control, name: 'otp' });
+  } = useController({ control, name: 'otp' })
 
   return (
     <div className='mt-5'>
@@ -29,7 +27,7 @@ export function StepTwo({ control }: Props) {
           inputType='number'
           placeholder='0000'
           inputStyle={{ width: '50px', margin: 5 }}
-          renderInput={(props) => (
+          renderInput={props => (
             <input
               {...props}
               className='m-2 appearance-none justify-center rounded py-3 text-text'
@@ -38,5 +36,5 @@ export function StepTwo({ control }: Props) {
         />
       </div>
     </div>
-  );
+  )
 }

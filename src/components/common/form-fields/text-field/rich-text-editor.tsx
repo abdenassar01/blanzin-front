@@ -1,21 +1,23 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { Editor } from 'react-draft-wysiwyg';
-import { Control, useController } from 'react-hook-form';
+import React from 'react'
+import { Editor } from 'react-draft-wysiwyg'
+import { Control, useController } from 'react-hook-form'
 
-import { cn } from '@/utils';
-import { useScopedI18n } from '@/utils/locales/client';
+import { cn } from '@/utils'
+import { useScopedI18n } from '@/utils/locales/client'
+import { FormConrolPopoverExplaination } from '../form-control-popover-explaination'
 
 type Props = {
-  control: Control<any>;
-  name: string;
-  label: string;
-  labelClassName?: string;
-  className?: string;
-  placeholder?: string;
-  max?: number;
-};
+  control: Control<any>
+  name: string
+  label: string
+  labelClassName?: string
+  className?: string
+  placeholder?: string
+  popoverText?: string
+  max?: number
+}
 
 export function RichTextEditor({
   name,
@@ -24,6 +26,7 @@ export function RichTextEditor({
   className,
   labelClassName,
   placeholder,
+  popoverText,
   max,
 }: Props) {
   const {
@@ -32,32 +35,33 @@ export function RichTextEditor({
   } = useController({
     control,
     name,
-  });
+  })
 
   const hashConfig = {
     trigger: '#',
     separator: ' ',
-  };
+  }
 
-  const t = useScopedI18n('forms');
+  const t = useScopedI18n('forms')
 
   return (
     <div>
       <div
         className={cn(
           'group relative w-[100%] rounded-xl bg-backgroundSecondary pt-3 shadow-xl',
-          className
-        )}
-      >
-        <label
-          htmlFor={name}
-          className={cn(
-            'ml-3 text-base font-bold text-secondary',
-            labelClassName
-          )}
-        >
-          {label}
-        </label>
+          className,
+        )}>
+        <div className='flex'>
+          <label
+            htmlFor={name}
+            className={cn(
+              'text-sm font-bold text-secondary dark:text-main',
+              labelClassName,
+            )}>
+            {label}
+          </label>
+          {popoverText && <FormConrolPopoverExplaination text={popoverText} />}
+        </div>
         <Editor
           toolbar={{
             options: ['inline', 'textAlign'],
@@ -74,7 +78,7 @@ export function RichTextEditor({
           placeholder={placeholder}
           editorState={value}
           onBlur={onBlur}
-          onEditorStateChange={(e) => onChange(e)}
+          onEditorStateChange={e => onChange(e)}
         />
         {error && (
           <span className='text-xxs text-error sm:text-mb-xs'>
@@ -86,5 +90,5 @@ export function RichTextEditor({
         {t('max', { max: max || 2500, left: 2500 })}
       </div>
     </div>
-  );
+  )
 }

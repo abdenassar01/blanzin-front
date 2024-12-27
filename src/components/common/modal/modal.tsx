@@ -1,25 +1,26 @@
-'use client';
+'use client'
 
-import React, { Dispatch, ReactNode, SetStateAction } from 'react';
-import { TranslatedHeading } from '..';
-import Image from 'next/image';
-import { cn } from '@/utils';
-import { useTheme } from 'next-themes';
-import Rodal from 'rodal';
-import { isMobile } from 'react-device-detect';
+import React, { Dispatch, ReactNode, SetStateAction } from 'react'
+import { TranslatedHeading } from '..'
+import Image from 'next/image'
+import { cn } from '@/utils'
+import { useTheme } from 'next-themes'
+import Rodal from 'rodal'
+import { isMobile } from 'react-device-detect'
 
 type Props = {
-  children: ReactNode;
-  visible: boolean;
-  setVisible: Dispatch<SetStateAction<boolean>>;
-  header?: string;
-  className?: string;
-  contentClassName?: string;
-  width?: number;
-  height?: number;
-  measure?: string;
-  callback?: () => void;
-};
+  children: ReactNode
+  visible: boolean
+  setVisible: Dispatch<SetStateAction<boolean>>
+  header?: string
+  className?: string
+  contentClassName?: string
+  width?: number
+  height?: number
+  measure?: string
+  portrait?: boolean
+  callback?: () => void
+}
 
 export const Modal = ({
   visible,
@@ -31,35 +32,31 @@ export const Modal = ({
   width,
   measure,
   contentClassName,
+  portrait,
   callback,
 }: Props) => {
-  const { theme } = useTheme();
+  const { theme } = useTheme()
 
   return (
     <Rodal
-      width={width || isMobile ? 90 : 140}
-      height={height || isMobile ? 50 : 77.78}
-      measure={measure || isMobile ? 'vw' : 'vh'}
+      width={300}
       customStyles={{ borderRadius: 20 }}
       onClose={() => {
-        setVisible(false);
-        callback && callback();
+        setVisible(false)
+        callback && callback()
       }}
       visible={visible}
-      closeOnEsc
-    >
+      closeOnEsc>
       <div
         className={cn(
-          'h-full w-full rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundDark',
-          className
-        )}
-      >
+          'w-full rounded-lg bg-backgroundSecondary p-2 dark:bg-backgroundDark',
+          className,
+        )}>
         <div
           className={cn(
             'flex w-full flex-row items-center justify-between',
-            header ? 'justify-between' : 'justify-end'
-          )}
-        >
+            header ? 'justify-between' : 'justify-end',
+          )}>
           {header && (
             <TranslatedHeading
               className='text-base text-secondary dark:text-main'
@@ -81,9 +78,8 @@ export const Modal = ({
         <div
           className={cn(
             'no-scrollbar max-h-[90%] overflow-y-scroll',
-            contentClassName
-          )}
-        >
+            contentClassName,
+          )}>
           {children}
         </div>
       </div>
@@ -92,5 +88,5 @@ export const Modal = ({
         onClick={() => setVisible(false)}
       />
     </Rodal>
-  );
-};
+  )
+}

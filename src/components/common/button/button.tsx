@@ -1,18 +1,18 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from 'react'
 
-import { TranslatedText } from '../..';
-import { cn } from '@/utils';
+import { TranslatedText } from '../..'
+import { cn } from '@/utils'
 
 type Props = {
-  onClick?: () => void;
-  text?: string;
-  className?: string;
-  textClassName?: string;
-  width?: string;
-  disabled?: boolean;
-  children?: React.ReactNode;
-  theme?: 'primary' | 'secondary' | 'tertiary' | 'error' | 'warn' | 'success';
-};
+  onClick?: () => void
+  text?: string
+  className?: string
+  textClassName?: string
+  width?: string
+  disabled?: boolean
+  children?: React.ReactNode
+  theme?: 'primary' | 'secondary' | 'tertiary' | 'error' | 'warn' | 'success'
+}
 
 export const Button = ({
   onClick,
@@ -34,7 +34,7 @@ export const Button = ({
         theme === 'primary'
           ? 'bg-main text-secondary hover:border-main hover:bg-[transparent] hover:text-main'
           : theme === 'secondary'
-            ? 'border-secondary bg-secondary hover:border-secondary hover:bg-[transparent]'
+            ? 'border-secondary bg-secondary text-white hover:border-secondary hover:bg-[transparent]'
             : theme === 'success'
               ? 'border-success bg-success hover:bg-[transparent]'
               : theme === 'tertiary'
@@ -43,9 +43,8 @@ export const Button = ({
                   ? 'border-warn bg-warn hover:bg-[transparent]'
                   : 'border-error bg-error hover:bg-[transparent]',
         disabled ? 'pointer-events-none border-border bg-border text-text' : '',
-        className
-      )}
-    >
+        className,
+      )}>
       {children ? (
         children
       ) : (
@@ -57,15 +56,15 @@ export const Button = ({
               : theme === 'success'
                 ? 'text-white group-hover:text-success'
                 : theme === 'secondary' || theme === 'tertiary'
-                  ? 'text-main group-hover:text-secondary'
+                  ? 'text-white group-hover:text-secondary'
                   : theme === 'primary'
-                    ? 'text-secondary '
+                    ? 'text-secondary'
                     : 'text-white',
-            textClassName
+            textClassName,
           )}
           tranlationKey={text || ''}
         />
       )}
     </button>
-  );
-};
+  )
+}

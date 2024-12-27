@@ -1,20 +1,21 @@
-'use client';
+'use client'
 
-import React, { ReactNode } from 'react';
-import { TranslatedText } from '../..';
-import { Control, useController } from 'react-hook-form';
-import Image from 'next/image';
-import { cn } from '@/utils';
+import React, { ReactNode } from 'react'
+import { TranslatedText } from '../..'
+import { Control, useController } from 'react-hook-form'
+import Image from 'next/image'
+import { cn } from '@/utils'
+import { uploadFile } from '@/services/core/api/storage'
 
 type Props = {
-  control: Control<any>;
-  name: string;
-  label?: string;
-  defaultValue?: string;
-  children?: ReactNode;
-  className?: string;
-  imgClassName?: string;
-};
+  control: Control<any>
+  name: string
+  label?: string
+  defaultValue?: string
+  children?: ReactNode
+  className?: string
+  imgClassName?: string
+}
 
 export function UploadAvatar({
   control,
@@ -27,7 +28,7 @@ export function UploadAvatar({
   const {
     field: { onChange, value },
     fieldState: { error },
-  } = useController({ control, name, defaultValue });
+  } = useController({ control, name, defaultValue })
 
   return (
     <>
@@ -45,7 +46,7 @@ export function UploadAvatar({
           className={cn(
             'w-[7vw] rounded sm:w-[20vw]',
             imgClassName,
-            value ? 'border-2 border-success' : ''
+            value ? 'border-2 border-success' : '',
           )}
           src={require('@/assets/images/avatar.png')}
         />
@@ -62,9 +63,12 @@ export function UploadAvatar({
         <div className='items-center'>
           <input
             id={name}
-            onChange={(e) => {
-              onChange(e.currentTarget.value);
-              console.log(e.currentTarget.value);
+            onChange={e => {
+              console.log(e.currentTarget.files)
+              /*  uploadFile(e.currentTarget.value).then(res => {
+                console.log('RESULT: ', res)
+                onChange(res)
+              }) */
             }}
             type='file'
             className='hidden'
@@ -76,5 +80,5 @@ export function UploadAvatar({
         className='h-[15px] pl-1 text-[10px] text-error'
       />
     </>
-  );
+  )
 }

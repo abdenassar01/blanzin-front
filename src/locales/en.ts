@@ -1,8 +1,24 @@
 export default {
   heading: {
-    welcome: 'Welcome, how can we help you?',
+    welcome: 'What is the purpose of your move to Germany?',
     'jobs-page': 'Job offers',
-    about: '',
+    about: 'About us',
+  },
+  notification: {
+    header: 'Notifications',
+    'save-before-submit':
+      'Please save your changes and click on add button first',
+    'please-select-image': 'Please select an image to upload first',
+    'please-select-file': 'Please select a file to upload first',
+    authenticated: "You've been authenticated successfully",
+    'auth-pending': 'We are processing your login',
+    'password-or-phone-incorrect': 'Phone number or password incorrect',
+    'application-not-submitted': 'Application failed.',
+    'application-pending': 'Submitting your application.',
+    'application-submitted':
+      'Gongrats, You have applied to our programme successfully.',
+    'docs-shouldbe-en-gr':
+      'Make sure you submit docs only in english or german language. arabic docs or frensh are not accepted!',
   },
   modal: {
     delete: 'Are you sure you want to continue deleting this item?',
@@ -18,10 +34,6 @@ export default {
     'password-confirm-required': 'Password confirm is required',
     'password-mismatch': "The passwords doesn't match",
   },
-  titles: {
-    'service-placement': 'Service Placement',
-    'jobs-in-germany': 'Jobs in Germany',
-  },
   inbox: {
     all: 'all',
     unread: 'unread',
@@ -29,7 +41,7 @@ export default {
   },
   resume: {
     experience: 'Experience',
-    'personal-infos': 'Personal information',
+    'personal-infos': 'My personal information',
     'work-experience': 'Work experience',
     'step-one-text':
       'Describe here where you have worked and in what position, whether it was a job or an internship.',
@@ -49,15 +61,20 @@ export default {
     submit: 'Update password',
     title: 'Change password',
   },
+  appointments: {
+    interviews: 'Interviews',
+    coaching: 'Coaching',
+    filter: 'Filter',
+    action: 'Attend',
+  },
   dashboard: {
     title: 'Dashboard',
+    'required-action-content': 'Required',
     appointment: 'My appointments',
-    'delivery-date': 'Next delivery',
-    'open-orders': 'My open orders',
-    'completed-orders': 'My completed orders',
-    jobs: 'My job positions',
+    application: 'My Applications',
     'recommended-jobs': 'recommended jobs',
     'actions-title': 'Actions',
+    'status-explain': 'Status',
     'required-action-title':
       'You will have to pay to attend the interview-coaching',
     'expert-required-action-title': 'Action required',
@@ -65,55 +82,43 @@ export default {
     'increase-opportunities-text':
       'Choose our premium package! With our premium package, we support you in finding the right employer in Germany. ',
     'increase-opportunities-action': 'Start now',
-    'expert-required-action-content':
-      'You have not completed an order after the expiry date. have you completed this order?',
-    'required-action-content':
-      'you have been given an appointment for an interview-coaching. to take part, you must pay for one of our packages',
-    recommendations: 'Recommendations',
-    'expert-recommendations-content':
-      "<div class='text-center'>\n" +
-      '                For a better workflow, you need to consider these points\n' +
-      '              </div><ul>' +
-      '                        <li><span>switch on the push notifications so that you are always up to date</span></li>' +
-      '                        <li><span>complete the orders so that you can optimise your work processes at the end</span></li>' +
-      '                        <li><span>react quickly to messages from customers so that your competitors do not take advantage of the opportunity</span></li>' +
-      '                    </ul>',
-    'account-status': 'My account status',
     'app-folder': ' My application folder',
     'status-personal': 'Personal data',
     'status-professional': 'Professional data',
-    'status-explain':
-      'To improve your chances of getting more orders, you must fill in the data completely',
-    'general-recommendations-title': 'General recommendations',
+  },
+  'profile-administration': {
+    title: 'Secure Your Future: Activate Both Profiles!',
+    'error-message':
+      'Your profile is suitable for activating the second profile. Your qualifications match both options perfectly. Your profile will be activated automatically.',
+    'success-message':
+      'Your profile is not currently suitable for activating the second profile. Your current qualifications and experience are better aligned with your original profile. We recommend focusing on your strengths to maximize your chances of finding the right job.',
+    content:
+      '<p>To increase your chances of finding a secure job, we offer you the possibility to be active as both a skilled worker and a trainee on our platform.</p><strong>Before activating a second profile, please ensure that your current profile is suitable for it. Not every profile is compatible with both options. First, verify that your qualifications are relevant to the other profile.</strong>',
   },
   profile: {
     dashboard: 'Dashboard',
     account: 'My account',
-    favourites: 'My favourites',
-    'favourite-orders': 'My favourite  orders',
-    'favourite-jobs': 'My favourite jobs',
-    'favourite-trainings': 'My favourite trainings',
-    'favourite-experts': 'My favourite experts',
-    jobs: 'Job list',
-    'order-list': 'Order List',
+    favourites: 'My favorites',
+    edit: 'Edit my profile',
+    logout: 'Logout',
     inbox: 'My inbox',
-    'my-orders': 'My Orders',
-    chat: 'Chat',
-    'new-order': 'New Order',
     folder: 'My application folder',
+    'profile-administration': 'Profile administration',
     'interview-invite': 'Interview invitations',
-    courses: 'Language course',
+    courses: 'German course',
+    jobs: 'Jobs',
     'interview-coaching': 'Interview coaching',
     contract: 'Employment contract',
     visa: 'Visa',
     settings: 'Settings',
     resume: 'My resume',
   },
-  settings: {
-    security: 'Security',
-    'category-administration': 'Category administration',
-    'profile-administration': 'Profile administration',
-    appearance: 'Appearance',
+  'application-section': {
+    title: 'Start your career in Germany with Blanzin',
+    text: 'Choose our Blanzin service and let us handle the job search for you!',
+    'call-to-action':
+      'Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY</strong>!',
+    'action-btn': 'Find your dream job!',
   },
   section: {
     platform: 'Platform',
@@ -127,23 +132,90 @@ export default {
   },
   application: {
     resume: 'Resume',
-    Heading: 'Check application requirements',
-    'packages-explain':
-      'With our premium package, we support you in finding the right employer in Germany. Benefit from our network and our experience to achieve your professional goals. Choose one of our packages now and get started!',
+    check: 'Quick check',
     'lang-certificate': 'Language certificate',
     diploma: 'Diploma',
     internship: 'Internship',
     'job-certificates': 'Job certificates',
     acknowledgement: 'Acknowledgement (optional)',
-    'action-btn': 'Choose your package!',
     update: 'Update',
     add: 'Add document',
     contract: 'Contract',
     'docs-folder': 'Documents folder',
     delete: 'Remove',
-    'packs-heading': 'Packages',
     book: 'Continue booking',
     submit: 'Send application',
+    docs: 'Your documents should be either in english or german. Otherwise your application will be denied.',
+  },
+  'application-check': {
+    apply: 'Start application',
+    'main-text':
+      'To optimize our recruitment process, please answer the following questions. This helps us better assess your qualifications. Only with a positive result can we provide targeted support through our recruitment services. If the result is negative, we recommend reviewing our tips for improvement.',
+    header: 'What is the purpose of your move to Germany?',
+    employee: 'To seek employment',
+    trainee: 'To seek a training',
+    both: 'To seek Employment & Training',
+    check: 'Check!',
+    'error-header': 'Unfortunately, the result was negative.',
+    'error-text':
+      'We are unable to support you in the application process. Thank you for your interest, and we wish you success in your further job search.',
+    'success-header': 'Congratulations!',
+    'success-text':
+      'Your result was positive. You can now proceed with the application process. Please complete our internal resume and upload all required documents to move forward.\n' +
+      'Thank you and good luck!',
+    questions: {
+      diploma: 'Have you obtained a diploma degree?',
+      university: 'Do you have a university degree?',
+      'german-certificate':
+        'Do you have an original language certificate at least at B1 level?',
+      bac: 'Do you have a high school diploma (BAC)?',
+    },
+  },
+  services: {
+    title: 'Our services',
+    'how-it-work': 'How it works',
+    'step-heading': 'Step',
+  },
+  'trainings-overview': {
+    header:
+      'How Does Dual Vocational Training in Germany Work and What Can You Expect to Earn?',
+    'paragraph-1':
+      'In Germany, there is a unique way to learn a profession: the dual vocational training system. This approach combines theoretical knowledge with substantial practical experience and typically lasts between two and three and a half years. Each week, you spend one or two days, or longer blocks, in vocational school, where instructors provide you with the theoretical foundations of your field. On the remaining days, you work in a company, applying this knowledge in practice, for example, by working on machines. You also gain insight into how the company operates and its functions, helping you determine if you can envision a future career there.',
+    'secondary-title': 'Income During Dual Vocational Training',
+    'paragraph-2':
+      'During your dual vocational training in Germany, you receive a monthly salary from the company where you work. On average, apprentices currently earn around €1,066 gross per month. This amount can vary depending on the occupation and the region in which you are employed.',
+    action: 'Find trainings!',
+  },
+  'job-filter': {
+    jobs: 'Job offers',
+    training: 'Training offers',
+    favourite: 'Favorites',
+    total: 'Found {total} jobs',
+  },
+  packages: {
+    'limited-time': 'For a Limited Time',
+    'main-heading': 'Free Access to Over 1 Million Job Offers Across Germany!',
+    'main-text':
+      'Additionally, we will forward your application materials directly to top employers in Germany thanks to our strong network. Take advantage of this exclusive offer - available for a limited time only!',
+    action: 'Sign Up for Free',
+    title: 'Discover Our Services: Choose the Best Option for Your Job Search',
+    'package-1-title': 'Blan Fabour',
+    'package-1-text':
+      'Use our platform to independently search for open positions in Germany:',
+    'package-2-title': 'Blan Zin',
+    'package-2-text':
+      'With our Blanzin Service, we handle the entire application process for you:',
+    apply: 'Apply now!',
+  },
+  'what-make-us-special': {
+    title: 'What makes Blanzin special',
+    'header-1': 'No hidden costs',
+    'text-1': 'Payment is made only after each completed step of our service.',
+    'text-2': 'All processes are seamlessly and securely handled online.',
+    'text-3':
+      'Complete everything comfortably from home using your phone or laptop.',
+    'header-2': 'Fully digital',
+    'header-3': 'Practical and efficient',
   },
   'premium-pack': {
     header: 'Welcome to our exclusive package',
@@ -152,13 +224,27 @@ export default {
       'Have you fulfilled all the requirements for the application?',
     'check-btn': 'Find your dream job!',
   },
+  'e-learning-tip': {
+    title: 'Our tip for you',
+    content:
+      'If you don\'t speak German yet, we recommend taking our <a href="/courses">online course</a> to improve your German language skills. A strong command of the language can significantly enhance your chances of a successful application.',
+  },
   links: {
-    'find-expert': 'Find Expert',
-    'become-expert': 'Become Expert',
     'trainee-in-germany': 'Trainee in Germany',
     'jobs-in-germany': 'Jobs in Germany',
     'about-us': 'About Us',
+    jobs: 'Jobs',
+    career: 'Career',
+    training: 'Training',
+    services: 'Services',
+    logout: 'Logout',
     blog: 'Blogs',
+    application: 'Application management',
+    interview: 'Job interview',
+    'interview-coaching': 'Interview coaching',
+    contract: 'Contract negotiation',
+    courses: 'German course',
+    visa: 'Visa',
     home: 'Home',
     'privacy-policy': 'Privacy Policy',
     'customer-policy': 'Customer Policy',
@@ -168,96 +254,24 @@ export default {
     'app-store': 'Get it on the App Store',
     'play-store': 'Get it on Google Play',
   },
-  customer: {
-    'hero-text':
-      'Looking for an expert? \n Find the best expert from the region',
-    'hero-action': 'Hire an Expert',
-    'call-to-action-heading': 'Discover the top professionals in your region!',
-    'call-to-action-paragraph':
-      'Submit your order for free to gain access to experts. \nProfessionals interested in your order will send you a request. You have the option to choose whom you want to contact',
-    'call-to-action':
-      'Are you ready to <strong>hire</strong> an <strong>Expert?</strong>',
-    'call-to-action-btn': 'Place your order now!',
+  visa: {
+    header: 'Note on Visa Application',
+    content:
+      'In this section, we will support you with your visa application once you have received an employment contract through our recruitment service. After obtaining the employment contract, you can apply for your visa here.',
   },
   employee: {
     'hero-text': 'Are you looking for a Job in Germany?',
-    'hero-action': 'Find Jobs',
-    'call-to-action-heading':
-      'Blanzin: Your Gateway to Exciting Career Opportunities',
-    'call-to-action-paragraph':
-      "Choose our Premium Package and let us handle the job search for you! With our extensive network in Germany, we'll find the perfect job for you. Save time and effort, and benefit from our expertise to make your professional dream in Germany come true.",
-    'call-to-action':
-      'Register today and start your journey to <strong>success</strong>',
-    'call-to-action-btn': 'Start now!',
     'slider-header': 'Latest job offers',
-    visa: {
-      title: 'Types of visa',
-    },
-  },
-  expert: {
-    'hero-text': 'Become a Blanzin partner now and receive orders!',
-    'hero-action': 'Become Expert',
-    'call-to-action-heading': 'Do You Possess a Trade or Professional Skill?',
-    'call-to-action-paragraph':
-      'If you’re looking to offer your professional services and help people, whilst enjoying the freedom and flexibility of finding work in your local area, then you’re in the right place',
-    'call-to-action':
-      'Are you ready to <strong>BOOST</strong> an <strong>REVENUE?</strong>',
-    'call-to-action-btn': 'Find your next project!',
-    'latest-training': 'Latest training offers',
-    'slider-header': 'Latest orders',
   },
   trainee: {
     'hero-text': 'Are you looking for a vocational training in Germany?',
-    'hero-action': 'Find Trainings!',
-    'call-to-action-heading': 'Start your career in Germany with Blanzin',
-    'call-to-action-paragraph':
-      "Choose our Premium Package and let us handle the job search for you! With our extensive network in Germany, we'll find the perfect job for you. Save time and effort, and benefit from our expertise to make your professional dream in Germany come true.",
-    'call-to-action':
-      'Register and forge your <strong>SUCCESSFUL</strong> future <strong>TODAY!</strong>',
-    'call-to-action-btn': 'Start now!',
     'slider-header': 'Latest training offers',
-    visa: {
-      title:
-        'What requirements must be met in order to obtain a visa to complete vocational training?',
-      content:
-        '<ul>' +
-        '<li>Proof of school graduation and any completed vocational training or university studies (if applicable) </li>' +
-        '<li>Apprenticeship contract including details of the gross annual salary</li>' +
-        '<li>Original recognized language certificate (at least level B1 of the Common European Framework of Reference</li>' +
-        '<li>Proof of financial means: The trainee must have at least 927 EUR gross per month. This remuneration must be paid by the employer as a training salary.</li>' +
-        '</ul>',
-    },
   },
   'download-app-heading': 'Get your task done without lifting a finger!',
   'download-app-btn-text': 'Download the App',
-  'view-all': 'View all offers',
   location: 'Location',
   'step-heading': 'Step',
   date: 'Date',
-  'customer-steps': {
-    header: 'How to find the right expert',
-    first: 'Place your order free of charge',
-    second: 'Experts answer you',
-    third: 'Compare expert profiles and choose from',
-  },
-  'expert-steps': {
-    header: 'How to find your desired orders',
-    first: 'Get suitable order proposals',
-    second: 'show your interest',
-    third: 'Contact and arrange',
-  },
-  'jobs-in-germany-steps': {
-    header: 'How to find your desired jobs',
-    first: 'Fill in the CV',
-    'first-desc':
-      'The more detailed your CV is, the better we can support you in your search for an apprenticeship.',
-    second: 'Upload your documents',
-    'second-desc':
-      'Please upload all required documents, including your language certificates, diplomas, transcripts, internship certificates, and grades. Your documents should be either in German or English.',
-    third: 'Apply for the right jobs',
-    'third-desc':
-      'You can search for <a href="/jobs">open positions</a> and apply or leave the application process to us by selecting our Premium package.',
-  },
   auth: {
     'login-heading': 'Welcome back!',
     'login-text': 'Great to see you again!',
@@ -274,8 +288,6 @@ export default {
   },
   role: {
     trainee: 'Trainee',
-    expert: 'Expert',
-    customer: 'Customer',
     employee: 'Employee',
   },
   contact: {
@@ -290,6 +302,7 @@ export default {
     title: 'Job Title',
     employer: 'Employer',
     category: 'Category',
+    'sub-category': 'Sub Category',
     'start-date': 'Start date',
     'end-date': 'End date',
     description: 'Description',
@@ -305,22 +318,28 @@ export default {
     'center-placeholder': '(E.g. Name of school/ university/ center...)',
   },
   forms: {
+    reset: 'Reset all filters',
     email: 'Email',
     complaint: 'Complaint',
     password: 'Password',
     'password-confirm': 'Password confirm',
     username: 'Username',
     fullname: 'Fullname',
+    yes: 'Yes',
+    no: 'No',
     message: 'Message',
     location: 'Location',
     image: 'Add picture',
     title: 'Title',
+    'job-type': 'Job type',
     country: 'Country',
     firstname: 'First name',
+    publish: 'Publish date',
     lastname: 'Last name',
     dateBirth: 'Date of birth',
     placeBirth: 'Place of birth',
-    budget: 'Budget (DH)',
+    field: 'Professional field',
+    profession: 'Profession',
     'personal-skills': 'Personal Skills',
     'language-skills': 'Languages Skills',
     'start-date': 'Start date',
@@ -333,22 +352,73 @@ export default {
     'select-child-sub-category': 'Select a child sub category',
     'child-su-category': 'Child Sub Category',
     phone: 'Phone',
+    'freelancer-details': 'Freelancer details',
+    'professional-skills': 'Professional skills',
     'select-lang': 'Select a language',
     'select-level': 'Select level',
     feedback: 'Tell us more...',
     profile: 'Select a profile type',
     'phone-verification': 'Phone verification',
     max: 'Max. {max} characters - {left} characters left',
-    'freelancer-details': 'Freelancer Details',
-    'professional-skills': 'Professional skills',
     tools: 'Tools',
+  },
+  'visa-overwhelmed': {
+    title: 'Feeling overwhelmed by the various visa options?',
+    desc:
+      'Leave the entire visa process to us and relax. With our Premium Package, we handle all the formalities and help you obtain your visa quickly and easily.\n' +
+      '<br><br><strong>Does this sound interesting to you?</strong>  Choose our Premium Package now and let us do the work for you.',
+    'call-to-action': 'Choose Premium Package',
+  },
+  interview: {
+    'special-offer': 'Special <br><strong>Offer</strong>',
+    free: 'Free',
+    'gift-title': 'Our gift for your first job interview',
+    'gift-content-invite': 'interview coaching',
+    'interview-note-title': 'Note on Interview Coaching',
+    'interview-note-content':
+      'To book our interview coaching, you must first have an interview scheduled with an employer. Once you have an interview, you can book a coaching session with one of our HR experts here. <br > <strong>We are happy to help you prepare effectively for your interview and maximize your chances of a successful application.</strong>',
+    pay: 'Pay now!',
+    'application-tasks': 'Applicant tasks',
+    'suggested-dates-title': 'Suggested Dates:',
+    'select-date':
+      "The dates listed below are the employer's suggested options for the interview. You only need to choose one of the three dates.",
+    title:
+      ' Congratulations! An employer in Germany is interested in your profile and would like to invite you to an interview. Below you will find the job details and three suggested dates for the interview.',
+    'title-coaching': 'Prepare to crack the interview',
+    'coaching-text':
+      'Our experts will prepare you and help you pass the job interview. we have experts with years of experience waiting for you to apply.',
+    text: 'you have received an invitation to attend an online job interview.',
+    action: 'Take next step',
+  },
+  courses: {
+    title: 'Learn deutsch language',
+    'landing-page-heading': 'Start Learning Languages \nStraight Away',
+    'main-text':
+      'With the BlanzinLanguages package, you \ncan select multiple courses from various \nlanguage levels. After a successful \npurchase, you will have immediate \naccess to all selected courses:',
+    'levels-heading': 'Language Level:',
+    'pro-lang-heading': 'Professional Language:',
+    'secondary-text':
+      'Simply choose the desired subscription period and activate your language courses after completing the order.',
+    action: 'Activate Premium Now',
+    'action-section': {
+      header: 'The Blanzin Method',
+      'secondary-header': 'Multimedia self-study course',
+      'call-to-action': 'Start your learning journey',
+      button: 'Register now!',
+      'self-study-list':
+        '<ul><li>Exciting videos</li><li>Grammar tutorials</li><li>Interactive exercises</li><li>Vocabulary trainer</li><li>Direct feedback</li><li>Learning Analytics</li><li>via app or browser</li></ul>',
+    },
+    overview: {
+      header: 'Course Overview',
+      secondary:
+        'With Blanzin, you will acquire all the linguistic skills you need',
+      'slider-one-title': 'Language Level:',
+      'slider-two-title': 'Professional Language:',
+    },
   },
   blog: {
     header: 'Welcome to the Blanzin Blog',
     'filter-all': 'All',
-    'filter-jobs': 'Trainee in Germany',
-    'filter-trainee': 'Jobs in Germany',
-    'filter-news': 'Morocco news',
   },
   contract: {
     header: 'Contract',
@@ -356,7 +426,15 @@ export default {
       'Blanzin needs you to sign a contract of rules and terms that we need you to accept before completing your application. Click the download button to download the pdf then print it and signe it. after that you can come back and submit it to finish your application.',
     download: 'Download Contract',
     upload: 'Upload Signed Contract',
+    'contract-note-header': 'Note on Employment Contract',
+    'contract-note':
+      'In this section, your employment contract will be displayed once you have successfully completed a job interview and we have negotiated a contract for you.',
     submit: 'Submit Application',
+  },
+  'job-type': {
+    all: 'All',
+    'part-time': 'Part time',
+    'full-time': 'Full time',
   },
   'faq-abbr': 'Frequently asked questions',
   suggestions: {
@@ -366,23 +444,6 @@ export default {
     'skill-value': 'Selected skills:',
     'free-text': 'Type description as free text',
   },
-  order: {
-    applicants: 'Applicants list',
-    contact: 'Contact',
-    'similar-orders': 'Similar orders',
-    delete: 'Remove',
-    update: 'Update',
-    send: 'Send complaint',
-  },
-  'visa-overwhelmed': {
-    title: 'Feeling overwhelmed by the various visa options?',
-    desc:
-      'Leave the entire visa process to us and relax. With our Premium Package, we handle all the formalities and help you obtain your visa quickly and easily.\n' +
-      '<br><br><strong>Does this sound interesting to you?</strong>  Choose our Premium Package now and let us do the work for you.',
-    'call-to-action': 'Choose Premium Package',
-  },
-  'new-order-header': 'Add a new order',
-  'update-order-header': 'Update your order',
   'otp-request-text':
     'We will use this number to send you a verification code in your whatsapp. make sure you have a whatsapp account configured with this number',
   'faq-heading':
@@ -391,24 +452,19 @@ export default {
     next: 'Next',
     prev: 'Previous',
     submit: 'Submit',
-    rate: 'Rate',
     apply: 'Apply',
     add: 'Add',
     remove: 'Remove',
   },
-  'orders-filter': {
-    active: 'Active orders',
-    done: 'Finished orders',
-  },
-  'chat-options': {
-    location: 'Send location',
-    document: 'Upload document',
-    photo: 'Send Photo',
-  },
-  'become-expert': {
-    heading: 'Become blanzin expert and start getting work from today!',
+  'published-date': {
+    all: 'All time',
+    today: 'Today',
+    yesterday: 'Yesterday',
+    week: 'One week',
+    'two-weeks': 'Two weeks',
+    'four-weeks': 'Four weeks',
   },
   arabic: 'Arabic',
   english: 'English',
   french: 'French',
-} as const;
+} as const

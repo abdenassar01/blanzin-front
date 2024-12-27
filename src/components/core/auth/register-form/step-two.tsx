@@ -1,23 +1,28 @@
-import { FieldText } from '@/components/common';
-import { UploadAvatar } from '@/components';
-import { useScopedI18n } from '@/utils/locales/client';
-import React from 'react';
-import { Control } from 'react-hook-form';
+import { FieldText } from '@/components/common'
+import { useScopedI18n } from '@/utils/locales/client'
+import React from 'react'
+import { Control } from 'react-hook-form'
 
 type Props = {
-  control: Control<any>;
-};
+  control: Control<any>
+}
 
 export function StepTwo({ control }: Props) {
-  const t = useScopedI18n('forms');
+  const t = useScopedI18n('forms')
 
   return (
     <div className='mt-5'>
-      <UploadAvatar
-        className='w-fit'
-        imgClassName='border-[1px] border-secondary rounded-full'
+      <FieldText
         control={control}
-        name='avatar'
+        label={t('firstname')}
+        placeholder={t('firstname')}
+        name='firstname'
+      />
+      <FieldText
+        control={control}
+        label={t('lastname')}
+        placeholder={t('lastname')}
+        name='lastname'
       />
       <FieldText
         control={control}
@@ -29,8 +34,8 @@ export function StepTwo({ control }: Props) {
         control={control}
         label={t('email')}
         placeholder={t('email')}
-        name='email'
+        name='mail'
       />
     </div>
-  );
+  )
 }

@@ -11,7 +11,7 @@ type Props = {
 
 export function VisaCard({ visa: { img, title, description } }: Props) {
   return (
-    <div className='flex h-[580px] flex-col justify-between rounded-xl border border-secondary p-2 dark:border-main sm:w-full'>
+    (<div className='flex h-[580px] flex-col justify-between rounded-xl border border-secondary p-2 dark:border-main sm:w-full'>
       <div className=''>
         <Image
           src={img}
@@ -34,6 +34,6 @@ export function VisaCard({ visa: { img, title, description } }: Props) {
           </Link>
         </div>
       </div>
-    </div>
+    </div>)
   );
 }

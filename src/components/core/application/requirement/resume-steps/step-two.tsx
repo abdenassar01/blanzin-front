@@ -1,65 +1,82 @@
+import { DatePicker, DescriptionField, FieldText, Loader } from '@/components'
+import { useScopedI18n } from '@/utils/locales/client'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import React, { useEffect, useState } from 'react'
+import { Control, useFieldArray, useForm, useWatch } from 'react-hook-form'
+import { CategoriesDropdown } from './components-data'
 import {
-  DatePicker,
-  DescriptionField,
-  Dropdown,
-  FieldText,
-} from '@/components';
-import { useScopedI18n } from '@/utils/locales/client';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import React from 'react';
-import { Control, useFieldArray, useForm, useWatch } from 'react-hook-form';
+  Experience,
+  experienceSchema,
+} from '@/services/core/api/application/resume/experiences/types'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { addNewExperience, searchDescriptionRecommendations } from '@/services'
+import { toast } from 'react-toastify'
+import { Resume } from '@/services/core/api/application/resume/types'
 
 type Props = {
-  control: Control<any>;
-};
+  control: Control<any>
+}
 
 export function StepTwo({ control }: Props) {
-  const t = useScopedI18n('experience');
-  const suggestionsT = useScopedI18n('suggestions');
-  const resumeT = useScopedI18n('resume');
+  const t = useScopedI18n('experience')
+  const suggestionsT = useScopedI18n('suggestions')
+  const resumeT = useScopedI18n('resume')
 
-  const { append, remove } = useFieldArray({ name: 'experiences', control });
-  const { experiences } = useWatch({ control });
-  const { theme } = useTheme();
+  const { append, remove } = useFieldArray({ name: 'experiences', control })
+  const { experiences } = useWatch<Resume>({ control })
+  const { theme } = useTheme()
+  const [loading, setLoading] = useState<boolean>(false)
 
   const {
     control: innerControl,
     handleSubmit,
+    reset,
     watch,
-  } = useForm({
+  } = useForm<Experience>({
     defaultValues: { description: [] },
-  });
+    resolver: zodResolver(experienceSchema),
+  })
 
-  const onSubmit = (data: any) => {
-    append(data);
-  };
+  const onSubmit = async (data: Experience) => {
+    setLoading(true)
+    const res = await addNewExperience({ ...data })
+    if (res.status !== 200) {
+      toast.error(res.message)
+      return
+    }
+    data.id = res.data.id
+    append(data)
+    reset()
+    setLoading(false)
+  }
 
   return (
     <>
-      <div className='my-3'>
-        <div className='text-xm text-secondary'>
+      <div className='my-3 '>
+        <div className='text-xm text-secondary dark:!text-main'>
           {resumeT('work-experience')}
         </div>
         <div className='text-text dark:text-textdark'>
           {resumeT('step-one-text')}
         </div>
       </div>
-      <div className='mb-7 overflow-y-scroll'>
+      <div className='no-scrollbar mb-7 overflow-y-scroll'>
         <div className='flex max-h-[120px] flex-wrap items-center justify-start gap-[2%] gap-y-4 overflow-y-scroll'>
           {React.Children.toArray(
-            experiences.map((item: any, index: number) => (
-              <div className='flex w-[32%] justify-between gap-2 rounded-md border-[1px] border-border p-2 dark:bg-backgroundSecondaryDark sm:w-[49%]'>
+            experiences?.map((item, index: number) => (
+              <div
+                key={`experience-item-${item.jobTitle}`}
+                className='flex w-[32%] items-center justify-between gap-2 rounded-md border-[1px] border-border p-2 dark:bg-backgroundSecondaryDark sm:w-[49%]'>
                 <div className='text-text dark:text-textdark'>
                   {item.jobTitle}
                 </div>
                 <button
                   onClick={() => {
                     if (confirm('Do you really want to remove')) {
-                      remove(index);
+                      remove(index)
                     }
-                  }}
-                >
+                  }}>
                   <Image
                     alt=''
                     className='icon'
@@ -67,14 +84,18 @@ export function StepTwo({ control }: Props) {
                   />
                 </button>
               </div>
-            ))
+            )),
           )}
         </div>
-        <div className='mt-3 flex flex-wrap justify-between gap-2 pb-3 sm:w-full sm:flex-col'>
+        {loading && (
+          <div className='mt-6 w-24'>
+            <Loader />
+          </div>
+        )}
+        <div className='mt-3 flex flex-wrap justify-between gap-2 p-1 pb-3 sm:w-full sm:flex-col'>
           <FieldText
             className='w-[47%] sm:w-full'
             control={innerControl}
-            inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
             label={t('title')}
             placeholder={t('title')}
             name='jobTitle'
@@ -82,10 +103,9 @@ export function StepTwo({ control }: Props) {
           <FieldText
             className='w-[47%] sm:w-full'
             control={innerControl}
-            inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
             label={t('employer')}
             placeholder={t('employer')}
-            name='employee'
+            name='employer'
           />
 
           <DatePicker
@@ -95,32 +115,25 @@ export function StepTwo({ control }: Props) {
             name='startDate'
             maximumDate={new Date()}
             wrapperClassName='w-[47%] sm:w-full'
-            className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           />
           <DatePicker
             control={innerControl}
             label={t('end-date')}
             placeholder={t('end-date')}
-            name='enddate'
+            name='endDate'
             maximumDate={new Date()}
             wrapperClassName='w-[47%] sm:w-full'
-            className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           />
-          <Dropdown
-            control={innerControl}
-            name='category'
-            items={['Morocco', 'Algeria', 'Germany']}
-            extractDisplayMember={(item) => item}
-            extractValueMember={(item) => item}
+          <CategoriesDropdown
+            subCategoryLabel={t('sub-category')}
             label={t('category')}
-            className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
-            dropdownClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
-            wrapperClassName='w-[47%] sm:w-full'
+            control={innerControl}
           />
+
           <DescriptionField
             control={innerControl}
-            suggestions={['This is a test text', 'second', 'Hello world']}
             label={t('description')}
+            fetchData={filter => searchDescriptionRecommendations(0, filter)}
             name='description'
             items={watch('description')}
             placeholder={suggestionsT('free-text')}
@@ -131,8 +144,7 @@ export function StepTwo({ control }: Props) {
         <div className='my-3 w-[40%] sm:w-full'>
           <button
             className='flex items-center gap-1'
-            onClick={handleSubmit(onSubmit)}
-          >
+            onClick={handleSubmit(onSubmit)}>
             <Image
               className='w-5'
               alt=''
@@ -149,5 +161,5 @@ export function StepTwo({ control }: Props) {
         </div>
       </div>
     </>
-  );
+  )
 }

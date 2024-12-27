@@ -1,36 +1,54 @@
-import {
-  Heading,
-  PaymentCardsSelector,
-  PaymentPackSelector,
-} from '@/components/common';
-import { cn } from '@/utils';
-import { useScopedI18n } from '@/utils/locales/client';
-import React from 'react';
-import { Control } from 'react-hook-form';
+import { FileUpload, Heading } from '@/components'
+import { useScopedI18n } from '@/utils/locales/client'
+import React from 'react'
+import { Control } from 'react-hook-form'
+import { PdfViewer } from '@/components'
+import { isMobile } from 'react-device-detect'
+import Image from 'next/image'
 
 type Props = {
-  control: Control<any>;
-};
+  control: Control<any>
+}
 
 export function StepThree({ control }: Props) {
-  const t = useScopedI18n('application');
+  const t = useScopedI18n('contract')
 
   return (
-    <div>
-      <div className='my-6 text-secondary dark:text-main'>
-        <Heading className='text-xm' heading={t('packs-heading')} />
-      </div>
-      <div className=''>{t('packages-explain')}</div>
-      <div className='mt-6 flex w-full justify-center'>
-        <div className='w-full sm:w-full'>
-          <div className='sm:hidden'>
-            <PaymentCardsSelector control={control} name='pack' />
-          </div>
-          <div className='hidden sm:block'>
-            <PaymentPackSelector control={control} name='pack' />
+    <div className='mt-12 flex w-full justify-between gap-5 sm:mt-6 sm:flex-col'>
+      <button
+        onClick={() => confirm('Would you like to download the contract now?')}
+        className='relative my-2 w-[45%] overflow-hidden rounded-xl border-[1px] border-border sm:w-full'>
+        <PdfViewer
+          width={isMobile ? 300 : 450}
+          file='/blanzin.pdf'
+          fileName='blanzin-contract.pdf'
+        />
+        <div className='absolute bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-[#00000078]'>
+          <Image
+            className='w-8'
+            alt=''
+            src={require('@/assets/images/icons/download.svg')}
+          />
+        </div>
+      </button>
+      <div className='flex w-full flex-col'>
+        <div className='text-secondary dark:text-main'>
+          <Heading className='text-xxl' heading={t('header')} />
+        </div>
+        <div className='text-text dark:text-textdark'>{t('explain')}</div>
+
+        <div className='mt-4 gap-5'>
+          <div className='w-fit rounded-xl border-[1px] border-secondary dark:border-main'>
+            <FileUpload
+              accept='application/pdf'
+              control={control}
+              label=''
+              name='contract'
+              placeholder={t('upload')}
+            />
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

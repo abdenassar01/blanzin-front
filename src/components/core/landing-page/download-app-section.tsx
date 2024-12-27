@@ -1,36 +1,33 @@
-import { Button, ImageShapeMakerSvg } from '@/components';
-import { cn } from '@/utils';
-import { getCurrentLocale, getI18n } from '@/utils/locales/server';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+import { Button, ImageShapeMakerSvg } from '@/components'
+import { cn } from '@/utils'
+import { getCurrentLocale, getI18n } from '@/utils/locales/server'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 export async function DownloadAppSection() {
-  const t = await getI18n();
+  const t = await getI18n()
 
-  const locale = getCurrentLocale();
+  const locale = await getCurrentLocale()
   return (
     <section
       className={cn(
-        'bg-cover bg-no-repeat py-12',
+        'w-full bg-cover bg-no-repeat py-12',
         locale === 'ar'
           ? 'main-background-gradient-flipped'
-          : 'main-background-gradient'
-      )}
-    >
+          : 'main-background-gradient',
+      )}>
       <div className='container flex items-center sm:flex-col-reverse sm:gap-6'>
         <div className='flex w-[50%] items-center justify-center sm:w-full sm:flex-wrap'>
           <ImageShapeMakerSvg
             screenshot='/screenshots/blanzin.jpg'
             id='DownloadApp'
-            className='relative'
-          >
+            className='relative'>
             <>
               <Link
                 className='absolute -right-28 top-[62%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium text-backgroundDark  sm:-right-6'
                 href='https://play.google.com'
-                target='_blank'
-              >
+                target='_blank'>
                 <Image
                   className='icon'
                   src={require('@/assets/images/icons/light/appstore.svg')}
@@ -41,8 +38,7 @@ export async function DownloadAppSection() {
               <Link
                 target='_blank'
                 className='absolute -right-28 top-[50%] flex w-[150px] items-center gap-1 rounded bg-main p-2 text-xs font-medium  text-backgroundDark sm:-right-6'
-                href='https://play.google.com'
-              >
+                href='https://play.google.com'>
                 <Image
                   className='icon'
                   src={require('@/assets/images/icons/light/playstore.svg')}
@@ -56,7 +52,7 @@ export async function DownloadAppSection() {
         </div>
 
         <div className='flex w-[40%] flex-col items-center gap-12 sm:w-full'>
-          <h3 className='text-4xl font-bold text-main'>
+          <h3 className='text-4xl font-bold text-main sm:text-2xl sm:text-secondary'>
             {t('download-app-heading')}
           </h3>
           <Image
@@ -67,11 +63,10 @@ export async function DownloadAppSection() {
             height={200}
           />
           <div className='w-[50%] sm:w-full'>
-            <Button theme='secondary' className='group '>
-              <Link
-                className='text-main group-hover:text-secondary'
-                href='/download-app'
-              >
+            <Button
+              theme='secondary'
+              className='rounded-full hover:border-white'>
+              <Link className='font-bold text-white' href='/download-app'>
                 {t('download-app-btn-text')}
               </Link>
             </Button>
@@ -79,5 +74,5 @@ export async function DownloadAppSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }

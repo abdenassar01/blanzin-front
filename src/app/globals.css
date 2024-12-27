@@ -9,6 +9,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  interpolate-size: allow-keywords;
 }
 
 @layer utilities {
@@ -51,6 +52,33 @@
   border-radius: 99px;
 }
 
+.ribbon {
+  font-size: 16px;
+  color: #fff;
+}
+
+.ribbon {
+  --r: 0.4em;
+  --c: #e7108a;
+  position: absolute;
+  top: 20px;
+  left: calc(-1 * var(--r));
+  line-height: 1;
+  padding: 10px 10px 20px;
+  border-radius: var(--r) 0 0 var(--r);
+  background:
+    radial-gradient(100% 50% at left, var(--c) 98%, #0000 101%) 100% 0/0.5lh
+      calc(100% - 2 * var(--r)),
+    radial-gradient(100% 50% at right, #0005 98%, #0000 101%) 0 100% / var(--r)
+      calc(2 * var(--r)),
+    conic-gradient(
+        from 90deg at var(--r) calc(100% - 2 * var(--r)),
+        #0000 25%,
+        var(--c) 0
+      )
+      0 0 / calc(101% - 0.5lh) 100%;
+  background-repeat: no-repeat;
+}
 
 .rdw-editor-toolbar,
 .rdw-inline-wrapper,
@@ -138,7 +166,7 @@
   display: none;
 }
 
-.rodal-dialog{
+.rodal-dialog {
   height: fit-content !important;
 }
 
@@ -200,6 +228,24 @@
   color: #0000ff;
 }
 
+.loader {
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  -webkit-mask: radial-gradient(
+    circle closest-side at 50% 40%,
+    #0000 94%,
+    #000
+  );
+  transform-origin: 50% 40%;
+  animation: l25 1s infinite linear;
+}
+@keyframes l25 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 .documents-slider .slick-next,
 .categories-slider .slick-next {
   right: -35px;
@@ -228,11 +274,8 @@
 }
 
 .main-background-gradient-flipped {
-  background: linear-gradient(
-          135deg,
-          rgb(0, 0, 128) -20%,
-          rgb(255, 204, 0) 100%
-  ) no-repeat 0px 0px;
+  background: linear-gradient(135deg, rgb(0, 0, 128) 20%, rgb(255, 204, 0) 100%)
+    no-repeat 0px 0px;
   background-size: contain;
 }
 
@@ -248,7 +291,7 @@
   background-color: #ffcc00 !important;
 }
 
-.public-DraftEditorPlaceholder-inner{
+.public-DraftEditorPlaceholder-inner {
   position: absolute;
   color: gray;
   z-index: 0;

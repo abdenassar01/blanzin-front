@@ -1,25 +1,19 @@
-import { ProfilePicker, ProfileSidebar } from '@/components';
-import { LayoutProps } from '@/types';
-import React from 'react';
+import { ProfileHeader, ProfileSidebar } from '@/components'
+import { LayoutProps } from '@/types'
+import React from 'react'
 
-type Props = LayoutProps;
+type Props = LayoutProps
 
 export default function ProfileDashboardLayout({ children }: Props) {
   return (
-    <div className='min-h-[50vw] bg-background py-12 dark:bg-backgroundSecondaryDark'>
-      <div className='container '>
-        <div className='mb-6'>
-          <ProfilePicker />
+    <div className='bg-background dark:bg-backgroundSecondaryDark'>
+      <ProfileHeader />
+      <div className='flex h-[calc(100vh-90px)] overflow-y-hidden sm:flex-col'>
+        <div className='w-[20vw] sm:hidden'>
+          <ProfileSidebar />
         </div>
-        <div className='flex sm:flex-col'>
-          <div className='w-[19.444vw] sm:w-[100%]'>
-            <ProfileSidebar />
-          </div>
-          <div className='min-h-[88vh] w-full rounded-xl bg-backgroundSecondary p-4 shadow-lg dark:bg-backgroundDark dark:shadow-black'>
-            {children}
-          </div>
-        </div>
+        <div className='w-full flex-grow overflow-scroll p-4'>{children}</div>
       </div>
     </div>
-  );
+  )
 }

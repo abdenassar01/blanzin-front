@@ -1,39 +1,39 @@
-'use client';
+'use client'
 
-import { DatePicker, FieldText, UploadAvatarResemee } from '@/components';
-import { useScopedI18n } from '@/utils/locales/client';
-import React from 'react';
-import { Control } from 'react-hook-form';
+import { DatePicker, FieldText, UploadAvatarResume } from '@/components'
+import { useScopedI18n } from '@/utils/locales/client'
+import React from 'react'
+import { Control } from 'react-hook-form'
 
 type Props = {
-  control: Control<any>;
-};
+  control: Control<any>
+}
 
 export function StepOne({ control }: Props) {
-  const t = useScopedI18n('forms');
-  const resumeT = useScopedI18n('resume');
+  const t = useScopedI18n('forms')
+  const resumeT = useScopedI18n('resume')
 
   return (
-    <div className='overflow-y-scroll'>
+    <div className='no-scrollbar overflow-y-scroll'>
       <div className='my-3'>
-        <div className='text-xm text-secondary'>
+        <div className='text-xm text-secondary dark:!text-main sm:text-sm sm:font-bold'>
           {resumeT('personal-infos')}
         </div>
       </div>
-      <UploadAvatarResemee control={control} name='avatar' className='' />
-      <div className='my-4 flex flex-wrap justify-between gap-2 sm:flex-col'>
+      <UploadAvatarResume control={control} name='avatar' className='' />
+      <div className='my-4 flex flex-wrap justify-between gap-2 p-1 sm:flex-col'>
         <FieldText
           className='w-[47%] sm:w-full '
           control={control}
-          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           label={t('firstname')}
           placeholder={t('firstname')}
           name='lastname'
         />
+
         <FieldText
+          popoverText='Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda repellendus nobis praesentium dicta aperiam saepe alias consequuntur debitis pariatur, maxime dolor quo mollitia corporis temporibus est. Ipsam magnam animi aperiam!'
           className='w-[47%] sm:w-full'
           control={control}
-          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           label={t('lastname')}
           placeholder={t('lastname')}
           name='firstname'
@@ -41,7 +41,6 @@ export function StepOne({ control }: Props) {
         <FieldText
           className='w-[47%] sm:w-full'
           control={control}
-          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           label={t('email')}
           placeholder={t('email')}
           name='email'
@@ -50,7 +49,6 @@ export function StepOne({ control }: Props) {
         <FieldText
           className='w-[47%] sm:w-full'
           control={control}
-          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           label={t('phone')}
           placeholder='0696788271'
           name='phone'
@@ -58,19 +56,17 @@ export function StepOne({ control }: Props) {
         <FieldText
           className='w-[47%] sm:w-full'
           control={control}
-          inputClassName='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
           label={t('placeBirth')}
           placeholder={t('placeBirth')}
-          name='placeBirth'
+          name='placeOfBirth'
         />
         <DatePicker
           control={control}
           label={t('dateBirth')}
           name='dateOfBirth'
           wrapperClassName='w-[47%] sm:w-full'
-          className='bg-background dark:bg-backgroundSecondaryDark dark:shadow-black'
         />
       </div>
     </div>
-  );
+  )
 }

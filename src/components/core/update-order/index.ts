@@ -1,1 +1,0 @@
-export { UpdateOrderForm } from './form';

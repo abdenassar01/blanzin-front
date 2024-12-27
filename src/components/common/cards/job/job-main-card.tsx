@@ -1,63 +1,87 @@
-'use client';
+'use client'
 
-import { truncateString } from '@/utils';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from 'react';
+import { formatJobTitle, truncateString } from '@/utils'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { useState } from 'react'
 
-type Props = {};
+type Props = {
+  item:
+    | {
+        beruf?: string
+        titel?: string
+        refnr?: string
+        arbeitsort?: {
+          region: string
+          land: string
+        }
+        arbeitgeber?: string
+        aktuelleVeroeffentlichungsdatum?: string
+        modifikationsTimestamp?: string
+        eintrittsdatum?: string
+        kundennummerHash?: string
+      }
+    | any
+}
 
-export function JobMainCard({}: Props) {
+export function JobMainCard({ item }: Props) {
   const tabs = [
     {
       icon: require('@/assets/images/icons/light/organisation.svg'),
       darkIcon: require('@/assets/images/icons/dark/organisation.svg'),
-      text: 'Select Hotel Erlangen',
+      text: truncateString(item?.arbeitgeber, 10),
     },
     {
       icon: require('@/assets/images/icons/light/location.svg'),
       darkIcon: require('@/assets/images/icons/dark/location.svg'),
-      text: 'Erlangen',
+      text: truncateString(item?.arbeitsort?.ort, 10),
     },
     {
       icon: require('@/assets/images/icons/light/time.svg'),
       darkIcon: require('@/assets/images/icons/dark/time.svg'),
-      text: 'Full Time',
+      text: item?.eintrittsdatum,
     },
-    {
-      icon: require('@/assets/images/icons/light/money.svg'),
-      darkIcon: require('@/assets/images/icons/dark/money.svg'),
-      text: '30000 €',
-    },
-  ];
+  ]
 
-  const [favourite, setFavourite] = useState<boolean>(false);
+  const [favourite, setFavourite] = useState<boolean>(false)
 
-  const { theme } = useTheme();
+  const { theme } = useTheme()
 
   return (
-    <div className='m-1 rounded-xl bg-backgroundSecondary p-3 shadow-md dark:bg-backgroundDark dark:shadow-black sm:p-2'>
+    <div className='relative m-0.5 rounded-xl bg-backgroundSecondary p-3 shadow-md dark:bg-backgroundDark dark:shadow-black sm:p-2'>
       <div className='flex gap-2 sm:flex-col'>
-        <Link href={`/jobs/job-details-slug`}>
+        <Link
+          className=''
+          href={`/profile/jobs/${formatJobTitle(item?.titel || item?.refnr)}?ref=${item?.refnr}`}>
           <Image
             width={300}
             height={200}
-            className='aspect-[3/4] w-[10vw] rounded object-cover sm:aspect-video sm:h-full sm:w-[100%]'
-            src={require('@/assets/images/job-image.jpg')}
+            className='aspect-square w-24 rounded bg-[] bg-white object-contain'
+            src={`https://rest.arbeitsagentur.de/vermittlung/ag-darstellung-service/ct/v1/arbeitgeberlogo/${item?.kundennummerHash}`}
             alt=''
           />
         </Link>
-        <div className='flex flex-col justify-between'>
+        <div className='flex w-full flex-col justify-between'>
+          {/*
+            <Link
+            href={`/profile/jobs.ts/${formatJobTitle(item?.titel || item?.refnr)}?ref=${item?.refnr}`}
+            className='cursor-pointer font-bold text-mainText hover:underline dark:text-textdark'>
+            {translateToDeutsch(item?.titel, locale).then(text => text) ||
+              '(No title) ' + item?.refnr}
+          </Link>
+
+            * */}
           <Link
-            href={`/jobs/job-details-slug`}
-            className='cursor-pointer font-bold text-mainText hover:underline dark:text-textdark'
-          >
-            Select Hotel Erlangen logo Cook / Koch - „Der Lebensmittel-Artist
+            href={`/profile/jobs/${formatJobTitle(item?.titel || item?.refnr)}?ref=${item?.refnr}`}
+            className='cursor-pointer font-bold text-mainText hover:underline dark:text-textdark'>
+            {item?.titel
+              ? truncateString(item?.titel, 40)
+              : '(No title) ' + item?.refnr}
           </Link>
           <div className='my-2 flex flex-wrap gap-3'>
             {React.Children.toArray(
-              tabs.map((tab) => (
+              tabs.map(tab => (
                 <div className='flex items-center gap-1'>
                   <Image
                     className='w-[1.5vw] sm:w-[6vw]'
@@ -68,21 +92,18 @@ export function JobMainCard({}: Props) {
                     {tab.text}
                   </p>
                 </div>
-              ))
+              )),
             )}
           </div>
           <div className='text-text dark:text-textdark'>
-            {truncateString(
-              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit neque fugiat, eaque, rem unde illum sit, soluta nostrum sint nisi quo alias quisquam ea debitis optio culpa labore? Explicabo, cumque!',
-              200
-            )}
+            {truncateString(item?.titel || '', 45)}
           </div>
           <div className='flex items-center justify-between'>
-            <p className='text-xs text-text'>in 12 days</p>
-            <button onClick={() => setFavourite((prev) => !prev)}>
+            <p className='text-xs text-text'>{item?.eintrittsdatum}</p>
+            <button onClick={() => setFavourite(prev => !prev)}>
               <Image
                 alt=''
-                className='w-[2vw] sm:w-[6vw]'
+                className='absolute bottom-2 right-2 w-7'
                 src={
                   favourite
                     ? theme === 'dark'
@@ -98,5 +119,5 @@ export function JobMainCard({}: Props) {
         </div>
       </div>
     </div>
-  );
+  )
 }

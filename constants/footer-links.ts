@@ -1,17 +1,15 @@
 export const footerLinks: {
-  id: number;
+  id: number
   section:
     | 'section.platform'
     | 'section.blanzin'
     | 'section.support'
-    | 'section.apps';
+    | 'section.apps'
   items: {
-    id: number;
-    icon?: any;
-    darkIcon?: any;
+    id: number
+    icon?: any
+    darkIcon?: any
     label:
-      | 'links.find-expert'
-      | 'links.become-expert'
       | 'links.trainee-in-germany'
       | 'links.jobs-in-germany'
       | 'links.about-us'
@@ -22,22 +20,24 @@ export const footerLinks: {
       | 'links.feedback'
       | 'links.app-store'
       | 'links.play-store'
-      | 'links.faq';
-    link: string;
-  }[];
+      | 'links.faq'
+    link: string
+  }[]
 }[] = [
   {
     id: 1,
     section: 'section.platform',
     items: [
-      { id: 11, label: 'links.find-expert', link: '/new-order' },
-      { id: 12, label: 'links.become-expert', link: '/experts' },
       {
         id: 13,
         label: 'links.trainee-in-germany',
-        link: '/jobs?type=trainee',
+        link: '/profile/jobs?tab=trainings',
       },
-      { id: 14, label: 'links.jobs-in-germany', link: '/jobs?type=employee' },
+      {
+        id: 14,
+        label: 'links.jobs-in-germany',
+        link: '/profile/jobs?tab=jobs',
+      },
     ],
   },
   {
@@ -79,4 +79,4 @@ export const footerLinks: {
       },
     ],
   },
-];
+]

@@ -1,20 +1,34 @@
-'use client';
+'use client'
 
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import { SliderDotIndicator } from './slider-dots-indicator';
-import { JobMainCard } from '@/components';
+import React, { useState } from 'react'
+import Slider from 'react-slick'
+import { SliderDotIndicator } from './slider-dots-indicator'
+import { JobMainCard } from '@/components'
 
-export function LatestJobsSlider() {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const date = new Date();
+type Props = {
+  jobs: {
+    beruf: string
+    titel: string
+    refnr: string
+    arbeitsort: { region: string; land: string }
+    arbeitgeber: string
+    aktuelleVeroeffentlichungsdatum: string
+    modifikationsTimestamp: string
+    eintrittsdatum: string
+    kundennummerHash: string
+  }[]
+}
+
+export function LatestJobsSlider({ jobs }: Props) {
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+
   return (
     <Slider
       arrows={false}
       className='my-5'
-      slidesToShow={3}
-      slidesToScroll={2}
-      initialSlide={2}
+      slidesToShow={2}
+      slidesToScroll={1}
+      initialSlide={1}
       autoplay
       cssEase='linear'
       responsive={[
@@ -42,16 +56,22 @@ export function LatestJobsSlider() {
       ]}
       dots
       beforeChange={(_: number, nextSlide: number) => {
-        setActiveIndex(nextSlide);
+        setActiveIndex(nextSlide)
       }}
       dotsClass='dots-indicators'
-      customPaging={(index) => (
+      customPaging={index => (
         <div key={index} className='mt-4'>
           <SliderDotIndicator index={index} activeIndex={activeIndex} />
         </div>
+      )}>
+      {React.Children.toArray(
+        jobs.map(item => (
+          <JobMainCard
+            key={`job-main-card-${item.arbeitsort}-${item.refnr}`}
+            item={item}
+          />
+        )),
       )}
-    >
-      {React.Children.toArray([1, 2, 3, 4].map((item) => <JobMainCard />))}
     </Slider>
-  );
+  )
 }

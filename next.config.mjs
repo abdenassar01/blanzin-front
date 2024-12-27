@@ -1,21 +1,30 @@
-import createNextIntlPlugin from 'next-intl/plugin';
-import routingRedirects from './redirect-routes.js';
+import createNextIntlPlugin from 'next-intl/plugin'
+import routingRedirects from './redirect-routes.js'
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '50mb',
+    },
+  },
+  images: {
+    domains: process.env?.NEXT_IMAGE_DOMAIN?.split(','),
+    unoptimized: true,
+  },
   typescript: {},
   async redirects() {
-    return routingRedirects;
+    return routingRedirects
   },
-  webpack: (config) => {
-    config.resolve.alias.canvas = false;
+  webpack: config => {
+    config.resolve.alias.canvas = false
     config.resolve.extensionAlias = {
       '.js': ['.js', '.ts', '.tsx'],
-    };
-    return config;
+    }
+    return config
   },
-};
+}
 
-export default withNextIntl(nextConfig);
+export default withNextIntl(nextConfig)

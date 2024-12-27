@@ -1,37 +1,41 @@
-import { cn, truncateString } from '@/utils';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+'use client'
+
+import { capitalizeFirstLetter, cn, truncateString } from '@/utils'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import { Blog } from '@/services/core/api/blogs/types'
+import { useCurrentLocale } from '@/utils/locales/client'
 
 type Props = {
-  className?: string;
-};
+  className?: string
+  blog: Blog
+}
 
-export function BlogCard({ className }: Props) {
+export function BlogCard({ className, blog }: Props) {
+  const locale = useCurrentLocale()
+
   return (
     <Link
-      href='/blog/the-best-way-to-find'
+      href={`/blog/${blog.category.link}/${blog.slug || ''}`}
       className={cn(
         'group w-[31.5%] cursor-pointer rounded-xl bg-backgroundSecondary p-2 shadow-lg dark:bg-backgroundDark dark:shadow-backgroundDark md:w-[49%] sm:w-full',
-        className
-      )}
-    >
+        className,
+      )}>
       <Image
         width={300}
         height={200}
         alt=''
-        src='/house.jpg'
+        src={blog.image || ''}
         className='w-full transition-all group-hover:scale-105'
       />
       <h3 className='mt-2 text-base font-semibold'>
-        The best way to find jobs outside of your country
+        {/*@ts-ignore*/ blog.titleEn}
+        {/*  {blog[`title${capitalizeFirstLetter(locale)}`]} */}
       </h3>
       <p className='text-sm text-text dark:text-textdark'>
-        {truncateString(
-          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla perspiciatis quas animi asperiores provident consequuntur numquam. Sunt quibusdam repellat iste. Eum dicta modi pariatur inventore praesentium ad voluptate dolorem asperiores.',
-          100
-        )}
+        {truncateString(blog[locale], 100)}
       </p>
     </Link>
-  );
+  )
 }

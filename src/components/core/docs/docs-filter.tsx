@@ -1,26 +1,26 @@
-'use client';
+'use client'
 
-import { Map } from '@/components';
-import { usePathname } from '@/navigation';
-import { cn } from '@/utils';
-import { useScopedI18n } from '@/utils/locales/client';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useEffect } from 'react';
+import { Map } from '@/components'
+import { usePathname } from '@/navigation'
+import { cn } from '@/utils'
+import { useScopedI18n } from '@/utils/locales/client'
+import Link from 'next/link'
+import { useRouter, useSearchParams } from 'next/navigation'
+import React, { useEffect } from 'react'
 
 export function DocsFilter({
   noRole,
   className,
 }: {
-  noRole?: boolean;
-  className?: string;
+  noRole?: boolean
+  className?: string
 }) {
-  const t = useScopedI18n('application');
+  const t = useScopedI18n('application')
 
-  const searchParams = useSearchParams();
-  const { push } = useRouter();
-  const role = searchParams.get('role');
-  const docParam = searchParams.get('doc');
+  const searchParams = useSearchParams()
+  const { push } = useRouter()
+  const role = searchParams.get('role')
+  const docParam = searchParams.get('doc')
 
   const tabs = [
     { label: t('lang-certificate'), doc: 'lang' },
@@ -28,41 +28,46 @@ export function DocsFilter({
     { label: t('diploma'), doc: 'diploma' },
     { label: t('internship'), doc: 'internship' },
     { label: t('acknowledgement'), doc: 'acknowledgement' },
-  ];
+  ]
 
   useEffect(() => {
     push(
-      noRole ? pathname + '?doc=lang' : pathname + '?role=' + role + '&doc=lang'
-    );
-  }, []);
+      noRole
+        ? pathname + '?doc=lang'
+        : pathname + '?role=' + role + '&doc=lang',
+    )
+  }, [])
 
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
-    <div className={cn('flex w-full flex-col gap-4 sm:w-[50vw]', className)}>
+    <div
+      className={cn(
+        'flex flex-col flex-wrap gap-4 p-1 pb-3 sm:max-w-full sm:flex-row sm:p-2',
+        className,
+      )}>
       <Map
         items={tabs}
-        render={(item) => (
+        render={item => (
           <Link
+            key={`docs-item-${item.doc}`}
             href={
               noRole
                 ? pathname + '?doc=' + item.doc
                 : pathname + '?role=' + role + '&doc=' + item.doc
-            }
-          >
+            }>
             <div
               className={cn(
-                'rounded-lg p-3 shadow-md transition-all',
+                'rounded-lg bg-backgroundSecondary p-2 shadow-md transition-all dark:bg-backgroundDark sm:whitespace-nowrap sm:text-sm',
                 docParam === item.doc
-                  ? 'scale-105 bg-main text-secondary shadow-secondary dark:shadow-main'
-                  : ' text-black dark:text-textdark'
-              )}
-            >
+                  ? '!bg-main text-secondary shadow-secondary dark:shadow-main'
+                  : 'text-black dark:text-textdark',
+              )}>
               {item.label}
             </div>
           </Link>
         )}
       />
     </div>
-  );
+  )
 }

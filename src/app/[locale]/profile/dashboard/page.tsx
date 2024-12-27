@@ -1,65 +1,51 @@
-import * as React from 'react';
-import { Button, Heading, ProfileProgress } from '@/components';
-import { getScopedI18n } from '@/utils/locales/server';
-import Image from 'next/image';
-import Link from 'next/link';
+import * as React from 'react'
+import { Button, Heading, ProfileProgress } from '@/components'
+import { getScopedI18n } from '@/utils/locales/server'
+import Image from 'next/image'
+import Link from 'next/link'
 
-interface Props {
-  searchParams: { role: string | string[] | undefined };
-}
-
-export default async function UserDashboard({ searchParams: { role } }: Props) {
-  const t = await getScopedI18n('dashboard');
-  const isExpert = role === 'expert';
+export default async function UserDashboard() {
+  const t = await getScopedI18n('dashboard')
 
   return (
-    <div className='my-6'>
+    <div className='my-6 sm:my-1'>
       <div className='text-xxm'>
         <Heading className='text-center' heading={t('title')} />
       </div>
       <div className='mt-6 flex justify-between gap-4 sm:flex-col'>
         <Link
-          href={
-            role === 'expert'
-              ? `/profile/orders?role=${role}`
-              : '/profile/appointments'
-          }
-          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'
-        >
+          href={`/profile/dashboard/appointments`}
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl bg-backgroundSecondary p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-border hover:shadow-xl dark:bg-backgroundDark dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'>
           <div className='text-center text-xl font-bold '>
-            {role === 'expert' ? t('delivery-date') : t('appointment')}
+            {t('appointment')}
           </div>
-          <div className='text-center '>Your next delivery on</div>
-          <div className='text-bold text-center'>24.08.2024</div>
+          <div className='text-center '>
+            Interview on{' '}
+            <span className='text-bold text-center'>24.08.2024</span>
+          </div>
+          <div className='text-center '>
+            Couching on{' '}
+            <span className='text-bold text-center'>24.08.2024</span>
+          </div>
         </Link>
         <Link
-          href={
-            role === 'expert'
-              ? `/profile/orders?role=${role}&tab=active`
-              : '/profile/jobs'
-          }
-          className='flex w-[32%] flex-col  justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'
-        >
+          href='/profile/dashboard/jobs'
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl bg-backgroundSecondary p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-border hover:shadow-xl dark:bg-backgroundDark dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'>
           <div className='text-center text-xl font-bold '>
-            {isExpert ? t('open-orders') : t('jobs')}
+            {t('application')}
           </div>
           <div className='text-bold text-center'>5</div>
         </Link>
         <Link
-          href={
-            role === 'expert'
-              ? `/profile/orders?role=${role}&tab=done`
-              : `/jobs?role=${role}`
-          }
-          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl border-[1px] border-border p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-background hover:shadow-xl dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'
-        >
+          href={`/profile/jobs`}
+          className='flex w-[32%] flex-col justify-between gap-3 rounded-xl bg-backgroundSecondary p-2 py-4 text-secondary shadow-lg transition-all duration-300 hover:bg-border hover:shadow-xl dark:bg-backgroundDark dark:text-main dark:shadow-black dark:hover:bg-black sm:w-full'>
           <div className='text-center text-xl font-bold '>
-            {isExpert ? t('completed-orders') : t('recommended-jobs')}
+            {t('recommended-jobs')}
           </div>
           <div className='text-bold text-center'>2</div>
         </Link>
       </div>
-      <div className='mt-8 overflow-hidden rounded-lg border border-border'>
+      <div className='mt-8 overflow-hidden rounded-lg bg-backgroundSecondary dark:bg-backgroundDark'>
         <div className='flex items-center gap-2 border-b border-border p-2'>
           <div className='text-secondary dark:text-main'>
             {t('actions-title')}
@@ -76,23 +62,17 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
           />
           <div className=''>
             <h3 className='text-xl font-semibold'>
-              {isExpert
-                ? t('expert-required-action-title')
-                : t('required-action-title')}
+              {t('required-action-title')}
             </h3>
-            <div className='mt-2  '>
-              {isExpert
-                ? t('expert-required-action-content')
-                : t('required-action-content')}
-            </div>
+            <div className='mt-2  '>{t('required-action-content')}</div>
           </div>
         </div>
       </div>
-      <div className='mt-8'>
-        <div className='flex justify-between gap-3 p-3 px-5 sm:flex-col'>
-          <div className='w-[47%] rounded-md border border-border shadow-lg dark:shadow-lg dark:shadow-black sm:w-full'>
+      <div className='mt-8 sm:mt-2'>
+        <div className='flex justify-between gap-3 p-3 px-5 sm:flex-col sm:px-0'>
+          <div className='w-[47%] rounded-md bg-backgroundSecondary shadow-lg dark:bg-backgroundDark dark:shadow-lg dark:shadow-black sm:w-full'>
             <div className='border-b border-border p-2 text-center font-bold text-secondary dark:text-main'>
-              {isExpert ? t('account-status') : t('app-folder')}
+              {t('app-folder')}
             </div>
             <div className='p-2 text-mainText dark:text-textdark'>
               <div className='text-center '>{t('status-explain')}</div>
@@ -111,42 +91,31 @@ export default async function UserDashboard({ searchParams: { role } }: Props) {
               </div>
             </div>
           </div>
-          <div className='w-[47%] rounded-md border border-border shadow-lg dark:shadow-lg dark:shadow-black sm:w-full'>
+          <div className='w-[47%] rounded-md bg-backgroundSecondary shadow-lg dark:bg-backgroundDark dark:shadow-lg dark:shadow-black sm:w-full'>
             <div className='border-b border-border p-2 text-center font-bold text-secondary dark:text-main'>
-              {isExpert
-                ? t('general-recommendations-title')
-                : t('increase-opportunities')}
+              {t('increase-opportunities')}
             </div>
             <div className='p-2 text-mainText dark:text-textdark'>
-              {isExpert ? (
-                <div
-                  className='prose mt-3 prose-li:text-mainText dark:text-white prose-li:dark:text-white'
-                  dangerouslySetInnerHTML={{
-                    __html: t('expert-recommendations-content'),
-                  }}
+              <div className='flex w-full flex-col items-center justify-center gap-5 p-3 py-5 text-secondary dark:text-textdark'>
+                <Image
+                  src={require('@/assets/images/icons/mark.webp')}
+                  alt='blanzin mark'
+                  className='w-20'
                 />
-              ) : (
-                <div className='flex w-full flex-col items-center justify-center gap-5 p-3 py-5 text-secondary dark:text-textdark'>
-                  <Image
-                    src={require('@/assets/images/icons/mark.webp')}
-                    alt='blanzin mark'
-                    className='w-20'
+                <p className='text-center'>
+                  {t('increase-opportunities-text')}
+                </p>
+                <Link href='/profile/application' className='w-[70%]'>
+                  <Button
+                    theme='secondary'
+                    text={t('increase-opportunities-action')}
                   />
-                  <p className='text-center'>
-                    {t('increase-opportunities-text')}
-                  </p>
-                  <Link href='/application' className='w-[70%]'>
-                    <Button
-                      theme='secondary'
-                      text={t('increase-opportunities-action')}
-                    />
-                  </Link>
-                </div>
-              )}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }
